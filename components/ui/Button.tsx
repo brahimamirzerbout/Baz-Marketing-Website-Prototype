@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import { trackedClick } from '@/lib/analytics';

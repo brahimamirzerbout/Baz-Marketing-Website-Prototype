@@ -52,10 +52,20 @@ export function buildMetadata({
     robots: noindex
       ? { index: false, follow: false }
       : { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1 } },
-    themeColor: '#ff3b2f',
     icons: { icon: '/favicon.svg' },
   };
 }
+
+/**
+ * Next.js 14 requires themeColor in a separate `viewport` export.
+ * Apply alongside `metadata` in each page or layout.
+ */
+export const viewport = {
+  themeColor: '#ff3b2f',
+  width: 'device-width',
+  initialScale: 1,
+  colorScheme: 'light dark',
+};
 
 type JsonLd = Record<string, any> | Record<string, any>[];
 

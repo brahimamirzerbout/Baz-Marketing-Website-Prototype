@@ -28,7 +28,10 @@ export type EventName =
   | 'phone_click'
   | 'email_click'
   | 'outbound_link'
-  | 'search';
+  | 'search'
+  | 'ai_demo_run'
+  | 'canva_export_png'
+  | 'canva_export_svg';
 
 type EventPayload = Record<string, string | number | boolean | undefined>;
 

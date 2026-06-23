@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { Analytics } from '@/components/analytics/Analytics';
 import { ScrollReveal } from '@/components/marketing/ScrollReveal';
+import { Cursor } from '@/components/ui/Cursor';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${fraunces.variable} ${mono.variable}`}>
       <body className="bg-paper text-ink-900 antialiased">
         <a href="#main" className="skip">Skip to content</a>
+        <Cursor />
         <Header />
         <main id="main">{children}</main>
         <Footer />

@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base ---------- */
+:root {
+  --bg: #faf7f2;
+  --paper: #f5f1ea;
+  --ink: #0e0e10;
+  --line: rgba(14, 14, 16, 0.08);
+  --accent: #ff3b2f;
+  --accent-soft: rgba(255, 59, 47, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* ---------- Typography ---------- */
+.font-display { font-family: 'Fraunces', ui-serif, Georgia, serif; font-optical-sizing: auto; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Skip link / a11y ---------- */
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--ink); color: white; padding: 12px 18px; border-radius: 8px;
+}
+.skip:focus { left: 12px; top: 12px; z-index: 100; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Grid background ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(14,14,16,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14,14,16,0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ---------- Marquee mask ---------- */
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+/* ---------- Marquee animation ---------- */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+/* ---------- Print ---------- */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}

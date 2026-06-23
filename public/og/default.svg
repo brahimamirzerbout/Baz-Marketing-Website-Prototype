@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="g" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#0e0e10" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="m" cx="80%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#ff3b2f" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#faf7f2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#m)"/>
+  <g transform="translate(80,160)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#ff3b2f" letter-spacing="3" style="text-transform: uppercase;">BAZ MARKETING AGENCY</text>
+    <text x="0" y="100" font-family="Fraunces, Georgia, serif" font-size="86" font-weight="500" fill="#0e0e10" letter-spacing="-2">Make growth</text>
+    <text x="0" y="200" font-family="Fraunces, Georgia, serif" font-size="86" font-weight="500" fill="#0e0e10" letter-spacing="-2"><tspan>predictable.</tspan></text>
+    <text x="0" y="260" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#5b5b57">Senior-only growth partner for ambitious brands.</text>
+  </g>
+  <g transform="translate(1080,540)">
+    <rect width="56" height="56" rx="12" fill="#ff3b2f"/>
+    <text x="28" y="42" font-family="Times New Roman, Georgia, serif" font-size="40" font-weight="700" fill="white" text-anchor="middle">B</text>
+  </g>
+</svg>

@@ -17,7 +17,7 @@ const budgets = [
   { v: 'not-sure', l: 'Not sure yet' },
 ];
 
-export function ContactForm({ source = 'contact' }: { source?: string }) {
+export function ContactForm({ source = 'contact', service }: { source?: string; service?: string }) {
   const [pending, startTransition] = useTransition();
   const [errors, setErrors] = useState<FieldErrors>({});
   const [success, setSuccess] = useState<string | null>(null);
@@ -32,18 +32,18 @@ export function ContactForm({ source = 'contact' }: { source?: string }) {
     const fd = new FormData(e.currentTarget);
     const raw = Object.fromEntries(fd.entries());
 
-    track('form_submit', { source });
+    track('form_submit', { source, service: service ?? undefined });
 
     startTransition(async () => {
       const result = await submitLead(raw);
       if (result.ok) {
         setSuccess(result.id);
-        track('form_submit_success', { source, leadId: result.id });
+        track('form_submit_success', { source, service: service ?? undefined, leadId: result.id });
         (e.target as HTMLFormElement).reset();
       } else {
         setErrors(result.fieldErrors || {});
         setServerError(result.error);
-        track('form_submit_error', { source, error: result.error });
+        track('form_submit_error', { source, service: service ?? undefined, error: result.error });
       }
     });
   }
@@ -55,7 +55,7 @@ export function ContactForm({ source = 'contact' }: { source?: string }) {
         <h3 className="font-display text-3xl md:text-4xl font-medium tracking-[-0.02em]">Got it.</h3>
         <p className="mt-3 text-ink-600 max-w-md mx-auto">
           We&apos;ll be in touch within one business day. If it&apos;s urgent, write us at{' '}
-          <a href="mailto:hello@baz.agency" className="underline">hello@baz.agency</a>.
+          <a href="mailto:zerboutbrahimamir@gmail.com" className="underline">zerboutbrahimamir@gmail.com</a>.
         </p>
         <button
           onClick={() => setSuccess(null)}
@@ -70,6 +70,7 @@ export function ContactForm({ source = 'contact' }: { source?: string }) {
   return (
     <form onSubmit={onSubmit} className="bg-paper rounded-2xl border border-ink-100 p-6 md:p-8 space-y-5" noValidate>
       <input type="hidden" name="source" value={source} />
+      {service && <input type="hidden" name="service" value={service} />}
       {/* Honeypot — hidden from users, catches naive bots */}
       <div aria-hidden className="absolute -left-[9999px]" tabIndex={-1}>
         <label htmlFor="hp">Leave this empty</label>
@@ -124,7 +125,7 @@ export function ContactForm({ source = 'contact' }: { source?: string }) {
       {serverError && serverError !== 'validation_failed' && (
         <p className="text-sm text-accent-700 bg-accent-soft border border-accent/20 rounded-xl px-4 py-3">
           Something went wrong sending your brief. Please email{' '}
-          <a href="mailto:hello@baz.agency" className="underline">hello@baz.agency</a> directly.
+          <a href="mailto:zerboutbrahimamir@gmail.com" className="underline">zerboutbrahimamir@gmail.com</a> directly.
         </p>
       )}
     </form>

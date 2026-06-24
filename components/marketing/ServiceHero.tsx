@@ -31,9 +31,12 @@ export function ServiceHero({ service }: { service: Service }) {
             {service.hero.sub}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="service_book_call">
+            <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="service_book_call">
               {service.cta.primary}
               <span aria-hidden>→</span>
+            </Button>
+            <Button href={`/contact?service=${encodeURIComponent(service.slug)}`} variant="outline" size="lg" trackAs="service_audit_cta">
+              Get a {service.name.split(' ')[0]} proposal →
             </Button>
             {service.cta.secondary && (
               <Button href="/case-studies" variant="outline" size="lg" trackAs="service_secondary_cta">

@@ -29,6 +29,7 @@ export function validateLead(input: unknown): ValidationResult<{
   budget: string;
   message: string;
   source: string;
+  service: string;
   hp: string;
 }> {
   const errors: FieldErrors = {};
@@ -44,6 +45,7 @@ export function validateLead(input: unknown): ValidationResult<{
   const budget = String(input.budget ?? '').trim();
   const message = String(input.message ?? '').trim();
   const source = String(input.source ?? '').trim();
+  const service = String(input.service ?? '').trim();
   const hp = String(input.hp ?? '');
 
   if (name.length < 2) errors.name = 'Please enter your full name.';
@@ -59,5 +61,5 @@ export function validateLead(input: unknown): ValidationResult<{
   if (Object.keys(errors).length > 0) {
     return { ok: false, data: null, errors };
   }
-  return { ok: true, data: { name, email, company, website, budget, message, source, hp }, errors: {} };
+  return { ok: true, data: { name, email, company, website, budget, message, source, service, hp }, errors: {} };
 }

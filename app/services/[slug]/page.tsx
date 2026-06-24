@@ -4,6 +4,7 @@ import { Section, Eyebrow, SectionHeading } from '@/components/ui/Section';
 import { StatRow } from '@/components/sections/StatRow';
 import { CaseStudyCard } from '@/components/marketing/CaseStudyCard';
 import { ServiceHero } from '@/components/marketing/ServiceHero';
+import { ServiceAnalytics } from '@/components/marketing/ServiceAnalytics';
 import { DeliverablesList } from '@/components/marketing/DeliverablesList';
 import { ProcessTimeline } from '@/components/marketing/ProcessTimeline';
 import { Faq } from '@/components/marketing/Faq';
@@ -33,11 +34,57 @@ export default function ServiceDetailPage({ params }: Params) {
   const service = getService(params.slug);
   if (!service) notFound();
 
-  const relatedCases = caseStudies.filter((c) => c.services.some((sv) => sv.toLowerCase().includes(service.name.toLowerCase().split(' ')[0]))).slice(0, 3);
+  // Match a service to case studies whose `services` array contains the
+  // service's primary name token (first meaningful word) OR a configured
+  // alias. We strip punctuation and skip generic noise words (marketing,
+  // growth, optimization, & automation-style suffixes) so renames don't
+  // accidentally over-match unrelated case studies.
+  const NOISE = new Set([
+    'marketing', 'operations', 'optimization', 'automation', 'management',
+    'services', 'strategy', 'consulting', 'design', 'development', 'studio',
+    'system', 'systems', 'channel', 'channels', 'platform',
+  ]);
+  const relatedCases = (() => {
+    const tokenize = (s: string) =>
+      s
+        .toLowerCase()
+        .replace(/[^a-z0-9 ]/g, ' ')
+        .split(/\s+/)
+        .filter((w) => w.length > 2 && !NOISE.has(w));
+    const serviceTokens = tokenize(service.name);
+    const aliases: Record<string, string[]> = {
+      crm: ['crm', 'mops'],
+      abm: ['abm', 'b2b', 'demand'],
+      cro: ['cro', 'conversion'],
+      ai: ['ai', 'geo', 'aeo'],
+      video: ['video', 'podcast'],
+      lifecycle: ['lifecycle', 'email', 'sms'],
+      brand: ['brand', 'identity'],
+      public: ['public', 'relations', 'pr'],
+      analytics: ['analytics', 'attribution', 'tracking'],
+    };
+    const primary = serviceTokens[0] ?? '';
+    const candidates = new Set<string>([primary, ...(aliases[primary] ?? [])]);
+    return caseStudies
+      .filter((c) =>
+        c.services.some((sv) => {
+          const svLow = sv.toLowerCase();
+          // Word-boundary regex so 'market' doesn't substring-match inside
+          // 'Performance Marketing'. Tokenize the case-study side the same way.
+          return [...candidates].some((t) => {
+            if (!t) return false;
+            const re = new RegExp(`\\b${t}\\b`);
+            return re.test(svLow);
+          });
+        }),
+      )
+      .slice(0, 3);
+  })();
   const relatedServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 
   return (
     <>
+      <ServiceAnalytics service={service} />
       <ServiceHero service={service} />
 
       <Section tone="white" size="md">
@@ -87,7 +134,7 @@ export default function ServiceDetailPage({ params }: Params) {
         </div>
         <ul className="grid md:grid-cols-2 gap-4">
           {service.proof.map((p, i) => (
-            <li key={p.client + i} className="reveal bg-white rounded-2xl border border-ink-100 p-6 md:p-7" style={{ animationDelay: `${i * 80}ms` }}>
+            <li key={p.client + i} className="reveal bg-paper-50 rounded-2xl border border-ink-100 p-6 md:p-7" style={{ animationDelay: `${i * 80}ms` }}>
               <div className="flex items-center justify-between mb-3">
                 <p className="text-sm text-ink-500">{p.client}</p>
                 <p className="font-display text-3xl font-medium tracking-[-0.03em] text-accent">{p.metric}</p>
@@ -136,7 +183,7 @@ export default function ServiceDetailPage({ params }: Params) {
         </div>
       </Section>
 
-      <CtaBanner />
+      <CtaBanner serviceSlug={service.slug} serviceName={service.name} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd([
         faqLd(service.faqs),

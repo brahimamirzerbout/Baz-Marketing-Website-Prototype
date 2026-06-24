@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/Button';
 import { site } from '@/lib/site';
 
-export function CtaBanner() {
+export function CtaBanner({ serviceSlug, serviceName }: { serviceSlug?: string; serviceName?: string } = {}) {
+  const auditHref = serviceSlug ? `/contact?service=${encodeURIComponent(serviceSlug)}` : '/contact';
+  const ctaLabel = serviceName ? `Get a ${serviceName} proposal` : 'Request an audit';
   return (
     <section className="bg-ink-900 text-paper">
       <div className="container mx-auto py-16 md:py-20">
@@ -19,11 +21,11 @@ export function CtaBanner() {
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-col gap-3">
-            <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="banner_book_call">
+            <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="banner_book_call">
               Book a growth call →
             </Button>
-            <Button href="/contact" variant="outline" size="lg" trackAs="banner_audit" className="border-paper/30 text-paper hover:bg-paper hover:text-ink-900">
-              Or request an audit
+            <Button href={auditHref} variant="outline" size="lg" trackAs="banner_audit" className="border-paper/30 text-paper hover:bg-paper hover:text-ink-900">
+              {ctaLabel}
             </Button>
           </div>
         </div>

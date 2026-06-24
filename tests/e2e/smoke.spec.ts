@@ -236,3 +236,62 @@ test('GET /api/services?format=summary trims heavy fields', async ({ request }) 
   expect(first.faqs, 'summary should not include faqs').toBeUndefined();
   expect(first.kpis, 'summary should still include kpis').toBeDefined();
 });
+
+/**
+ * Wave 3 — Performance Marketing feature strip on the homepage.
+ */
+test('homepage renders the Performance Marketing feature strip', async ({ page }) => {
+  await page.goto('/');
+  const body = await page.content();
+  // Headline of the feature strip
+  expect(body, 'should contain the feature headline').toContain('Performance Marketing that compounds');
+  // The 4 funnel steps
+  expect(body, 'should contain "Tracking & attribution audit"').toContain('Tracking');
+  expect(body, 'should contain "Creative matrix"').toContain('Creative matrix');
+  expect(body, 'should contain "Weekly iteration"').toContain('iteration');
+  expect(body, 'should contain "Incrementality"').toContain('Incrementality');
+  // 3 proof cards
+  expect(body, 'should mention ViralVista').toContain('ViralVista');
+  expect(body, 'should mention Lumenwear').toContain('Lumenwear');
+  expect(body, 'should mention Soukly').toContain('Soukly');
+  // CTA links to /services/performance-marketing
+  const ctaCount = await page.locator('a[href="/services/performance-marketing"]').count();
+  expect(ctaCount, 'feature strip links to /services/performance-marketing').toBeGreaterThanOrEqual(2);
+});
+
+test('performance-marketing service page renders 4 proof entries and 4 FAQs', async ({ page }) => {
+  await page.goto('/services/performance-marketing');
+  const body = await page.content();
+
+  // 4 proof case studies in the "Recent outcomes" section. We count the
+  // proof card <li>s directly so substring matches elsewhere (nav, related
+  // cases, etc.) don't inflate the count.
+  const proofCards = await page.locator('section >> li.bg-paper-50').count();
+  expect(proofCards, 'should have 4 proof cards').toBe(4);
+
+  // The 4th FAQ about incrementality
+  expect(body, 'should contain the incrementality FAQ').toContain('incrementality');
+
+  // JSON-LD FAQPage should have 4 questions. Read the raw HTML and
+  // extract script[type="application/ld+json"] blocks ourselves.
+  const html = body;
+  const jsonLdRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  const faqSchemas: Array<{ '@type': string; mainEntity: unknown[] }> = [];
+  let match: RegExpExecArray | null;
+  while ((match = jsonLdRegex.exec(html)) !== null) {
+    try {
+      const parsed = JSON.parse(match[1]);
+      if (parsed['@type'] === 'FAQPage') faqSchemas.push(parsed);
+      // Some pages emit an array of schemas.
+      if (Array.isArray(parsed)) {
+        for (const item of parsed) {
+          if (item && item['@type'] === 'FAQPage') faqSchemas.push(item);
+        }
+      }
+    } catch {
+      /* not JSON — skip */
+    }
+  }
+  expect(faqSchemas.length, 'at least one FAQPage schema').toBeGreaterThanOrEqual(1);
+  expect(faqSchemas[0].mainEntity.length, 'FAQPage should have 4 questions').toBe(4);
+});

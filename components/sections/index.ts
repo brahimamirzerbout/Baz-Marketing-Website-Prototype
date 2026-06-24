@@ -11,3 +11,4 @@ export { LogoMarquee } from './LogoMarquee';
 export { Breadcrumb } from './Breadcrumb';
 export { StatRow } from './StatRow';
 export { PillarGrid } from './PillarGrid';
+export { PerformanceFeature } from './PerformanceFeature';

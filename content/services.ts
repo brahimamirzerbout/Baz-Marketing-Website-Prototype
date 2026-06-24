@@ -113,11 +113,13 @@ export const services: Service[] = [
       { client: 'DTC Skincare · EU', metric: 'ROAS 2.1 → 4.8', detail: 'Creator-led UGC + Meta Advantage+ shopping.' },
       { client: 'B2B SaaS · US', metric: 'CPL ↓ 58%', detail: 'Rebuilt LinkedIn + Google with PQL scoring and intent signals.' },
       { client: 'FinTech · MENA', metric: 'CPA ↓ 47%', detail: 'Switched from broad match to PMAX + first-party data audiences.' },
+      { client: 'DTC Apparel · US', metric: '$11.4M new revenue', detail: '12-month paid-led scale with creative matrix and incrementality testing.' },
     ],
     faqs: [
       { q: 'Do you require a minimum spend?', a: 'We work best with $20K/mo+ ad budget; we will tell you honestly if less.' },
       { q: 'Who owns the ad accounts?', a: 'You do. Always. We never hold business-critical accounts hostage.' },
       { q: 'Do you do programmatic and CTV?', a: 'Yes — DV360, TTD, and direct CTV publishers with measurement baked in.' },
+      { q: 'How do you measure incrementality, not just ROAS?', a: 'Geo holdouts, ghost ads, PSA tests, and MMM. We never let the platform self-reported ROAS be the only number on the table.' },
     ],
     cta: { primary: 'Request a paid audit' },
   },

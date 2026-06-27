@@ -99,7 +99,7 @@ export default function CaseStudyDetailPage({ params }: Params) {
             <Eyebrow>Want a similar outcome?</Eyebrow>
             <SectionHeading>Book a 30-min growth call.</SectionHeading>
           </div>
-          <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="case_book_call">
+          <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="case_book_call">
             Book a growth call →
           </Button>
         </div>

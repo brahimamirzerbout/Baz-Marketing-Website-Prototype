@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { SearchBox } from './SearchBox';
 import { cn } from '@/lib/cn';
 import { site } from '@/lib/site';
 import { services } from '@/content/services';
@@ -13,6 +14,9 @@ const nav = [
   { href: '/case-studies', label: 'Case studies' },
   { href: '/industries', label: 'Industries' },
   { href: '/insights', label: 'Insights' },
+  { href: '/brandbook', label: 'Brandbook' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/become-an-operator', label: 'Operators' },
   { href: '/about', label: 'About' },
 ];
 
@@ -72,11 +76,12 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
+          <SearchBox />
           <ThemeToggle />
           <Button href="/contact" variant="ghost" size="sm" trackAs="header_contact">
             Talk to us
           </Button>
-          <Button href={site.bookingUrl} external variant="primary" size="sm" trackAs="header_book_call">
+          <Button href={site.bookOrMailto} external variant="primary" size="sm" trackAs="header_book_call">
             Book a growth call
           </Button>
         </div>
@@ -142,7 +147,7 @@ export function Header() {
             </ul>
           </details>
           <div className="mt-6 flex flex-col gap-3">
-            <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="mobile_book_call">
+            <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="mobile_book_call">
               Book a growth call
             </Button>
             <Button href="/contact" variant="outline" size="lg" trackAs="mobile_contact" className="w-full">

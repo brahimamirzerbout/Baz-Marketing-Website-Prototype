@@ -21,7 +21,7 @@ export function Card({
   return (
     <Tag
       className={cn(
-        'bg-white rounded-2xl',
+        'bg-paper-50 rounded-2xl',
         bordered && 'border border-ink-100',
         padded && 'p-6 md:p-7',
         hover && 'transition-all duration-200 hover:-translate-y-1 hover:shadow-lift hover:border-ink-200',

@@ -42,7 +42,7 @@ export function InsightsPreview() {
             <Link
               key={p.slug}
               href={`/insights/${p.slug}`}
-              className="reveal group flex flex-col bg-white rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
+              className="reveal group flex flex-col bg-paper-50 rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="flex items-center justify-between mb-6">

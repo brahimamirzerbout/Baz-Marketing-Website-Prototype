@@ -9,7 +9,7 @@ import { site } from '@/lib/site';
 
 export const metadata = buildMetadata({
   title: 'About',
-  description: 'BAZ is a senior-only growth partner. The people who pitch are the people who ship. Built in NYC, London & Tokyo.',
+  description: 'BAZ is a senior-only growth partner. The people who pitch are the people who ship. Based in Algiers. Working with clients in MENA, EU, and the US.',
   path: '/about',
 });
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
             tightly integrated system.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="about_book_call">
+            <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="about_book_call">
               Book a growth call →
             </Button>
             <Button href="/case-studies" variant="outline" size="lg" trackAs="about_case_studies">
@@ -49,14 +49,14 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="white" size="md">
-        <StatRow
-          items={[
-            { value: site.stats.brandsScaled, label: 'Brands scaled', sub: 'MENA · EU · US' },
-            { value: site.stats.teamSize, label: 'Senior partners', sub: 'No junior pods' },
-            { value: '94%', label: 'Renewal rate', sub: 'Senior people ship' },
-            { value: '12+', label: 'Avg engagements', sub: 'in months per client' },
-          ]}
-        />
+        {(() => {
+          const items: { value: string; label: string; sub: string }[] = [
+            { value: site.stats.brandsScaled ?? '', label: 'Brands scaled', sub: 'MENA · EU · US' },
+            { value: site.stats.teamSize ?? '', label: 'Senior partners', sub: 'No junior pods' },
+          ].filter((it) => it.value !== '');
+          if (items.length === 0) return null;
+          return <StatRow items={items} />;
+        })()}
       </Section>
 
       <Section tone="paper" size="lg">
@@ -72,7 +72,7 @@ export default function AboutPage() {
         </div>
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink-100 rounded-2xl overflow-hidden border border-ink-100">
           {beliefs.map((b, i) => (
-            <li key={b.t} className="reveal bg-white p-6 md:p-7" style={{ animationDelay: `${i * 60}ms` }}>
+            <li key={b.t} className="reveal bg-paper-50 p-6 md:p-7" style={{ animationDelay: `${i * 60}ms` }}>
               <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent mb-4">
                 {String(i + 1).padStart(2, '0')}
               </div>
@@ -92,6 +92,10 @@ export default function AboutPage() {
               The people who plan your engagement are the people doing the work. Every partner
               is hands-on and accountable.
             </SectionLede>
+            <p className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-ink-900 text-xs font-medium border border-warning/30">
+              <span aria-hidden>·</span>
+              Sample team — replace with real partner bios before launch.
+            </p>
           </div>
         </div>
         <TeamGrid />

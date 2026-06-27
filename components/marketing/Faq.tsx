@@ -4,7 +4,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
       {items.map((item, i) => (
         <details
           key={i}
-          className="group bg-paper open:bg-white transition-colors"
+          className="group bg-paper open:bg-paper-50 transition-colors"
         >
           <summary className="flex items-start justify-between gap-6 cursor-pointer p-6 md:p-8 list-none">
             <span className="font-display text-xl md:text-2xl tracking-[-0.02em] leading-snug">

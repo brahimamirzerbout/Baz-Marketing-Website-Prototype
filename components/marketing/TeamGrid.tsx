@@ -6,7 +6,7 @@ export function TeamGrid() {
       {team.map((m, i) => (
         <li
           key={m.name}
-          className="reveal bg-white rounded-2xl p-6 border border-ink-100"
+          className="reveal bg-paper-50 rounded-2xl p-6 border border-ink-100"
           style={{ animationDelay: `${i * 60}ms` }}
         >
           <div className="flex items-center gap-4 mb-4">

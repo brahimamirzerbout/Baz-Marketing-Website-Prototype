@@ -68,7 +68,7 @@ Three pillars of winning the new SERP:
 
 The teams that crack this early will own the next decade of search. The teams that don't will watch their traffic decay in slow motion.`,
     category: 'ai',
-    author: 'Baz Aslan',
+    author: 'Brahim ZERBOUT',
     publishedAt: '2026-06-04',
     readingMin: 5,
   },
@@ -136,9 +136,91 @@ The 90-day structure:
 
 Most of our clients renew after their first 90 days. The plan works. So does the rhythm.`,
     category: 'strategy',
-    author: 'Baz Aslan',
+    author: 'Brahim ZERBOUT',
     publishedAt: '2026-05-14',
     readingMin: 5,
+  },
+
+  // ── Imported from baz-marketing (legacy DB) on 2026-06-23 ──
+  {
+    slug: 'senior-team-no-juniors',
+    title: 'Why we only staff senior people — and what it costs us',
+    excerpt: 'The conventional agency pyramid sells at the top and delivers at the bottom. We rejected that, and paid for it.',
+    body: `When we started BAZ, the conventional wisdom was clear: build a junior-heavy pyramid, sell at the top, deliver at the bottom. We rejected that.
+
+In our model, the person who pitched the work is the person who ships it. No junior BA synthesizing the call. No account manager translating between strategy and execution. The senior crafts the brief, ships the work, and answers the email.
+
+This means our margins are worse. Our utilization is harder to manage. Our capacity is finite. But the output is consistent, the relationships compound, and our clients renew at a rate we never managed with the pyramid.`,
+    category: 'strategy',
+    author: 'Brahim ZERBOUT',
+    publishedAt: '2026-04-08',
+    readingMin: 3,
+  },
+  {
+    slug: 'distribution-is-design',
+    title: 'Distribution is design: a manifesto',
+    excerpt: 'Most agencies treat distribution as an afterthought. We treat it as the first constraint.',
+    body: `Most agencies treat distribution as an afterthought — something the media team handles once the creative is "done." We think that's wrong.
+
+Distribution shapes the creative. The format, the length, the hook, the caption — all of it is downstream of where it's going to live and who's going to see it. Designing in a vacuum is a recipe for beautiful work that dies in a CMS.
+
+In our process, distribution is part of the brief from day one. Before we write a line of copy, we know the platforms, the formats, the algorithms, the audiences, the cadence. The creative comes after.`,
+    category: 'content',
+    author: 'Brahim ZERBOUT',
+    publishedAt: '2026-04-15',
+    readingMin: 3,
+  },
+  {
+    slug: 'original-data-seo',
+    title: 'Original data is the only SEO moat that lasts',
+    excerpt: 'After three algorithm updates targeting helpful content, the winning pattern is clear: ship data nobody else has.',
+    body: `After three algorithm updates targeting "helpful content," the pattern is clear: thin, derivative content gets buried. The strategy that works: original data.
+
+Five formats that work for us right now:
+
+1. **Original benchmarks.** Survey 50+ companies, publish the results. Linkable, citable, evergreen.
+2. **Internal data, anonymized.** "We analyzed 12M ad impressions — here's what worked."
+3. **Industry tooling.** Free calculators, graders, generators. People link to tools.
+4. **Expert roundups with original synthesis.** Not "10 CEOs say X." Instead: "We interviewed 30 CEOs, here's the 4-part pattern."
+5. **Live dashboards.** Public, always-updated data. Build once, link forever.`,
+    category: 'seo',
+    author: 'Brahim ZERBOUT',
+    publishedAt: '2026-04-22',
+    readingMin: 3,
+  },
+  {
+    slug: 'brand-is-a-verb',
+    title: 'Brand is a verb, not a noun',
+    excerpt: 'A brand isn\'t a logo on a balance sheet. It\'s the pattern of behavior a company exhibits across every touchpoint.',
+    body: `Most companies treat "brand" as an asset on a balance sheet — a logo, a color, a font. It's something they own.
+
+That framing is broken. A brand is the pattern of behavior a company exhibits across every touchpoint. The way the support rep answers. The way the product breaks. The way the CEO tweets. None of that is on a balance sheet, all of it is the brand.
+
+The reframe changes everything: you stop measuring brand health with quarterly trackers and start measuring it with the consistency of experience. You stop hiring brand managers and start hiring operators who understand that everything ships the brand.`,
+    category: 'content',
+    author: 'Brahim ZERBOUT',
+    publishedAt: '2026-04-29',
+    readingMin: 3,
+  },
+  {
+    slug: 'speed-as-a-feature',
+    title: 'Speed is a feature',
+    excerpt: 'Our average engagement is eight weeks. Our longest retainer renewal is six years. Both are downstream of one principle.',
+    body: `Our average engagement is eight weeks. Our longest retainer renewal is six years. Both are downstream of one operating principle: ship fast, iterate faster.
+
+The OS that makes this possible:
+
+- **No pitches longer than two weeks.** Anything more complex gets scoped down or rejected.
+- **Senior team on every call.** No translation layer, no re-briefing.
+- **Async-first.** Decisions in writing. Meetings are exceptions, not defaults.
+- **Public roadmap per client.** They see what's shipping next, this week.
+- **Weekly demos, not weekly status.** "Look at what shipped" beats "here's what we're doing."
+
+We gave up: predictability, scope-creep tolerance, and the ability to say yes to every brief. We gained: speed, trust, and a renewal rate that compounds.`,
+    category: 'strategy',
+    author: 'Brahim ZERBOUT',
+    publishedAt: '2026-05-02',
+    readingMin: 3,
   },
 ];
 

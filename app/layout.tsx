@@ -10,9 +10,27 @@ import { ScrollReveal } from '@/components/marketing/ScrollReveal';
 import { Cursor } from '@/components/ui/Cursor';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
-const fraunces = Fraunces({ subsets: ['latin'], display: 'swap', variable: '--font-fraunces' });
-const mono = JetBrains_Mono({ subsets: ['latin'], display: 'swap', variable: '--font-mono' });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+  adjustFontFallback: false,
+});
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+  fallback: ['Georgia', 'ui-serif', 'serif'],
+  adjustFontFallback: false,
+});
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+  fallback: ['ui-monospace', 'SFMono-Regular', 'monospace'],
+  adjustFontFallback: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

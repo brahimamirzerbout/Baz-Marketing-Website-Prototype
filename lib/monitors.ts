@@ -115,7 +115,19 @@ const fallback: Monitors = {
  */
 export async function getMonitors(): Promise<{ data: Monitors; live: boolean }> {
   const api = process.env.NEXT_PUBLIC_API_URL ?? process.env.BAZ_API_URL;
-  if (!api) return { data: fallback, live: false };
+  if (!api) {
+    // Local mode: report our own LLM provider + lead store status.
+    const { llmStatus } = await import('./llm');
+    const llm = llmStatus();
+    return {
+      data: {
+        ...fallback,
+        api: { ...fallback.api, provider: llm.provider },
+        generatedAt: new Date().toISOString(),
+      },
+      live: false,
+    };
+  }
 
   const headers: Record<string, string> = { 'content-type': 'application/json' };
   if (process.env.BAZ_API_TOKEN) headers['authorization'] = `Bearer ${process.env.BAZ_API_TOKEN}`;

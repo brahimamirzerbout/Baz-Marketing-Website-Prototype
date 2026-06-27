@@ -113,7 +113,7 @@ function AttributionPanel() {
                 aria-pressed={model === m.id}
                 className={cn(
                   'w-full text-left px-3 py-2.5 rounded-xl border transition-colors',
-                  model === m.id ? 'border-ink-900 bg-white shadow-soft' : 'border-ink-100 bg-white hover:border-ink-300'
+                  model === m.id ? 'border-ink-900 bg-paper-50 shadow-soft' : 'border-ink-100 bg-white hover:border-ink-300'
                 )}
               >
                 <span className="block text-sm font-medium">{m.label}</span>
@@ -162,7 +162,7 @@ function AttributionPanel() {
             const widthPct = (r.credit / totalCredit) * 100;
             const convPct = (r.conversions / totalConv) * 100;
             return (
-              <li key={r.channel} className="bg-white rounded-xl border border-ink-100 p-4">
+              <li key={r.channel} className="bg-paper-50 rounded-xl border border-ink-100 p-4">
                 <div className="flex items-baseline justify-between gap-3 mb-2">
                   <span className="font-medium text-sm">{r.channel}</span>
                   <span className="font-mono text-xs text-ink-500">{r.credit.toFixed(1)} conv · {formatUsd(r.revenue)}</span>
@@ -316,7 +316,7 @@ function Chart({ bars, line, maxBar, maxLine }: { bars: { value: number; color: 
 
 function Mini({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-ink-100 bg-white p-4">
+    <div className="rounded-xl border border-ink-100 bg-paper-50 p-4">
       <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-ink-400">{label}</p>
       <p className="mt-1 font-display text-2xl font-medium tracking-[-0.02em]">{value}</p>
     </div>
@@ -399,7 +399,7 @@ function RfmPanel() {
           {summary.map((s) => {
             const widthPct = (s.count / maxCount) * 100;
             return (
-              <li key={s.segment} className="bg-white rounded-xl border border-ink-100 p-4">
+              <li key={s.segment} className="bg-paper-50 rounded-xl border border-ink-100 p-4">
                 <div className="flex items-baseline justify-between gap-3 mb-2">
                   <span className="font-medium text-sm">{s.segment}</span>
                   <span className="font-mono text-xs text-ink-500">{formatNumber(s.count)} cust · {formatUsd(s.revenue)} LTV</span>
@@ -508,7 +508,7 @@ function BudgetPanel() {
           {result.map((r) => {
             const deltaPct = r.current > 0 ? (r.delta / r.current) * 100 : 0;
             return (
-              <li key={r.channel} className="bg-white rounded-xl border border-ink-100 p-3.5">
+              <li key={r.channel} className="bg-paper-50 rounded-xl border border-ink-100 p-3.5">
                 <div className="flex items-baseline justify-between gap-2 mb-1">
                   <span className="font-medium text-sm">{r.channel}</span>
                   <span className={cn('font-mono text-xs', r.delta > 0 ? 'text-success' : r.delta < 0 ? 'text-accent' : 'text-ink-400')}>

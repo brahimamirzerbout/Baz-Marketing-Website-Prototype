@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./app/**/*.{ts,tsx,mdx}', './components/**/*.{ts,tsx}', './content/**/*.{ts,mdx}'],
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     container: {
       center: true,
@@ -10,27 +11,31 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // ink: text colors — invert in dark mode
         ink: {
-          50: '#f7f7f6',
-          100: '#ececea',
-          200: '#d6d6d3',
-          300: '#b1b1ad',
-          400: '#7e7e79',
-          500: '#5b5b57',
-          600: '#3f3f3c',
-          700: '#2a2a28',
-          800: '#18181a',
-          900: '#0e0e10',
-          950: '#070708',
+          DEFAULT: 'rgb(var(--c-ink) / <alpha-value>)',
+          50: 'rgb(var(--c-paper-50) / <alpha-value>)',
+          100: 'rgb(var(--c-paper-100) / <alpha-value>)',
+          200: 'rgb(var(--c-paper-200) / <alpha-value>)',
+          300: 'rgb(var(--c-paper-300) / <alpha-value>)',
+          400: 'rgb(var(--c-ink-400) / <alpha-value>)',
+          500: 'rgb(var(--c-ink-500) / <alpha-value>)',
+          600: 'rgb(var(--c-ink-600) / <alpha-value>)',
+          700: 'rgb(var(--c-ink-700) / <alpha-value>)',
+          800: 'rgb(var(--c-ink-800) / <alpha-value>)',
+          900: 'rgb(var(--c-ink-900) / <alpha-value>)',
+          950: 'rgb(var(--c-ink-950) / <alpha-value>)',
         },
+        // paper: surface colors — invert in dark mode
         paper: {
-          DEFAULT: '#f5f1ea',
-          50: '#fdfcf9',
-          100: '#faf7f2',
-          200: '#f5f1ea',
-          300: '#ece5d8',
-          400: '#d9cfbd',
+          DEFAULT: 'rgb(var(--c-paper) / <alpha-value>)',
+          50: 'rgb(var(--c-paper-50) / <alpha-value>)',
+          100: 'rgb(var(--c-paper-100) / <alpha-value>)',
+          200: 'rgb(var(--c-paper-200) / <alpha-value>)',
+          300: 'rgb(var(--c-paper-300) / <alpha-value>)',
+          400: 'rgb(var(--c-paper-400) / <alpha-value>)',
         },
+        // Accent stays the same in both modes
         accent: {
           DEFAULT: '#ff3b2f',
           600: '#e0281c',
@@ -53,9 +58,9 @@ const config: Config = {
       },
       borderRadius: { xl: '0.875rem', '2xl': '1.25rem', '3xl': '1.75rem' },
       boxShadow: {
-        soft: '0 1px 2px rgba(14,14,16,0.04), 0 8px 24px -8px rgba(14,14,16,0.08)',
-        lift: '0 4px 8px rgba(14,14,16,0.06), 0 24px 48px -12px rgba(14,14,16,0.18)',
-        ring: '0 0 0 1px rgba(14,14,16,0.08)',
+        soft: '0 1px 2px rgba(0,0,0,0.04), 0 8px 24px -8px rgba(0,0,0,0.08)',
+        lift: '0 4px 8px rgba(0,0,0,0.06), 0 24px 48px -12px rgba(0,0,0,0.18)',
+        ring: '0 0 0 1px rgba(0,0,0,0.08)',
       },
       keyframes: {
         'fade-up': {

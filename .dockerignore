@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+.env.local
+.env.production
+.env
+*.log
+.DS_Store
+coverage
+tests/e2e/screenshots
+data/leads.jsonl
+data/leads.status.json
+__test.html
+__scroll.html
+__dark.html
+check*.mjs

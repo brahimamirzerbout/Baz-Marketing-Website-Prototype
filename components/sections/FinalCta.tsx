@@ -21,7 +21,7 @@ export function FinalCta() {
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
-            <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="final_book_call">
+            <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="final_book_call">
               Book a growth call
               <span aria-hidden>→</span>
             </Button>

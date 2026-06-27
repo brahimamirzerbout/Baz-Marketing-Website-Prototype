@@ -16,6 +16,7 @@ export function CaseStudyHero({ caseStudy }: { caseStudy: CaseStudy }) {
         </div>
         <div className="flex flex-wrap items-center gap-2 mb-6">
           <Badge variant="ink">{caseStudy.industry}</Badge>
+          {caseStudy.placeholder && <Badge variant="warning">Demo case study</Badge>}
           {caseStudy.services.slice(0, 3).map((s) => (
             <Badge key={s} variant="default" className="bg-paper/20 text-paper">{s}</Badge>
           ))}

@@ -21,7 +21,7 @@ export default function NotFound() {
           book a call if you were looking for something specific.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
-          <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="404_book_call">
+          <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="404_book_call">
             Book a growth call →
           </Button>
           <Button href="/contact" variant="outline" size="lg" trackAs="404_contact">

@@ -90,7 +90,7 @@ export default function PostDetailPage({ params }: Params) {
               One playbook per month, sent by the partners.
             </h2>
           </div>
-          <Button href={site.bookingUrl} external variant="primary" size="lg" trackAs="post_book_call">
+          <Button href={site.bookOrMailto} external variant="primary" size="lg" trackAs="post_book_call">
             Book a growth call →
           </Button>
         </div>

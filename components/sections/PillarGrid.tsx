@@ -28,7 +28,7 @@ export function PillarGrid() {
           <Link
             key={p.href}
             href={p.href}
-            className="group block bg-white rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
+            className="group block bg-paper-50 rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
           >
             <div className="flex items-center justify-between mb-12">
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-400">{p.label}</span>

@@ -31,7 +31,7 @@ export function CaseStudies() {
           <Link
             key={c.slug}
             href={`/case-studies/${c.slug}`}
-            className="reveal group flex flex-col bg-white rounded-2xl border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 overflow-hidden"
+            className="reveal group flex flex-col bg-paper-50 rounded-2xl border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 overflow-hidden"
             style={{ animationDelay: `${i * 80}ms` }}
           >
             <div

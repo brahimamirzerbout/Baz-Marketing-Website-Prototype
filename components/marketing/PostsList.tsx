@@ -20,7 +20,7 @@ export function PostsList() {
           <li key={p.slug}>
             <Link
               href={`/insights/${p.slug}`}
-              className="reveal group block bg-white rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 h-full"
+              className="reveal group block bg-paper-50 rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 h-full"
               style={{ animationDelay: `${i * 60}ms` }}
             >
               <div className="flex items-center justify-between mb-6">

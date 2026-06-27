@@ -14,6 +14,23 @@
   --ink: #0e0e10;
   --line: rgba(14, 14, 16, 0.08);
 
+  /* Tailwind color tokens as RGB triplets so Tailwind's
+     `rgb(var(--c-x) / <alpha-value>)` pattern resolves them
+     and we can flip them in dark mode without touching components. */
+  --c-paper:        245 241 234;   /* #f5f1ea */
+  --c-paper-50:     253 252 249;   /* #fdfcf9 */
+  --c-paper-100:    250 247 242;   /* #faf7f2 */
+  --c-paper-200:    245 241 234;   /* #f5f1ea */
+  --c-paper-300:    236 229 216;   /* #ece5d8 */
+  --c-paper-400:    217 207 189;   /* #d9cfbd */
+  --c-ink-400:      126 126 121;   /* #7e7e79 */
+  --c-ink-500:       91  91  87;   /* #5b5b57 */
+  --c-ink-600:       63  63  60;   /* #3f3f3c */
+  --c-ink-700:       42  42  40;   /* #2a2a28 */
+  --c-ink-800:       24  24  26;   /* #18181a */
+  --c-ink-900:       14  14  16;   /* #0e0e10 */
+  --c-ink-950:        7   7   8;   /* #070708 */
+
   /* Brand */
   --accent: #ff3b2f;
   --accent-600: #e0281c;
@@ -42,6 +59,21 @@
   --ink: #faf7f2;
   --line: rgba(250, 247, 242, 0.10);
   --accent-soft: rgba(255, 59, 47, 0.16);
+
+  /* Inverted palette for dark mode. ink-* and paper-* swap roles. */
+  --c-paper:         24  24  26;   /* ink-800 dark surface */
+  --c-paper-50:       14  14  16;   /* ink-900 */
+  --c-paper-100:      24  24  26;   /* ink-800 */
+  --c-paper-200:      42  42  40;   /* ink-700 */
+  --c-paper-300:      63  63  60;   /* ink-600 */
+  --c-paper-400:      91  91  87;   /* ink-500 */
+  --c-ink-400:       177 177 173;   /* light gray for muted text on dark */
+  --c-ink-500:       214 214 211;   /* light gray */
+  --c-ink-600:       236 234 226;   /* near-paper */
+  --c-ink-700:       245 241 234;   /* paper */
+  --c-ink-800:       250 247 242;   /* paper-100 */
+  --c-ink-900:       253 252 249;   /* paper-50 */
+  --c-ink-950:       255 255 255;   /* full white */
 }
 
 * { box-sizing: border-box; }
@@ -254,6 +286,16 @@ body {
   50% { transform: translateY(-6px); }
 }
 .animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
+
+@keyframes bz-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes bz-pop-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
 
 @keyframes spin-slow {
   to { transform: rotate(360deg); }

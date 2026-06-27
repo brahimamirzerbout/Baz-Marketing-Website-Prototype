@@ -49,6 +49,21 @@ export type Industry = {
   outcomes: string[];
 };
 
+export type PricingTier = {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  monthly: { min: number; max: number; label: string };
+  cadence: string;
+  bestFor: string[];
+  includes: string[];
+  deliverables: string;
+  cta: 'contact' | 'external';
+  externalUrl?: string;
+  featured?: boolean;
+};
+
 export type Testimonial = {
   quote: string;
   author: string;

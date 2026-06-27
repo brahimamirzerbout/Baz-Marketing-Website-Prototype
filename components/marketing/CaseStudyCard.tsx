@@ -6,14 +6,17 @@ export function CaseStudyCard({ caseStudy, index = 0 }: { caseStudy: CaseStudy; 
   return (
     <Link
       href={`/case-studies/${caseStudy.slug}`}
-      className="reveal group flex flex-col bg-white rounded-2xl border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 overflow-hidden h-full"
+      className="reveal group flex flex-col bg-paper-50 rounded-2xl border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 overflow-hidden h-full"
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <div className="aspect-[5/3] relative grid place-items-center" style={{ background: caseStudy.cover }}>
         <span className="font-display text-paper text-7xl md:text-8xl font-bold tracking-[-0.04em] opacity-90">
           {caseStudy.client.charAt(0)}
         </span>
-        <span className="absolute top-4 left-4"><Badge variant="ink">{caseStudy.industry}</Badge></span>
+        <span className="absolute top-4 left-4 flex gap-2">
+          <Badge variant="ink">{caseStudy.industry}</Badge>
+          {caseStudy.placeholder && <Badge variant="warning">Demo</Badge>}
+        </span>
         <span className="absolute bottom-4 right-4 text-paper/80 text-xs font-mono uppercase tracking-[0.15em]">
           {caseStudy.duration}
         </span>

@@ -6,7 +6,7 @@ type Size = 'sm' | 'md' | 'lg' | 'xl';
 
 const tones: Record<Tone, string> = {
   paper: 'bg-paper text-ink-900',
-  white: 'bg-white text-ink-900',
+  white: 'bg-paper-50 text-ink-900',
   ink: 'bg-ink-900 text-paper',
   accent: 'bg-accent text-white',
 };

@@ -2,10 +2,10 @@ import type { TeamMember } from '@/types';
 
 export const team: TeamMember[] = [
   {
-    name: 'Baz Aslan',
+    name: 'Brahim ZERBOUT',
     role: 'Founder · Strategy',
     bio: 'Sets the bar on growth strategy and the senior-team model. Has shipped plans for 60+ brands.',
-    initials: 'BA',
+    initials: 'BZ',
     color: '#ff3b2f',
   },
   {

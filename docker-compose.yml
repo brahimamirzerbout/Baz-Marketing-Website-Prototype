@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  baz:
+    build: .
+    image: baz-marketing:latest
+    container_name: baz-marketing
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+      # --- Required: set these in your .env or directly here ---
+      # NEXT_PUBLIC_SITE_URL: https://baz.agency
+      # RESEND_API_KEY: re_xxx
+      # NOTIFY_EMAIL: zerboutbrahimamir@gmail.com
+      # ADMIN_TOKEN: <generate with crypto.randomBytes>
+      # NEXT_PUBLIC_GA4_ID: G-XXXXXXX
+      # LEAD_INTAKE_URL: https://hooks.slack.com/services/...
+    volumes:
+      - baz-data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    labels:
+      - "com.baz.description=BAZ Marketing Agency — Next.js production"
+
+  # Optional: nginx reverse proxy if you want TLS termination here
+  # nginx:
+  #   image: nginx:alpine
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./certs:/etc/nginx/certs:ro
+  #   depends_on:
+  #     - baz
+
+volumes:
+  baz-data:
+    name: baz-data

@@ -5,7 +5,7 @@ export function IndustryCard({ industry, index = 0 }: { industry: Industry; inde
   return (
     <Link
       href={`/industries/${industry.slug}`}
-      className="reveal group block bg-white rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
+      className="reveal group block bg-paper-50 rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <div className="flex items-center justify-between mb-6">

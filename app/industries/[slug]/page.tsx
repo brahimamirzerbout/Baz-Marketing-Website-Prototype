@@ -43,7 +43,7 @@ export default function IndustryDetailPage({ params }: Params) {
           <h1 className="font-display text-display-2xl font-medium tracking-[-0.04em]">{ind.name} growth, with senior-team execution.</h1>
           <SectionLede>{ind.blurb}</SectionLede>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="industry_book_call">
+            <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="industry_book_call">
               Book a {ind.name} call →
             </Button>
             <Button href="/contact" variant="outline" size="lg" trackAs="industry_contact">Request an audit</Button>

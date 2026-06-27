@@ -7,9 +7,12 @@ export const metadata = buildMetadata({ title: 'Admin', path: '/admin', noindex:
 
 export default function AdminIndexPage() {
   const tiles = [
+    { href: '/admin/leads', name: 'Leads', tagline: 'Contact-form submissions. Newest first. Click reply to email back.' },
     { href: '/admin/analytics', name: 'Analytics', tagline: 'Attribution, AdStock, RFM, budget optimizer. Four interactive tools.' },
     { href: '/admin/canva', name: 'Canva', tagline: 'In-house design assets. Brand kit + 6 templates, PNG/SVG export.' },
     { href: '/admin/monitors', name: 'Monitors', tagline: 'Live health: build, API, leads, AI spend, Core Web Vitals.' },
+    { href: '/admin/integrations', name: 'Integrations', tagline: 'Connected services. 14 tools across 6 categories.' },
+    { href: '/console', name: 'Operator Console', tagline: 'Pipeline, scout list, activity tracker, income calculator, AI tools.' },
   ];
   return (
     <Section tone="paper" size="lg">

@@ -82,7 +82,7 @@ export function LiveAgentDemo() {
   return (
     <div className="rounded-3xl border border-ink-100 bg-paper overflow-hidden shadow-soft">
       {/* Header bar (terminal-style) */}
-      <div className="flex items-center justify-between px-5 py-3 border-b border-ink-100 bg-white">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-ink-100 bg-paper-50">
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-accent/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-warning/80" />
@@ -98,7 +98,7 @@ export function LiveAgentDemo() {
 
       <div className="grid md:grid-cols-[220px_1fr]">
         {/* Agent rail */}
-        <ul className="border-b md:border-b-0 md:border-r border-ink-100 bg-white p-2 md:p-3 flex md:flex-col gap-1.5 overflow-x-auto md:overflow-visible">
+        <ul className="border-b md:border-b-0 md:border-r border-ink-100 bg-paper-50 p-2 md:p-3 flex md:flex-col gap-1.5 overflow-x-auto md:overflow-visible">
           {agents.map((a) => (
             <li key={a.id}>
               <button

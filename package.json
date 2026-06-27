@@ -1,5 +1,5 @@
 {
-  "name": "baz-site-next",
+  "name": "baz",
   "version": "1.0.0",
   "private": true,
   "description": "BAZ Marketing Agency — Next.js + TypeScript + Tailwind production site",
@@ -10,15 +10,23 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "sitemap": "node scripts/build-sitemap.mjs",
-    "audit:placeholder": "node scripts/audit-placeholders.mjs"
+    "audit:placeholder": "node scripts/audit-placeholders.mjs",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^11.10.0",
+    "framer-motion": "^12.40.0",
     "html-to-image": "^1.11.13",
+    "jsonwebtoken": "^9.0.3",
     "next": "14.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.0",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "20.14.10",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",

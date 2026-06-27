@@ -30,7 +30,7 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-3 reveal">
             <Magnetic strength={0.3}>
-              <Button href={site.bookingUrl} external variant="secondary" size="lg" trackAs="hero_book_call" data-cursor="cta">
+              <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="hero_book_call" data-cursor="cta">
                 Book a growth call
                 <span aria-hidden className="ml-1">→</span>
               </Button>
@@ -43,10 +43,10 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* Trust strip mini */}
+          {/* Trust strip — partner tools BAZ actually uses (env-overridable) */}
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-500 reveal">
-            <span className="font-mono uppercase tracking-[0.18em] text-[11px] text-ink-400">Trusted by</span>
-            {['ViralVista', 'Northwind', 'EngageEra', 'Saffron & Co.', 'Meridian Labs', 'BuzzBeacon'].map((name, i, arr) => (
+            <span className="font-mono uppercase tracking-[0.18em] text-[11px] text-ink-400">Stack</span>
+            {['Ollama', 'GitHub', 'Vercel', 'Linear', 'Stripe', 'Resend'].map((name, i, arr) => (
               <span key={name} className="flex items-center gap-x-8">
                 <span className="font-display font-semibold text-ink-700">{name}</span>
                 {i < arr.length - 1 && <span className="opacity-30">·</span>}
@@ -55,20 +55,26 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Hero stat corner */}
-        <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-ink-100 rounded-2xl overflow-hidden border border-ink-100 reveal">
-          {[
+        {/* Hero stat corner — hidden entirely when no real numbers are set */}
+        {(() => {
+          const stats = [
             { v: site.stats.brandsScaled,    l: 'Brands scaled' },
             { v: site.stats.countriesServed, l: 'Countries' },
             { v: site.stats.teamSize,        l: 'Senior partners' },
             { v: site.stats.seniorOnly,      l: 'Senior team' },
-          ].map((s) => (
-            <div key={s.l} className="bg-paper p-6 md:p-8">
-              <p className="font-display text-3xl md:text-5xl font-medium tracking-[-0.03em]">{s.v}</p>
-              <p className="mt-2 font-mono uppercase tracking-[0.18em] text-[11px] text-ink-500">{s.l}</p>
+          ].filter((s) => s.v != null && s.v !== '');
+          if (stats.length === 0) return null;
+          return (
+            <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-ink-100 rounded-2xl overflow-hidden border border-ink-100 reveal">
+              {stats.map((s) => (
+                <div key={s.l} className="bg-paper p-6 md:p-8">
+                  <p className="font-display text-3xl md:text-5xl font-medium tracking-[-0.03em]">{s.v}</p>
+                  <p className="mt-2 font-mono uppercase tracking-[0.18em] text-[11px] text-ink-500">{s.l}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          );
+        })()}
 
         {/* Inline live agent demo teaser */}
         <div className="mt-20 reveal">

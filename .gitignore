@@ -38,3 +38,20 @@ coverage/
 
 # Vercel
 .vercel
+
+# Local data (DB, leads, runtime state)
+data/
+*.db
+*.db-shm
+*.db-wal
+leads.jsonl
+leads.status.json
+
+# Test output (screenshots, traces, reports)
+test-results/
+tests/e2e/screenshots/
+playwright-report/
+playwright/.cache/
+
+# Secrets / credentials
+.env.production

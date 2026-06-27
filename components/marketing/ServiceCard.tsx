@@ -14,7 +14,7 @@ export function ServiceCard({ service, index = 0 }: { service: Service; index?: 
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="reveal group block bg-white rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 h-full"
+      className="reveal group block bg-paper-50 rounded-2xl p-6 md:p-7 border border-ink-100 hover:border-ink-900 hover:-translate-y-1 hover:shadow-lift transition-all duration-200 h-full"
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <div className="flex items-center justify-between mb-8">

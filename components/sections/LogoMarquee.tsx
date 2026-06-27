@@ -1,17 +1,30 @@
 /**
- * Brand marquee — silent infinite scroll. Pure CSS animation.
- * Used for "as seen in" / client logo strip. Logos are placeholders
- * (text + letter mark) until real partner logos are added.
+ * Partner marquee — silent infinite scroll. Pure CSS animation.
+ * Used for the "Trusted by" / partner strip on the homepage.
+ *
+ * Default list is the tools/services BAZ actually uses to run the business —
+ * not fake client logos. To swap in real client logos, set the
+ * NEXT_PUBLIC_CLIENT_LOGOS env var to a comma-separated list, e.g.
+ *   NEXT_PUBLIC_CLIENT_LOGOS="Acme Co.,Beta Inc.,Gamma LLC"
  */
-const logos = [
-  'ViralVista', 'Northwind', 'EngageEra', 'Saffron & Co.', 'Meridian Labs',
-  'BuzzBeacon', 'Aether', 'Helix', 'Lumen', 'Forge', 'Stratus', 'Ridgeway',
+const DEFAULT_PARTNERS = [
+  'Ollama', 'GitHub', 'Vercel', 'Linear', 'Stripe',
+  'Resend', 'Cal.com', 'Figma', 'Notion', 'Slack',
 ];
 
+const logos = (() => {
+  const env = process.env.NEXT_PUBLIC_CLIENT_LOGOS;
+  if (env && env.trim().length > 0) {
+    return env.split(',').map((s) => s.trim()).filter(Boolean);
+  }
+  return DEFAULT_PARTNERS;
+})();
+
 export function LogoMarquee() {
+  if (logos.length === 0) return null;
   const doubled = [...logos, ...logos];
   return (
-    <section className="bg-white py-10 border-y border-ink-100 marquee-mask overflow-hidden">
+    <section className="bg-paper-50 py-10 border-y border-ink-100 marquee-mask overflow-hidden">
       <div className="flex animate-marquee gap-12 whitespace-nowrap">
         {doubled.map((l, i) => (
           <span

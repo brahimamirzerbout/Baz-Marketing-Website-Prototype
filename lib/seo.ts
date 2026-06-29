@@ -48,6 +48,8 @@ export function buildMetadata({
       title: fullTitle,
       description,
       images: [img],
+      site: '@bazagency',
+      creator: '@bazagency',
     },
     robots: noindex
       ? { index: false, follow: false }

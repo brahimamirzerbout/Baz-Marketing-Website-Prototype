@@ -11,13 +11,11 @@ import { services } from '@/content/services';
 
 const nav = [
   { href: '/services', label: 'Services' },
+  { href: '/marketing-hub', label: 'Marketing Hub', badge: 'LIVE' },
+  { href: '/methodology', label: 'Methodology' },
   { href: '/case-studies', label: 'Case studies' },
-  { href: '/industries', label: 'Industries' },
   { href: '/insights', label: 'Insights' },
-  { href: '/loop', label: 'The Loop' },
-  { href: '/pulse', label: 'Live Pulse' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/become-an-operator', label: 'Operators' },
   { href: '/about', label: 'About' },
 ];
 
@@ -42,7 +40,7 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-paper/85 backdrop-blur-md border-b border-ink-100'
+          ? 'bg-paper/85 backdrop-blur-md border-b border-ink-100 dark:border-paper-200'
           : 'bg-transparent border-b border-transparent'
       )}
     >
@@ -63,8 +61,8 @@ export function Header() {
               <span>BAZ</span>
               <span
                 aria-hidden
-                className="font-serif italic font-light text-[15px] text-accent -rotate-3 origin-bottom-left translate-y-[-1px] tracking-tight"
-                style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
+                className="font-serif italic font-light text-[16px] text-accent -rotate-3 origin-bottom-left translate-y-[-2px] tracking-tight"
+                style={{ fontFamily: 'var(--font-fraunces), Georgia, serif' }}
               >
                 ventures
               </span>
@@ -78,9 +76,15 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-2 text-sm font-medium text-ink-700 hover:text-ink-900 rounded-full hover:bg-paper-300 transition-colors"
+              className="relative px-4 py-2 text-sm font-medium text-ink-700 hover:text-ink-900 rounded-full hover:bg-paper-300 transition-colors inline-flex items-center gap-1.5"
             >
               {item.label}
+              {(item as any).badge && (
+                <span className="inline-flex items-center gap-1 text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-accent text-white">
+                  <span className="inline-block w-1 h-1 rounded-full bg-white animate-pulse" />
+                  {(item as any).badge}
+                </span>
+              )}
             </Link>
           ))}
         </nav>

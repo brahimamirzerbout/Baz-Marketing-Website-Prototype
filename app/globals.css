@@ -355,3 +355,21 @@ body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(14,14,16,0.12); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(14,14,16,0.24); }
+
+/* ============================================================
+   LENIS (smooth scroll) — https://github.com/darkroomengineering/lenis
+   ============================================================ */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ============================================================
+   THEME TRANSITION — smooth color fade on light/dark swap
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-transition, html.theme-transition * {
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, fill 200ms ease !important;
+  }
+}

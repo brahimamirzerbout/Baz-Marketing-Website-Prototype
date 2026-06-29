@@ -46,7 +46,7 @@ export function ServicesOverview() {
             >
               <div className="flex items-center justify-between mb-8">
                 <Badge variant={tone.tone}>{String(i + 1).padStart(2, '0')} · {tone.name}</Badge>
-                <span aria-hidden className="text-ink-300 group-hover:text-accent group-hover:translate-x-0.5 transition-all">→</span>
+                <span aria-hidden className="text-ink-300 dark:text-ink-400 group-hover:text-accent group-hover:translate-x-0.5 transition-all">→</span>
               </div>
               <h3 className="font-display text-2xl md:text-[26px] font-medium tracking-[-0.02em] leading-tight">
                 {s.name}

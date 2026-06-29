@@ -97,7 +97,7 @@ export function MarketingHubBanner() {
 
           {/* Right: live status card */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl bg-paper text-ink-900 p-6 shadow-2xl">
+            <div className="rounded-2xl bg-paper text-ink-900 p-6 shadow-2xl dark:bg-ink-900 dark:text-paper">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <span
@@ -105,7 +105,7 @@ export function MarketingHubBanner() {
                       pulse?.ok ? "bg-emerald-500" : "bg-amber-500"
                     }`}
                   />
-                  <span className="text-xs font-mono uppercase tracking-wider text-ink-500">
+                  <span className="text-xs font-mono uppercase tracking-wider text-ink-500 dark:text-paper-300">
                     Hub status · {pulse?.ok ? "live" : "warming"}
                   </span>
                 </div>
@@ -143,7 +143,7 @@ export function MarketingHubBanner() {
                 />
               </div>
 
-              <div className="mt-5 pt-4 border-t border-ink-100 dark:border-paper-200 flex items-center gap-2 text-xs text-ink-500">
+              <div className="mt-5 pt-4 border-t border-ink-100 dark:border-paper-200 flex items-center gap-2 text-xs text-ink-500 dark:text-paper-300">
                 <ShieldIcon />
                 Local · SQLite WAL · triangle loop ticks every 60 s
               </div>
@@ -167,13 +167,13 @@ function Stat({
   sub?: string;
 }) {
   return (
-    <div className="rounded-xl bg-paper-300 p-3">
-      <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-ink-500">
+    <div className="rounded-xl bg-paper-300 dark:bg-ink-800 p-3">
+      <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-ink-500 dark:text-paper-300">
         <span className="inline-flex items-center justify-center w-4 h-4">{icon}</span>
         {label}
       </div>
       <div className="font-display text-2xl font-medium tracking-[-0.02em] mt-1">{value}</div>
-      {sub && <div className="text-[10px] text-ink-400 mt-0.5">{sub}</div>}
+      {sub && <div className="text-[10px] text-ink-400 dark:text-paper-300 mt-0.5">{sub}</div>}
     </div>
   );
 }

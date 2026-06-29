@@ -162,7 +162,7 @@ function PipelinePanel({ totals }: { totals: Totals }) {
                 {stage.leads.slice(0, 8).map((l) => (
                   <div
                     key={l.id}
-                    className="bg-white rounded-lg border border-ink-100 p-3 cursor-pointer hover:border-ink-900"
+                    className="bg-paper rounded-lg border border-ink-100 p-3 cursor-pointer hover:border-ink-900"
                     onClick={() => setEditingId(editingId === l.id ? null : l.id)}
                   >
                     <div className="flex items-start justify-between gap-2">
@@ -461,7 +461,7 @@ function NumberField({ label, value, onChange, hint }: { label: string; value: n
         type="number"
         value={value}
         onChange={(e) => onChange(Math.max(0, parseInt(e.target.value, 10) || 0))}
-        className="mt-1 w-full px-3 h-11 rounded-xl bg-white border border-ink-200 text-ink-900 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+        className="mt-1 w-full px-3 h-11 rounded-xl bg-paper border border-ink-200 text-ink-900 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
       />
       {hint && <span className="block mt-1 text-xs text-ink-500">{hint}</span>}
     </label>
@@ -516,7 +516,7 @@ function ToolsPanel() {
             type="button"
             onClick={() => setKind(a.id)}
             className={`w-full text-left p-4 rounded-xl border transition-all ${
-              kind === a.id ? 'border-ink-900 bg-white shadow-soft' : 'border-ink-100 bg-paper-50 hover:border-ink-300'
+              kind === a.id ? 'border-ink-900 bg-paper shadow-soft' : 'border-ink-100 bg-paper-50 hover:border-ink-300'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -533,7 +533,7 @@ function ToolsPanel() {
       <div className="lg:col-span-2 bg-paper-50 rounded-2xl border border-ink-100 p-5 space-y-4">
         <h3 className="font-display text-lg font-medium tracking-[-0.02em]">Run · {kind}</h3>
         <textarea
-          className="w-full px-4 py-3 rounded-xl bg-white border border-ink-200 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+          className="w-full px-4 py-3 rounded-xl bg-paper border border-ink-200 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
           rows={6}
           placeholder="Paste the input (lead message, content topic, metrics dump, etc.)"
           value={input}
@@ -554,7 +554,7 @@ function ToolsPanel() {
         {result && (
           <div className="border-t border-ink-100 pt-4">
             {result.text ? (
-              <pre className="bg-white border border-ink-100 rounded-xl p-4 text-xs whitespace-pre-wrap font-mono overflow-x-auto">{result.text}</pre>
+              <pre className="bg-paper border border-ink-100 rounded-xl p-4 text-xs whitespace-pre-wrap font-mono overflow-x-auto">{result.text}</pre>
             ) : (
               <p className="text-sm text-warning">{result.error ?? 'No output'}</p>
             )}

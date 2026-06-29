@@ -3,8 +3,12 @@ import { Button } from '@/components/ui/Button';
 import { Magnetic } from '@/components/ui/Magnetic';
 import { LiveAgentDemo } from '@/components/marketing/LiveAgentDemo';
 import { site } from '@/lib/site';
+import { resolveHeroVariant, type HeroVariant } from '@/lib/hero-variant';
+import { LiveStatusPill } from './LiveStatusPill';
+import { GuaranteeMicro } from './GuaranteeMicro';
 
-export function Hero() {
+export function Hero({ variant }: { variant?: HeroVariant } = {}) {
+  const v = variant ?? resolveHeroVariant(null);
   return (
     <section className="relative overflow-hidden bg-paper bg-grain">
       {/* Decorative grid + mesh */}
@@ -13,34 +17,47 @@ export function Hero() {
 
       <div className="container mx-auto relative pt-16 pb-20 md:pt-24 md:pb-32">
         <div className="max-w-5xl">
-          <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-accent mb-6 reveal inline-flex items-center gap-2">
-            <span className="inline-block w-2 h-2 bg-accent rounded-full animate-pulse-dot" />
-            Now booking Q3 — 2 senior-partner spots left
-          </p>
+          <div className="mb-6 flex flex-wrap items-center gap-3">
+            <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-accent dark:text-accent reveal inline-flex items-center gap-2">
+              <span className="inline-block w-2 h-2 bg-accent dark:bg-accent rounded-full animate-pulse-dot" />
+              Now booking Q3 — 2 senior-partner spots left
+            </p>
+            <LiveStatusPill />
+          </div>
 
-          <h1 className="font-display text-display-2xl font-medium text-ink-900 reveal">
-            Add <span className="not-italic text-gradient">$200K+</span> to pipeline in 90 days — or pay nothing for month four.
+          <h1 className="font-display text-display-2xl font-medium text-ink-900 reveal min-h-[3.5em] sm:min-h-[3em] md:min-h-[2.5em] flex items-center">
+            {v.headline}
           </h1>
 
           <p className="mt-6 md:mt-8 text-lg md:text-2xl text-ink-600 max-w-3xl leading-relaxed reveal">
-            BAZ is a <span className="font-medium text-ink-900">senior-only growth partner</span> that runs your
-            <span className="font-medium text-ink-900"> owned, earned, paid, and data</span> channels on the BAZ Marketing Hub —
-            an autonomous system that scores leads, runs sales cadences, and reports attribution without a junior in sight.
+            {v.subhead}
           </p>
 
+          {v.icp && (
+            <p className="mt-3 text-xs font-mono uppercase tracking-[0.18em] text-accent reveal">
+              Personalised for <span className="font-semibold">{v.icpLabel}</span>
+            </p>
+          )}
+
           <div className="mt-10 flex flex-wrap items-center gap-3 reveal">
-            <Magnetic strength={0.3}>
-              <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="hero_book_call" data-cursor="cta">
-                Book a growth call
-                <span aria-hidden className="ml-1">→</span>
-              </Button>
-            </Magnetic>
+            <span id="hero-cta">
+              <Magnetic strength={0.3}>
+                <Button href={site.bookOrMailto} external variant="secondary" size="lg" trackAs="hero_book_call" data-cursor="cta">
+                  Book a growth call
+                  <span aria-hidden className="ml-1">→</span>
+                </Button>
+              </Magnetic>
+            </span>
             <Button href="/case-studies" variant="outline" size="lg" trackAs="hero_case_studies">
-              See case studies
+              See $200K+ case studies
             </Button>
-            <Button href="/contact" variant="ghost" size="lg" trackAs="hero_audit">
-              Request an audit
+            <Button href="/marketing-hub" variant="ghost" size="lg" trackAs="hero_hub">
+              See the Hub →
             </Button>
+          </div>
+
+          <div className="mt-3">
+            <GuaranteeMicro variant="default" />
           </div>
 
           {/* Outcome strip — 4 quantified, specific promises */}

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BAZ — Pitch Deck</title>
+  <meta name="viewport" content="width=1280">
+  <style>
+    /* BAZ pitch deck — print as PDF from your browser (Cmd/Ctrl-P, save as PDF).
+       Each slide is 1280x720, sized to 16:9 deck masters. */
+    :root {
+      --accent: #ff3b2f;
+      --accent-600: #e0281c;
+      --ink: #0e0e10;
+      --ink-2: #1a1a1a;
+      --paper: #f5f1ea;
+      --paper-2: #faf7f2;
+      --paper-300: #f0ebe0;
+      --gold: #f9a01f;
+      --green: #3ddc97;
+      --blue: #4f7cff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: 1280px 720px; margin: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      padding: 80px 96px;
+      position: relative;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .slide.dark { background: var(--ink); color: var(--paper-2); }
+    .slide.accent { background: var(--accent); color: var(--paper-2); }
+    .slide.paper { background: var(--paper); }
+    .slide.white { background: var(--paper-2); }
+    .eyebrow {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .eyebrow.light { color: var(--paper-300); }
+    h1, h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.03em; line-height: 1.0; }
+    .display-1 { font-size: 96px; }
+    .display-2 { font-size: 64px; }
+    .display-3 { font-size: 44px; }
+    .lede { font-size: 24px; line-height: 1.4; max-width: 880px; color: var(--ink-2); }
+    .slide.dark .lede { color: var(--paper-300); }
+    .slide.accent .lede { color: var(--paper-2); }
+    .body { font-size: 18px; line-height: 1.6; }
+    .grid { display: grid; gap: 32px; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .footer {
+      position: absolute;
+      bottom: 32px;
+      left: 96px;
+      right: 96px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.5;
+    }
+    .slide.dark .footer { color: var(--paper-300); }
+    .slide.accent .footer { color: var(--paper-2); }
+    .footer .brand { display: flex; align-items: center; gap: 12px; }
+    .footer .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .stat { display: flex; flex-direction: column; }
+    .stat .v { font-family: 'Fraunces', Georgia, serif; font-size: 80px; font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+    .stat .l { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 12px; opacity: 0.7; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: var(--paper-300); font-size: 13px; }
+    .slide.dark .pill { background: rgba(255,255,255,0.08); color: var(--paper-2); }
+    .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .mark { width: 56px; height: 56px; border-radius: 12px; background: var(--accent); display: grid; place-items: center; }
+    .mark span { font-family: 'Fraunces', Georgia, serif; font-size: 36px; font-weight: 600; color: var(--paper-2); }
+    .table { width: 100%; border-collapse: collapse; font-size: 16px; }
+    .table th, .table td { padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.08); text-align: left; }
+    .slide.dark .table th, .slide.dark .table td { border-bottom-color: rgba(255,255,255,0.1); }
+    .table th { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; font-weight: 500; }
+    .table td.num { font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 500; letter-spacing: -0.02em; }
+    .marker { display: flex; align-items: center; gap: 8px; }
+    .marker .num { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--accent); }
+    ul.clean { list-style: none; }
+    ul.clean li { padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 18px; }
+    .slide.dark ul.clean li { border-bottom-color: rgba(255,255,255,0.1); }
+    .check { color: var(--accent); font-weight: 700; margin-right: 12px; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px;
+      border-radius: 999px; background: var(--ink); color: var(--paper-2);
+      font-weight: 500; font-size: 16px; text-decoration: none;
+    }
+    .slide.dark .cta { background: var(--paper-2); color: var(--ink); }
+    .slide.accent .cta { background: var(--ink); color: var(--paper-2); }
+    .quote { font-family: 'Fraunces', Georgia, serif; font-size: 44px; line-height: 1.2; font-style: italic; }
+    .quote::before { content: '\u201c'; }
+    .quote::after { content: '\u201d'; }
+    .attrib { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 32px; opacity: 0.6; }
+    .photo-placeholder {
+      background: linear-gradient(135deg, var(--paper-300), var(--paper));
+      border: 1px dashed rgba(0,0,0,0.2); display: grid; place-items: center;
+      color: var(--ink); font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.5;
+    }
+    .slide.dark .photo-placeholder { background: linear-gradient(135deg, var(--ink-2), var(--ink)); border-color: rgba(255,255,255,0.2); color: var(--paper-2); }
+    .gradient-text {
+      background: linear-gradient(120deg, var(--accent) 0%, var(--gold) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .small { font-size: 14px; opacity: 0.7; }
+    /* Print: hide the page number footer; keep slide content */
+    @media print {
+      body { background: white; }
+      .footer { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 01 — COVER
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide paper">
+  <div style="position:absolute; top:48px; left:96px; display:flex; align-items:center; gap:14px;">
+    <div class="mark"><span>B</span></div>
+    <div>
+      <div style="font-family:'Fraunces',serif; font-size:24px; font-weight:600; letter-spacing:-0.02em;">BAZ</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.6; margin-top:2px;">Marketing Agency</div>
+    </div>
+  </div>
+  <div style="margin-top:auto; margin-bottom:auto; max-width:1000px;">
+    <p class="eyebrow">Q3 2026 — Senior partner intake</p>
+    <h1 class="display-1" style="margin-bottom:32px;">Add <span class="gradient-text">$200K+</span> to pipeline in 90 days.</h1>
+    <p class="lede">BAZ is a senior-only growth partner that runs your owned, earned, paid, and data channels — strategy, execution, and reporting as one system. No juniors, no handoffs, no monthly retainers without an outcome.</p>
+  </div>
+  <div style="position:absolute; bottom:80px; left:96px; right:96px; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.5;">Prepared for</div>
+      <div style="font-family:'Fraunces',serif; font-size:22px; margin-top:6px;">[Client name]</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.5;">Date</div>
+      <div style="font-family:'Fraunces',serif; font-size:22px; margin-top:6px;">[Date]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 02 — THE PROBLEM
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide paper">
+  <p class="eyebrow">The problem</p>
+  <h2 class="display-2" style="max-width:1080px; margin-bottom:40px;">You know growth is broken.<br>You can't tell <em>where</em>.</h2>
+  <div class="grid grid-3" style="margin-top:48px;">
+    <div>
+      <div class="pill"><span class="dot"></span>Signal 01</div>
+      <h3 class="display-3" style="font-size:32px; margin-top:20px;">CAC rising while ROAS falls.</h3>
+      <p class="body" style="margin-top:16px;">iOS 14.5 broke your attribution. Three years of Meta spend, no clear read on what closed the deal.</p>
+    </div>
+    <div>
+      <div class="pill"><span class="dot"></span>Signal 02</div>
+      <h3 class="display-3" style="font-size:32px; margin-top:20px;">Agencies over-pitch, under-deliver.</h3>
+      <p class="body" style="margin-top:16px;">You've churned two agencies in 18 months. The retainer is buying activity, not outcomes.</p>
+    </div>
+    <div>
+      <div class="pill"><span class="dot"></span>Signal 03</div>
+      <h3 class="display-3" style="font-size:32px; margin-top:20px;">AI is moving faster than the team.</h3>
+      <p class="body" style="margin-top:16px;">AI Overviews, GEO, content velocity — your in-house team can't ship the playbook every quarter.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>BAZ · Marketing Agency</div>
+    <div>02 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 03 — THE PROMISE
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide dark">
+  <p class="eyebrow light">What you get</p>
+  <h2 class="display-1" style="max-width:1100px; line-height:0.95;">
+    <span class="gradient-text">$200K+</span> in net-new pipeline in 90 days.<br>
+    Or month four is on us.
+  </h2>
+  <div class="grid grid-4" style="margin-top:auto;">
+    <div class="stat"><div class="v">4×</div><div class="l">Pipeline coverage</div></div>
+    <div class="stat"><div class="v">60s</div><div class="l">Loop tick</div></div>
+    <div class="stat"><div class="v">100%</div><div class="l">Senior team</div></div>
+    <div class="stat"><div class="v">0</div><div class="l">Juniors on the work</div></div>
+  </div>
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>BAZ · Marketing Agency</div>
+    <div>03 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 04 — HOW IT WORKS
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide paper">
+  <p class="eyebrow">The loop</p>
+  <h2 class="display-2" style="max-width:1000px; margin-bottom:48px;">Five steps. One senior per engagement.</h2>
+  <div class="grid" style="gap:0; border-top:1px solid rgba(0,0,0,0.1);">
+    <div style="display:grid; grid-template-columns: 80px 1fr 1fr; gap:32px; padding:24px 0; border-bottom:1px solid rgba(0,0,0,0.1);">
+      <div style="font-family:'Fraunces',serif; font-size:40px; color:var(--accent); font-weight:500;">01</div>
+      <div><h3 class="display-3" style="font-size:24px;">Audit</h3><p class="body" style="margin-top:8px; opacity:0.7;">Funnel, attribution, channel mix, ICP, content velocity.</p></div>
+      <div class="small">Day 1–14</div>
+    </div>
+    <div style="display:grid; grid-template-columns: 80px 1fr 1fr; gap:32px; padding:24px 0; border-bottom:1px solid rgba(0,0,0,0.1);">
+      <div style="font-family:'Fraunces',serif; font-size:40px; color:var(--accent); font-weight:500;">02</div>
+      <div><h3 class="display-3" style="font-size:24px;">Plan</h3><p class="body" style="margin-top:8px; opacity:0.7;">90-day roadmap, owners, exit criteria, forecast.</p></div>
+      <div class="small">Day 15–21</div>
+    </div>
+    <div style="display:grid; grid-template-columns: 80px 1fr 1fr; gap:32px; padding:24px 0; border-bottom:1px solid rgba(0,0,0,0.1);">
+      <div style="font-family:'Fraunces',serif; font-size:40px; color:var(--accent); font-weight:500;">03</div>
+      <div><h3 class="display-3" style="font-size:24px;">Ship</h3><p class="body" style="margin-top:8px; opacity:0.7;">Creative, content, paid, SEO, lifecycle — every week.</p></div>
+      <div class="small">Day 22–75</div>
+    </div>
+    <div style="display:grid; grid-template-columns: 80px 1fr 1fr; gap:32px; padding:24px 0; border-bottom:1px solid rgba(0,0,0,0.1);">
+      <div style="font-family:'Fraunces',serif; font-size:40px; color:var(--accent); font-weight:500;">04</div>
+      <div><h3 class="display-3" style="font-size:24px;">Measure</h3><p class="body" style="margin-top:8px; opacity:0.7;">Server-side tracking, attribution model, exec dashboard.</p></div>
+      <div class="small">Day 30, 60, 90</div>
+    </div>
+    <div style="display:grid; grid-template-columns: 80px 1fr 1fr; gap:32px; padding:24px 0;">
+      <div style="font-family:'Fraunces',serif; font-size:40px; color:var(--accent); font-weight:500;">05</div>
+      <div><h3 class="display-3" style="font-size:24px;">Scale or refund</h3><p class="body" style="margin-top:8px; opacity:0.7;">If we miss the forecast, month four is free.</p></div>
+      <div class="small">Day 91</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>BAZ · Marketing Agency</div>
+    <div>04 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 05 — PROOF (CASE STUDIES)
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide paper">
+  <p class="eyebrow">What the work looks like</p>
+  <h2 class="display-2" style="margin-bottom:48px;">Three engagements, three outcomes.</h2>
+  <div class="grid grid-3">
+    <div style="border-top:2px solid var(--accent); padding-top:24px;">
+      <div class="pill" style="margin-bottom:24px;"><span class="dot"></span>ViralVista · DTC</div>
+      <div style="font-family:'Fraunces',serif; font-size:64px; font-weight:500; letter-spacing:-0.03em; line-height:1;">1.8 → 4.6</div>
+      <p class="body" style="margin-top:8px; opacity:0.7;">ROAS lifted in 90 days via creative matrix, server-side attribution, and a UGC engine.</p>
+    </div>
+    <div style="border-top:2px solid var(--accent); padding-top:24px;">
+      <div class="pill" style="margin-bottom:24px;"><span class="dot"></span>Northwind · FinTech</div>
+      <div style="font-family:'Fraunces',serif; font-size:64px; font-weight:500; letter-spacing:-0.03em; line-height:1;">0 → 480K</div>
+      <p class="body" style="margin-top:8px; opacity:0.7;">Monthly organic sessions in 14 months. Programmatic SEO engine + 8 industry placements.</p>
+    </div>
+    <div style="border-top:2px solid var(--accent); padding-top:24px;">
+      <div class="pill" style="margin-bottom:24px;"><span class="dot"></span>EngageEra · B2B SaaS</div>
+      <div style="font-family:'Fraunces',serif; font-size:64px; font-weight:500; letter-spacing:-0.03em; line-height:1;">+318%</div>
+      <p class="body" style="margin-top:8px; opacity:0.7;">New MRR in 6 months. PQL scoring, lifecycle in Customer.io, paid + content engine.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>BAZ · Marketing Agency</div>
+    <div>05 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 06 — THE SYSTEM (BAZ MARKETING HUB)
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide dark">
+  <p class="eyebrow light">The system</p>
+  <h2 class="display-2" style="max-width:1000px; line-height:1.0;">No human in the loop until it matters.</h2>
+  <p class="lede" style="margin-top:32px; max-width:900px;">Every visitor gets scored in real time, routed by intent, and sequenced by signal. The BAZ Marketing Hub runs the loop. We spend human time only on the leads that earn it.</p>
+  <div class="grid grid-3" style="margin-top:64px;">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;">Capture</div>
+      <p class="body">Demo runs, prompt content, time-on-page, repeat visits.</p>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;">Score</div>
+      <p class="body">Deterministic 0-100 from budget, intent, source, engagement. LLM layer refines ±20.</p>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;">Route</div>
+      <p class="body">Book call · Send proposal · 7-day nurture · 30-day newsletter · Archive.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>BAZ · Marketing Agency</div>
+    <div>06 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 07 — SERVICES
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide paper">
+  <p class="eyebrow">Eighteen services, one senior team</p>
+  <h2 class="display-2" style="max-width:900px; margin-bottom:48px;">Six pillars. Pick the lane or run the full stack.</h2>
+  <table class="table">
+    <thead><tr><th style="width:140px;">Pillar</th><th>What we ship</th><th style="width:140px;">First result</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Strategy</strong></td><td>ICP, positioning, message architecture, GTM plan</td><td class="num">Wk 1</td></tr>
+      <tr><td><strong>Brand &amp; Identity</strong></td><td>Naming, visual system, voice, identity kit</td><td class="num">Wk 2</td></tr>
+      <tr><td><strong>Performance</strong></td><td>Paid social, paid search, programmatic, CRO</td><td class="num">Day 7</td></tr>
+      <tr><td><strong>SEO &amp; Organic</strong></td><td>Technical SEO, content engine, programmatic SEO</td><td class="num">Mo 2</td></tr>
+      <tr><td><strong>Content &amp; Social</strong></td><td>Editorial calendar, video, influencer, community</td><td class="num">Wk 2</td></tr>
+      <tr><td><strong>Analytics &amp; AI</strong></td><td>Tracking, attribution, GEO/AEO, dashboards</td><td class="num">Wk 1</td></tr>
+    </tbody>
+  </table>
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>BAZ · Marketing Agency</div>
+    <div>07 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 08 — THE TEAM (PLACEHOLDER)
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide paper">
+  <p class="eyebrow">Senior team, no juniors</p>
+  <h2 class="display-2" style="max-width:900px; margin-bottom:48px;">The people who pitch ship the work.</h2>
+  <div class="grid grid-4">
+    <div>
+      <div class="photo-placeholder" style="aspect-ratio:1; border-radius:12px; margin-bottom:16px;">[Partner headshot]</div>
+      <h3 class="display-3" style="font-size:22px;">[Partner 01]</h3>
+      <p class="body small" style="margin-top:6px;">[Role] · [10y exp]</p>
+    </div>
+    <div>
+      <div class="photo-placeholder" style="aspect-ratio:1; border-radius:12px; margin-bottom:16px;">[Partner headshot]</div>
+      <h3 class="display-3" style="font-size:22px;">[Partner 02]</h3>
+      <p class="body small" style="margin-top:6px;">[Role] · [10y exp]</p>
+    </div>
+    <div>
+      <div class="photo-placeholder" style="aspect-ratio:1; border-radius:12px; margin-bottom:16px;">[Partner headshot]</div>
+      <h3 class="display-3" style="font-size:22px;">[Partner 03]</h3>
+      <p class="body small" style="margin-top:6px;">[Role] · [10y exp]</p>
+    </div>
+    <div>
+      <div class="photo-placeholder" style="aspect-ratio:1; border-radius:12px; margin-bottom:16px;">[Partner headshot]</div>
+      <h3 class="display-3" style="font-size:22px;">[Partner 04]</h3>
+      <p class="body small" style="margin-top:6px;">[Role] · [10y exp]</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>BAZ · Marketing Agency</div>
+    <div>08 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 09 — TESTIMONIAL
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide accent">
+  <p class="eyebrow light" style="color:rgba(255,255,255,0.7);">What clients say</p>
+  <div class="quote" style="max-width:1000px; margin-top:32px;">Before BAZ I was guessing. Now I know exactly which $1 of ad spend returns $8. The Cockpit morning ritual changed my week.</div>
+  <div class="attrib" style="color:rgba(255,255,255,0.8);">— Jane Park · CEO, Acme Co.</div>
+  <div class="footer">
+    <div class="brand"><span class="dot" style="background:white;"></span>BAZ · Marketing Agency</div>
+    <div>09 / 10</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SLIDE 10 — CTA
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="slide dark">
+  <p class="eyebrow light">Next step</p>
+  <h2 class="display-1" style="max-width:900px; line-height:0.95;">One 30-minute call. <br>Honest assessment of fit.</h2>
+  <p class="lede" style="margin-top:32px; max-width:760px;">We'll review your funnel, channels, and unit economics — and tell you honestly whether BAZ is the right partner. No deck, no pitch, no follow-up sequence unless you ask.</p>
+  <div style="margin-top:48px; display:flex; gap:16px; align-items:center;">
+    <a href="mailto:zerboutbrahimamir@gmail.com?subject=BAZ%20growth%20call" class="cta">Book a growth call →</a>
+    <a href="/" class="cta" style="background:transparent; border:1px solid var(--paper-300);">Visit baz.agency</a>
+  </div>
+  <div style="position:absolute; bottom:32px; left:96px; right:96px; display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--paper-300); opacity:0.6;">
+    <div>zerboutbrahimamir@gmail.com</div>
+    <div>10 / 10</div>
+  </div>
+</section>
+
+</body>
+</html>

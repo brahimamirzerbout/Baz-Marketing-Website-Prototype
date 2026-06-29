@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" font-family="Inter, system-ui, sans-serif">
+  <!-- Service Card Template — PILLAR: STRATEGY
+       Edit: change the eyebrow, headline, sub, and 3 proof points. The visual
+       system (color, type, layout) stays the same. -->
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="#faf7f2"/>
+
+  <!-- Top accent strip -->
+  <rect width="600" height="8" fill="#ff3b2f"/>
+
+  <!-- Eyebrow + pillar number -->
+  <g transform="translate(48, 64)">
+    <text font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#0e0e10" opacity="0.5">PILLAR 01 · OWNED</text>
+  </g>
+
+  <!-- Headline -->
+  <g transform="translate(48, 100)">
+    <text font-family="Fraunces, Georgia, serif" font-size="56" font-weight="500" fill="#0e0e10" letter-spacing="-2">Strategy &amp;</text>
+    <text font-family="Fraunces, Georgia, serif" font-size="56" font-weight="500" fill="#0e0e10" letter-spacing="-2" y="60">Growth Consulting</text>
+  </g>
+
+  <!-- Subhead -->
+  <g transform="translate(48, 250)">
+    <text font-family="Inter, sans-serif" font-size="16" fill="#1a1a1a" opacity="0.7">ICP, positioning, message architecture, and a 90-day GTM plan with owners and exit criteria.</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="48" y1="340" x2="552" y2="340" stroke="#0e0e10" stroke-opacity="0.1"/>
+
+  <!-- Proof: 3 KPIs -->
+  <g transform="translate(48, 380)">
+    <text font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#0e0e10" opacity="0.5">PROOF</text>
+  </g>
+
+  <g transform="translate(48, 410)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#0e0e10" letter-spacing="-1">$200K+</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#0e0e10" opacity="0.6" y="22">Pipeline in 90 days, written forecast</text>
+  </g>
+
+  <g transform="translate(48, 510)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#0e0e10" letter-spacing="-1">4×</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#0e0e10" opacity="0.6" y="22">Pipeline coverage on every engagement</text>
+  </g>
+
+  <g transform="translate(48, 610)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#0e0e10" letter-spacing="-1">14d</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#0e0e10" opacity="0.6" y="22">From kickoff to first shipped deliverable</text>
+  </g>
+
+  <!-- Footer / BAZ mark -->
+  <g transform="translate(48, 740)">
+    <rect width="32" height="32" rx="7" fill="#ff3b2f"/>
+    <text x="16" y="23" font-family="Fraunces, serif" font-size="22" font-weight="600" fill="#faf7f2" text-anchor="middle">B</text>
+    <text x="44" y="22" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#0e0e10" letter-spacing="2">BAZ · STRATEGY</text>
+  </g>
+</svg>

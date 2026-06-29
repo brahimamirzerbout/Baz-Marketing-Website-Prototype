@@ -110,7 +110,7 @@ export function FeedbackForm({ email, name }: { email: string; name: string }) {
         <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500">Anything specific? (optional)</span>
         <textarea value={comment} onChange={(e) => setComment(e.target.value)} rows={4}
           placeholder="A specific win, a specific frustration, or a request."
-          className="mt-1 w-full px-3 py-3 rounded-xl bg-white border border-ink-200 text-sm focus:outline-none focus:border-accent" />
+          className="mt-1 w-full px-3 py-3 rounded-xl bg-paper border border-ink-200 text-sm focus:outline-none focus:border-accent" />
       </label>
 
       <label className="flex items-start gap-3 cursor-pointer">
@@ -136,7 +136,7 @@ function Field({ label, value, onChange }: { label: string; value: string; onCha
     <label className="block">
       <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500">{label}</span>
       <input value={value} onChange={(e) => onChange(e.target.value)}
-        className="mt-1 w-full px-3 h-11 rounded-xl bg-white border border-ink-200 text-sm focus:outline-none focus:border-accent" />
+        className="mt-1 w-full px-3 h-11 rounded-xl bg-paper border border-ink-200 text-sm focus:outline-none focus:border-accent" />
     </label>
   );
 }

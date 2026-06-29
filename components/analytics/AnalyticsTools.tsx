@@ -113,7 +113,7 @@ function AttributionPanel() {
                 aria-pressed={model === m.id}
                 className={cn(
                   'w-full text-left px-3 py-2.5 rounded-xl border transition-colors',
-                  model === m.id ? 'border-ink-900 bg-paper-50 shadow-soft' : 'border-ink-100 bg-white hover:border-ink-300'
+                  model === m.id ? 'border-ink-900 bg-paper-50 shadow-soft' : 'border-ink-100 bg-paper hover:border-ink-300'
                 )}
               >
                 <span className="block text-sm font-medium">{m.label}</span>
@@ -129,7 +129,7 @@ function AttributionPanel() {
               type="number"
               value={journeySeed}
               onChange={(e) => setJourneySeed(Number(e.target.value) || 0)}
-              className="w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-ink-200 bg-paper px-3 py-2 text-sm"
             />
             <span className="block text-[11px] text-ink-400 mt-1">Change to draw a new dataset of 120 journeys.</span>
           </label>
@@ -225,7 +225,7 @@ function AdStockPanel() {
 
         <label className="block mt-5">
           <span className="block text-sm font-medium mb-1.5">Sample seed</span>
-          <input type="number" value={seed} onChange={(e) => setSeed(Number(e.target.value) || 0)} className="w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm" />
+          <input type="number" value={seed} onChange={(e) => setSeed(Number(e.target.value) || 0)} className="w-full rounded-lg border border-ink-200 bg-paper px-3 py-2 text-sm" />
         </label>
 
         <Magnetic strength={0.25}>
@@ -358,7 +358,7 @@ function RfmPanel() {
           onChange={(e) => setCsvText(e.target.value)}
           rows={6}
           placeholder={'customerId,lastPurchase,frequency,monetary\nc_001,2026-05-12,4,820\nc_002,2026-01-03,1,40'}
-          className="w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-xs font-mono focus:outline-none focus:border-accent"
+          className="w-full rounded-lg border border-ink-200 bg-paper px-3 py-2 text-xs font-mono focus:outline-none focus:border-accent"
         />
         <div className="flex gap-2 mt-3">
           <Button variant="outline" size="sm" className="flex-1" onClick={() => { setRecords(sampleRfm()); setCsvText(''); setCsvErr(null); }} trackAs="analytics_rfm_sample">
@@ -463,15 +463,15 @@ function BudgetPanel() {
               <tr key={c.channel} className="border-b border-ink-100 last:border-b-0">
                 <td className="py-2.5 font-medium">{c.channel}</td>
                 <td className="py-2.5 text-right">
-                  <input type="number" value={c.spend} onChange={(e) => setChannel(i, { spend: Number(e.target.value) || 0 })} className="w-24 text-right rounded border border-ink-200 bg-white px-2 py-1 text-sm font-mono" />
+                  <input type="number" value={c.spend} onChange={(e) => setChannel(i, { spend: Number(e.target.value) || 0 })} className="w-24 text-right rounded border border-ink-200 bg-paper px-2 py-1 text-sm font-mono" />
                 </td>
                 <td className="py-2.5 text-right font-mono">{formatNumber(c.conversions)}</td>
                 <td className="py-2.5 text-right font-mono">{liveCac(c) > 0 ? formatUsd(liveCac(c)) : '—'}</td>
                 <td className="py-2.5 text-right">
-                  <input type="number" value={c.halfSaturation} onChange={(e) => setChannel(i, { halfSaturation: Number(e.target.value) || 1 })} className="w-24 text-right rounded border border-ink-200 bg-white px-2 py-1 text-sm font-mono" />
+                  <input type="number" value={c.halfSaturation} onChange={(e) => setChannel(i, { halfSaturation: Number(e.target.value) || 1 })} className="w-24 text-right rounded border border-ink-200 bg-paper px-2 py-1 text-sm font-mono" />
                 </td>
                 <td className="py-2.5 text-right">
-                  <input type="number" value={c.maxConversions} onChange={(e) => setChannel(i, { maxConversions: Number(e.target.value) || 1 })} className="w-24 text-right rounded border border-ink-200 bg-white px-2 py-1 text-sm font-mono" />
+                  <input type="number" value={c.maxConversions} onChange={(e) => setChannel(i, { maxConversions: Number(e.target.value) || 1 })} className="w-24 text-right rounded border border-ink-200 bg-paper px-2 py-1 text-sm font-mono" />
                 </td>
               </tr>
             ))}
@@ -485,7 +485,7 @@ function BudgetPanel() {
               type="number"
               value={totalBudget}
               onChange={(e) => setTotalBudget(Number(e.target.value) || 0)}
-              className="w-32 rounded-lg border border-ink-200 bg-white px-3 py-1.5 text-sm font-mono"
+              className="w-32 rounded-lg border border-ink-200 bg-paper px-3 py-1.5 text-sm font-mono"
             />
           </label>
           <span className="text-xs text-ink-500 font-mono">current total: {formatUsd(channels.reduce((s, c) => s + c.spend, 0))} · recommended: {formatUsd(totalRecommended)}</span>

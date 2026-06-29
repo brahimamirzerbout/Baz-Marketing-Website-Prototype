@@ -1,64 +1,124 @@
 'use client';
 
 import { useState, useTransition } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import { submitLead } from '@/lib/actions';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
 
-type FieldErrors = Record<string, string>;
+const contactSchema = z.object({
+  name: z
+    .string()
+    .min(2, 'Please enter your name (at least 2 characters).')
+    .max(120, 'Name is too long.'),
+  email: z
+    .string()
+    .min(1, 'We need an email to reply to.')
+    .email('That doesn\u2019t look like a valid email.'),
+  company: z
+    .string()
+    .max(200, 'Company name is too long.')
+    .optional()
+    .or(z.literal('')),
+  website: z
+    .string()
+    .max(500, 'Website URL is too long.')
+    .optional()
+    .or(z.literal(''))
+    .refine(
+      (v) => !v || /^https?:\/\/.+\..+/.test(v),
+      'Website must be a valid URL (https://example.com).'
+    ),
+  budget: z.enum(['<10k', '10-25k', '25-50k', '50-100k', '100k+', 'not-sure']).optional(),
+  message: z
+    .string()
+    .min(10, 'Tell us a little more (at least 10 characters).')
+    .max(4000, 'Message is too long.'),
+  source: z.string().optional(),
+  service: z.string().optional(),
+  hp: z.string().optional(),
+});
+
+type ContactFields = z.infer<typeof contactSchema>;
 
 const budgets = [
   { v: '<10k', l: 'Under $10K / mo' },
-  { v: '10-25k', l: '$10–25K / mo' },
-  { v: '25-50k', l: '$25–50K / mo' },
-  { v: '50-100k', l: '$50–100K / mo' },
+  { v: '10-25k', l: '$10\u201325K / mo' },
+  { v: '25-50k', l: '$25\u201350K / mo' },
+  { v: '50-100k', l: '$50\u2013100K / mo' },
   { v: '100k+', l: '$100K+ / mo' },
   { v: 'not-sure', l: 'Not sure yet' },
-];
+] as const;
+
+type BudgetValue = (typeof budgets)[number]['v'];
 
 export function ContactForm({ source = 'contact', service }: { source?: string; service?: string }) {
   const [pending, startTransition] = useTransition();
-  const [errors, setErrors] = useState<FieldErrors>({});
-  const [success, setSuccess] = useState<string | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [successId, setSuccessId] = useState<string | null>(null);
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setErrors({});
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+    setError,
+    watch,
+  } = useForm<ContactFields>({
+    resolver: zodResolver(contactSchema),
+    mode: 'onBlur',
+    defaultValues: {
+      name: '',
+      email: '',
+      company: '',
+      website: '',
+      budget: undefined,
+      message: '',
+      source,
+      service: service || '',
+      hp: '',
+    },
+  });
+
+  const budgetValue = watch('budget');
+
+  const onSubmit = handleSubmit(async (values) => {
     setServerError(null);
-    setSuccess(null);
-
-    const fd = new FormData(e.currentTarget);
-    const raw = Object.fromEntries(fd.entries());
-
     track('form_submit', { source, service: service ?? undefined });
 
-    startTransition(async () => {
-      const result = await submitLead(raw);
-      if (result.ok) {
-        setSuccess(result.id);
-        track('form_submit_success', { source, service: service ?? undefined, leadId: result.id });
-        (e.target as HTMLFormElement).reset();
-      } else {
-        setErrors(result.fieldErrors || {});
-        setServerError(result.error);
-        track('form_submit_error', { source, service: service ?? undefined, error: result.error });
-      }
-    });
-  }
+    const result = await submitLead(values);
 
-  if (success) {
+    if (result.ok) {
+      setSuccessId(result.id);
+      track('form_submit_success', { source, service: service ?? undefined, leadId: result.id });
+      reset({ ...values, message: '', hp: '' });
+      return;
+    }
+
+    track('form_submit_error', { source, service: service ?? undefined, error: result.error });
+    if (result.fieldErrors) {
+      for (const [field, message] of Object.entries(result.fieldErrors)) {
+        setError(field as keyof ContactFields, { type: 'server', message });
+      }
+    } else if (result.error !== 'validation_failed') {
+      setServerError(result.error);
+    }
+  });
+
+  if (successId) {
     return (
       <div className="bg-paper dark:bg-paper-50 rounded-2xl border border-ink-100 dark:border-paper-200 p-8 md:p-10 text-center">
-        <div className="inline-grid place-items-center w-12 h-12 rounded-full bg-accent text-white text-2xl mb-5">✓</div>
+        <div className="inline-grid place-items-center w-12 h-12 rounded-full bg-accent text-white text-2xl mb-5">\u2713</div>
         <h3 className="font-display text-3xl md:text-4xl font-medium tracking-[-0.02em]">Got it.</h3>
         <p className="mt-3 text-ink-600 max-w-md mx-auto">
           We&apos;ll be in touch within one business day. If it&apos;s urgent, write us at{' '}
           <a href="mailto:zerboutbrahimamir@gmail.com" className="underline">zerboutbrahimamir@gmail.com</a>.
         </p>
         <button
-          onClick={() => setSuccess(null)}
+          onClick={() => setSuccessId(null)}
           className="mt-6 text-sm text-ink-500 hover:text-ink-900 underline"
         >
           Submit another
@@ -67,49 +127,127 @@ export function ContactForm({ source = 'contact', service }: { source?: string; 
     );
   }
 
+  const submitting = pending || isSubmitting;
+
   return (
-    <form onSubmit={onSubmit} className="bg-paper dark:bg-paper-50 rounded-2xl border border-ink-100 dark:border-paper-200 p-6 md:p-8 space-y-5" noValidate>
-      <input type="hidden" name="source" value={source} />
-      {service && <input type="hidden" name="service" value={service} />}
+    <form
+      onSubmit={onSubmit}
+      className="bg-paper dark:bg-paper-50 rounded-2xl border border-ink-100 dark:border-paper-200 p-6 md:p-8 space-y-5"
+      noValidate
+      aria-busy={submitting}
+    >
+      <input type="hidden" {...register('source')} value={source} />
+      {service && <input type="hidden" {...register('service')} value={service} />}
       {/* Honeypot — hidden from users, catches naive bots */}
       <div aria-hidden className="absolute -left-[9999px]" tabIndex={-1}>
         <label htmlFor="hp">Leave this empty</label>
-        <input id="hp" name="hp" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id="hp"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register('hp')}
+        />
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Full name" name="name" required error={errors.name}>
-          <input id="name" name="name" required minLength={2} autoComplete="name" className={inputCls(errors.name)} placeholder="Alex Rivera" />
+        <Field label="Full name" htmlFor="name" required error={errors.name?.message}>
+          <input
+            id="name"
+            type="text"
+            autoComplete="name"
+            aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? 'name-error' : undefined}
+            placeholder="Alex Rivera"
+            className={inputCls(!!errors.name)}
+            {...register('name')}
+          />
         </Field>
-        <Field label="Work email" name="email" required error={errors.email}>
-          <input id="email" name="email" type="email" required autoComplete="email" className={inputCls(errors.email)} placeholder="alex@company.com" />
+        <Field label="Work email" htmlFor="email" required error={errors.email?.message}>
+          <input
+            id="email"
+            type="email"
+            autoComplete="email"
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'email-error' : undefined}
+            placeholder="alex@company.com"
+            className={inputCls(!!errors.email)}
+            {...register('email')}
+          />
         </Field>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Company" name="company" error={errors.company}>
-          <input id="company" name="company" autoComplete="organization" className={inputCls(errors.company)} placeholder="Acme Inc." />
+        <Field label="Company" htmlFor="company" error={errors.company?.message}>
+          <input
+            id="company"
+            type="text"
+            autoComplete="organization"
+            aria-invalid={!!errors.company}
+            placeholder="Acme Inc."
+            className={inputCls(!!errors.company)}
+            {...register('company')}
+          />
         </Field>
-        <Field label="Website" name="website" error={errors.website}>
-          <input id="website" name="website" type="url" autoComplete="url" className={inputCls(errors.website)} placeholder="https://acme.com" />
+        <Field label="Website" htmlFor="website" error={errors.website?.message}>
+          <input
+            id="website"
+            type="url"
+            autoComplete="url"
+            aria-invalid={!!errors.website}
+            placeholder="https://acme.com"
+            className={inputCls(!!errors.website)}
+            {...register('website')}
+          />
         </Field>
       </div>
 
-      <Field label="Monthly budget" name="budget" error={errors.budget}>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {budgets.map((b) => (
-            <label key={b.v} className="cursor-pointer">
-              <input type="radio" name="budget" value={b.v} className="peer sr-only" />
-              <span className="block px-3 py-2.5 rounded-xl border border-ink-200 dark:border-paper-300 text-sm text-center bg-white dark:bg-paper-100 hover:border-ink-900 dark:hover:border-paper-200 peer-checked:border-accent peer-checked:bg-accent-soft peer-checked:text-accent-700 transition-all">
-                {b.l}
-              </span>
-            </label>
-          ))}
+      <Field label="Monthly budget" htmlFor="budget" error={errors.budget?.message}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-labelledby="budget-label">
+          {budgets.map((b) => {
+            const inputId = `budget-${b.v}`;
+            return (
+              <label key={b.v} htmlFor={inputId} className="cursor-pointer">
+                <input
+                  id={inputId}
+                  type="radio"
+                  value={b.v}
+                  className="peer sr-only"
+                  checked={budgetValue === b.v}
+                  {...register('budget')}
+                  onChange={() => {
+                    register('budget').onChange({ target: { name: 'budget', value: b.v } } as any);
+                  }}
+                />
+                <span
+                  className={cn(
+                    'block px-3 py-2.5 rounded-xl border text-sm text-center transition-all',
+                    'bg-paper dark:bg-paper-100 border-ink-200 dark:border-paper-300',
+                    'text-ink-700 dark:text-ink-700',
+                    'hover:border-ink-900 dark:hover:border-paper-200',
+                    budgetValue === b.v
+                      ? 'border-accent bg-accent-soft text-accent-700'
+                      : ''
+                  )}
+                >
+                  {b.l}
+                </span>
+              </label>
+            );
+          })}
         </div>
       </Field>
 
-      <Field label="What are you trying to achieve?" name="message" required error={errors.message}>
-        <textarea id="message" name="message" required rows={5} className={cn(inputCls(errors.message), 'min-h-[120px] resize-y')} placeholder="A few sentences about your current growth, what you've tried, and what you'd like to change." />
+      <Field label="What are you trying to achieve?" htmlFor="message" required error={errors.message?.message}>
+        <textarea
+          id="message"
+          rows={5}
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'message-error' : undefined}
+          placeholder="A few sentences about your current growth, what you've tried, and what you'd like to change."
+          className={cn(inputCls(!!errors.message), 'min-h-[120px] resize-y')}
+          {...register('message')}
+        />
       </Field>
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
@@ -117,13 +255,23 @@ export function ContactForm({ source = 'contact', service }: { source?: string; 
           By submitting, you agree to our <a href="/privacy" className="underline">Privacy Policy</a>.
           We respond within one business day. No spam, ever.
         </p>
-        <Button type="submit" variant="primary" size="lg" disabled={pending} trackAs="contact_submit">
-          {pending ? 'Sending…' : 'Send brief'}
+        <Button
+          type="submit"
+          variant="primary"
+          size="lg"
+          disabled={submitting}
+          trackAs="contact_submit"
+          aria-label={submitting ? 'Sending your brief' : 'Send brief'}
+        >
+          {submitting ? 'Sending\u2026' : 'Send brief'}
         </Button>
       </div>
 
       {serverError && serverError !== 'validation_failed' && (
-        <p className="text-sm text-accent-700 bg-accent-soft border border-accent/20 rounded-xl px-4 py-3">
+        <p
+          role="alert"
+          className="text-sm text-accent-700 bg-accent-soft border border-accent/20 rounded-xl px-4 py-3"
+        >
           Something went wrong sending your brief. Please email{' '}
           <a href="mailto:zerboutbrahimamir@gmail.com" className="underline">zerboutbrahimamir@gmail.com</a> directly.
         </p>
@@ -134,32 +282,39 @@ export function ContactForm({ source = 'contact', service }: { source?: string; 
 
 function Field({
   label,
-  name,
+  htmlFor,
   required,
   error,
   children,
 }: {
   label: string;
-  name: string;
+  htmlFor: string;
   required?: boolean;
   error?: string;
   children: React.ReactNode;
 }) {
+  const errorId = `${htmlFor}-error`;
   return (
-    <label htmlFor={name} className="block">
-      <span className="block text-sm font-medium text-ink-900 mb-1.5">
+    <label htmlFor={htmlFor} className="block">
+      <span id={`${htmlFor}-label`} className="block text-sm font-medium text-ink-900 mb-1.5">
         {label} {required && <span className="text-accent" aria-hidden>*</span>}
       </span>
       {children}
-      {error && <span className="block mt-1.5 text-xs text-accent-700">{error}</span>}
+      {error && (
+        <span id={errorId} role="alert" className="block mt-1.5 text-xs text-accent-700">
+          {error}
+        </span>
+      )}
     </label>
   );
 }
 
-function inputCls(error?: string) {
+function inputCls(hasError?: boolean) {
   return cn(
-    'block w-full rounded-xl bg-white dark:bg-paper-100 border px-4 h-12 text-[15px] text-ink-900 dark:text-paper placeholder:text-ink-300 dark:placeholder:text-ink-500 transition-colors',
+    'block w-full rounded-xl bg-paper dark:bg-ink-950 border border-ink-200 dark:border-paper-300 px-4 h-12 text-[15px] text-ink-900 dark:text-paper placeholder:text-ink-300 dark:placeholder:text-ink-500 transition-colors',
     'focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent',
-    error ? 'border-accent' : 'border-ink-200 dark:border-paper-300 hover:border-ink-300 dark:hover:border-paper-200'
+    hasError
+      ? 'border-accent'
+      : 'border-ink-200 dark:border-paper-300 hover:border-ink-300 dark:hover:border-paper-200'
   );
 }

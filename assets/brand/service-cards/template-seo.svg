@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" font-family="Inter, system-ui, sans-serif">
+  <!-- Service Card Template — PILLAR: SEO
+       Accent variant. Edit eyebrow, headline, sub, 3 proof points. -->
+
+  <rect width="600" height="800" fill="#ff3b2f"/>
+
+  <rect width="600" height="8" fill="#0e0e10"/>
+
+  <g transform="translate(48, 64)">
+    <text font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#faf7f2" opacity="0.7">PILLAR 03 · EARNED</text>
+  </g>
+
+  <g transform="translate(48, 100)">
+    <text font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#faf7f2" letter-spacing="-3">SEO &amp;</text>
+    <text font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#faf7f2" letter-spacing="-3" y="86">Organic.</text>
+  </g>
+
+  <g transform="translate(48, 320)">
+    <text font-family="Inter, sans-serif" font-size="16" fill="#faf7f2" opacity="0.9">Technical SEO, content engine, programmatic pages, AI Overview optimization. We make organic the largest channel on your P&amp;L.</text>
+  </g>
+
+  <line x1="48" y1="420" x2="552" y2="420" stroke="#faf7f2" stroke-opacity="0.3"/>
+
+  <g transform="translate(48, 460)">
+    <text font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#faf7f2" opacity="0.7">PROOF</text>
+  </g>
+
+  <g transform="translate(48, 490)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#faf7f2" letter-spacing="-1">0 → 480K</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#faf7f2" opacity="0.85" y="22">Monthly organic sessions in 14 months (Northwind)</text>
+  </g>
+
+  <g transform="translate(48, 590)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#faf7f2" letter-spacing="-1">340+</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#faf7f2" opacity="0.85" y="22">Top-3 SERP rankings on category-defining terms</text>
+  </g>
+
+  <g transform="translate(48, 690)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#faf7f2" letter-spacing="-1">3.2×</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#faf7f2" opacity="0.85" y="22">Inbound vs outbound pipeline ratio</text>
+  </g>
+
+  <g transform="translate(48, 740)">
+    <rect width="32" height="32" rx="7" fill="#0e0e10"/>
+    <text x="16" y="23" font-family="Fraunces, serif" font-size="22" font-weight="600" fill="#faf7f2" text-anchor="middle">B</text>
+    <text x="44" y="22" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#faf7f2" letter-spacing="2">BAZ · SEO</text>
+  </g>
+</svg>

@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import { cookies } from 'next/headers';
 import localFont from 'next/font/local';
 import { site } from '@/lib/site';
 import { organizationLd, websiteLd, jsonLd } from '@/lib/seo';
@@ -9,6 +8,8 @@ import { CookieBanner } from '@/components/layout/CookieBanner';
 import { Analytics } from '@/components/analytics/Analytics';
 import { ScrollReveal } from '@/components/marketing/ScrollReveal';
 import { Cursor } from '@/components/ui/Cursor';
+import { ThemeProvider } from '@/components/ui/ThemeProvider';
+import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import './globals.css';
 
 const inter = localFont({
@@ -49,7 +50,7 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} — ${site.tagline}`, template: `%s · ${site.shortName}` },
+  title: { default: `${site.name} — ${site.tagline}`, template: `%s` },
   description: site.description,
   applicationName: site.name,
   authors: [{ name: site.name, url: site.url }],
@@ -84,20 +85,17 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // Read the theme cookie set by the ThemeToggle so the SSR'd <html> already
-  // carries the right data-theme. This prevents the light-flash on first paint
-  // when a returning user has dark mode enabled.
-  const themeCookie = (await cookies()).get('baz:theme')?.value;
-  const initialTheme = themeCookie === 'dark' ? 'dark' : 'light';
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // next-themes handles the cookie + localStorage + data-theme attribute
+  // synchronously via its own inline script. No server-side cookie read here.
   return (
-    <html lang="en" data-theme={initialTheme} className={`${inter.variable} ${fraunces.variable} ${mono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${fraunces.variable} ${mono.variable}`}>
       <head>
         {/*
-          Inline script: read the theme from localStorage BEFORE the body paints.
-          This is the only way to avoid a flash when the user toggles dark mode
-          in the client. Runs synchronously, before any React hydration.
+          Belt-and-braces pre-paint script: next-themes also injects its own
+          equivalent script, but we keep this one so any non-Chromium browser
+          or a stale cache still renders the right <html data-theme="…"> before
+          React hydrates (avoids flash of wrong theme).
         */}
         <script
           dangerouslySetInnerHTML={{
@@ -106,14 +104,24 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
       </head>
       <body className="bg-paper text-ink-900 antialiased">
-        <a href="#main" className="skip">Skip to content</a>
-        <Cursor />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <CookieBanner />
-        <ScrollReveal />
-        <Analytics />
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="light"
+          enableSystem={false}
+          themes={["light", "dark"]}
+          storageKey="baz:theme"
+          disableTransitionOnChange
+        >
+          <a href="#main" className="skip">Skip to content</a>
+          <Cursor />
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <CookieBanner />
+          <ScrollReveal />
+          <Analytics />
+          <SmoothScroll />
+        </ThemeProvider>
 
         <script
           type="application/ld+json"

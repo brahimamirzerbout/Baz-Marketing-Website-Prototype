@@ -183,7 +183,7 @@ export function LiveAgentDemo() {
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               rows={3}
-              className="w-full rounded-xl bg-white border border-ink-200 dark:border-paper-300 px-4 py-3 text-[15px] focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 resize-y"
+              className="w-full rounded-xl bg-paper border border-ink-200 dark:border-paper-300 px-4 py-3 text-[15px] focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 resize-y"
             />
           </label>
 
@@ -201,7 +201,7 @@ export function LiveAgentDemo() {
               >
                 {busy ? (
                   <>
-                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse-dot" />
+                    <span className="w-1.5 h-1.5 bg-paper rounded-full animate-pulse-dot" />
                     Running…
                   </>
                 ) : (
@@ -247,7 +247,7 @@ export function LiveAgentDemo() {
                     key={i}
                     type="button"
                     onClick={() => setResult(h)}
-                    className="text-xs px-3 py-1.5 rounded-full bg-white border border-ink-200 dark:border-paper-300 hover:border-ink-900 dark:hover:border-paper-50 transition-colors"
+                    className="text-xs px-3 py-1.5 rounded-full bg-paper border border-ink-200 dark:border-paper-300 hover:border-ink-900 dark:hover:border-paper-50 transition-colors"
                   >
                     {h.agent} · {h.ms}ms
                   </button>
@@ -273,14 +273,14 @@ export function LiveAgentDemo() {
                       placeholder="Your name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="rounded-lg bg-white border border-ink-200 dark:border-paper-300 px-3 h-10 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
+                      className="rounded-lg bg-paper border border-ink-200 dark:border-paper-300 px-3 h-10 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
                     />
                     <input
                       type="email"
                       placeholder="you@company.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="rounded-lg bg-white border border-ink-200 dark:border-paper-300 px-3 h-10 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 sm:col-span-2"
+                      className="rounded-lg bg-paper border border-ink-200 dark:border-paper-300 px-3 h-10 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 sm:col-span-2"
                     />
                   </div>
                   <input
@@ -288,7 +288,7 @@ export function LiveAgentDemo() {
                     placeholder="Company (optional)"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    className="w-full rounded-lg bg-white border border-ink-200 dark:border-paper-300 px-3 h-10 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 mb-3"
+                    className="w-full rounded-lg bg-paper border border-ink-200 dark:border-paper-300 px-3 h-10 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 mb-3"
                   />
                   <button
                     type="button"

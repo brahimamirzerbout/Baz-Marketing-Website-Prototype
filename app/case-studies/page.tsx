@@ -1,15 +1,19 @@
 import { Section, Eyebrow, SectionHeading, SectionLede } from '@/components/ui/Section';
 import { Breadcrumb } from '@/components/sections/Breadcrumb';
-import { CaseStudyCard } from '@/components/marketing/CaseStudyCard';
+import { StickyCta } from '@/components/sections/StickyCta';
 import { CtaBanner } from '@/components/marketing/CtaBanner';
-import { caseStudies } from '@/content/case-studies';
 import { buildMetadata } from '@/lib/seo';
+import { CaseStudiesBrowser } from './CaseStudiesBrowser';
 
-export const metadata = buildMetadata({
-  title: 'Case studies',
-  description: 'Senior-team case studies across DTC, B2B SaaS, FinTech, hospitality, and AI tools. Real metrics. Named clients. Honest outcomes.',
-  path: '/case-studies',
-});
+export async function generateMetadata() {
+  return buildMetadata({
+    title: 'BAZ case studies',
+    description:
+      'BAZ case studies across DTC, B2B SaaS, FinTech, hospitality, marketplaces, AI tools, and media. Real metrics. Named clients. Honest outcomes. Filter by your industry.',
+    path: '/case-studies',
+    image: '/case-studies-og?title=BAZ%20case%20studies&subtitle=Work%20that%20moved%20the%20P%26L.',
+  });
+}
 
 export default function CaseStudiesIndexPage() {
   return (
@@ -26,17 +30,11 @@ export default function CaseStudiesIndexPage() {
             is named, and where it&apos;s not yet public, it&apos;s labeled.
           </SectionLede>
         </div>
-      </Section>
-
-      <Section tone="white" size="lg">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {caseStudies.map((c, i) => (
-            <CaseStudyCard key={c.slug} caseStudy={c} index={i} />
-          ))}
-        </div>
+        <CaseStudiesBrowser />
       </Section>
 
       <CtaBanner />
+      <StickyCta />
     </>
   );
 }

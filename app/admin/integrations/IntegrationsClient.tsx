@@ -157,7 +157,7 @@ export function IntegrationsClient() {
                 </div>
                 <span
                   aria-hidden
-                  className="text-ink-300 group-hover:text-accent group-hover:translate-x-0.5 transition-all shrink-0"
+                  className="text-ink-300 dark:text-ink-400 group-hover:text-accent group-hover:translate-x-0.5 transition-all shrink-0"
                 >
                   →
                 </span>

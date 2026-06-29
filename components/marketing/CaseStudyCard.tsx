@@ -10,7 +10,7 @@ export function CaseStudyCard({ caseStudy, index = 0 }: { caseStudy: CaseStudy; 
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <div className="aspect-[5/3] relative grid place-items-center" style={{ background: caseStudy.cover }}>
-        <span className="font-display text-paper text-7xl md:text-8xl font-bold tracking-[-0.04em] opacity-90">
+        <span className="font-display text-paper text-7xl md:text-8xl font-bold tracking-[-0.04em] opacity-90 dark:text-paper mix-blend-difference">
           {caseStudy.client.charAt(0)}
         </span>
         <span className="absolute top-4 left-4 flex gap-2">
@@ -34,7 +34,7 @@ export function CaseStudyCard({ caseStudy, index = 0 }: { caseStudy: CaseStudy; 
         </div>
         <div className="mt-6 pt-4 border-t border-ink-100 flex items-center justify-between text-sm">
           <span className="text-ink-500">{caseStudy.services.slice(0, 2).join(' · ')}</span>
-          <span aria-hidden className="text-ink-300 group-hover:text-accent group-hover:translate-x-0.5 transition-all">Read →</span>
+          <span aria-hidden className="text-ink-300 dark:text-ink-400 group-hover:text-accent group-hover:translate-x-0.5 transition-all">Read →</span>
         </div>
       </div>
     </Link>

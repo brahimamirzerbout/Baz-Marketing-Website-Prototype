@@ -12,8 +12,8 @@ export function Footer() {
   return (
     <footer className="mt-24" style={{background:"#0e0e10",color:"#faf7f2"}}>
       <div className="container mx-auto py-16 md:py-20">
-        <div className="grid gap-12 md:gap-8 md:grid-cols-12">
-          <div className="md:col-span-4">
+        <div className="grid gap-12 md:gap-8 md:grid-cols-5">
+          <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 group" aria-label={site.name}>
               <span className="grid place-items-center w-10 h-10 rounded-xl bg-accent text-white font-display font-bold text-xl">B</span>
               <span className="font-display font-bold text-2xl tracking-[-0.02em]">BAZ</span>
@@ -36,12 +36,18 @@ export function Footer() {
             <h4 className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/60 mb-4">Company</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/about" className="hover:text-white">About</Link></li>
+              <li><Link href="/our-story" className="hover:text-white">Our story</Link></li>
+              <li><Link href="/methodology" className="hover:text-white">Methodology</Link></li>
               <li><Link href="/case-studies" className="hover:text-white">Case studies</Link></li>
               <li><Link href="/industries" className="hover:text-white">Industries</Link></li>
               <li><Link href="/insights" className="hover:text-white">Insights</Link></li>
+              <li><Link href="/marketing-hub" className="hover:text-white">Marketing Hub</Link></li>
+              <li><Link href="/vs-others" className="hover:text-white">vs other agencies</Link></li>
+              <li><Link href="/stance" className="hover:text-white">Our stance</Link></li>
               <li><Link href="/brandbook" className="hover:text-white">Brandbook</Link></li>
               <li><Link href="/loop" className="hover:text-white">The Loop</Link></li>
               <li><Link href="/pulse" className="hover:text-white">Live Pulse</Link></li>
+              <li><Link href="/portal/client" className="hover:text-white">Client portal</Link></li>
               <li><Link href="/become-an-operator" className="hover:text-white">Become an Operator</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             </ul>
@@ -62,6 +68,16 @@ export function Footer() {
               {servicesByGroup.Growth.map((s) => (
                 <li key={s.slug}><Link href={`/services/${s.slug}`} className="hover:text-white">{s.name}</Link></li>
               ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/60 mb-4">Operators</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/become-an-operator" className="hover:text-white">Become an Operator</Link></li>
+              <li><Link href="/marketing-hub/showcase" className="hover:text-white">Products catalog →</Link></li>
+              <li><Link href="/loop" className="hover:text-white">The Loop</Link></li>
+              <li><Link href="/pulse" className="hover:text-white">Live Pulse</Link></li>
             </ul>
           </div>
 

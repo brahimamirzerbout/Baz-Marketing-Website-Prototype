@@ -55,7 +55,7 @@ export function InsightsPreview() {
               <p className="mt-3 text-sm text-ink-600 line-clamp-3">{p.excerpt}</p>
               <div className="mt-auto pt-6 flex items-center justify-between text-sm">
                 <span className="text-ink-500">{p.author}</span>
-                <span className="text-ink-300 group-hover:text-accent group-hover:translate-x-0.5 transition-all">Read →</span>
+                <span className="text-ink-300 dark:text-ink-400 group-hover:text-accent group-hover:translate-x-0.5 transition-all">Read →</span>
               </div>
             </Link>
           );

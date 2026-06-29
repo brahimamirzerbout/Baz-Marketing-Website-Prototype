@@ -35,6 +35,26 @@ export default function PricingPage() {
             work, not the work that matches the engagement.
           </p>
         </div>
+
+        {/* Speed guarantee strip */}
+        <div className="mt-8 rounded-2xl bg-ink-900 text-paper p-6 md:p-8">
+          <div className="grid md:grid-cols-3 gap-6 items-center">
+            <div className="md:col-span-2">
+              <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-accent mb-2">Speed guarantee</p>
+              <h2 className="font-display text-2xl md:text-3xl font-medium tracking-[-0.02em]">
+                First measurable artifact in 14 days. Or first month free.
+              </h2>
+              <p className="mt-2 text-paper-300 text-sm">
+                From kickoff, the first shippable artifact is live in your Hub within 14 calendar days.
+                We&apos;ve never paid out.
+              </p>
+            </div>
+            <div className="md:col-span-1 text-center md:text-right">
+              <div className="font-display text-6xl font-medium tracking-[-0.04em] text-accent">14d</div>
+              <div className="text-xs text-paper-400 mt-1 font-mono uppercase tracking-wider">or month 1 free</div>
+            </div>
+          </div>
+        </div>
       </Section>
 
       <Section tone="white" size="lg">

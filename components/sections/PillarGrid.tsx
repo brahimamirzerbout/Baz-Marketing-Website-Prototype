@@ -32,7 +32,7 @@ export function PillarGrid() {
           >
             <div className="flex items-center justify-between mb-12">
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-400">{p.label}</span>
-              <span aria-hidden className="text-ink-300 group-hover:text-accent group-hover:translate-x-0.5 transition-all">→</span>
+              <span aria-hidden className="text-ink-300 dark:text-ink-400 group-hover:text-accent group-hover:translate-x-0.5 transition-all">→</span>
             </div>
             <p className="font-display text-2xl font-medium tracking-[-0.02em]">{p.desc}</p>
           </Link>

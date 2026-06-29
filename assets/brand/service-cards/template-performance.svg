@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" font-family="Inter, system-ui, sans-serif">
+  <!-- Service Card Template — PILLAR: PERFORMANCE
+       Dark variant for visual variety. Edit eyebrow, headline, sub, 3 proof points. -->
+
+  <rect width="600" height="800" fill="#0e0e10"/>
+
+  <!-- Top accent strip -->
+  <rect width="600" height="8" fill="#ff3b2f"/>
+
+  <g transform="translate(48, 64)">
+    <text font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#faf7f2" opacity="0.5">PILLAR 02 · PAID</text>
+  </g>
+
+  <g transform="translate(48, 100)">
+    <text font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#faf7f2" letter-spacing="-2">Performance</text>
+    <text font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#faf7f2" letter-spacing="-2" y="68">Marketing</text>
+  </g>
+
+  <g transform="translate(48, 280)">
+    <text font-family="Inter, sans-serif" font-size="16" fill="#faf7f2" opacity="0.7">Paid social, paid search, programmatic, and CRO. Server-side attribution, weekly creative, monthly forecast.</text>
+  </g>
+
+  <line x1="48" y1="380" x2="552" y2="380" stroke="#faf7f2" stroke-opacity="0.15"/>
+
+  <g transform="translate(48, 420)">
+    <text font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#faf7f2" opacity="0.5">PROOF</text>
+  </g>
+
+  <g transform="translate(48, 450)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#ff3b2f" letter-spacing="-1">1.8 → 4.6</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#faf7f2" opacity="0.6" y="22">ROAS lifted in 90 days (ViralVista)</text>
+  </g>
+
+  <g transform="translate(48, 550)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#faf7f2" letter-spacing="-1">↓ 58%</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#faf7f2" opacity="0.6" y="22">CPA reduction via creative matrix</text>
+  </g>
+
+  <g transform="translate(48, 650)">
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#faf7f2" letter-spacing="-1">14</text>
+    <text font-family="Inter, sans-serif" font-size="13" fill="#faf7f2" opacity="0.6" y="22">UGC creators shipping fresh creative weekly</text>
+  </g>
+
+  <g transform="translate(48, 740)">
+    <rect width="32" height="32" rx="7" fill="#ff3b2f"/>
+    <text x="16" y="23" font-family="Fraunces, serif" font-size="22" font-weight="600" fill="#faf7f2" text-anchor="middle">B</text>
+    <text x="44" y="22" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#faf7f2" letter-spacing="2">BAZ · PERFORMANCE</text>
+  </g>
+</svg>

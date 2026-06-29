@@ -162,7 +162,7 @@ function FunnelStep({
         </h4>
         <p className="mt-1 text-sm text-ink-600 leading-relaxed">{detail}</p>
       </div>
-      <span className="font-display text-base md:text-lg font-medium text-accent-700 whitespace-nowrap">
+      <span className="font-display text-sm md:text-lg font-medium text-accent-700 dark:text-accent whitespace-nowrap truncate max-w-full">
         {metric}
       </span>
     </li>

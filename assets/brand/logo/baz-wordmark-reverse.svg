@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120" font-family="Inter, system-ui, sans-serif">
+  <!-- Reverse: cream square with red B for dark backgrounds -->
+  <rect x="0" y="0" width="120" height="120" rx="26" fill="#f5f1ea"/>
+  <text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#ff3b2f" text-anchor="middle" letter-spacing="-3">B</text>
+
+  <text x="148" y="78" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#faf7f2" letter-spacing="-2">BAZ</text>
+  <text x="148" y="104" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#b1b1ad" letter-spacing="3" text-transform="uppercase">Marketing Agency</text>
+</svg>

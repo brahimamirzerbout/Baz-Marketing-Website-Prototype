@@ -23,10 +23,10 @@ export function KpiBand() {
             { v: '+214%', l: 'Avg organic lift · 12 mo', s: 'Across content engine clients' },
             { v: '94%', l: 'Client renewal rate', s: 'Because senior people ship the work' },
           ].map((s) => (
-            <div key={s.l} className="bg-ink-900 p-6 md:p-8">
-              <p className="font-display text-4xl md:text-5xl font-medium tracking-[-0.03em] text-paper">{s.v}</p>
-              <p className="mt-3 font-mono uppercase tracking-[0.18em] text-[11px] text-paper-300">{s.l}</p>
-              <p className="mt-2 text-sm text-paper-400">{s.s}</p>
+            <div key={s.l} className="bg-ink-900 text-paper p-6 md:p-8 dark:bg-ink-800 dark:text-paper">
+              <p className="font-display text-4xl md:text-5xl font-medium tracking-[-0.03em] text-paper dark:text-paper">{s.v}</p>
+              <p className="mt-3 font-mono uppercase tracking-[0.18em] text-[11px] text-paper-300 dark:text-paper-300">{s.l}</p>
+              <p className="mt-2 text-sm text-paper-400 dark:text-paper-300">{s.s}</p>
             </div>
           ))}
         </div>

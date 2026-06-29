@@ -6,7 +6,7 @@ import { getLeadStats, readLeadsWithStatus } from '@/lib/leads-store';
 import { site } from '@/lib/site';
 import { cn } from '@/lib/cn';
 
-// AgencyGraph uses framer-motion which emits inline <style> tags during SSR
+// AgencyGraph uses motion/react (formerly framer-motion) which emits inline <style> tags during SSR
 // that don't match the client output (escaped vs raw quotes). Skipping SSR
 // here eliminates the hydration mismatch without changing the UI.
 const AgencyGraph = nextDynamic(

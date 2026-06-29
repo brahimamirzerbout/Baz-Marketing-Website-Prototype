@@ -12,11 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     '/', '/about', '/services', '/case-studies', '/insights',
     '/industries', '/contact', '/privacy', '/terms',
+    '/methodology', '/our-story', '/stance', '/vs-others',
+    '/loop', '/pulse', '/marketing-hub', '/brandbook', '/become-an-operator',
   ].map((p) => ({
     url: `${base}${p}`,
     lastModified: now,
     changeFrequency: 'weekly' as const,
-    priority: p === '/' ? 1 : 0.8,
+    priority: p === '/' ? 1 : 0.7,
   }));
 
   const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({

@@ -22,7 +22,7 @@ export function Breadcrumb({ items }: { items: Item[] }) {
                   </span>
                 )}
               </li>
-              {!last && <li aria-hidden className="text-ink-300">/</li>}
+              {!last && <li aria-hidden className="text-ink-300 dark:text-ink-500">/</li>}
             </Fragment>
           );
         })}

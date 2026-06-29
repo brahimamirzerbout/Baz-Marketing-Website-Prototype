@@ -54,11 +54,11 @@ export function BriefForm({ email, name }: { email: string; name: string }) {
         <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500">What do you need?</span>
         <textarea name="message" required rows={6}
           placeholder="Be specific about the outcome. New site, content engine, paid audit, etc."
-          className="mt-1 w-full px-3 py-3 rounded-xl bg-white border border-ink-200 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" />
+          className="mt-1 w-full px-3 py-3 rounded-xl bg-paper border border-ink-200 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" />
       </label>
       <label className="block">
         <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500">Budget range (optional)</span>
-        <select name="budget" className="mt-1 w-full px-3 h-11 rounded-xl bg-white border border-ink-200 text-sm focus:outline-none focus:border-accent">
+        <select name="budget" className="mt-1 w-full px-3 h-11 rounded-xl bg-paper border border-ink-200 text-sm focus:outline-none focus:border-accent">
           <option value="">—</option>
           <option value="<5k">Under $5K</option>
           <option value="5-15k">$5K–$15K</option>
@@ -81,7 +81,7 @@ function Field({ label, name, type = 'text', defaultValue, required }: { label: 
     <label className="block">
       <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500">{label}{required ? '' : ' (optional)'}</span>
       <input type={type} name={name} defaultValue={defaultValue} required={required}
-        className="mt-1 w-full px-3 h-11 rounded-xl bg-white border border-ink-200 text-sm focus:outline-none focus:border-accent" />
+        className="mt-1 w-full px-3 h-11 rounded-xl bg-paper border border-ink-200 text-sm focus:outline-none focus:border-accent" />
     </label>
   );
 }

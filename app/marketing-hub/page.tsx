@@ -1,6 +1,7 @@
 import { Section, Eyebrow, SectionHeading, SectionLede } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Breadcrumb } from '@/components/sections/Breadcrumb';
+import { StickyCta } from '@/components/sections/StickyCta';
 import { CtaBanner } from '@/components/marketing/CtaBanner';
 import { Card } from '@/components/ui/Card';
 import { buildMetadata } from '@/lib/seo';
@@ -220,6 +221,7 @@ export default function MarketingHubPage() {
 
       {/* CTA */}
       <CtaBanner serviceSlug="marketing-hub" serviceName="Marketing Hub" />
+      <StickyCta />
     </>
   );
 }

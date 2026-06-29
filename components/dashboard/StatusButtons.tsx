@@ -59,7 +59,7 @@ export function StatusButtons({ leadId, initial }: StatusButtonsProps) {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="inline-flex rounded-full border border-ink-200 bg-white p-0.5">
+      <div className="inline-flex rounded-full border border-ink-200 bg-paper p-0.5">
         {STATUSES.map((s) => (
           <button
             key={s.value}

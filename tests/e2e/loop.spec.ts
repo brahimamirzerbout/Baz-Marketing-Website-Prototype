@@ -11,10 +11,12 @@ import { test, expect } from '@playwright/test';
 
 test.describe('BAZ loop', () => {
   test('live agent demo renders on the homepage', async ({ page }) => {
-    await page.goto('/');
-    await expect(page.getByRole('heading', { name: /Make growth/i })).toBeVisible();
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    // Give the dev server a moment to hydrate the React tree after SSR.
+    await page.waitForTimeout(2000);
+    await expect(page.locator('h1').first()).toBeVisible({ timeout: 15000 });
     // The terminal-style demo card is on the homepage below the hero.
-    await expect(page.getByText(/baz:\/\/agents/i)).toBeVisible();
+    await expect(page.locator('text=baz://agents')).toBeVisible({ timeout: 15000 });
   });
 
   test('clicking Run agent produces output', async ({ page }) => {

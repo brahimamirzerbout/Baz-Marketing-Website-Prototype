@@ -24,14 +24,14 @@ export function Framework() {
       </div>
       <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-paper/10 rounded-2xl overflow-hidden border border-paper/10">
         {principles.map((p, i) => (
-          <li key={p.t} className="bg-ink-900 p-6 md:p-8">
-            <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent mb-4">
+          <li key={p.t} className="bg-ink-900 text-paper p-6 md:p-8 dark:bg-ink-800 dark:text-paper">
+            <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent dark:text-accent mb-4">
               {String(i + 1).padStart(2, '0')}
             </div>
-            <h3 className="font-display text-2xl md:text-[26px] font-medium tracking-[-0.02em] text-paper">
+            <h3 className="font-display text-2xl md:text-[26px] font-medium tracking-[-0.02em] text-paper dark:text-paper">
               {p.t}
             </h3>
-            <p className="mt-3 text-paper-300 leading-relaxed">{p.d}</p>
+            <p className="mt-3 text-paper-300 leading-relaxed dark:text-paper-300">{p.d}</p>
           </li>
         ))}
       </ul>

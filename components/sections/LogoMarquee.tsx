@@ -29,7 +29,7 @@ export function LogoMarquee() {
         {doubled.map((l, i) => (
           <span
             key={`${l}-${i}`}
-            className="font-display font-bold text-2xl md:text-3xl text-ink-300 hover:text-ink-700 transition-colors select-none"
+            className="font-display font-bold text-2xl md:text-3xl text-ink-300 dark:text-ink-400 hover:text-ink-700 dark:hover:text-paper transition-colors select-none"
           >
             {l}
           </span>

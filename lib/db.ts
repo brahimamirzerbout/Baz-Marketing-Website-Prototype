@@ -24,10 +24,12 @@ import crypto from "node:crypto";
 import bcrypt from "bcryptjs";
 
 // ── Database abstraction ──────────────────────────────────
-// On local dev: uses better-sqlite3 (native C++ module, fast).
-// On Vercel/serverless: better-sqlite3 can't compile, so we
-// fall back to an in-memory store that persists for the
-// lifetime of the function instance.
+// Production (Vercel):  uses Supabase PostgreSQL via worker thread
+//   when SUPABASE_DB_URL or DATABASE_URL is set.
+// Local dev:            uses better-sqlite3 (native C++ module, fast).
+// Fallback:             in-memory store (when neither is available).
+
+import { isSupabaseEnabled, createSupabaseDB } from "./db/supabase";
 
 type SqliteDb = {
   prepare(sql: string): { run(...args: unknown[]): any; get(...args: unknown[]): any; all(...args: unknown[]): any[] };
@@ -35,18 +37,36 @@ type SqliteDb = {
   pragma(str: string): unknown;
 };
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.VERCEL ? "/tmp/data" : path.join(process.cwd(), "data");
 const DB_FILE = path.join(DATA_DIR, "baz.db");
 
 let _db: SqliteDb | null = null;
 let _isSqlite = false;
+let _isSupabase = false;
 
 export function isSqlite(): boolean {
   return _isSqlite;
 }
 
+export function isSupabase(): boolean {
+  return _isSupabase;
+}
+
 export function getDb(): SqliteDb {
   if (_db) return _db;
+
+  // 1. Try Supabase PostgreSQL (production on Vercel)
+  if (isSupabaseEnabled()) {
+    try {
+      console.log("[baz:db] Using Supabase PostgreSQL");
+      _db = createSupabaseDB() as unknown as SqliteDb;
+      _isSupabase = true;
+      bootstrap(_db);
+      return _db;
+    } catch (e) {
+      console.warn("[baz:db] Supabase connection failed, falling back:", (e as Error).message?.slice(0, 100));
+    }
+  }
 
   // Try to load better-sqlite3 (local dev, Docker, self-hosted)
   try {

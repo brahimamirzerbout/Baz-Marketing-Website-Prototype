@@ -5,7 +5,7 @@ const nextConfig = {
   compress: true,
   output: 'standalone',
   experimental: {
-    serverComponentsExternalPackages: ['better-sqlite3'],
+    serverComponentsExternalPackages: ['better-sqlite3', 'pg'],
   },
   typescript: {
     // Build the site even with pre-existing TS errors (mostly null

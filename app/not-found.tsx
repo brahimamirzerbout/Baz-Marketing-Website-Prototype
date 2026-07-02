@@ -1,4 +1,9 @@
 // @ts-nocheck
+/**
+ * Custom 404 — Pattern 70 from anti-AI-slop research.
+ * Specific, not generic. Named, not anonymous.
+ * Includes the path the user was looking for.
+ */
 import Link from "next/link";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -13,13 +18,20 @@ export default function NotFound() {
   return (
     <Section tone="paper" size="xl">
       <div className="max-w-2xl">
-        <Eyebrow>404</Eyebrow>
-        <h1 className="font-display text-display-2xl font-medium tracking-[-0.04em]">
-          We can&apos;t find that page.
+        {/* Oversized 404 — Pattern 6: oversized number labels */}
+        <p
+          aria-hidden
+          className="font-display text-[144px] md:text-[233px] font-bold leading-none tracking-[-0.04em] text-muted-foreground/[0.06] select-none -mb-8"
+        >
+          404
+        </p>
+        <Eyebrow>Page not found</Eyebrow>
+        <h1 className="font-display text-display-xl font-medium tracking-[-0.04em]">
+          This page isn&apos;t where you expected.
         </h1>
-        <p className="mt-6 text-lg text-muted-foreground">
-          The link may be old, or we may have moved the page. Try the navigation above, or book a
-          call if you were looking for something specific.
+        <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          Either it moved, or we haven&apos;t built it yet. If you think this is a broken link from
+          our site, the email at the bottom of this page goes to a real person — let us know.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Button
@@ -40,10 +52,10 @@ export default function NotFound() {
         </div>
         <p className="mt-12 text-sm text-muted-foreground">
           Or write us at{" "}
-          <a href={`mailto:${site.email}`} className="underline">
+          <a href={`mailto:${site.email}`} className="text-accent underline hover:no-underline">
             {site.email}
-          </a>
-          .
+          </a>{" "}
+          — we read every one.
         </p>
       </div>
     </Section>

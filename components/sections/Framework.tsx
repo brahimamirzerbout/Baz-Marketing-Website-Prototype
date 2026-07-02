@@ -28,7 +28,7 @@ export function Framework() {
             The way we work — not the way we pitch.
           </SectionHeading>
           <SectionLede className="text-muted-foreground">
-            Six principles that shape every engagement. They aren't slogans; they're how we decide
+            Six principles that shape every engagement. They aren&apos;t slogans; they&apos;re how we decide
             what to ship and what to cut.
           </SectionLede>
         </div>
@@ -37,10 +37,17 @@ export function Framework() {
         {principles.map((p, i) => (
           <li
             key={p.t}
-            className="bg-primary text-foreground p-6 md:p-8 dark:bg-primary/90 dark:text-foreground"
+            className="bg-primary text-foreground p-6 md:p-8 dark:bg-primary/90 dark:text-foreground overflow-hidden relative"
           >
-            <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent dark:text-accent mb-4">
+            {/* Oversized step number — Pattern 6 + 44: numbered indices */}
+            <span
+              aria-hidden
+              className="absolute -top-2 -right-1 font-display text-[72px] md:text-[96px] font-bold leading-none text-muted-foreground/[0.08] select-none"
+            >
               {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent dark:text-accent mb-4">
+              [{String(i + 1).padStart(2, "0")}]
             </div>
             <h3 className="font-display text-2xl md:text-[26px] font-medium tracking-[-0.02em] text-foreground dark:text-foreground">
               {p.t}

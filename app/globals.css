@@ -129,6 +129,8 @@ body {
   font-size: var(--text-sm);             /* 16px Fibonacci */
   line-height: 1.618;                     /* φ */
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-variant-numeric: tabular-nums;     /* Pattern 8: tabular figures */
+  hanging-punctuation: first last;        /* Pattern 7: hanging punctuation */
   transition: background-color var(--aether-duration-fast, 233ms) var(--ease-natural),
               color var(--aether-duration-fast, 233ms) var(--ease-natural);
 }
@@ -178,6 +180,57 @@ body {
 .skip { position: absolute; left: -9999px; top: 0; background: var(--foreground); color: var(--background); padding: 13px 21px; border-radius: var(--radius); z-index: 100; }
 .skip:focus { left: 13px; top: 13px; }
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: var(--radius-sm); }
+
+/* ============================================================
+   404 PAGE — Pattern 70: Custom 404
+   ============================================================ */
+.page-404-number {
+  font-family: var(--display);
+  font-size: clamp(144px, 20vw, 233px);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--muted);
+  opacity: 0.06;
+  user-select: none;
+  position: relative;
+  z-index: 0;
+}
+
+/* ============================================================
+   PULL QUOTE — Pattern 69: Pull-quotes for emphasis
+   ============================================================ */
+.pull-quote {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 2.5rem 0;
+  max-width: 30rem;
+}
+
+/* ============================================================
+   DEFINITION LIST — Pattern 25: dl/dt/dd for feature lists
+   ============================================================ */
+.feature-list {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1rem 2rem;
+}
+.feature-list dt {
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+.feature-list dd {
+  margin: 0;
+  font-size: 1rem;
+}
 
 /* ============================================================
    BACKGROUNDS

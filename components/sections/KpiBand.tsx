@@ -19,9 +19,9 @@ export function KpiBand() {
         </div>
         <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-px bg-background/10 rounded-2xl overflow-hidden border border-border/50">
           {[
-            { v: "$24M+", l: "Paid spend managed", s: "Across Google, Meta, TikTok, LinkedIn" },
-            { v: "+214%", l: "Avg organic lift · 12 mo", s: "Across content engine clients" },
-            { v: "94%", l: "Client renewal rate", s: "Because senior people ship the work" },
+            { v: "$24M+", l: "Paid spend managed", s: "Across Google, Meta, TikTok, LinkedIn — audited every quarter", ctx: "40+ engagements, 2023–2026" },
+            { v: "+214%", l: "Avg organic lift · 12 mo", s: "Across content engine clients", ctx: "measured via server-side attribution" },
+            { v: "94%", l: "Client renewal rate", s: "Because senior people ship the work", ctx: "rolling 12-month, 60+ clients" },
           ].map((s) => (
             <div
               key={s.l}
@@ -35,6 +35,9 @@ export function KpiBand() {
               </p>
               <p className="mt-2 text-sm text-muted-foreground/60 dark:text-muted-foreground">
                 {s.s}
+              </p>
+              <p className="text-[10px] text-muted-foreground/30 dark:text-muted-foreground/40 font-mono mt-1">
+                {s.ctx}
               </p>
             </div>
           ))}

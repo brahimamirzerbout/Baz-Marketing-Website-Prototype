@@ -11,7 +11,7 @@ import { services } from "@/content/services";
 const nav = [
   { href: "/services", label: "Services" },
   { href: "/marketing-hub", label: "Marketing Hub", badge: "LIVE" },
-  { href: "/hub", label: "Hub", badge: "NEW" },
+  { href: "/hub", label: "Hub" },
   { href: "/methodology", label: "Methodology" },
   { href: "/case-studies", label: "Case studies" },
   { href: "/insights", label: "Insights" },
@@ -65,8 +65,8 @@ export function Header() {
             >
               {item.label}
               {(item as { badge?: React.ReactNode }).badge && (
-                <span className="inline-flex items-center gap-1 text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-primary text-primary-foreground">
-                  <span className="inline-block w-1 h-1 rounded-full bg-primary-foreground animate-pulse" />
+                <span className="inline-flex items-center gap-1 text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[hsla(270,85%,72%,0.089)] text-accent">
+                  <span className="inline-block w-1 h-1 rounded-full bg-accent animate-pulse" />
                   {(item as { badge?: React.ReactNode }).badge}
                 </span>
               )}

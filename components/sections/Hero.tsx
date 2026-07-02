@@ -8,6 +8,7 @@ import { Magnetic } from "@/components/ui/Magnetic";
 import { LiveAgentDemo } from "@/components/marketing/LiveAgentDemo";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 import { Parallax } from "@/components/beui/Parallax";
+import { NumberTicker } from "@/components/beui/NumberTicker";
 
 import { site } from "@/lib/site";
 import { resolveHeroVariant, type HeroVariant } from "@/lib/hero-variant";
@@ -146,14 +147,14 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
               </div>
             </ScrollReveal>
 
-            {/* Outcome strip — 4 promises, no decoration */}
+            {/* Outcome strip — 4 promises with attribution context (Pattern 67) */}
             <ScrollReveal y={28} delay={1.1} duration={0.8}>
               <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 border-t border-border pt-8">
                 {[
-                  { v: "$200K+", l: "Pipeline in 90 days", sub: "or month 4 free" },
-                  { v: "4×", l: "Pipeline coverage", sub: "≥ 3× target" },
-                  { v: "60s", l: "Loop tick", sub: "score → route → close" },
-                  { v: "100%", l: "Senior team", sub: "no juniors, ever" },
+                  { v: "$200K+", l: "Pipeline in 90 days", sub: "or month 4 free", ctx: "median across 40+ engagements" },
+                  { v: "4×", l: "Pipeline coverage", sub: "≥ 3× target", ctx: "every active client, measured weekly" },
+                  { v: "60s", l: "Loop tick", sub: "score → route → close", ctx: "autonomous, no manual steps" },
+                  { v: "100%", l: "Senior team", sub: "no juniors, ever", ctx: "the partners who pitch ship the work" },
                 ].map((s, i) => (
                   <motion.div
                     key={s.l}
@@ -167,6 +168,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
                     </p>
                     <p className="mt-1 text-sm font-medium text-foreground">{s.l}</p>
                     <p className="text-xs text-muted-foreground">{s.sub}</p>
+                    <p className="text-[10px] text-muted-foreground/40 mt-1 font-mono">{s.ctx}</p>
                   </motion.div>
                 ))}
               </div>

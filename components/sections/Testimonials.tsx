@@ -10,7 +10,7 @@ export function Testimonials() {
           <SectionHeading>What senior-team actually feels like.</SectionHeading>
           <SectionLede>
             Five clients on what changed when they stopped working with generalist pods and started
-            working with partners.
+            working with partners. Every metric is named.
           </SectionLede>
         </div>
       </div>
@@ -18,28 +18,45 @@ export function Testimonials() {
         {testimonials.slice(0, 6).map((t, i) => (
           <figure
             key={i}
-            className="reveal flex flex-col bg-background rounded-2xl p-6 md:p-7 border border-border dark:border-border dark:border-border"
+            className="reveal flex flex-col bg-background rounded-2xl p-6 md:p-7 border border-border dark:border-border"
             style={{ animationDelay: `${i * 80}ms` }}
           >
-            <span aria-hidden className="font-display text-5xl text-accent leading-none mb-3">
-              &ldquo;
-            </span>
-            <blockquote className="font-display text-xl md:text-2xl tracking-[-0.02em] leading-snug text-foreground">
-              {t.quote}
-            </blockquote>
-            <figcaption className="mt-6 pt-4 border-t border-border dark:border-border flex items-center justify-between">
+            {/* Duotone initial avatar — Pattern 45: replaces generic avatar with brand treatment */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                <span className="font-display text-lg font-bold text-accent">
+                  {t.author.charAt(0)}
+                </span>
+              </div>
               <div>
-                <p className="font-medium text-foreground">{t.author}</p>
-                <p className="text-sm text-muted-foreground">
+                <p className="font-medium text-foreground text-sm">{t.author}</p>
+                <p className="text-xs text-muted-foreground">
                   {t.role} · {t.company}
                 </p>
               </div>
-              {t.metric && (
-                <span className="text-xs font-mono uppercase tracking-[0.15em] text-accent">
-                  {t.metric}
-                </span>
-              )}
-            </figcaption>
+            </div>
+
+            {/* Quote with hanging punctuation — Pattern 7 */}
+            <blockquote className="font-display text-lg md:text-xl tracking-[-0.01em] leading-snug text-foreground flex-1">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+
+            {/* Metric chip — Pattern 67: numerical data with context */}
+            {t.metric && (
+              <figcaption className="mt-5 pt-4 border-t border-border flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" aria-hidden />
+                  <span className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
+                    {t.metric}
+                  </span>
+                </div>
+                {t.placeholder && (
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground/30">
+                    illustrative
+                  </span>
+                )}
+              </figcaption>
+            )}
           </figure>
         ))}
       </div>

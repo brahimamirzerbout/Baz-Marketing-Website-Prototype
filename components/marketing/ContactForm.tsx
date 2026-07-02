@@ -162,7 +162,7 @@ export function ContactForm({
             autoComplete="name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
-            placeholder="Alex Rivera"
+            placeholder="What should we call you?"
             className={inputCls(!!errors.name)}
             {...register("name")}
           />
@@ -174,7 +174,7 @@ export function ContactForm({
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
-            placeholder="alex@company.com"
+            placeholder="An email you actually check"
             className={inputCls(!!errors.email)}
             {...register("email")}
           />
@@ -188,7 +188,7 @@ export function ContactForm({
             type="text"
             autoComplete="organization"
             aria-invalid={!!errors.company}
-            placeholder="Acme Inc."
+            placeholder="Where you work (optional)"
             className={inputCls(!!errors.company)}
             {...register("company")}
           />
@@ -199,7 +199,7 @@ export function ContactForm({
             type="url"
             autoComplete="url"
             aria-invalid={!!errors.website}
-            placeholder="https://acme.com"
+            placeholder="https:// (optional)"
             className={inputCls(!!errors.website)}
             {...register("website")}
           />
@@ -257,7 +257,7 @@ export function ContactForm({
           rows={5}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
-          placeholder="A few sentences about your current growth, what you've tried, and what you'd like to change."
+          placeholder="What are you trying to build, in two or three sentences? We read every one."
           className={cn(inputCls(!!errors.message), "min-h-[120px] resize-y")}
           {...register("message")}
         />
@@ -335,10 +335,10 @@ function Field({
 
 function inputCls(hasError?: boolean) {
   return cn(
-    "block w-full rounded-xl bg-background dark:bg-background border border-border dark:border-border px-4 h-12 text-[15px] text-foreground dark:text-foreground placeholder:text-muted-foreground/40 dark:placeholder:text-muted-foreground transition-colors",
+    "block w-full rounded-lg bg-background dark:bg-background border border-border dark:border-border px-4 h-12 text-[15px] text-foreground dark:text-foreground placeholder:text-muted-foreground/40 dark:placeholder:text-muted-foreground transition-colors",
     "focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent",
     hasError
       ? "border-accent"
-      : "border-border dark:border-border hover:border-border dark:hover:border-border",
+      : "border-border dark:border-border hover:border-foreground/30 dark:hover:border-foreground/20",
   );
 }

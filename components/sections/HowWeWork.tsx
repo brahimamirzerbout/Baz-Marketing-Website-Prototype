@@ -45,9 +45,16 @@ export function HowWeWork() {
         {steps.map((s) => (
           <li
             key={s.n}
-            className="reveal relative bg-background rounded-2xl p-6 border border-border dark:border-border dark:border-border"
+            className="reveal relative bg-background rounded-2xl p-6 border border-border dark:border-border overflow-hidden"
           >
-            <span className="font-mono text-[11px] tracking-[0.18em] text-accent">{s.n}</span>
+            {/* Oversized step number — Pattern 6 + 44 */}}
+            <span
+              aria-hidden
+              className="absolute -top-3 -right-1 font-display text-[72px] md:text-[96px] font-bold leading-none text-muted-foreground/[0.06] select-none"
+            >
+              {s.n}
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">[{s.n}]</span>
             <h3 className="mt-3 font-display text-2xl font-medium tracking-[-0.02em]">{s.t}</h3>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
           </li>

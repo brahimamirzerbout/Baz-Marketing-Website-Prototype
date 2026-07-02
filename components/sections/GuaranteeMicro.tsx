@@ -6,6 +6,9 @@
  * Lifts trust at the moment of decision (roast.page: specific guarantees
  * beat generic by 15%).
  *
+ * Pattern 48: Specific over generic — "first measurable artifact" beats "ship".
+ * Pattern 67: Numerical data with context.
+ *
  * Server component. No "use client" needed.
  */
 type Variant = "default" | "emphasized";
@@ -24,7 +27,7 @@ export function GuaranteeMicro({
       aria-label="BAZ speed guarantee"
     >
       <span aria-hidden>↳ </span>
-      Ship in 14 days, or month 1 free. We&apos;ve never paid out.
+      First measurable artifact in 14 days, or month 1 free. We&apos;ve never paid out.
     </p>
   );
 }

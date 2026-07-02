@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from "next/link";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";

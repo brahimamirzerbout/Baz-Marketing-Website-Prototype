@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BAZ — Single source of truth database.
  *

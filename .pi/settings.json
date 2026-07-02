@@ -1,0 +1,11 @@
+{
+  "skills": [
+    ".pi/skills/aether-design-system",
+    ".pi/skills/baz-project-map",
+    ".pi/skills/baz-testing",
+    ".pi/skills/baz-backend"
+  ],
+  "extensions": [
+    "/home/uzer/.pi/agent/extensions/baz-context.ts"
+  ]
+}

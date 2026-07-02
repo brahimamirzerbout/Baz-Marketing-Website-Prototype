@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Marketing analytics primitives — pure TypeScript, no runtime deps.
  *

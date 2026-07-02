@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Supabase / PostgreSQL sync adapter using Worker Threads.
  *

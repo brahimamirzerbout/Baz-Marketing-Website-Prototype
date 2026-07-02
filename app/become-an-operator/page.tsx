@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Section, Eyebrow } from "@/components/ui/Section";
-import { CtaBanner } from "@/components/marketing/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Become a BAZ Operator",

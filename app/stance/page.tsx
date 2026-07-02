@@ -1,4 +1,4 @@
-import { Section, Eyebrow, SectionHeading, SectionLede } from "@/components/ui/Section";
+import { Section, Eyebrow } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { StickyCta } from "@/components/sections/StickyCta";
 import { CtaBanner } from "@/components/marketing/CtaBanner";

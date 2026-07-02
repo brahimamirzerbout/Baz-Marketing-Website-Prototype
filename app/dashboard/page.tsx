@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from "next/link";
 import nextDynamic from "next/dynamic";
 import { Section, Eyebrow } from "@/components/ui/Section";

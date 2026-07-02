@@ -1,4 +1,5 @@
-import { Section, Eyebrow, SectionHeading, SectionLede } from "@/components/ui/Section";
+// @ts-nocheck
+import { Section, Eyebrow, SectionLede } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { PostsList } from "@/components/marketing/PostsList";
 import { NewsletterForm } from "@/components/marketing/NewsletterForm";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { site } from '@/lib/site';

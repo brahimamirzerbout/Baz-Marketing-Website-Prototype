@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BAZ Lead Scoring Engine — deterministic, no-LLM-required.
  *

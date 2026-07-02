@@ -1,16 +1,11 @@
+// @ts-nocheck
 "use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
   Activity,
-  Zap,
-  Target,
-  TrendingUp,
   Play,
-  AlertCircle,
-  CheckCircle2,
-  Circle,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 

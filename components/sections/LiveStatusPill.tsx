@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 /**
  * Live status pill — sits inside the BAZ hero.

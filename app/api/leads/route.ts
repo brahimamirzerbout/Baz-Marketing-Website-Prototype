@@ -68,6 +68,7 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json({ ok: false, error: "invalid_json" }, { status: 400 });
   }
+  if (!body) return NextResponse.json({ ok: false, error: "empty_body" }, { status: 400 });
   const name = (body.name || "").toString().trim();
   const email = (body.email || "").toString().trim().toLowerCase();
   const message = (body.message || "").toString().trim();
@@ -102,9 +103,9 @@ export async function POST(req: NextRequest) {
   const { scoreLead } = await import("@/lib/scoring");
   const baseScore = scoreLead({
     message,
-    budget: body.budget,
-    company: body.company,
-    website: body.website,
+    budget: body.budget as string | undefined,
+    company: body.company as string | undefined,
+    website: body.website as string | undefined,
     source,
     service,
     demoCompleted: !!body.demoCompleted,

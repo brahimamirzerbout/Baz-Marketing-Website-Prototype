@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Section, Eyebrow, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { CaseStudyHero } from "@/components/marketing/CaseStudyHero";

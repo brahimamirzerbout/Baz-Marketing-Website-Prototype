@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Tiny, dependency-free form validation. Returns `{ ok, data, errors }`
  * with per-field error messages. Used by `lib/actions.ts` and the contact

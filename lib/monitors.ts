@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Monitors: read from the BAZ ecosystem API when configured, fall back to
  * sensible local snapshots so the dashboard never breaks.

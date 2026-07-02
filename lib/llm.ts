@@ -5,6 +5,7 @@
  * so the rest of the app never crashes when AI isn't available.
  *
  * Supported providers:
+ *   - Gemini (GEMINI_API_KEY, GEMINI_MODEL) — free tier, 1500 req/min
  *   - OpenAI (OPENAI_API_KEY, OPENAI_MODEL)
  *   - Anthropic (ANTHROPIC_API_KEY, ANTHROPIC_MODEL)
  *   - Ollama (OLLAMA_HOST, OLLAMA_MODEL) — local
@@ -14,7 +15,7 @@
  *   if (result.ok) ... else handle(result.error);
  */
 
-export type LlmProvider = "openai" | "anthropic" | "ollama" | "stub";
+export type LlmProvider = "openai" | "anthropic" | "ollama" | "gemini" | "stub";
 
 export interface LlmConfig {
   provider: LlmProvider;
@@ -50,6 +51,7 @@ const PROVIDERS: Record<
     defaultModel: "claude-3-5-haiku-latest",
   },
   ollama: { url: null, defaultModel: "llama3.1" },
+  gemini: { url: "https://generativelanguage.googleapis.com/v1beta", defaultModel: "gemini-2.5-flash" },
 };
 
 /**
@@ -78,6 +80,14 @@ export function getLlmConfig(): LlmConfig | null {
       url: PROVIDERS.anthropic.url,
     };
   }
+  if (forced === "gemini" || (forced === undefined && process.env.GEMINI_API_KEY)) {
+    return {
+      provider: "gemini",
+      key: process.env.GEMINI_API_KEY!,
+      model: process.env.GEMINI_MODEL || PROVIDERS.gemini.defaultModel,
+      url: PROVIDERS.gemini.url,
+    };
+  }
   if (forced === "ollama" || (forced === undefined && process.env.OLLAMA_HOST)) {
     return {
       provider: "ollama",
@@ -91,7 +101,7 @@ export function getLlmConfig(): LlmConfig | null {
 
 function hasAnyKey(): boolean {
   return Boolean(
-    process.env.OPENAI_API_KEY || process.env.ANTHROPIC_API_KEY || process.env.OLLAMA_HOST,
+    process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY || process.env.ANTHROPIC_API_KEY || process.env.OLLAMA_HOST,
   );
 }
 
@@ -119,6 +129,8 @@ export async function complete(args: CompleteArgs): Promise<LlmResult> {
         return await callAnthropic(cfg, args);
       case "ollama":
         return await callOllama(cfg, args);
+      case "gemini":
+        return await callGemini(cfg, args);
       default:
         return {
           ok: false,
@@ -247,6 +259,48 @@ async function callOllama(cfg: LlmConfig, args: CompleteArgs): Promise<LlmResult
   return { ok: true, provider: "ollama", model: cfg.model, text };
 }
 
+async function callGemini(cfg: LlmConfig, args: CompleteArgs): Promise<LlmResult> {
+  const url = `${cfg.url}/models/${cfg.model}:generateContent?key=${cfg.key}`;
+  const contents: Array<{ role: string; parts: Array<{ text: string }> }> = [];
+  if (args.system) {
+    contents.push({ role: "user", parts: [{ text: args.system }] });
+    contents.push({ role: "model", parts: [{ text: "Understood." }] });
+  }
+  contents.push({ role: "user", parts: [{ text: args.prompt }] });
+
+  const r = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents,
+      generationConfig: {
+        maxOutputTokens: args.maxTokens ?? 1024,
+        temperature: args.temperature ?? 0.7,
+      },
+    }),
+  });
+  if (!r.ok) {
+    const body = await r.text().catch(() => "");
+    return {
+      ok: false,
+      provider: "gemini",
+      model: cfg.model,
+      text: null,
+      error: `gemini_${r.status}: ${body.slice(0, 200)}`,
+    };
+  }
+  const j = await r.json();
+  const text = j.candidates?.[0]?.content?.parts?.[0]?.text ?? null;
+  const usage = j.usageMetadata
+    ? {
+        input: j.usageMetadata.promptTokenCount ?? 0,
+        output: j.usageMetadata.candidatesTokenCount ?? 0,
+        total: j.usageMetadata.totalTokenCount ?? 0,
+      }
+    : undefined;
+  return { ok: true, provider: "gemini", model: cfg.model, text, usage };
+}
+
 /** Returns the current provider name (or 'stub' if no keys) — used by /admin/monitors. */
 export function llmStatus(): {
   provider: LlmProvider | "unconfigured";
@@ -261,6 +315,8 @@ export function llmStatus(): {
       openai: Boolean(process.env.OPENAI_API_KEY),
       anthropic: Boolean(process.env.ANTHROPIC_API_KEY),
       ollama: Boolean(process.env.OLLAMA_HOST),
+      gemini: Boolean(process.env.GEMINI_API_KEY),
     },
   };
 }
+

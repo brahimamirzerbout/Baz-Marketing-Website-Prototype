@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
-import { Brain, Send, Sparkles, TrendingUp, Users, Target, Activity, History } from "lucide-react";
+import { Brain, Send, Sparkles, TrendingUp, Target, Activity } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
 const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";

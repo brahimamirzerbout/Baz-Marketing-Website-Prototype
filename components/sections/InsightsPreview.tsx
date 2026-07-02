@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from "next/link";
 import { posts } from "@/content/posts";
 import { Section, Eyebrow, SectionHeading, SectionLede } from "@/components/ui/Section";

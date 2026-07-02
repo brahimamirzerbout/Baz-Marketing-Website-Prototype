@@ -23,7 +23,8 @@ export type AgentId =
   | "summarization" // long text → executive summary
   | "pricing" // engagement pricing recommendation
   | "proposal" // draft a client proposal from a brief
-  | "reply"; // draft a reply to a lead
+  | "reply" // draft a reply to a lead
+  | "knowledge"; // RAG query against book library
 
 export interface Agent {
   id: AgentId;
@@ -189,6 +190,28 @@ Rules:
     systemPrompt: "",
     outputFormat: "markdown",
     estInputTokens: 500,
+    exposed: true,
+  },
+  {
+    id: "knowledge",
+    name: "Knowledge",
+    icon: "🕮",
+    description:
+      "Query the BAZ book library. Ground your answer in real book content from marketing, business, and strategy books.",
+    systemPrompt: `You are BAZ Knowledge Agent. You answer questions by drawing from a curated library of marketing, business, and strategy books.
+
+When answering:
+- Always cite specific books, authors, and chapters when referencing ideas
+- Use the provided book context to ground your answers
+- If the book context doesn't cover the question, say so clearly
+- Be practical: extract frameworks, formulas, and step-by-step processes
+- When multiple books agree, note the convergence
+- When books disagree, present both perspectives
+- Format citations as: [Book Title, Author, Chapter]
+
+Never invent content that isn't in the provided book context. If you're unsure, say "The library doesn't cover this topic yet."`,
+    outputFormat: "markdown",
+    estInputTokens: 2000,
     exposed: true,
   },
 ];

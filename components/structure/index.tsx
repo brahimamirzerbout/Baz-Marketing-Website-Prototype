@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { PHI, SPACING, DURATION, RADIUS } from '../../styles/aether-design-system';

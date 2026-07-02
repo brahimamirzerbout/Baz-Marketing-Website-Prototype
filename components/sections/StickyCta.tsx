@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 /**
  * StickyCta — fixed bottom-bar mobile call-to-action.

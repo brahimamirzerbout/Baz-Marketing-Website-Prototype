@@ -88,9 +88,9 @@ export function LiveStatusPill() {
       <Dot
         color={
           state.kind === "live"
-            ? "bg-emerald-500"
+            ? "bg-[hsl(145,70%,55%)]"
             : state.kind === "warming"
-              ? "bg-amber-500"
+              ? "bg-[hsl(38,85%,58%)]"
               : "bg-muted-foreground/40"
         }
         pulse={state.kind !== "offline"}

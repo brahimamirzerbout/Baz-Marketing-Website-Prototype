@@ -78,10 +78,10 @@ const dimensions: Dimension[] = [
 ];
 
 function Cell({ value }: { value: boolean | "mixed" | "rare" }) {
-  if (value === true) return <span className="text-emerald-600 font-bold">✓</span>;
-  if (value === false) return <span className="text-rose-500 font-bold">×</span>;
-  if (value === "mixed") return <span className="text-amber-600 font-medium">mixed</span>;
-  return <span className="text-amber-600 font-medium">rare</span>;
+  if (value === true) return <span className="text-[hsl(145,70%,55%)] font-bold">✓</span>;
+  if (value === false) return <span className="text-[hsl(8,80%,58%)] font-bold">×</span>;
+  if (value === "mixed") return <span className="text-[hsl(38,85%,58%)] font-medium">mixed</span>;
+  return <span className="text-[hsl(38,85%,58%)] font-medium">rare</span>;
 }
 
 export default function VsOthersPage() {
@@ -146,22 +146,22 @@ export default function VsOthersPage() {
             So, are we the right fit?
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-              <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-emerald-700 mb-2">
+            <div className="rounded-2xl border border-[hsl(145,70%,55%)/30] bg-[hsl(145,70%,55%)/0.05] p-6">
+              <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-[hsl(145,70%,55%)] mb-2">
                 Choose BAZ if
               </p>
-              <ul className="space-y-2 text-sm text-emerald-900">
+              <ul className="space-y-2 text-sm text-foreground">
                 <li>• You want senior judgment, not junior hours.</li>
                 <li>• You want to see your data live, not in monthly reports.</li>
                 <li>• You&apos;re willing to commit to a 90-day outcome.</li>
                 <li>• You want to own the system we build.</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6">
-              <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-rose-700 mb-2">
+            <div className="rounded-2xl border border-[hsl(8,80%,58%)/30] bg-[hsl(8,80%,58%)/0.05] p-6">
+              <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-[hsl(8,80%,58%)] mb-2">
                 We&apos;re the wrong fit if
               </p>
-              <ul className="space-y-2 text-sm text-rose-900">
+              <ul className="space-y-2 text-sm text-foreground">
                 <li>• You want a single channel for a low monthly fee.</li>
                 <li>• You want a Cannes Lions submission for your wall.</li>
                 <li>• You don&apos;t have a CRM we can plug into.</li>

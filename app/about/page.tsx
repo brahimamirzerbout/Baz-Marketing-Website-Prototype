@@ -93,11 +93,18 @@ export default function AboutPage() {
           {beliefs.map((b, i) => (
             <li
               key={b.t}
-              className="reveal bg-card p-6 md:p-7"
+              className="reveal bg-card p-6 md:p-7 overflow-hidden relative"
               style={{ animationDelay: `${i * 60}ms` }}
             >
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent mb-4">
+              {/* Oversized ghost number — Pattern 6 */}
+              <span
+                aria-hidden
+                className="absolute -top-2 -right-1 font-display text-[72px] md:text-[96px] font-bold leading-none text-muted-foreground/[0.06] select-none"
+              >
                 {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent mb-4">
+                [{String(i + 1).padStart(2, "0")}]
               </div>
               <h3 className="font-display text-2xl md:text-[26px] font-medium tracking-[-0.02em]">
                 {b.t}

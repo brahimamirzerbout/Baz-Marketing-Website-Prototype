@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
       "Content & Editorial Engine",
       "Conversion Rate Optimization",
     ],
-    cover: "#ff3b2f",
+    cover: "hsl(270, 85%, 72%)",
     problem:
       "ViralVista was spending $80K/mo on Meta with a 1.8 ROAS and no compounding asset. Creative fatigue hit every 9 days.",
     strategy:
@@ -58,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
       "Content & Editorial Engine",
       "Analytics, Tracking & Attribution",
     ],
-    cover: "#4f7cff",
+    cover: "hsl(210, 75%, 60%)",
     problem:
       "Northwind was invisible on category-defining search terms and dependent on paid for every signup.",
     strategy:
@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
       "CRM & Marketing Operations",
       "Lifecycle, Email & SMS Automation",
     ],
-    cover: "#7a3cff",
+    cover: "hsl(270, 60%, 52%)",
     problem:
       "Post-launch, EngageEra had 12K free signups but a 0.6% trial-to-paid conversion. The site wasn't built for product-led growth.",
     strategy:
@@ -112,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Saffron & Co.",
     industry: "Hospitality",
     services: ["SEO & Organic Growth", "Brand & Identity", "Performance Marketing"],
-    cover: "#f9a01f",
+    cover: "hsl(38, 85%, 58%)",
     problem:
       "A 14-property hospitality group with a slow, brochure-style site and 7 fragmented Google Business Profiles.",
     strategy:
@@ -140,7 +140,7 @@ export const caseStudies: CaseStudy[] = [
       "Content & Editorial Engine",
       "Public Relations & Earned Media",
     ],
-    cover: "#3ddc97",
+    cover: "hsl(145, 70%, 55%)",
     problem:
       "Meridian was a strong dev tool with zero AI-search presence — invisible in ChatGPT, Perplexity, and Google AI Overviews.",
     strategy:
@@ -168,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
       "SEO & Organic Growth",
       "Analytics, Tracking & Attribution",
     ],
-    cover: "#0e0e10",
+    cover: "hsl(260, 14%, 9%)",
     problem:
       "BuzzBeacon had 200 podcast pages with thin content and no search traffic. Ad revenue was flat.",
     strategy:
@@ -194,7 +194,7 @@ export const caseStudies: CaseStudy[] = [
       "Public Relations & Earned Media",
       "Social Media & Community",
     ],
-    cover: "#ff3b2f",
+    cover: "hsl(270, 85%, 72%)",
     problem:
       "Tessera's founder had strong conviction but no media footprint. They needed a thought-leadership engine that produced content at venture scale without an in-house team.",
     strategy:
@@ -224,7 +224,7 @@ export const caseStudies: CaseStudy[] = [
       "Social Media & Community",
       "Performance Marketing",
     ],
-    cover: "#f9a01f",
+    cover: "hsl(38, 85%, 58%)",
     problem:
       "Lumenwear was over-reliant on Meta with a 2.1 ROAS and creative fatigue every 12 days. They needed a creator engine that produced social proof at scale.",
     strategy:
@@ -253,7 +253,7 @@ export const caseStudies: CaseStudy[] = [
       "Public Relations & Earned Media",
       "CRM & Marketing Operations",
     ],
-    cover: "#7a3cff",
+    cover: "hsl(270, 60%, 52%)",
     problem:
       "Kantara had product-market fit and a $4M run rate, but pipeline was inconsistent. Sales cycle was 11 months and win rate was 18%.",
     strategy:
@@ -283,7 +283,7 @@ export const caseStudies: CaseStudy[] = [
       "Performance Marketing",
       "Lifecycle, Email & SMS Automation",
     ],
-    cover: "#3ddc97",
+    cover: "hsl(145, 70%, 55%)",
     problem:
       "Soukly was burning paid social to acquire two-sided marketplace supply and demand. Unit economics were negative on the supply side.",
     strategy:
@@ -307,7 +307,7 @@ export const caseStudies: CaseStudy[] = [
       "Brand & Identity",
       "Public Relations & Earned Media",
     ],
-    cover: "#4f7cff",
+    cover: "hsl(210, 75%, 60%)",
     problem:
       "A US B2B SaaS at $18M ARR wanted to enter MENA but had no in-market presence, no Arabic-language site, and no idea how to navigate the regulatory landscape.",
     strategy:
@@ -331,7 +331,7 @@ export const caseStudies: CaseStudy[] = [
       "Brand & Identity",
       "Content & Editorial Engine",
     ],
-    cover: "#0e0e10",
+    cover: "hsl(260, 14%, 9%)",
     problem:
       "Mosaic was launching a new beverage category in MENA and needed to know if the TAM justified a $40M Series A ask. Existing data was thin and consumer language was unmapped.",
     strategy:

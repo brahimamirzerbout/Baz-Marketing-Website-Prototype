@@ -13,41 +13,41 @@ export const team: TeamMember[] = [
     role: "Founder · Strategy",
     bio: "Sets the bar on growth strategy and the senior-team model. Has shipped plans for 60+ brands across MENA, EU, and the US.",
     initials: "BZ",
-    color: "#ff3b2f",
+    color: "hsl(270, 85%, 72%)",  // violet — brand accent
   },
   {
     name: "Partner · SEO & Content",
     role: "Senior Partner · SEO & Content",
     bio: "Editorial SEO and topical authority for category-defining SERPs. Owns the content engine end-to-end.",
     initials: "SE",
-    color: "#4f7cff",
+    color: "hsl(210, 75%, 60%)",  // info blue
   },
   {
     name: "Partner · Paid & Lifecycle",
     role: "Senior Partner · Paid & Lifecycle",
     bio: "Paid media and lifecycle marketing. Believes tracking is the moat. Ships server-side + CAPI on every account.",
     initials: "PL",
-    color: "#7a3cff",
+    color: "hsl(38, 85%, 58%)",  // amber — caution/paid
   },
   {
     name: "Partner · Brand & Creative",
     role: "Senior Partner · Brand & Creative",
     bio: "Brand systems and creative direction tied to the metric they own. From naming to launch toolkit.",
     initials: "BC",
-    color: "#f9a01f",
+    color: "hsl(270, 60%, 52%)",  // violet dimmed
   },
   {
     name: "Partner · Analytics",
     role: "Senior Partner · Analytics",
     bio: "Tracking, attribution, and dashboards that execs actually open. GA4, server-side GTM, MMM.",
     initials: "AN",
-    color: "#3ddc97",
+    color: "hsl(145, 70%, 55%)",  // emerald — success/data
   },
   {
     name: "Partner · Web",
     role: "Senior Partner · Web",
     bio: "Performance-first web builds on Next.js and headless CMS. Sub-1.5s LCP is the floor, not the ceiling.",
     initials: "WB",
-    color: "#0e0e10",
+    color: "hsl(260, 10%, 42%)",  // neutral — structure
   },
 ];

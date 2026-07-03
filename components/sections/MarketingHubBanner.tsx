@@ -113,7 +113,7 @@ export function MarketingHubBanner() {
                 <div className="flex items-center gap-2">
                   <span
                     className={`inline-block w-2 h-2 rounded-full ${
-                      pulse?.ok ? "bg-emerald-500" : "bg-amber-500"
+                      pulse?.ok ? "bg-[hsl(145,70%,55%)]" : "bg-[hsl(38,85%,58%)]"
                     }`}
                   />
                   <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground dark:text-muted-foreground">
@@ -132,22 +132,22 @@ export function MarketingHubBanner() {
 
               <div className="grid grid-cols-2 gap-3">
                 <Stat
-                  icon={<DotIcon color="#059669" />}
+                  icon={<DotIcon color="hsl(145,70%,55%)" />}
                   label="Active sequences"
                   value={pulse?.enrollments_active ?? "—"}
                 />
                 <Stat
-                  icon={<DotIcon color="#7c3aed" />}
+                  icon={<DotIcon color="hsl(270,85%,72%)" />}
                   label="Velocity (wins/day)"
                   value={pulse ? pulse.triangle_velocity.toFixed(2) : "—"}
                 />
                 <Stat
-                  icon={<DotIcon color="#d97706" />}
+                  icon={<DotIcon color="hsl(38,85%,58%)" />}
                   label="Pipeline under mgmt"
                   value={pulse ? fmtCurrency(pulse.pipeline_value) : "—"}
                 />
                 <Stat
-                  icon={<DotIcon color="#e11d48" />}
+                  icon={<DotIcon color="hsl(8,80%,58%)" />}
                   label="Marketing Dive"
                   value={dive?.total ?? "—"}
                   sub={dive?.total ? `${dive.total} articles indexed` : "not ingested yet"}

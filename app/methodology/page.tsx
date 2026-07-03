@@ -301,7 +301,7 @@ export default function MethodologyPage() {
             We&apos;ve answered these 1,000 times. Here they are, written down.
           </SectionLede>
         </div>
-        <div className="mt-10 max-w-3xl divide-y divide-ink-100 border-t border-b border-border">
+        <div className="mt-10 max-w-3xl divide-y divide-border border-t border-b border-border">
           {methodologyFaqs.map((faq, i) => (
             <details key={i} className="group py-5">
               <summary className="flex items-start justify-between gap-4 cursor-pointer list-none">

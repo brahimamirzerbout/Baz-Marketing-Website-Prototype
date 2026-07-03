@@ -10,24 +10,24 @@ type Variant = "primary" | "secondary" | "ghost" | "outline" | "soft";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 " +
-  "focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 font-display font-semibold uppercase tracking-[0.15em] transition-all duration-300 " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 " +
+  "focus-visible:ring-offset-ink disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md hover:-translate-y-px",
+    "bg-white text-ink",
   secondary:
-    "bg-accent text-accent-foreground hover:bg-accent/90 shadow-sm hover:shadow-md hover:-translate-y-px",
-  ghost: "bg-transparent text-foreground hover:bg-muted",
-  outline: "bg-transparent text-foreground border border-border hover:bg-muted",
-  soft: "bg-muted text-foreground hover:bg-muted/70",
+    "bg-brand text-white",
+  ghost: "bg-transparent text-sand",
+  outline: "bg-transparent text-sand border border-white/20",
+  soft: "bg-panel text-sand",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-4 text-sm",
-  md: "h-10 px-5 text-sm",
-  lg: "h-12 px-7 text-base",
+  sm: "h-9 px-4 text-[11px]",
+  md: "h-10 px-5 text-xs",
+  lg: "h-12 px-7 text-xs",
 };
 
 type CommonProps = {

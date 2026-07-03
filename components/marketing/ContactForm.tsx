@@ -129,7 +129,7 @@ export function ContactForm({
         </p>
         <button
           onClick={() => setSuccessId(null)}
-          className="mt-6 text-sm text-muted-foreground hover:text-foreground underline"
+          className="mt-6 text-sm text-muted-foreground underline"
         >
           Submit another
         </button>

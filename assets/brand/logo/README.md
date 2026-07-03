@@ -1,40 +1,69 @@
-# BAZ Logo Suite
+# BAZ Logo Assets
 
-5 variants, one source of truth. Save these where you need them.
+This directory contains the canonical BAZ logo assets. All files use the **Æther Design System** with violet accent `#8b5cf6` (hsl(270, 85%, 72%)).
+
+---
 
 ## Files
 
-| File | Use for | Background |
-|---|---|---|
-| `baz-wordmark.svg` | Default. Hero, decks, email signature, social banners. | Light or off-white backgrounds |
-| `baz-wordmark-reverse.svg` | Anywhere dark. Pitch deck dark slides, dark-mode social. | Dark backgrounds only |
-| `baz-wordmark-mono.svg` | Print, single-color fax-style placements, watermarks, monospace contexts. | Either — but always one color |
-| `baz-mark.svg` | The B-in-red-square alone. Tight spaces, app icons, watermarks. | Either |
-| `baz-favicon.svg` | 64×64. Browser tab, app shortcut icon. | Either |
+| File | Description | Background | Use |
+|------|------------|-----------|-----|
+| `baz-mark.svg` | Icon mark — violet squircle with paper "B" | Violet `#8b5cf6` | Favicons, avatars, nav badges, app icons |
+| `baz-mark-inverse.svg` | Inverse mark — paper squircle with violet "B" | Paper `#f5f1ea` | Dark backgrounds, watermarks |
+| `baz-mark-ghost.svg` | Ghost mark — same as primary, use at opacity 0.06–0.10 | Violet `#8b5cf6` | Hero/contact watermarks |
+| `baz-wordmark.svg` | Primary wordmark — mark + "BAZ" + subtitle | Transparent | Light/paper backgrounds (default) |
+| `baz-wordmark-mono.svg` | Monochrome wordmark — ink-900 only | Transparent | Print, single-color, dark-on-light |
+| `baz-wordmark-reverse.svg` | Reverse wordmark — paper text on dark | Transparent | Ink/dark backgrounds |
+| `baz-favicon.svg` | Simplified mark for browser tabs | Violet `#8b5cf6` | Favicon 16–64px |
 
-## Don't
+---
 
-- Don't recolor the mark. The red is `#ff3b2f`. Always.
-- Don't stretch, skew, or rotate.
-- Don't add drop shadows, glows, or outlines to the mark.
-- Don't put the mark on busy photos without a solid scrim behind it.
-- Don't replace the serif "B" with a sans, italic, or condensed variant.
+## Color Reference
 
-## Sizes
+| Element | Value | Notes |
+|---------|-------|-------|
+| Mark background | `#8b5cf6` | Violet-500 |
+| Mark letter | `#f5f1ea` | Paper |
+| Wordmark (light bg) | `#0e0e0e` | Ink-900 |
+| Wordmark (dark bg) | `#f5f1ea` | Paper |
+| Subtitle (light bg) | `#737373` | Ink-500 |
+| Subtitle (dark bg) | `#a3a3a3` | Ink-400 |
+| Inverse mark bg | `#f5f1ea` | Paper |
+| Inverse mark letter | `#8b5cf6` | Violet-500 |
 
-- **Minimum width**: 80px for the full wordmark, 24px for the mark alone
-- **Preferred**: 200–400px for the wordmark in decks, 64–120px for the mark
-- **Maximum**: never above 800px on screen — beyond that it competes with the typography of the document
+---
 
-## Color tokens
+## Clear Space
 
-```
---accent:    #ff3b2f   ←  the red. Don't change it.
---ink-900:   #0e0e10   ←  body text and dark mark on light
---paper:     #f5f1ea   ←  background of the cream wordmark reverse
---paper-50:  #faf7f2   ←  white inside the red square
-```
+- **Wordmark:** 35% of total height on all four sides
+- **Mark:** 25% of rendered width on all four sides
 
-## When in doubt
+---
 
-Use `baz-wordmark.svg`. The other four are for specific situations.
+## Minimum Sizes
+
+| Context | Minimum Width |
+|---------|-------------|
+| Digital wordmark (desktop) | 120px |
+| Digital wordmark (mobile) | 80px |
+| Print wordmark | 0.75in (19mm) |
+| Icon mark (digital) | 24px |
+| Icon mark (print) | 0.25in (6mm) |
+
+---
+
+## Prohibited Uses
+
+- ❌ Never apply gradient fills to the wordmark
+- ❌ Never apply drop shadows or outer glows
+- ❌ Never use violet wordmark text on paper backgrounds (contrast fails AA)
+- ❌ Never use gold (#f9a01f) or red (#ff3b2f) as the primary accent
+- ❌ Never rotate, stretch, or compress the wordmark
+- ❌ Never place over complex photography without a scrim overlay
+- ❌ Never use the old red mark (#ff3b2f) — always use violet (#8b5cf6)
+
+---
+
+## Reference Images
+
+The `reference-*.webp/png` files are downloaded AI-generated assets and client-provided images for reference only. They are not canonical brand assets.

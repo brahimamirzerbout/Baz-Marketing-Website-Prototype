@@ -24,7 +24,7 @@ export function Card({
         "bg-card text-card-foreground rounded-lg",
         bordered && "border border-border",
         padded && "p-6 md:p-7",
-        hover && "transition-all duration-200 hover:-translate-y-px hover:border-foreground/20",
+        hover && "",
         className,
       )}
       {...rest}

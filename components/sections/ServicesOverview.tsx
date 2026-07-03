@@ -31,7 +31,7 @@ export function ServicesOverview() {
         <div className="lg:col-span-5 flex items-end lg:justify-end">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 font-medium text-foreground"
           >
             All services <span aria-hidden>→</span>
           </Link>
@@ -45,7 +45,7 @@ export function ServicesOverview() {
             <Link
               key={s.slug}
               href={`/services/${s.slug}`}
-              className="reveal group block bg-card rounded-2xl p-6 md:p-7 border border-border dark:border-border hover:border-foreground dark:hover:border-border hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
+              className="reveal group block bg-card rounded-2xl p-6 md:p-7 border border-border dark:border-border"
               style={{ animationDelay: `${i * 60}ms` }}
             >
               <div className="flex items-center justify-between mb-8">
@@ -54,7 +54,7 @@ export function ServicesOverview() {
                 </Badge>
                 <span
                   aria-hidden
-                  className="text-muted-foreground/40 dark:text-muted-foreground/60 group-hover:text-accent group-hover:translate-x-0.5 transition-all"
+                  className="text-muted-foreground/40 dark:text-muted-foreground/60"
                 >
                   →
                 </span>

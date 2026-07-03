@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   BAZ — Typography Styles
+   Fraunces × Inter × JetBrains Mono
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ━━━ Font Declarations (self-hosted via next/font/local) ━━━ ━━━ ━━━ ━━━
+   These @font-face rules are for reference. In production, use next/font/local
+   for optimal loading. The actual font files live in public/fonts/.
+━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+/* ━━━ Display Headlines — Fraunces ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.baz-display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--c-ink-900);
+  font-optical-sizing: auto;
+}
+
+.baz-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  font-weight: var(--weight-normal);
+  line-height: 1.0;
+  letter-spacing: var(--tracking-tighter);
+  color: var(--c-ink-900);
+}
+
+.baz-display-l {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--weight-normal);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight);
+  color: var(--c-ink-900);
+}
+
+.baz-display-m {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-tight);
+  color: var(--c-ink-900);
+}
+
+/* ━━━ Section Headings — Inter ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.baz-h1 {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semi);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--c-ink-900);
+}
+
+.baz-h2 {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--c-ink-900);
+}
+
+.baz-h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+  color: var(--c-ink-900);
+}
+
+.baz-h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+  color: var(--c-ink-900);
+}
+
+/* ━━━ Body Text ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.baz-body-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--c-ink-600);
+}
+
+.baz-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+}
+
+.baz-body-sm {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--fg-muted);
+}
+
+/* ━━━ Eyebrow / Overline — JetBrains Mono ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.baz-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--weight-normal);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.baz-eyebrow::before {
+  content: '● ';
+}
+
+.baz-eyebrow-light {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--weight-normal);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-paper);
+}
+
+/* ━━━ Metadata ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.baz-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: var(--weight-normal);
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c-ink-500);
+}
+
+/* ━━━ Ink Section Overrides ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.baz-ink .baz-display-hero,
+.baz-ink .baz-display-xl,
+.baz-ink .baz-display-l,
+.baz-ink .baz-display-m {
+  color: var(--c-paper);
+}
+
+.baz-ink .baz-h1,
+.baz-ink .baz-h2,
+.baz-ink .baz-h3,
+.baz-ink .baz-h4 {
+  color: var(--c-paper);
+}
+
+.baz-ink .baz-body-lead,
+.baz-ink .baz-body {
+  color: hsl(270, 6%, 68%);
+}
+
+.baz-ink .baz-meta {
+  color: hsl(270, 6%, 46%);
+}
+
+/* ━━━ Selection ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+::selection {
+  background: var(--accent-200);
+  color: var(--c-ink-900);
+}
+
+.baz-ink ::selection {
+  background: var(--accent-700);
+  color: var(--c-paper);
+}

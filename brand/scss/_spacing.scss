@@ -1,0 +1,121 @@
+// BAZ — SCSS Spacing Maps
+// 8pt rhythm + section conventions
+
+$spaces: (
+  '0': 0,
+  'px': 0.0625rem,
+  '0-5': 0.125rem,
+  '1': 0.25rem,
+  '1-5': 0.375rem,
+  '2': 0.5rem,
+  '2-5': 0.625rem,
+  '3': 0.75rem,
+  '3-5': 0.875rem,
+  '4': 1rem,
+  '5': 1.25rem,
+  '6': 1.5rem,
+  '7': 1.75rem,
+  '8': 2rem,
+  '9': 2.25rem,
+  '10': 2.5rem,
+  '12': 3rem,
+  '14': 3.5rem,
+  '16': 4rem,
+  '20': 5rem,
+  '24': 6rem,
+  '28': 7rem,
+  '32': 8rem,
+  '36': 9rem,
+  '40': 10rem,
+  '48': 12rem,
+  '56': 14rem,
+  '64': 16rem,
+);
+
+// ── Breakpoints ──
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px,
+);
+
+// ── Containers ──
+$containers: (
+  'sm': 36rem,
+  'md': 48rem,
+  'lg': 60rem,
+  'xl': 72rem,
+  '2xl': 84rem,
+);
+
+// ── Grid ──
+$grid-columns: 12;
+$grid-gutter: 1.5rem; // 24px
+
+// ── Section Spacing ──
+$section-padding-mobile: 5rem;   // 80px
+$section-padding-tablet: 8rem;   // 128px
+$section-padding-desktop: 10rem; // 160px
+
+$hero-padding-top-mobile: 4rem;    // 64px
+$hero-padding-top-desktop: 6rem;   // 96px
+$hero-padding-bottom-mobile: 5rem; // 80px
+$hero-padding-bottom-desktop: 8rem; // 128px
+
+// ── Mixin: Responsive Section ──
+@mixin section-padding {
+  padding-top: $section-padding-mobile;
+  padding-bottom: $section-padding-mobile;
+
+  @media (min-width: map-get($breakpoints, 'md')) {
+    padding-top: $section-padding-tablet;
+    padding-bottom: $section-padding-tablet;
+  }
+
+  @media (min-width: map-get($breakpoints, 'xl')) {
+    padding-top: $section-padding-desktop;
+    padding-bottom: $section-padding-desktop;
+  }
+}
+
+// ── Mixin: Hero Section ──
+@mixin hero-padding {
+  padding-top: $hero-padding-top-mobile;
+  padding-bottom: $hero-padding-bottom-mobile;
+
+  @media (min-width: map-get($breakpoints, 'md')) {
+    padding-top: $hero-padding-top-desktop;
+    padding-bottom: $hero-padding-bottom-desktop;
+  }
+}
+
+// ── Mixin: Container ──
+@mixin container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: map-get($spaces, '6');
+  padding-right: map-get($spaces, '6');
+
+  @media (min-width: map-get($breakpoints, 'lg')) {
+    padding-left: map-get($spaces, '12');
+    padding-right: map-get($spaces, '12');
+  }
+}
+
+// ── Mixin: Grid ──
+@mixin grid($columns: 12) {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: $grid-gutter;
+}
+
+// ── Mixin: Respond To ──
+@mixin respond-to($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}

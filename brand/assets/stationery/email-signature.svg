@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+  <!-- BAZ Email Signature — 1200×300 -->
+  <!-- Paper background, horizontal layout -->
+
+  <!-- Paper background -->
+  <rect width="1200" height="300" fill="#f5f1ea"/>
+
+  <!-- Mark -->
+  <g transform="translate(60, 80)">
+    <rect x="0" y="0" width="56" height="56" rx="12" fill="#8b5cf6"/>
+    <text x="28" y="43" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-1.5">B</text>
+  </g>
+
+  <!-- Name & Title -->
+  <text x="140" y="105" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#0e0e0e" letter-spacing="-0.02">Name · Title</text>
+
+  <!-- Contact -->
+  <text x="140" y="130" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" fill="#737373" letter-spacing="0">email@bazagency.com · +1 (555) 000-0000</text>
+  <text x="140" y="150" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" fill="#737373" letter-spacing="0">bazagency.com</text>
+
+  <!-- Violet accent line -->
+  <rect x="60" y="200" width="1080" height="1.5" fill="#8b5cf6" rx="0.75"/>
+
+  <!-- Tagline -->
+  <text x="60" y="235" font-family="JetBrains Mono, monospace" font-size="9" font-weight="400" fill="#a3a3a3" letter-spacing="2" text-transform="uppercase">POWERING YOUR PATH TO GROWTH</text>
+</svg>

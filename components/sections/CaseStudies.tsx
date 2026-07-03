@@ -19,7 +19,7 @@ export function CaseStudies() {
         <div className="lg:col-span-5 flex items-end lg:justify-end">
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 font-medium text-foreground"
           >
             All case studies <span aria-hidden>→</span>
           </Link>
@@ -33,7 +33,7 @@ export function CaseStudies() {
             <Link
               key={c.slug}
               href={`/case-studies/${c.slug}`}
-              className="reveal group flex flex-col bg-card rounded-2xl border border-border dark:border-border hover:border-accent/50 hover:-translate-y-1 hover:shadow-lift transition-all duration-377 ease-[cubic-bezier(0.618,0,0.618,1)] overflow-hidden"
+              className="reveal group flex flex-col bg-card rounded-2xl border border-border dark:border-border overflow-hidden"
               style={{ animationDelay: `${i * 80}ms` }}
             >
               {/* Cover strip with brand color */}
@@ -84,7 +84,7 @@ export function CaseStudies() {
                   <span className="text-muted-foreground font-mono text-[11px]">{c.duration}</span>
                   <span
                     aria-hidden
-                    className="text-muted-foreground/60 group-hover:text-accent group-hover:translate-x-0.5 transition-all"
+                    className="text-muted-foreground/60"
                   >
                     Read case →
                   </span>

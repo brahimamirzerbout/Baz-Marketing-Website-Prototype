@@ -34,9 +34,8 @@ export async function generateMetadata({
       : variant.icpLabel
         ? `Add $200K+ ${variant.icpLabel} pipeline`
         : "Add $200K+ to pipeline in 90 days";
-  const subtitle = variant.icpLabel
-    ? `Personalised for ${variant.icpLabel} · BAZ Marketing Hub`
-    : "Senior-only growth partner · BAZ Marketing Hub";
+  const taglineStr = typeof variant.tagline === "string" ? variant.tagline : variant.icpLabel ? `Senior-only, on the Hub` : "Or pay nothing for month four";
+  const subtitle = `${taglineStr} · BAZ Marketing Hub`;
   // Pre-build the OG query string with the variant's text so social previews match the page.
   const ogQuery = `?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(subtitle)}`;
   return buildMetadata({

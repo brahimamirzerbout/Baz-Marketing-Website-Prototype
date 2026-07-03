@@ -47,9 +47,9 @@ export function ReadNext() {
             <a
               key={l.href}
               href={l.href}
-              className="group block p-6 rounded-2xl border border-border hover:border-accent hover:bg-muted/70 transition-colors"
+              className="group block p-6 rounded-2xl border border-border"
             >
-              <div className="font-display text-xl font-medium tracking-[-0.02em] group-hover:text-accent">
+              <div className="font-display text-xl font-medium tracking-[-0.02em]">
                 {l.label}
               </div>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{l.desc}</p>

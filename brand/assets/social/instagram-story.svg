@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- BAZ Instagram Story — 1080×1920 -->
+  <!-- Ink background, violet accent, vertical layout -->
+  <defs>
+    <radialGradient id="story-mesh" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ink background -->
+  <rect width="1080" height="1920" fill="#0e0e0e"/>
+  <rect width="1080" height="1920" fill="url(#story-mesh)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.03">
+    <line x1="80" y1="0" x2="80" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="160" y1="0" x2="160" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="240" y1="0" x2="240" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="320" y1="0" x2="320" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="480" y1="0" x2="480" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="560" y1="0" x2="560" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="640" y1="0" x2="640" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="720" y1="0" x2="720" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="800" y1="0" x2="800" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="880" y1="0" x2="880" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="960" y1="0" x2="960" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+    <line x1="1040" y1="0" x2="1040" y2="1920" stroke="#f5f1ea" stroke-width="0.5"/>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="540" y="700" font-family="JetBrains Mono, monospace" font-size="13" font-weight="400" fill="#8b5cf6" letter-spacing="2.5" text-anchor="middle" text-transform="uppercase">● BRAND &amp; IDENTITY</text>
+
+  <!-- Headline -->
+  <text x="540" y="820" font-family="Fraunces, Georgia, serif" font-size="88" font-weight="300" fill="#f5f1ea" letter-spacing="-4" text-anchor="middle">Brand &amp;</text>
+  <text x="540" y="930" font-family="Fraunces, Georgia, serif" font-size="88" font-weight="300" fill="#f5f1ea" letter-spacing="-4" text-anchor="middle">Buzz.</text>
+
+  <!-- Subtitle -->
+  <text x="540" y="1000" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="400" fill="#737373" text-anchor="middle">We make brands unignorable.</text>
+
+  <!-- Violet accent line -->
+  <rect x="470" y="1060" width="140" height="2" fill="#8b5cf6" rx="1"/>
+
+  <!-- CTA area -->
+  <rect x="390" y="1120" width="300" height="56" rx="28" fill="#8b5cf6"/>
+  <text x="540" y="1155" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="500" fill="#f5f1ea" text-anchor="middle" letter-spacing="0.05em">START YOUR PROJECT →</text>
+
+  <!-- Mark — centered below CTA -->
+  <g transform="translate(500, 1600)">
+    <rect x="0" y="0" width="80" height="80" rx="18" fill="#8b5cf6"/>
+    <text x="40" y="60" font-family="Fraunces, Georgia, serif" font-size="62" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-2">B</text>
+  </g>
+
+  <!-- URL -->
+  <text x="540" y="1730" font-family="JetBrains Mono, monospace" font-size="11" font-weight="400" fill="#525252" letter-spacing="1.5" text-anchor="middle">BAZAGENCY.COM</text>
+</svg>

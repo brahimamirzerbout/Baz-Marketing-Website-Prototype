@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAZ — BlackSwan Design System · Violet Seed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       BAZ — BlackSwan Design System Showcase
+       Violet Seed · Fibonacci × Da Vinci × Material 3
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+      --seed-hue: 270;
+      --seed-sat: 72%;
+      --seed-lum: 50%;
+
+      /* Primary Spectrum */
+      --color-primary: hsl(var(--seed-hue), var(--seed-sat), var(--seed-lum));
+      --color-primary-5: hsl(var(--seed-hue), var(--seed-sat), 97%);
+      --color-primary-10: hsl(var(--seed-hue), var(--seed-sat), 93%);
+      --color-primary-20: hsl(var(--seed-hue), var(--seed-sat), 82%);
+      --color-primary-30: hsl(var(--seed-hue), var(--seed-sat), 72%);
+      --color-primary-40: hsl(var(--seed-hue), var(--seed-sat), 62%);
+      --color-primary-50: hsl(var(--seed-hue), var(--seed-sat), 52%);
+      --color-primary-60: hsl(var(--seed-hue), var(--seed-sat), 42%);
+      --color-primary-70: hsl(var(--seed-hue), var(--seed-sat), 32%);
+      --color-primary-80: hsl(var(--seed-hue), var(--seed-sat), 22%);
+      --color-primary-90: hsl(var(--seed-hue), var(--seed-sat), 12%);
+
+      /* Violet Accents (fixed for BAZ) */
+      --violet-50: #f5f0ff; --violet-100: #ebe3ff; --violet-200: #d5c7ff;
+      --violet-300: #baabff; --violet-400: #9985ff; --violet-500: #8b5cf6;
+      --violet-600: #7c3aed; --violet-700: #6d28d9; --violet-800: #5b21b6;
+      --violet-900: #4c1d95;
+
+      --accent: #8b5cf6;
+      --accent-600: #7c3aed;
+      --accent-700: #6d28d9;
+
+      /* BAZ Fixed Palette */
+      --ink-900: #0e0e0e; --ink-800: #1a1a1a; --ink-600: #525252;
+      --ink-500: #737373; --ink-400: #a3a3a3;
+      --paper: #f5f1ea; --paper-50: #faf7f1; --paper-100: #f0ebe0;
+
+      /* Semantic */
+      --color-success: hsl(152, 68%, 38%);
+      --color-warning: hsl(38, 92%, 45%);
+      --color-danger: hsl(0, 78%, 50%);
+
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Fraunces', 'Iowan Old Style', 'Noto Serif', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+      --font-display: var(--font-serif);
+
+      --leading-none: 1; --leading-tight: 1.15; --leading-snug: 1.3;
+      --leading-normal: 1.55; --leading-relaxed: 1.7;
+      --tracking-tighter: -0.04em; --tracking-tight: -0.02em;
+      --tracking-eyebrow: 0.18em;
+
+      /* Spacing */
+      --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+      --sp-5: 1.25rem; --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem;
+      --sp-12: 3rem; --sp-16: 4rem; --sp-20: 5rem; --sp-24: 6rem;
+      --sp-32: 8rem; --sp-40: 10rem; --sp-48: 12rem;
+
+      /* Radius */
+      --r3: 3px; --r5: 5px; --r8: 8px; --r13: 13px; --r21: 21px;
+      --r34: 34px; --r55: 55px; --r89: 89px; --rfull: 9999px;
+
+      /* Shadows */
+      --sh-sm: 0 1px 3px 0 rgba(0,0,0,.06), 0 1px 2px -1px rgba(0,0,0,.06);
+      --sh-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+      --sh-lg: 0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.04);
+      --sh-xl: 0 20px 25px -5px rgba(0,0,0,.10), 0 8px 10px -6px rgba(0,0,0,.04);
+
+      /* Motion */
+      --dur-fast: 150ms; --dur-normal: 250ms; --dur-slow: 400ms;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: var(--leading-normal);
+      color: var(--ink-900);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container { max-width: 84rem; margin: 0 auto; padding: 0 var(--sp-6); }
+
+    /* ━━━ SKIP LINK ━━━ */
+    .skip-link {
+      position: absolute; top: -100%; left: var(--sp-4);
+      background: var(--accent); color: white; padding: var(--sp-3) var(--sp-6);
+      font-weight: 500; border-radius: var(--r5); z-index: 9999;
+      transition: top var(--dur-fast) var(--ease);
+    }
+    .skip-link:focus { top: var(--sp-4); }
+
+    /* ━━━ SECTION LABEL ━━━ */
+    .eyebrow {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 400;
+      letter-spacing: var(--tracking-eyebrow); text-transform: uppercase;
+      color: var(--accent); margin-bottom: var(--sp-3); display: block;
+    }
+    .eyebrow::before { content: '● '; }
+
+    /* ━━━ SECTIONS ━━━ */
+    .section-paper {
+      background: var(--paper); padding: var(--sp-20) 0;
+    }
+    .section-ink {
+      background: var(--ink-900); padding: var(--sp-20) 0; color: #f5f1ea;
+    }
+    .section-white {
+      background: #ffffff; padding: var(--sp-20) 0;
+    }
+    .section-muted {
+      background: var(--paper-50); padding: var(--sp-20) 0;
+    }
+
+    /* ━━━ HERO ━━━ */
+    .hero {
+      background: var(--ink-900);
+      position: relative; overflow: hidden;
+      padding: var(--sp-32) 0;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(245, 241, 234, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 241, 234, 0.5) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      line-height: 0.95; letter-spacing: -0.04em; color: #f5f1ea;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero .subtitle {
+      font-family: var(--font-sans); font-size: clamp(1.125rem, 2vw, 1.5rem);
+      color: var(--ink-500); margin-top: var(--sp-6); max-width: 40rem;
+    }
+    .hero .ctas { display: flex; gap: var(--sp-4); margin-top: var(--sp-10); flex-wrap: wrap; }
+
+    /* ━━━ BUTTONS ━━━ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+      font-family: var(--font-sans); font-weight: 500; font-size: 14px;
+      padding: var(--sp-3) var(--sp-6); border: 2px solid transparent;
+      border-radius: var(--rfull); cursor: pointer; text-decoration: none;
+      white-space: nowrap; transition: all var(--dur-normal) var(--ease);
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 2px;
+    }
+    .btn-primary {
+      background: var(--accent); color: white;
+    }
+    .btn-primary:hover { background: var(--accent-600); transform: translateY(-1px); box-shadow: var(--sh-md); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-outline-ink {
+      background: transparent; color: #f5f1ea;
+      border-color: rgba(245, 241, 234, 0.2);
+    }
+    .btn-outline-ink:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-outline-paper {
+      background: transparent; color: var(--ink-900);
+      border-color: var(--ink-400);
+    }
+    .btn-outline-paper:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-ghost {
+      background: transparent; color: var(--ink-500);
+    }
+    .btn-ghost:hover { color: var(--accent); }
+
+    /* ━━━ STATS ━━━ */
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; background: var(--paper-100);
+      border-radius: var(--r21); overflow: hidden;
+      border: 1px solid var(--paper-100);
+    }
+    @media (min-width: 768px) { .stat-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-cell {
+      background: var(--paper); padding: var(--sp-6) var(--sp-8);
+      text-align: left;
+    }
+    .stat-value {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: -0.03em;
+      color: var(--ink-900);
+    }
+    .stat-label {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-500); margin-top: var(--sp-2);
+    }
+
+    /* ━━━ SWATCH GRID ━━━ */
+    .swatch-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: var(--sp-2);
+    }
+    .swatch {
+      border-radius: var(--r8); overflow: hidden;
+      border: 1px solid var(--paper-100); transition: transform var(--dur-normal) var(--ease);
+    }
+    .swatch:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
+    .swatch-color { height: 56px; }
+    .swatch-info {
+      padding: var(--sp-2); background: white;
+      font-family: var(--font-mono); font-size: 9px;
+    }
+    .swatch-name { color: var(--ink-900); font-weight: 600; }
+    .swatch-val { color: var(--ink-500); margin-top: 1px; }
+
+    /* ━━━ CARDS ━━━ */
+    .card {
+      background: white; border: 1px solid var(--paper-100);
+      border-radius: var(--r13); padding: var(--sp-6);
+      transition: all var(--dur-normal) var(--ease);
+    }
+    .card:hover { box-shadow: var(--sh-lg); transform: translateY(-2px); border-color: var(--accent); }
+    .card h4 {
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 500;
+      letter-spacing: -0.02em; margin-top: var(--sp-3); margin-bottom: var(--sp-2);
+    }
+    .card p { color: var(--ink-500); font-size: 0.875rem; line-height: 1.6; }
+
+    .card-highlight {
+      background: var(--violet-50); border: 1px solid var(--violet-200);
+      border-radius: var(--r13); padding: var(--sp-6);
+      transition: all var(--dur-normal) var(--ease);
+    }
+    .card-highlight:hover { box-shadow: var(--sh-lg); transform: translateY(-2px); }
+
+    /* ━━━ BADGE ━━━ */
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: var(--rfull);
+    }
+    .badge-violet { background: var(--violet-100); color: var(--violet-700); }
+    .badge-success { background: hsl(152, 68%, 93%); color: hsl(152, 68%, 30%); }
+    .badge-warning { background: hsl(38, 92%, 93%); color: hsl(38, 80%, 28%); }
+
+    /* ━━━ DIVIDER ━━━ */
+    .divider { height: 1px; background: var(--paper-100); margin: var(--sp-16) 0; }
+    .divider-ink { height: 1px; background: rgba(245,241,234,0.08); margin: var(--sp-16) 0; }
+
+    /* ━━━ VIOLET SHIMMER LINE ━━━ */
+    .shimmer-line {
+      height: 2px; border-radius: 9999px;
+      background: linear-gradient(90deg,
+        rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.4) 50%, rgba(139,92,246,0.15) 100%);
+      margin: var(--sp-6) 0;
+    }
+
+    /* ━━━ LOGO SHOWCASE ━━━ */
+    .logo-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--sp-6);
+    }
+    .logo-card {
+      background: white; border: 1px solid var(--paper-100);
+      border-radius: var(--r13); overflow: hidden;
+    }
+    .logo-preview {
+      display: flex; align-items: center; justify-content: center;
+      padding: var(--sp-10); min-height: 180px;
+    }
+    .logo-preview.ink { background: var(--ink-900); }
+    .logo-preview.paper { background: var(--paper); }
+    .logo-info { padding: var(--sp-4); border-top: 1px solid var(--paper-100); }
+    .logo-info code {
+      font-family: var(--font-mono); font-size: 10px; color: var(--ink-500);
+    }
+
+    /* ━━━ TYPE ROW ━━━ */
+    .type-row {
+      padding: var(--sp-4) 0; border-bottom: 1px solid var(--paper-100);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta {
+      font-family: var(--font-mono); font-size: 10px; color: var(--ink-400);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-top: var(--sp-1);
+    }
+
+    /* ━━━ RADIUS SHOWCASE ━━━ */
+    .radius-grid {
+      display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: flex-end;
+    }
+    .radius-item { text-align: center; }
+    .radius-box {
+      width: 60px; height: 60px; background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-family: var(--font-mono); font-size: 11px;
+    }
+    .radius-label {
+      font-family: var(--font-mono); font-size: 9px; color: var(--ink-500);
+      margin-top: var(--sp-2); text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    /* ━━━ PATTERN SHOWCASE ━━━ */
+    .pattern-card {
+      border-radius: var(--r13); overflow: hidden;
+      border: 1px solid var(--paper-100); height: 200px;
+      position: relative;
+    }
+    .pattern-label {
+      position: absolute; bottom: var(--sp-3); left: var(--sp-3);
+      background: rgba(14,14,14,0.8); backdrop-filter: blur(8px);
+      color: #f5f1ea; font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: var(--r5);
+    }
+
+    /* ━━━ ASSET GRID ━━━ */
+    .asset-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--sp-4);
+    }
+    .asset-thumb {
+      background: white; border: 1px solid var(--paper-100);
+      border-radius: var(--r8); overflow: hidden; transition: all var(--dur-normal) var(--ease);
+    }
+    .asset-thumb:hover { box-shadow: var(--sh-md); transform: translateY(-1px); }
+    .asset-thumb-img {
+      height: 120px; display: flex; align-items: center; justify-content: center;
+    }
+    .asset-thumb-info {
+      padding: var(--sp-2) var(--sp-3); border-top: 1px solid var(--paper-100);
+    }
+    .asset-thumb-info span {
+      font-family: var(--font-mono); font-size: 10px; color: var(--ink-500);
+    }
+
+    /* ━━━ RESPONSIVE ━━━ */
+    @media (max-width: 768px) {
+      .hero { padding: var(--sp-16) 0; }
+      .section-paper, .section-ink, .section-white, .section-muted {
+        padding: var(--sp-12) 0;
+      }
+    }
+
+    /* ━━━ REDUCED MOTION ━━━ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" aria-label="BAZ Brand System">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content container">
+      <span class="eyebrow" style="color: #8b5cf6;">BlackSwan Design System</span>
+      <h1>Brand <em>&</em><br>Buzz.</h1>
+      <p class="subtitle">We make brands unignorable. One seed — <code style="color:#8b5cf6;">--seed-hue: 270</code> — recomposes everything.</p>
+      <div class="ctas">
+        <a href="#palette" class="btn btn-primary">Explore the Palette →</a>
+        <a href="#logos" class="btn btn-outline-ink">View Logos</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- ═══ STATS ═══ -->
+    <section class="section-white" aria-label="Statistics">
+      <div class="container">
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <div class="stat-value">240+</div>
+            <div class="stat-label">● Brands</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">$2B+</div>
+            <div class="stat-label">● Revenue</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">98%</div>
+            <div class="stat-label">● Retention</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">12</div>
+            <div class="stat-label">● Years</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PALETTE ═══ -->
+    <section class="section-paper" id="palette" aria-label="Color Palette">
+      <div class="container">
+        <span class="eyebrow">Color Palette</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; letter-spacing:var(--tracking-tight); margin-bottom:var(--sp-8);">Violet is the <em style="color:var(--accent);">seed</em>.</h2>
+
+        <!-- Violet Spectrum -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4); color:var(--ink-500);">Violet Spectrum</h3>
+        <div class="swatch-grid" style="margin-bottom:var(--sp-8);">
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-50)"></div><div class="swatch-info"><div class="swatch-name">50</div><div class="swatch-val">#f5f0ff</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-100)"></div><div class="swatch-info"><div class="swatch-name">100</div><div class="swatch-val">#ebe3ff</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-200)"></div><div class="swatch-info"><div class="swatch-name">200</div><div class="swatch-val">#d5c7ff</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-300)"></div><div class="swatch-info"><div class="swatch-name">300</div><div class="swatch-val">#baabff</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-400)"></div><div class="swatch-info"><div class="swatch-name">400</div><div class="swatch-val">#9985ff</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-500); border:2px solid var(--accent)"></div><div class="swatch-info"><div class="swatch-name">500 ★</div><div class="swatch-val">#8b5cf6</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-600)"></div><div class="swatch-info"><div class="swatch-name">600</div><div class="swatch-val">#7c3aed</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-700)"></div><div class="swatch-info"><div class="swatch-name">700</div><div class="swatch-val">#6d28d9</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-800)"></div><div class="swatch-info"><div class="swatch-name">800</div><div class="swatch-val">#5b21b6</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--violet-900)"></div><div class="swatch-info"><div class="swatch-name">900</div><div class="swatch-val">#4c1d95</div></div></div>
+        </div>
+
+        <!-- Ink + Paper -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4); color:var(--ink-500);">Ink & Paper</h3>
+        <div class="swatch-grid" style="margin-bottom:var(--sp-8);">
+          <div class="swatch"><div class="swatch-color" style="background:var(--ink-900)"></div><div class="swatch-info"><div class="swatch-name">ink-900</div><div class="swatch-val">#0e0e0e</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--ink-800)"></div><div class="swatch-info"><div class="swatch-name">ink-800</div><div class="swatch-val">#1a1a1a</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--ink-600)"></div><div class="swatch-info"><div class="swatch-name">ink-600</div><div class="swatch-val">#525252</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--ink-500)"></div><div class="swatch-info"><div class="swatch-name">ink-500</div><div class="swatch-val">#737373</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--ink-400)"></div><div class="swatch-info"><div class="swatch-name">ink-400</div><div class="swatch-val">#a3a3a3</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--paper-100)"></div><div class="swatch-info"><div class="swatch-name">paper-100</div><div class="swatch-val">#f0ebe0</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--paper-50)"></div><div class="swatch-info"><div class="swatch-name">paper-50</div><div class="swatch-val">#faf7f1</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--paper)"></div><div class="swatch-info"><div class="swatch-name">paper</div><div class="swatch-val">#f5f1ea</div></div></div>
+        </div>
+
+        <!-- Semantic -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4); color:var(--ink-500);">Semantic</h3>
+        <div class="swatch-grid" style="margin-bottom:var(--sp-8);">
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-success)"></div><div class="swatch-info"><div class="swatch-name">success</div><div class="swatch-val">hsl(152,68%,38%)</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-warning)"></div><div class="swatch-info"><div class="swatch-name">warning</div><div class="swatch-val">hsl(38,92%,45%)</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-danger)"></div><div class="swatch-info"><div class="swatch-name">danger</div><div class="swatch-val">hsl(0,78%,50%)</div></div></div>
+        </div>
+
+        <!-- Gradients -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4); color:var(--ink-500);">Gradients</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:var(--sp-4); margin-bottom:var(--sp-4);">
+          <div style="background:linear-gradient(135deg,#8b5cf6 0%,#7c3aed 50%,#6d28d9 100%); border-radius:var(--r13); padding:var(--sp-8); color:white;">
+            <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:var(--sp-2); opacity:0.7;">Violet Gradient</div>
+            <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:300;">Primary CTA</div>
+          </div>
+          <div style="background:linear-gradient(90deg,rgba(139,92,246,0.15) 0%,rgba(139,92,246,0.4) 50%,rgba(139,92,246,0.15) 100%); border-radius:var(--r13); padding:var(--sp-8); color:var(--ink-900);">
+            <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:var(--sp-2); color:var(--ink-500);">Violet Shimmer</div>
+            <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:300;">Border & Divider</div>
+          </div>
+          <div style="background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,0.15) 0%,#0e0e0e 70%); border-radius:var(--r13); padding:var(--sp-8); color:#f5f1ea;">
+            <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:var(--sp-2); color:#8b5cf6;">Ink → Violet</div>
+            <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:300;">Hero Background</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TYPOGRAPHY ═══ -->
+    <section class="section-white" aria-label="Typography">
+      <div class="container">
+        <span class="eyebrow">Typography</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; letter-spacing:var(--tracking-tight); margin-bottom:var(--sp-8);">Fraunces × Inter × JetBrains Mono</h2>
+
+        <div class="type-row">
+          <span class="eyebrow" style="margin-bottom:0;">Display Hero</span>
+          <div style="font-family:var(--font-display); font-size:clamp(2.5rem,7vw,4.5rem); font-weight:300; line-height:0.95; letter-spacing:-0.04em;">
+            Brand & Buzz.
+          </div>
+          <div class="type-meta">Fraunces 300 · clamp(2.5rem, 7vw, 4.5rem) · tracking -0.04em · leading 0.95</div>
+        </div>
+
+        <div class="type-row">
+          <span class="eyebrow" style="margin-bottom:0;">Display L / H2</span>
+          <div style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; line-height:1.05; letter-spacing:-0.03em;">
+            Powering Your Path To Growth
+          </div>
+          <div class="type-meta">Fraunces 400 · clamp(2rem, 4vw, 3rem) · tracking -0.03em · leading 1.05</div>
+        </div>
+
+        <div class="type-row">
+          <span class="eyebrow" style="margin-bottom:0;">Display M / Card Title</span>
+          <div style="font-family:var(--font-display); font-size:2rem; font-weight:500; line-height:1.15; letter-spacing:-0.02em;">
+            Six pillars of growth
+          </div>
+          <div class="type-meta">Fraunces 500 · 2rem · tracking -0.02em · leading 1.15</div>
+        </div>
+
+        <div class="type-row">
+          <span class="eyebrow" style="margin-bottom:0;">Body Lead</span>
+          <div style="font-family:var(--font-sans); font-size:clamp(1.125rem,2vw,1.5rem); color:var(--ink-600); line-height:1.6;">
+            We make brands unignorable. From 0 to 100M views — we've done it.
+          </div>
+          <div class="type-meta">Inter 400 · clamp(1.125rem, 2vw, 1.5rem) · leading 1.6</div>
+        </div>
+
+        <div class="type-row">
+          <span class="eyebrow" style="margin-bottom:0;">Eyebrow</span>
+          <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">
+            ● Brand & Identity
+          </div>
+          <div class="type-meta">JetBrains Mono 400 · 11px · tracking 0.18em · uppercase · violet accent</div>
+        </div>
+
+        <div class="type-row">
+          <span class="eyebrow" style="margin-bottom:0;">Meta / Timestamp</span>
+          <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-500);">
+            Updated 3 hours ago · 6 min read · 240+ brands served
+          </div>
+          <div class="type-meta">JetBrains Mono 400 · 10px · tracking 0.15em · uppercase · ink-500</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LOGOS ═══ -->
+    <section class="section-paper" id="logos" aria-label="Logos">
+      <div class="container">
+        <span class="eyebrow">Logo System</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; letter-spacing:var(--tracking-tight); margin-bottom:var(--sp-4);">The <em style="color:var(--accent);">mark</em>.</h2>
+        <p style="color:var(--ink-500); max-width:40rem; margin-bottom:var(--sp-8);">Fraunces 600 letterform in a Fibonacci squircle. Violet on paper. Paper on ink. Never stretched, rotated, or re-colored.</p>
+
+        <div class="logo-grid">
+          <div class="logo-card">
+            <div class="logo-preview paper" style="flex-direction:column;">
+              <svg width="80" height="80" viewBox="0 0 120 120"><rect width="120" height="120" rx="26" fill="#8b5cf6"/><text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-3">B</text></svg>
+            </div>
+            <div class="logo-info"><code>Primary Mark — Violet on Paper</code></div>
+          </div>
+          <div class="logo-card">
+            <div class="logo-preview ink" style="flex-direction:column;">
+              <svg width="80" height="80" viewBox="0 0 120 120"><rect width="120" height="120" rx="26" fill="#8b5cf6"/><text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-3">B</text></svg>
+            </div>
+            <div class="logo-info"><code>Primary Mark — Violet on Ink</code></div>
+          </div>
+          <div class="logo-card">
+            <div class="logo-preview ink" style="flex-direction:column;">
+              <svg width="80" height="80" viewBox="0 0 120 120"><rect width="120" height="120" rx="26" fill="#f5f1ea"/><text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#8b5cf6" text-anchor="middle" letter-spacing="-3">B</text></svg>
+            </div>
+            <div class="logo-info"><code>Inverse Mark — Paper on Ink</code></div>
+          </div>
+          <div class="logo-card">
+            <div class="logo-preview paper" style="flex-direction:column;">
+              <svg width="80" height="80" viewBox="0 0 120 120"><rect width="120" height="120" rx="26" fill="#8b5cf6" opacity="0.08"/><text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#8b5cf6" opacity="0.08" text-anchor="middle" letter-spacing="-3">B</text></svg>
+            </div>
+            <div class="logo-info"><code>Ghost Mark — 8% opacity watermark</code></div>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--sp-8);">
+          <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4);">Wordmark Variants</h3>
+          <div class="logo-grid">
+            <div class="logo-card">
+              <div class="logo-preview paper" style="flex-direction:column;">
+                <svg width="260" height="80" viewBox="0 0 400 120"><rect x="0" y="0" width="120" height="120" rx="26" fill="#8b5cf6"/><text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-3">B</text><text x="148" y="78" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#0e0e0e" letter-spacing="-2">BAZ</text><text x="148" y="104" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#737373" letter-spacing="3">MARKETING VENTURES</text></svg>
+              </div>
+              <div class="logo-info"><code>Primary — Paper background</code></div>
+            </div>
+            <div class="logo-card">
+              <div class="logo-preview ink" style="flex-direction:column;">
+                <svg width="260" height="80" viewBox="0 0 400 120"><rect x="0" y="0" width="120" height="120" rx="26" fill="#f5f1ea"/><text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#8b5cf6" text-anchor="middle" letter-spacing="-3">B</text><text x="148" y="78" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#f5f1ea" letter-spacing="-2">BAZ</text><text x="148" y="104" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#a3a3a3" letter-spacing="3">MARKETING VENTURES</text></svg>
+              </div>
+              <div class="logo-info"><code>Reverse — Ink background</code></div>
+            </div>
+            <div class="logo-card">
+              <div class="logo-preview paper" style="flex-direction:column;">
+                <svg width="260" height="80" viewBox="0 0 400 120"><text x="60" y="80" font-family="Fraunces, Georgia, serif" font-size="120" font-weight="500" fill="#0e0e0e" text-anchor="middle" letter-spacing="-4">B</text><text x="200" y="78" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#0e0e0e" letter-spacing="-2">BAZ</text><text x="200" y="104" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#0e0e0e" letter-spacing="3">MARKETING VENTURES</text></svg>
+              </div>
+              <div class="logo-info"><code>Monochrome — Print / single-color</code></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RADIUS ═══ -->
+    <section class="section-white" aria-label="Fibonacci Radius">
+      <div class="container">
+        <span class="eyebrow">Fibonacci Radius</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; letter-spacing:var(--tracking-tight); margin-bottom:var(--sp-4);">Organic curvature.</h2>
+        <p style="color:var(--ink-500); max-width:40rem; margin-bottom:var(--sp-8);">Not arbitrary 4px/8px/12px. Every radius is a Fibonacci number — Da Vinci proportions that feel premium and intentional.</p>
+
+        <div class="radius-grid">
+          <div class="radius-item"><div class="radius-box" style="border-radius:3px;">3</div><div class="radius-label">fib3 · badges</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:5px;">5</div><div class="radius-label">fib5 · inputs</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:8px;">8</div><div class="radius-label">fib8 · buttons</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:13px;">13</div><div class="radius-label">fib13 · cards</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:21px;">21</div><div class="radius-label">fib21 · hero</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:34px;">34</div><div class="radius-label">fib34 · panels</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:55px;">55</div><div class="radius-label">fib55 · sections</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:89px; width:89px; height:89px;">89</div><div class="radius-label">fib89 · blobs</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:9999px; width:60px; height:60px;">∞</div><div class="radius-label">full · pills</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COMPONENTS ═══ -->
+    <section class="section-paper" aria-label="Components">
+      <div class="container">
+        <span class="eyebrow">Components</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; letter-spacing:var(--tracking-tight); margin-bottom:var(--sp-8);">Hand-rolled BlackSwan.</h2>
+
+        <!-- Buttons -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4);">Buttons</h3>
+        <div style="display:flex; gap:var(--sp-4); flex-wrap:wrap; align-items:center; margin-bottom:var(--sp-8);">
+          <a href="#" class="btn btn-primary">Start Your Project →</a>
+          <a href="#" class="btn btn-outline-paper">See Our Work</a>
+          <a href="#" class="btn btn-ghost">Learn More</a>
+        </div>
+
+        <!-- Badges -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4);">Badges</h3>
+        <div style="display:flex; gap:var(--sp-3); flex-wrap:wrap; margin-bottom:var(--sp-8);">
+          <span class="badge badge-violet">● Brand & Identity</span>
+          <span class="badge badge-violet">● Performance Marketing</span>
+          <span class="badge badge-success">● Active</span>
+          <span class="badge badge-warning">● Pending</span>
+        </div>
+
+        <!-- Cards -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4);">Cards</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--sp-6); margin-bottom:var(--sp-8);">
+          <div class="card">
+            <span class="eyebrow">Service Pillar</span>
+            <h4>Brand & Identity</h4>
+            <p>Naming, logo, identity systems, voice. We make brands unignorable.</p>
+            <div style="margin-top:var(--sp-4);"><a href="#" style="color:var(--accent); font-weight:500; font-size:0.875rem;">Learn more →</a></div>
+          </div>
+          <div class="card-highlight">
+            <span class="badge badge-violet" style="margin-bottom:var(--sp-3);">● Featured</span>
+            <h4 style="font-family:var(--font-display); font-size:1.25rem; font-weight:500; letter-spacing:-0.02em; margin-bottom:var(--sp-2);">Performance Marketing</h4>
+            <p style="color:var(--violet-700); font-size:0.875rem; line-height:1.6;">Paid social, paid search, programmatic, CRO. Speed is a feature.</p>
+            <div style="margin-top:var(--sp-4);"><a href="#" class="btn btn-primary" style="padding:var(--sp-2) var(--sp-4); height:auto; font-size:13px;">Get Started</a></div>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Service Pillar</span>
+            <h4>Web & Product</h4>
+            <p>Marketing sites, e-commerce, SaaS frontends, design systems.</p>
+            <div style="margin-top:var(--sp-4);"><a href="#" style="color:var(--accent); font-weight:500; font-size:0.875rem;">Learn more →</a></div>
+          </div>
+        </div>
+
+        <!-- Input -->
+        <h3 style="font-family:var(--font-sans); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-4);">Form Inputs</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:var(--sp-4); margin-bottom:var(--sp-8);">
+          <div>
+            <label style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:var(--sp-2);">● Your Name</label>
+            <input type="text" placeholder="Full name" style="width:100%; padding:var(--sp-3) var(--sp-4); border:1px solid var(--paper-100); border-radius:var(--r5); font-family:var(--font-sans); font-size:0.875rem; background:white; color:var(--ink-900); outline:none; transition:border-color var(--dur-normal) var(--ease);" onfocus="this.style.borderColor='#8b5cf6'" onblur="this.style.borderColor='#f0ebe0'">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:var(--sp-2);">● Email Address</label>
+            <input type="email" placeholder="email@bazagency.com" style="width:100%; padding:var(--sp-3) var(--sp-4); border:1px solid var(--paper-100); border-radius:var(--r5); font-family:var(--font-sans); font-size:0.875rem; background:white; color:var(--ink-900); outline:none; transition:border-color var(--dur-normal) var(--ease);" onfocus="this.style.borderColor='#8b5cf6'" onblur="this.style.borderColor='#f0ebe0'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PATTERNS ═══ -->
+    <section class="section-white" aria-label="Patterns & Textures">
+      <div class="container">
+        <span class="eyebrow">Patterns & Textures</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; letter-spacing:var(--tracking-tight); margin-bottom:var(--sp-4);">Layers of depth.</h2>
+        <p style="color:var(--ink-500); max-width:40rem; margin-bottom:var(--sp-8);">Every section gets a subtle texture layer — grid, mesh, grain, or dots. Never flat. Never noisy.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--sp-4); margin-bottom:var(--sp-8);">
+          <!-- Grid -->
+          <div class="pattern-card" style="background:var(--paper);">
+            <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(14,14,14,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(14,14,14,0.03) 1px, transparent 1px); background-size:40px 40px;"></div>
+            <div style="position:absolute; bottom:var(--sp-3); left:var(--sp-3); background:rgba(14,14,14,0.8); backdrop-filter:blur(8px); color:#f5f1ea; font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:3px;">Grid · paper sections</div>
+          </div>
+          <!-- Mesh -->
+          <div class="pattern-card" style="background:var(--ink-900);">
+            <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 30% 40%, rgba(139,92,246,0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.08) 0%, transparent 40%);"></div>
+            <div style="position:absolute; bottom:var(--sp-3); left:var(--sp-3); background:rgba(14,14,14,0.8); backdrop-filter:blur(8px); color:#f5f1ea; font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:3px;">Mesh · ink sections</div>
+          </div>
+          <!-- Dots -->
+          <div class="pattern-card" style="background:var(--paper);">
+            <div style="position:absolute; inset:0; background-image:radial-gradient(circle, rgba(14,14,14,0.06) 1px, transparent 1px); background-size:16px 16px;"></div>
+            <div style="position:absolute; bottom:var(--sp-3); left:var(--sp-3); background:rgba(14,14,14,0.8); backdrop-filter:blur(8px); color:#f5f1ea; font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:3px;">Dots · alt texture</div>
+          </div>
+          <!-- Violet shimmer -->
+          <div class="pattern-card" style="background:white; display:flex; align-items:center; justify-content:center;">
+            <div style="width:80%; height:2px; background:linear-gradient(90deg, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.6) 50%, rgba(139,92,246,0.15) 100%); border-radius:9999px;"></div>
+            <div style="position:absolute; bottom:var(--sp-3); left:var(--sp-3); background:rgba(14,14,14,0.8); backdrop-filter:blur(8px); color:#f5f1ea; font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:3px;">Shimmer · dividers</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ INK SECTION ═══ -->
+    <section class="section-ink" aria-label="Dark Section">
+      <div class="container" style="position:relative;">
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.12) 0%, transparent 50%); pointer-events:none;"></div>
+        <div style="position:relative; z-index:2;">
+          <span class="eyebrow" style="color:#baabff;">Dark Mode</span>
+          <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:300; line-height:1.05; letter-spacing:-0.03em; margin-bottom:var(--sp-4);">
+            Brands are verbs,<br>not <em style="color:var(--accent);">nouns</em>.
+          </h2>
+          <p style="font-family:var(--font-sans); font-size:1.125rem; color:rgba(245,241,234,0.6); max-width:36rem; margin-bottom:var(--sp-8);">
+            The people who pitch are the people who ship. Speed is a feature. Measure what matters.
+          </p>
+          <div style="display:flex; gap:var(--sp-4); flex-wrap:wrap;">
+            <a href="#" class="btn btn-primary">Start Your Project →</a>
+            <a href="#" class="btn btn-outline-ink">See Our Work</a>
+          </div>
+
+          <div class="divider-ink" style="margin:var(--sp-12) 0;"></div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:var(--sp-6);">
+            <div>
+              <div style="font-family:var(--font-display); font-size:2.5rem; font-weight:500; letter-spacing:-0.03em; color:#f5f1ea;">240+</div>
+              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">● Brands</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display); font-size:2.5rem; font-weight:500; letter-spacing:-0.03em; color:#f5f1ea;">$2B+</div>
+              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">● Revenue</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display); font-size:2.5rem; font-weight:500; letter-spacing:-0.03em; color:#f5f1ea;">98%</div>
+              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">● Retention</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display); font-size:2.5rem; font-weight:500; letter-spacing:-0.03em; color:#f5f1ea;">12</div>
+              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">● Years</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ASSETS INDEX ═══ -->
+    <section class="section-paper" aria-label="Asset Index">
+      <div class="container">
+        <span class="eyebrow">Asset Index</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:400; letter-spacing:var(--tracking-tight); margin-bottom:var(--sp-8);">Everything in one <em style="color:var(--accent);">place</em>.</h2>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--sp-4);">
+          <div class="card" style="text-align:center;">
+            <div style="font-size:2rem; margin-bottom:var(--sp-2);">🏷️</div>
+            <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--sp-2);">● Logos</div>
+            <div style="font-family:var(--font-display); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-1);">7 variants</div>
+            <p style="color:var(--ink-500); font-size:0.8rem;">Mark, inverse, ghost, wordmark, mono, reverse, favicon</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:2rem; margin-bottom:var(--sp-2);">📱</div>
+            <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--sp-2);">● Social</div>
+            <div style="font-family:var(--font-display); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-1);">4 templates</div>
+            <p style="color:var(--ink-500); font-size:0.8rem;">LinkedIn, Instagram post & story, X/Twitter</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:2rem; margin-bottom:var(--sp-2);">📄</div>
+            <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--sp-2);">● Stationery</div>
+            <div style="font-family:var(--font-display); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-1);">4 templates</div>
+            <p style="color:var(--ink-500); font-size:0.8rem;">Business card, letterhead, email signature</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:2rem; margin-bottom:var(--sp-2);">🖥️</div>
+            <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--sp-2);">● Presentation</div>
+            <div style="font-family:var(--font-display); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-1);">2 slides</div>
+            <p style="color:var(--ink-500); font-size:0.8rem;">Title (ink), content (paper)</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:2rem; margin-bottom:var(--sp-2);">🔲</div>
+            <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--sp-2);">● App Icons</div>
+            <div style="font-family:var(--font-display); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-1);">2 variants</div>
+            <p style="color:var(--ink-500); font-size:0.8rem;">1024px master + Apple touch icon</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:2rem; margin-bottom:var(--sp-2);">🎨</div>
+            <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--sp-2);">● Patterns</div>
+            <div style="font-family:var(--font-display); font-size:1.25rem; font-weight:500; margin-bottom:var(--sp-1);">6 SVGs</div>
+            <p style="color:var(--ink-500); font-size:0.8rem;">Grid, mesh, grain, dots, gradient, shimmer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="background:var(--ink-900); color:rgba(245,241,234,0.6); padding:var(--sp-16) 0 var(--sp-8);">
+      <div class="container">
+        <div style="border-top:1px solid rgba(139,92,246,0.15); padding-top:var(--sp-8);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--sp-4);">
+            <div>
+              <svg width="48" height="48" viewBox="0 0 120 120" style="margin-bottom:var(--sp-3);"><rect width="120" height="120" rx="26" fill="#8b5cf6"/><text x="60" y="88" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-3">B</text></svg>
+              <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(245,241,234,0.4);">
+                ● BlackSwan Design System · Violet Seed · 42 assets
+              </div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,241,234,0.3);">
+              © 2026 BAZ Marketing Ventures Agency
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>

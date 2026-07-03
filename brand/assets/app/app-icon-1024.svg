@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- BAZ App Icon — 1024×1024 -->
+  <!-- Mark on ink squircle background -->
+  <!-- For iOS, Android, PWA splash screens -->
+
+  <!-- Squircle background -->
+  <rect x="0" y="0" width="1024" height="1024" rx="224" fill="#0e0e0e"/>
+
+  <!-- Subtle radial glow -->
+  <defs>
+    <radialGradient id="app-glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" rx="224" fill="url(#app-glow)"/>
+
+  <!-- B letterform -->
+  <text x="512" y="720" font-family="Fraunces, Georgia, serif" font-size="620" font-weight="600" fill="#8b5cf6" text-anchor="middle" letter-spacing="-20">B</text>
+</svg>

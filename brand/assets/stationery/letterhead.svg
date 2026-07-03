@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2550 3300" width="2550" height="3300">
+  <!-- BAZ Letterhead — US Letter 8.5"×11" @ 300dpi -->
+  <!-- Paper background, ink wordmark top-left, violet bottom line -->
+
+  <!-- Paper background -->
+  <rect width="2550" height="3300" fill="#f5f1ea"/>
+
+  <!-- Top-left wordmark -->
+  <g transform="translate(300, 300)">
+    <rect x="0" y="0" width="64" height="64" rx="14" fill="#8b5cf6"/>
+    <text x="32" y="49" font-family="Fraunces, Georgia, serif" font-size="50" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-2">B</text>
+  </g>
+  <text x="385" y="340" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="500" fill="#0e0e0e" letter-spacing="-1.5">BAZ</text>
+  <text x="385" y="370" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="400" fill="#737373" letter-spacing="3">MARKETING VENTURES AGENCY</text>
+
+  <!-- Top-right contact info -->
+  <text x="2250" y="310" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="400" fill="#737373" letter-spacing="0.5" text-anchor="end">hello@bazagency.com</text>
+  <text x="2250" y="328" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="400" fill="#737373" letter-spacing="0.5" text-anchor="end">bazagency.com</text>
+  <text x="2250" y="346" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="400" fill="#737373" letter-spacing="0.5" text-anchor="end">+1 (555) 000-0000</text>
+
+  <!-- Bottom violet accent line -->
+  <rect x="300" y="3050" width="1950" height="1.5" fill="#8b5cf6" rx="0.75"/>
+
+  <!-- Footer -->
+  <text x="300" y="3100" font-family="JetBrains Mono, monospace" font-size="8" font-weight="400" fill="#a3a3a3" letter-spacing="2">BAZ MARKETING VENTURES AGENCY · POWERING YOUR PATH TO GROWTH</text>
+
+  <!-- Writing area guide (invisible, for reference) -->
+  <!-- Content starts at y=500, ends at y=2900 -->
+</svg>

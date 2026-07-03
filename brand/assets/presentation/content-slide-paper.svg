@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- BAZ Presentation Content Slide — 1920×1080 -->
+  <!-- Paper background, ink text, content layout -->
+
+  <!-- Paper background -->
+  <rect width="1920" height="1080" fill="#f5f1ea"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <line x1="80" y1="0" x2="80" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="160" y1="0" x2="160" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="240" y1="0" x2="240" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="320" y1="0" x2="320" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="480" y1="0" x2="480" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="560" y1="0" x2="560" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="640" y1="0" x2="640" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="720" y1="0" x2="720" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="800" y1="0" x2="800" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="880" y1="0" x2="880" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="960" y1="0" x2="960" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1040" y1="0" x2="1040" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1120" y1="0" x2="1120" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1200" y1="0" x2="1200" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1280" y1="0" x2="1280" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1360" y1="0" x2="1360" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1440" y1="0" x2="1440" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1520" y1="0" x2="1520" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1600" y1="0" x2="1600" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1680" y1="0" x2="1680" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1760" y1="0" x2="1760" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+    <line x1="1840" y1="0" x2="1840" y2="1080" stroke="#0e0e0e" stroke-width="0.5"/>
+  </g>
+
+  <!-- Section label eyebrow -->
+  <text x="160" y="180" font-family="JetBrains Mono, monospace" font-size="13" font-weight="400" fill="#8b5cf6" letter-spacing="2.5" text-transform="uppercase">● SECTION LABEL</text>
+
+  <!-- Content heading -->
+  <text x="160" y="280" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="400" fill="#0e0e0e" letter-spacing="-2">Content Heading</text>
+
+  <!-- Bullet points -->
+  <text x="160" y="420" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="400" fill="#525252" letter-spacing="0">• Point one goes here — clear and specific</text>
+  <text x="160" y="470" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="400" fill="#525252" letter-spacing="0">• Point two — numbers over adjectives</text>
+  <text x="160" y="520" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="400" fill="#525252" letter-spacing="0">• Point three — editorial voice, no bullshit</text>
+
+  <!-- Bottom rule -->
+  <rect x="160" y="960" width="1600" height="1" fill="#f0ebe0"/>
+
+  <!-- Watermark mark — bottom right, 5% opacity -->
+  <g transform="translate(1750, 930)" opacity="0.05">
+    <rect x="0" y="0" width="60" height="60" rx="13" fill="#8b5cf6"/>
+    <text x="30" y="46" font-family="Fraunces, Georgia, serif" font-size="46" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-1.5">B</text>
+  </g>
+
+  <!-- Page number -->
+  <text x="1760" y="1010" font-family="JetBrains Mono, monospace" font-size="10" font-weight="400" fill="#a3a3a3" letter-spacing="1" text-anchor="end">02</text>
+</svg>

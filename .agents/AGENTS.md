@@ -1,37 +1,62 @@
 # BAZ Project Context
 
 ## Design System
-This project uses the **Æther Design System** (Fibonacci × Da Vinci × Material 3).
-- Primary accent: Violet `hsl(270, 85%, 72%)` at golden angle 137.5°
-- Surfaces: 8 luminance layers at hue 260°
-- Typography: Fraunces (display), Inter (body), JetBrains Mono (code)
-- Radius: Fibonacci sequence (3, 5, 8, 13, 21, 34, 55, 89)
-- Source of truth: `app/globals.css` and `tailwind.config.ts`
+This project uses the **BlackSwan Design System** (Fibonacci × Da Vinci × Material 3) with a **Gold Monochrome** seed.
 
-## Backend
+### Three-Layer Architecture
+1. **BlackSwan Seed System** — `--seed-hue: 41` generates the entire monochrome gold palette algorithmically
+2. **Stitch Material 3 Tokens** — Brand-specific dark palette with `#C8A55A` gold and `#1F2933` charcoal
+3. **Protocol Layer** — Fraunces/Inter/JetBrains Mono fonts + Fibonacci radii
+
+### Core Tokens
+- **Seed**: `--seed-hue: 41` (gold), `--seed-sat: 72%`, `--seed-lum: 50%`
+- **Stitch Gold**: `#C8A55A` — primary accent, CTAs, eyebrows, stats
+- **Stitch Gold-dark**: `#8D6B2E` — gradient start, shadows
+- **Stitch Charcoal**: `#1F2933` — base background
+- **Stitch Navy**: `#24364A` — secondary background
+- **Stitch Sand**: `#E8E4E0` — primary text on dark
+- **Stitch Stone**: `#B0AAA5` — muted text
+- **Protocol Paper**: `#f5f1ea` — warm off-white for light sections
+- **Protocol Ink**: `#0e0e0e` — deep black for headings
+
+### Fonts
+- **Display**: Fraunces (variable, optical) — NOT Playfair Display, NOT Outfit
+- **Body**: Inter (variable) — NOT Poppins
+- **Code**: JetBrains Mono
+
+### Radius
+- **Fibonacci**: 3, 5, 8, 13, 21, 34, 55, 89 — NOT 4px flat
+- Exception: Stitch assets use 4px corners (their design system)
+
+### Backend
 - Database: better-sqlite3 (local) → Supabase (production)
-- AI: Gemini (primary), OpenAI, Anthropic, Ollama (fallback chain)
+- AI: Gemini (primary), knowledge agent for book RAG
 - Auth: JWT + cookies, no sessions
-- 9 AI agents including a new `knowledge` agent for book RAG
 
 ## Key Files
-- `app/globals.css` — Æther design tokens (DO NOT replace with another design system)
+- `brand/css/variables-unified.css` — UNIFIED source of truth (BlackSwan + Stitch + Protocol)
+- `brand/css/variables.css` — BlackSwan monochrome gold tokens
+- `app/globals.css` — Current live site (Anderson/Stitch system)
 - `tailwind.config.ts` — Tailwind token mappings
-- `lib/db.ts` — Database chain
-- `lib/llm.ts` — Multi-provider LLM adapter
-- `lib/agents.ts` — Agent catalog
-- `lib/data/` — Book RAG system (embed, ingest, store, query, pipeline)
+- `brand-blackswan/tokens/blackswan.css` — BlackSwan seed system source
+- `brand/brand/` — Full brand design system documentation
+- `baz/assets/brand/` — All Stitch-generated brand assets
 
 ## What NOT to Do
 - Do NOT use Playfair Display font (use Fraunces)
-- Do NOT use gold `#C7AE6A` or obsidian `#131313` as brand colors (use violet accent)
-- Do NOT use 4px border-radius (use Fibonacci radii)
-- Do NOT use shadcn/ui (we have hand-rolled Æther components)
+- Do NOT use Poppins as the primary body font (use Inter)
+- Do NOT use 4px border-radius for new components (use Fibonacci radii)
+- Do NOT use shadcn/ui (we have hand-rolled BlackSwan components)
 - Do NOT switch to Tailwind v4 `@theme` syntax (we're on v3)
-- Do NOT use red `#ff3b2f` as a general color (it's only for the logo mark/favicon)
+- Do NOT use `#F2572B` orange-red as the primary brand color (gold `#C8A55A` is the accent)
+- Do NOT use `#ff3b2f` red as a general color (it's only for the logo mark/favicon)
+- Do NOT use violet `hsl(270, 85%, 72%)` as the primary accent (gold monochrome is active)
+- Do NOT replace `app/globals.css` with another design system without merging BlackSwan tokens
 
-## Brand Colors
-- Accent: `hsl(270, 85%, 72%)` (violet/purple)
-- Ink: `--c-ink` (deep purple-black)
-- Paper: `--c-paper` (warm off-white)
-- Logo mark: `#ff3b2f` (red B — favicon and logo only)
+## Brand Colors (Active — Gold Monochrome)
+- **BlackSwan Accent**: `hsl(41, 72%, 52%)` — computed gold from seed
+- **Stitch Gold**: `#C8A55A` — primary brand accent
+- **Stitch Charcoal**: `#1F2933` — base background
+- **Stitch Navy**: `#24364A` — secondary background
+- **Protocol Paper**: `#f5f1ea` — warm off-white
+- **Protocol Ink**: `#0e0e0e` — deep black

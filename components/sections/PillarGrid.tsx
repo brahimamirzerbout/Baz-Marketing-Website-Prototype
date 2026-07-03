@@ -28,7 +28,7 @@ export function PillarGrid() {
           <Link
             key={p.href}
             href={p.href}
-            className="group block bg-card rounded-2xl p-6 md:p-7 border border-border dark:border-border hover:border-foreground dark:hover:border-border hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
+            className="group block bg-card rounded-2xl p-6 md:p-7 border border-border dark:border-border"
           >
             <div className="flex items-center justify-between mb-12">
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground/60">
@@ -36,7 +36,7 @@ export function PillarGrid() {
               </span>
               <span
                 aria-hidden
-                className="text-muted-foreground/40 dark:text-muted-foreground/60 group-hover:text-accent group-hover:translate-x-0.5 transition-all"
+                className="text-muted-foreground/40 dark:text-muted-foreground/60"
               >
                 →
               </span>

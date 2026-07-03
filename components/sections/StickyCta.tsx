@@ -61,8 +61,7 @@ export function StickyCta() {
         </p>
         <a
           href={bookingHref}
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-accent text-white text-sm font-medium hover:bg-primary/90 transition-colors flex-shrink-0"
-          data-cursor="cta"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-accent text-white text-sm font-medium flex-shrink-0"
           data-track="sticky_book_call"
         >
           Book a call <span aria-hidden>→</span>

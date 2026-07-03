@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { Magnetic } from "@/components/ui/Magnetic";
+// Magnetic removed
 import { defaultBrand, templates, type BrandKit, type TemplateId } from "@/lib/canva";
 
 type Layer = {
@@ -260,7 +260,7 @@ const bgFor = (template: TemplateId, brand: BrandKit): string => {
     return `linear-gradient(180deg, ${brand.secondary} 0%, ${brand.paper} 100%)`;
   if (template === "ad-story")
     return `linear-gradient(160deg, ${brand.paper} 0%, ${brand.secondary} 100%)`;
-  if (template === "quote-card") return `linear-gradient(135deg, ${brand.accent} 0%, #ff6b5e 100%)`;
+  if (template === "quote-card") return `linear-gradient(135deg, ${brand.accent} 0%, #d4a0e8 100%)`;
   return `linear-gradient(90deg, ${brand.ink} 0%, ${brand.accent} 130%)`;
 };
 
@@ -369,11 +369,9 @@ export default function CanvaPage() {
           <Button variant="outline" size="md" onClick={exportSvg} trackAs="canva_export_svg">
             Export SVG
           </Button>
-          <Magnetic strength={0.25}>
-            <Button variant="primary" size="md" onClick={exportPng} trackAs="canva_export_png">
-              Export PNG →
-            </Button>
-          </Magnetic>
+          <Button variant="primary" size="md" onClick={exportPng} trackAs="canva_export_png">
+            Export PNG →
+          </Button>
         </div>
       </header>
 

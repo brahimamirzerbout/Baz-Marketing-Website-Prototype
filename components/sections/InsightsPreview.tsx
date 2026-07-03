@@ -32,7 +32,7 @@ export function InsightsPreview() {
         <div className="lg:col-span-5 flex items-end lg:justify-end">
           <Link
             href="/insights"
-            className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 font-medium text-foreground"
           >
             All insights <span aria-hidden>→</span>
           </Link>
@@ -46,7 +46,7 @@ export function InsightsPreview() {
             <Link
               key={p.slug}
               href={`/insights/${p.slug}`}
-              className="reveal group flex flex-col bg-card rounded-2xl p-6 md:p-7 border border-border dark:border-border hover:border-foreground dark:hover:border-border hover:-translate-y-1 hover:shadow-lift transition-all duration-200"
+              className="reveal group flex flex-col bg-card rounded-2xl p-6 md:p-7 border border-border dark:border-border"
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="flex items-center justify-between mb-6">
@@ -61,7 +61,7 @@ export function InsightsPreview() {
               <p className="mt-3 text-sm text-muted-foreground line-clamp-3">{p.excerpt}</p>
               <div className="mt-auto pt-6 flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">{p.author}</span>
-                <span className="text-muted-foreground/40 dark:text-muted-foreground/60 group-hover:text-accent group-hover:translate-x-0.5 transition-all">
+                <span className="text-muted-foreground/40 dark:text-muted-foreground/60">
                   Read →
                 </span>
               </div>

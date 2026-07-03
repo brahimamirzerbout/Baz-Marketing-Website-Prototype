@@ -98,8 +98,8 @@ export function ThemeToggle({ className }: { className?: string }) {
       onClick={toggle}
       className={cn(
         "relative inline-flex items-center justify-center p-2 rounded-full",
-        "border border-border hover:border-foreground transition-colors",
-        "text-foreground hover:text-foreground",
+        "border border-border",
+        "text-foreground",
         className,
       )}
     >

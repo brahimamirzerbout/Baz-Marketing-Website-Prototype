@@ -47,7 +47,7 @@ export function FinalCta() {
               variant="outline"
               size="lg"
               trackAs="final_contact"
-              className="border-white/15 text-[var(--foreground)]/80 hover:border-[var(--foreground)] hover:bg-transparent hover:text-[var(--foreground)]"
+              className="border-white/15 text-[var(--foreground)]/80"
             >
               Request a paid audit first
             </Button>

@@ -3,7 +3,7 @@
 
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { Magnetic } from "@/components/ui/Magnetic";
+// Magnetic removed
 import { cn } from "@/lib/cn";
 import {
   attributeAll,
@@ -306,7 +306,6 @@ function AdStockPanel() {
           />
         </label>
 
-        <Magnetic strength={0.25}>
           <Button
             variant="primary"
             size="sm"
@@ -316,7 +315,6 @@ function AdStockPanel() {
           >
             Apply parameters
           </Button>
-        </Magnetic>
 
         <div className="mt-5 pt-5 border-t border-border text-sm">
           <p className="flex items-center justify-between">

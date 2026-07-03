@@ -3,7 +3,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
-import { Magnetic } from "@/components/ui/Magnetic";
 import { track } from "@/lib/analytics";
 import Link from "next/link";
 
@@ -194,7 +193,7 @@ export function LiveAgentDemo() {
                   "w-full text-left px-3 py-2.5 rounded-xl flex items-center gap-3 transition-colors",
                   active === a.id
                     ? "bg-primary text-foreground"
-                    : "hover:bg-muted/70 text-foreground",
+                    : "bg-muted/40 text-foreground",
                 )}
               >
                 <span
@@ -242,13 +241,11 @@ export function LiveAgentDemo() {
             <p className="font-mono text-[11px] text-muted-foreground/60">
               {process.env.NEXT_PUBLIC_API_URL ? "→ /api/ai" : "simulated (no API configured)"}
             </p>
-            <Magnetic strength={0.25}>
-              <button
+            <button
                 type="button"
                 onClick={run}
                 disabled={busy}
-                data-cursor="cta"
-                className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-accent text-white text-sm font-medium shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:translate-y-0"
+                className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-accent text-white text-sm font-medium shadow-soft disabled:opacity-50"
               >
                 {busy ? (
                   <>
@@ -259,7 +256,6 @@ export function LiveAgentDemo() {
                   <>Run agent →</>
                 )}
               </button>
-            </Magnetic>
           </div>
 
           <div className="rounded-2xl bg-primary text-foreground p-5 md:p-6 font-mono text-[13px] leading-relaxed min-h-[180px] overflow-x-auto">
@@ -317,7 +313,7 @@ export function LiveAgentDemo() {
                     key={i}
                     type="button"
                     onClick={() => setResult(h)}
-                    className="text-xs px-3 py-1.5 rounded-full bg-background border border-border dark:border-border hover:border-foreground dark:hover:border-border transition-colors"
+                    className="text-xs px-3 py-1.5 rounded-full bg-background border border-border dark:border-border"
                   >
                     {h.agent} · {h.ms}ms
                   </button>
@@ -328,8 +324,7 @@ export function LiveAgentDemo() {
 
           {/* Inline lead capture — appears after the first run */}
           {showCapture && !submittedId && (
-            <div className="border-t border-border pt-5 mt-1" data-cursor="auto">
-              {score?.score !== undefined && false ? null : (
+            <div className="border-t border-border pt-5 mt-1">
                 <div className="rounded-2xl border border-accent/30 bg-accent/[0.04] p-5">
                   <p className="font-mono uppercase tracking-[0.18em] text-[11px] text-accent mb-2">
                     Want us to actually run this?
@@ -365,7 +360,7 @@ export function LiveAgentDemo() {
                     type="button"
                     onClick={submitLead}
                     disabled={!email || submitting}
-                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 h-11 rounded-full bg-primary hover:bg-primary/90 text-white text-sm font-medium transition-colors disabled:opacity-50"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 h-11 rounded-full bg-primary text-white text-sm font-medium disabled:opacity-50"
                   >
                     {submitting ? "Sending…" : "Send my plan →"}
                   </button>
@@ -402,13 +397,13 @@ export function LiveAgentDemo() {
                 <div className="flex flex-wrap gap-3 pt-4 border-t border-border/60">
                   <Link
                     href={`/portal/${submittedId}`}
-                    className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-accent hover:bg-primary/90 text-white text-sm font-medium transition-colors"
+                    className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-accent text-white text-sm font-medium"
                   >
                     See your routing plan →
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-transparent border border-border hover:bg-background/10 text-foreground text-sm font-medium transition-colors"
+                    className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-transparent border border-border text-foreground text-sm font-medium"
                   >
                     Skip to contact
                   </Link>

@@ -1,0 +1,201 @@
+// BAZ — SCSS Mixins
+// Reusable patterns for the BlackSwan Design System
+
+// ── Fibonacci Radius ──
+$radius-fib: (
+  '3': 3px,
+  '5': 5px,
+  '8': 8px,
+  '13': 13px,
+  '21': 21px,
+  '34': 34px,
+  '55': 55px,
+  '89': 89px,
+);
+
+// ── Mixin: Fibonacci Radius ──
+@mixin radius-fib($size) {
+  border-radius: map-get($radius-fib, $size);
+}
+
+// ── Mixin: Card Surface ──
+@mixin card($variant: 'default') {
+  @if $variant == 'default' {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: map-get($radius-fib, '13');
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-normal) var(--ease-default);
+  } @else if $variant == 'flat' {
+    background: var(--bg);
+    border: none;
+    border-radius: map-get($radius-fib, '13');
+    padding: 1.5rem;
+  } @else if $variant == 'bordered' {
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: map-get($radius-fib, '13');
+    padding: 1.5rem;
+  } @else if $variant == 'ghost' {
+    background: transparent;
+    border: none;
+    padding: 1.5rem;
+  } @else if $variant == 'highlight' {
+    background: var(--color-primary-bg);
+    border: 1px solid var(--color-primary-border);
+    border-radius: map-get($radius-fib, '13');
+    padding: 1.5rem;
+  }
+}
+
+// ── Mixin: Button ──
+@mixin btn($variant: 'primary', $size: 'md') {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--duration-normal) var(--ease-default);
+
+  // Size
+  @if $size == 'sm' {
+    height: 36px; padding: 0 0.75rem; font-size: 13px;
+    border-radius: map-get($radius-fib, '5');
+  } @else if $size == 'md' {
+    height: 40px; padding: 0 1rem; font-size: 14px;
+    border-radius: map-get($radius-fib, '8');
+  } @else if $size == 'lg' {
+    height: 48px; padding: 0 1.5rem; font-size: 16px;
+    border-radius: map-get($radius-fib, '8');
+  } @else if $size == 'xl' {
+    height: 56px; padding: 0 1.75rem; font-size: 16px;
+    border-radius: map-get($radius-fib, '13');
+  }
+
+  // Variant
+  @if $variant == 'primary' {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  } @else if $variant == 'secondary' {
+    background: var(--c-ink-900);
+    color: white;
+    border-color: var(--c-ink-900);
+  } @else if $variant == 'outline' {
+    background: transparent;
+    color: var(--c-ink-900);
+    border-color: var(--border-strong);
+  } @else if $variant == 'ghost' {
+    background: transparent;
+    color: var(--fg-muted);
+    border-color: transparent;
+  }
+
+  &:hover {
+    @if $variant == 'primary' {
+      background: var(--accent-600);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    } @else if $variant == 'outline' {
+      border-color: var(--c-ink-900);
+      background: var(--c-paper);
+    } @else if $variant == 'ghost' {
+      background: var(--bg-muted);
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--ring-width) var(--ring-color),
+                0 0 0 var(--ring-offset) var(--ring-offset-color);
+  }
+}
+
+// ── Mixin: Focus Ring ──
+@mixin focus-ring {
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 var(--ring-width) var(--ring-color),
+                0 0 0 var(--ring-offset) var(--ring-offset-color);
+  }
+}
+
+// ── Mixin: Truncate ──
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// ── Mixin: Visually Hidden (Screen Reader Only) ──
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ── Mixin: Ink Section ──
+@mixin ink-section {
+  background: var(--c-ink-900);
+  color: var(--c-paper);
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--c-paper);
+  }
+
+  p, li {
+    color: hsl(270, 6%, 68%);
+  }
+}
+
+// ── Mixin: Paper Section ──
+@mixin paper-section {
+  background: var(--c-paper);
+  color: var(--c-ink-900);
+}
+
+// ── Mixin: Reduced Motion ──
+@mixin motion-safe {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin motion-reduce {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// ── Mixin: Dark Mode ──
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+// ── Mixin: High Contrast ──
+@mixin high-contrast {
+  @media (prefers-contrast: more) {
+    @content;
+  }
+}

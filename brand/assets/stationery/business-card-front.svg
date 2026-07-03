@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 600" width="1050" height="600">
+  <!-- BAZ Business Card Front — 1050×600 @ 300dpi -->
+  <!-- Ink background, paper wordmark, violet accent line -->
+  <defs>
+    <radialGradient id="card-mesh" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ink background -->
+  <rect width="1050" height="600" rx="13" fill="#0e0e0e"/>
+  <rect width="1050" height="600" rx="13" fill="url(#card-mesh)"/>
+
+  <!-- Wordmark -->
+  <g transform="translate(80, 90)">
+    <rect x="0" y="0" width="48" height="48" rx="10" fill="#8b5cf6"/>
+    <text x="24" y="37" font-family="Fraunces, Georgia, serif" font-size="38" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-1">B</text>
+  </g>
+  <text x="145" y="126" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="500" fill="#f5f1ea" letter-spacing="-1.5">BAZ</text>
+
+  <!-- Violet accent line -->
+  <rect x="80" y="170" width="80" height="2" fill="#8b5cf6" rx="1"/>
+
+  <!-- Name -->
+  <text x="80" y="240" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="500" fill="#f5f1ea" letter-spacing="0">Name Here</text>
+
+  <!-- Title -->
+  <text x="80" y="270" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="400" fill="#a3a3a3" letter-spacing="0.5">Title Here</text>
+
+  <!-- Contact details -->
+  <text x="80" y="370" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="400" fill="#737373" letter-spacing="0">email@bazagency.com</text>
+  <text x="80" y="395" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="400" fill="#737373" letter-spacing="0">+1 (555) 000-0000</text>
+  <text x="80" y="420" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="400" fill="#737373" letter-spacing="0">bazagency.com</text>
+
+  <!-- Bottom right mark -->
+  <g transform="translate(920, 520)">
+    <rect x="0" y="0" width="40" height="40" rx="9" fill="#8b5cf6" opacity="0.3"/>
+    <text x="20" y="31" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="600" fill="#f5f1ea" opacity="0.3" text-anchor="middle" letter-spacing="-1">B</text>
+  </g>
+</svg>

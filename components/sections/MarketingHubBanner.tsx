@@ -80,7 +80,7 @@ export function MarketingHubBanner() {
                 href={HUB_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-accent text-white font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-accent text-white font-medium"
               >
                 Open the Hub
                 <svg
@@ -99,7 +99,7 @@ export function MarketingHubBanner() {
               </a>
               <a
                 href="/marketing-hub"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border text-foreground font-medium hover:bg-muted/10 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border text-foreground font-medium"
               >
                 See the feature tour
               </a>
@@ -124,7 +124,7 @@ export function MarketingHubBanner() {
                   href={`${HUB_URL}/triangle`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs text-accent font-medium hover:underline"
+                  className="text-xs text-accent font-medium"
                 >
                   triangle.baz →
                 </a>

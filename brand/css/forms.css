@@ -1,0 +1,249 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   BAZ — Form Styles
+   Text, textarea, select, checkbox, radio, toggle
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ━━━ Input Base ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.input {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-fib5);
+  padding: var(--space-3) var(--space-4);
+  outline: none;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.input:hover {
+  border-color: var(--border-strong);
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 var(--ring-width) var(--ring-color),
+              0 0 0 var(--ring-offset) var(--ring-offset-color);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--bg-muted);
+}
+
+.input-error {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 var(--ring-width) var(--color-danger);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 var(--ring-width) var(--color-danger),
+              0 0 0 var(--ring-offset) var(--ring-offset-color);
+}
+
+/* ━━━ Input Sizes ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.input-sm  { height: 36px; font-size: 13px; padding: 0 var(--space-3); }
+.input-md  { height: 40px; font-size: 14px; padding: 0 var(--space-4); }
+.input-lg  { height: 48px; font-size: 16px; padding: 0 var(--space-4); }
+
+/* ━━━ Filled Variant ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.input-filled {
+  background: var(--bg-muted);
+  border-color: transparent;
+}
+
+.input-filled:hover {
+  background: var(--bg-subtle);
+}
+
+.input-filled:focus {
+  background: var(--bg);
+  border-color: var(--accent);
+}
+
+/* ━━━ Ghost Variant ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.input-ghost {
+  background: transparent;
+  border-color: transparent;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.input-ghost:focus {
+  border-bottom-color: var(--accent);
+  box-shadow: none;
+}
+
+/* ━━━ Textarea ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ━━━ Select ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23737373' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  padding-right: var(--space-10);
+}
+
+/* ━━━ Label ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--fg);
+  margin-bottom: var(--space-2);
+}
+
+.label-required::after {
+  content: ' *';
+  color: var(--color-danger);
+}
+
+/* ━━━ Helper Text ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.helper-text {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+  margin-top: var(--space-1);
+}
+
+.helper-error {
+  color: var(--color-danger);
+}
+
+/* ━━━ Checkbox ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-fib3);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+  position: relative;
+}
+
+.checkbox:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox:focus-visible {
+  box-shadow: 0 0 0 var(--ring-width) var(--ring-color),
+              0 0 0 var(--ring-offset) var(--ring-offset-color);
+}
+
+/* ━━━ Radio ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.radio {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+  position: relative;
+}
+
+.radio:checked {
+  border-color: var(--accent);
+}
+
+.radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+}
+
+/* ━━━ Toggle (Switch) ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.toggle {
+  width: 44px;
+  height: 24px;
+  appearance: none;
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  position: relative;
+  transition: background var(--duration-normal) var(--ease-bounce);
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-normal) var(--ease-bounce);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle:checked {
+  background: var(--accent);
+}
+
+.toggle:checked::after {
+  transform: translateX(20px);
+}
+
+.toggle:focus-visible {
+  box-shadow: 0 0 0 var(--ring-width) var(--ring-color),
+              0 0 0 var(--ring-offset) var(--ring-offset-color);
+}
+
+/* ━━━ Fieldset ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fieldset-legend {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: var(--fg);
+  margin-bottom: var(--space-4);
+}

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAZ — $200K+ pipeline in 90 days</title>
+  <meta name="description" content="Senior-only growth partner. Owned, earned, paid, data — on the BAZ Marketing Hub.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C8A55A',
+            'gold-dark': '#8D6B2E',
+            'gold-light': '#E5C97A',
+            charcoal: '#1F2933',
+            navy: '#24364A',
+            'border-gray': '#D9D9D9',
+            'text-primary': '#1F2933',
+            'text-secondary': '#666666',
+            'text-muted': '#999999',
+          },
+          fontFamily: {
+            display: ['Outfit', 'ui-sans-serif', 'sans-serif'],
+            sans: ['Poppins', 'system-ui', 'sans-serif'],
+          },
+          maxWidth: {
+            'site': '1280px',
+            'content': '1140px',
+          },
+          borderRadius: {
+            'DEFAULT': '4px',
+            'sm': '4px',
+            'md': '4px',
+            'lg': '4px',
+            'xl': '4px',
+            '2xl': '4px',
+            '3xl': '4px',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    /* Lenis handles smooth scroll */
+    html { scroll-behavior: auto; }
+    body { font-family: 'Poppins', system-ui, sans-serif; }
+
+    /* Force 4px radius on everything except pills */
+    *, *::before, *::after { border-radius: 4px !important; }
+    .rounded-full, .rounded-full *, button.rounded-full, a.rounded-full { border-radius: 9999px !important; }
+
+    .gold-gradient {
+      background: linear-gradient(90deg, #8D6B2E 0%, #C8A55A 45%, #E5C97A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gold-gradient-bg {
+      background: linear-gradient(90deg, #8D6B2E 0%, #C8A55A 45%, #E5C97A 100%);
+    }
+
+    .dark-gradient-bg {
+      background: linear-gradient(180deg, #24364A, #1F2933);
+    }
+
+    .card-shadow { box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .card-shadow-hover { box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+
+    .gold-border { border: 1px solid rgba(200,165,90,.35); }
+    .gold-border-premium { border: 2px solid #C8A55A; }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #8D6B2E 0%, #C8A55A 45%, #E5C97A 100%);
+      color: white;
+      padding: 16px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: filter 0.25s ease, transform 0.25s ease;
+      /* No glow/shadow — clean and premium */
+    }
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #C8A55A;
+      padding: 16px 28px;
+      border-radius: 4px;
+      border: 1px solid #C8A55A;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.25s ease, transform 0.25s ease;
+      /* No glow/shadow — clean and premium */
+    }
+    .btn-secondary:hover {
+      background: rgba(200,165,90,0.08);
+      transform: translateY(-1px);
+    }
+
+    /* Nav */
+    .nav-link {
+      position: relative;
+      color: #666666;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.25s ease;
+      padding: 8px 0;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #C8A55A;
+      transition: width 0.3s ease-in-out;
+    }
+    .nav-link:hover { color: #C8A55A; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* AOS minimal override — BAZ easing */
+    [data-aos] { transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; }
+
+    /* Scroll offset for fixed navbar */
+    section[id] { scroll-margin-top: 5rem; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .hero-logo-mark { opacity: 0.08 !important; }
+      .contact-logo-mark { opacity: 0.05 !important; }
+    }
+
+    .stat-number { font-variant-numeric: tabular-nums; }
+
+    /* Scroll progress */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #8D6B2E, #C8A55A, #E5C97A);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.35s ease-in-out;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    @media (max-width: 768px) {
+      .btn-primary, .btn-secondary { padding: 14px 24px; font-size: 13px; }
+    }
+
+    /* Swiper overrides — BAZ design system */
+    .reviews-swiper .swiper-slide {
+      height: auto;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+    }
+    .reviews-swiper .swiper-slide-active {
+      opacity: 1;
+    }
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #D9D9D9;
+      opacity: 1;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+    .swiper-pagination-bullet-active {
+      width: 28px;
+      background: #C8A55A;
+      border-radius: 4px;
+    }
+
+    /* Logo watermark behind hero text — Anderson Projects pattern */
+    .hero-logo-mark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      max-width: 1100px;
+      aspect-ratio: 1377 / 768;
+      background: url('/baz-logo.png') center center / contain no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 1;
+      filter: brightness(2) saturate(0) contrast(0.8);
+    }
+    @media (min-width: 640px) {
+      .hero-logo-mark { opacity: 0.07; width: 130%; max-width: 1300px; }
+    }
+    @media (min-width: 1024px) {
+      .hero-logo-mark { opacity: 0.08; width: 140%; max-width: 1400px; }
+    }
+
+    /* Contact logo watermark — light background variant */
+    .contact-logo-mark {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      max-width: 700px;
+      aspect-ratio: 1377 / 768;
+      background: url('/baz-logo.png') center center / contain no-repeat;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+      filter: brightness(0) saturate(0) opacity(0.06);
+    }
+    @media (min-width: 1024px) {
+      .contact-logo-mark { max-width: 800px; opacity: 0.05; }
+    }
+
+  </style>
+</head>
+<body class="bg-[#F5F5F5] text-text-primary antialiased">
+
+  <div id="scroll-progress"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/0 transition-all duration-300">
+    <div class="max-w-site mx-auto px-6 md:px-20 flex items-center justify-between h-[72px]">
+      <a href="#" class="flex items-center">
+        <img src="/baz-logo.png" alt="BAZ" class="h-10 w-auto object-contain" />
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#methodology" class="nav-link">Methodology</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden lg:block">
+        <a href="#contact" class="btn-primary inline-block text-sm">Book a call</a>
+      </div>
+      <button id="menu-toggle" class="lg:hidden flex flex-col gap-[5px] p-2" aria-label="Menu">
+        <span class="w-6 h-[2px] bg-charcoal transition-all duration-300"></span>
+        <span class="w-6 h-[2px] bg-charcoal transition-all duration-300"></span>
+        <span class="w-4 h-[2px] bg-charcoal transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-charcoal">
+    <div class="flex items-center justify-between px-6 h-[72px]">
+      <img src="/baz-logo.png" alt="BAZ" class="h-8 w-auto object-contain" />
+      <button id="menu-close" class="text-white text-3xl">&times;</button>
+    </div>
+    <div class="flex flex-col gap-6 px-8 pt-8">
+      <a href="#services" class="text-white text-lg tracking-[0.12em] uppercase font-medium">Services</a>
+      <a href="#methodology" class="text-white text-lg tracking-[0.12em] uppercase font-medium">Methodology</a>
+      <a href="#work" class="text-white text-lg tracking-[0.12em] uppercase font-medium">Work</a>
+      <a href="#contact" class="text-white text-lg tracking-[0.12em] uppercase font-medium">Contact</a>
+      <div class="pt-6 border-t border-white/10">
+        <a href="#contact" class="btn-primary inline-block">Book a call</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="dark-gradient-bg relative overflow-hidden">
+    <!-- Background image with dark overlay -->
+    <div class="absolute inset-0">
+      <img src="/hero-bg.jpg" alt="" class="w-full h-full object-cover" style="opacity:0.15" />
+      <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(31,41,51,0.92) 0%, rgba(36,54,74,0.88) 50%, rgba(31,41,51,0.95) 100%)"></div>
+    </div>
+
+    <!-- Logo watermark behind hero text (Anderson Projects pattern) -->
+    <div class="max-w-site mx-auto px-6 md:px-20 pt-36 pb-24 md:pt-44 md:pb-32 relative" style="z-index:2">
+      <!-- Logo watermark: centered on content, large, very subtle -->
+      <div class="hero-logo-mark" aria-hidden="true"></div>
+
+      <div class="text-center relative" style="z-index:2">
+        <div data-aos="fade-up">
+          <p class="text-sm font-semibold tracking-[0.3em] uppercase text-gold mb-6">
+            <span class="inline-block w-2 h-2 bg-gold rounded-full mr-3 animate-pulse"></span>
+            Now booking Q3 — 2 spots left
+          </p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h1 class="font-display text-[clamp(2.2rem,6vw,5rem)] font-semibold leading-[1.08] tracking-tight text-white">
+            <span class="gold-gradient">$200K+</span> pipeline in 90 days — or month four free
+          </h1>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" class="my-8 md:my-12">
+          <a href="#contact" class="btn-primary inline-flex items-center gap-2">
+            Book a growth call
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <p class="text-[11px] tracking-[0.25em] uppercase text-white/40">
+            ↳ First measurable artifact in 14 days. We've never paid out.
+          </p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <p class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-white stat-number">$200K+</p>
+              <p class="mt-1 text-sm font-medium text-white/80">Pipeline in 90 days</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-white stat-number">4×</p>
+              <p class="mt-1 text-sm font-medium text-white/80">Pipeline coverage</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-white stat-number">60s</p>
+              <p class="mt-1 text-sm font-medium text-white/80">Loop tick</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-white stat-number">100%</p>
+              <p class="mt-1 text-sm font-medium text-white/80">Senior team</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <section class="bg-white border-b border-[#D9D9D9]/50">
+    <div class="max-w-site mx-auto px-6 md:px-20 py-12 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-charcoal">40+</p>
+        <p class="mt-2 text-[11px] tracking-[0.25em] uppercase text-text-muted">Brands scaled</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-charcoal">12</p>
+        <p class="mt-2 text-[11px] tracking-[0.25em] uppercase text-text-muted">Countries</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-charcoal">6</p>
+        <p class="mt-2 text-[11px] tracking-[0.25em] uppercase text-text-muted">Senior partners</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-charcoal">100%</p>
+        <p class="mt-2 text-[11px] tracking-[0.25em] uppercase text-text-muted">Senior team</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="bg-[#F5F5F5] py-24 md:py-32">
+    <div class="max-w-site mx-auto px-6 md:px-20">
+      <div class="text-center mb-16">
+        <p data-aos="fade-in" class="text-sm font-semibold tracking-[0.3em] uppercase text-gold mb-4">What we do</p>
+        <h2 data-aos="fade-in" class="font-display text-[clamp(1.5rem,4vw,3rem)] font-semibold tracking-tight text-charcoal leading-tight">Four pillars. One system.</h2>
+        <p data-aos="fade-in" class="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">
+          Every channel runs on the BAZ Hub — an autonomous system that scores, routes, and reports without a junior in sight.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div data-aos="fade-up" class="bg-white p-8 gold-border card-shadow transition-all duration-300">
+          <div class="w-12 h-12 bg-charcoal flex items-center justify-center mb-6" style="border-radius:4px">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal">Owned channels</h3>
+          <p class="mt-3 text-text-secondary leading-relaxed">SEO, content authority, and AI search optimization. Assets that compound — not campaigns that expire.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">SEO</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Content</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">GEO</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" class="bg-white p-8 gold-border card-shadow transition-all duration-300" data-aos-delay="80">
+          <div class="w-12 h-12 bg-charcoal flex items-center justify-center mb-6" style="border-radius:4px">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal">Earned media</h3>
+          <p class="mt-3 text-text-secondary leading-relaxed">Digital PR, partnerships, and authority signals — inbound without ad spend.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">PR</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Partnerships</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Authority</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" class="bg-white p-8 gold-border card-shadow transition-all duration-300" data-aos-delay="160">
+          <div class="w-12 h-12 bg-charcoal flex items-center justify-center mb-6" style="border-radius:4px">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal">Paid media</h3>
+          <p class="mt-3 text-text-secondary leading-relaxed">Performance media with creative production. Every dollar scored and attributed on a 60s loop.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Paid Social</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Search</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Creative</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" class="bg-white p-8 gold-border card-shadow transition-all duration-300" data-aos-delay="240">
+          <div class="w-12 h-12 bg-charcoal flex items-center justify-center mb-6" style="border-radius:4px">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m-16.5 0a2.25 2.25 0 00-1.5 2.25v13.5m18-15.75a2.25 2.25 0 012.25 2.25v6.75a2.25 2.25 0 01-2.25 2.25H6m0-11.25v9m12-9v9"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal">Data & attribution</h3>
+          <p class="mt-3 text-text-secondary leading-relaxed">Server-side tracking, real-time dashboards, attribution from spend to revenue.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Analytics</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">Attribution</span>
+            <span class="text-[11px] tracking-[0.15em] uppercase text-text-muted bg-[#F5F5F5] px-3 py-1">CAPI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section id="methodology" class="bg-white py-24 md:py-32">
+    <div class="max-w-site mx-auto px-6 md:px-20">
+      <div class="text-center mb-16">
+        <p data-aos="fade-in" class="text-sm font-semibold tracking-[0.3em] uppercase text-gold mb-4">How we work</p>
+        <h2 data-aos="fade-in" class="font-display text-[clamp(1.5rem,4vw,3rem)] font-semibold tracking-tight text-charcoal leading-tight">The loop runs on a 60-second tick.</h2>
+        <p data-aos="fade-in" class="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">Score. Route. Close. Report. 1,440 times a day.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-0">
+        <div data-aos="fade-up" class="relative pl-8 pr-8 py-8 border-l border-[#D9D9D9]/50 lg:border-r">
+          <div class="absolute left-0 top-8 w-8 h-8 bg-gold flex items-center justify-center -translate-x-1/2" style="border-radius:4px">
+            <span class="text-white text-sm font-semibold">1</span>
+          </div>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-2">Score</p>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal mb-2">Score every signal</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">PQLs, MQLs, and intent — scored and ranked in real time.</p>
+        </div>
+        <div data-aos="fade-up" class="relative pl-8 pr-8 py-8 border-l border-[#D9D9D9]/50 lg:border-r" data-aos-delay="100">
+          <div class="absolute left-0 top-8 w-8 h-8 bg-gold flex items-center justify-center -translate-x-1/2" style="border-radius:4px">
+            <span class="text-white text-sm font-semibold">2</span>
+          </div>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-2">Route</p>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal mb-2">Route to the right cadence</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">Hot leads → sales. Warm → nurture. Cold → content. Automatically.</p>
+        </div>
+        <div data-aos="fade-up" class="relative pl-8 pr-8 py-8 border-l border-[#D9D9D9]/50 lg:border-r" data-aos-delay="200">
+          <div class="absolute left-0 top-8 w-8 h-8 bg-gold flex items-center justify-center -translate-x-1/2" style="border-radius:4px">
+            <span class="text-white text-sm font-semibold">3</span>
+          </div>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-2">Close</p>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal mb-2">Close with senior operators</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">Partners pitch. Partners ship. No juniors, no hand-offs.</p>
+        </div>
+        <div data-aos="fade-up" class="relative pl-8 pr-8 py-8 border-l border-[#D9D9D9]/50" data-aos-delay="300">
+          <div class="absolute left-0 top-8 w-8 h-8 bg-gold flex items-center justify-center -translate-x-1/2" style="border-radius:4px">
+            <span class="text-white text-sm font-semibold">4</span>
+          </div>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-2">Report</p>
+          <h3 class="font-display text-xl font-semibold uppercase tracking-tight text-charcoal mb-2">Report what matters</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">Pipeline, CAC, LTV — attribution you can forecast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="work" class="dark-gradient-bg py-24 md:py-32">
+    <div class="max-w-site mx-auto px-6 md:px-20">
+      <div class="text-center mb-16">
+        <p data-aos="fade-in" class="text-sm font-semibold tracking-[0.3em] uppercase text-gold mb-4">Results</p>
+        <h2 data-aos="fade-in" class="font-display text-[clamp(1.5rem,4vw,3rem)] font-semibold tracking-tight text-white leading-tight">
+          We optimize for revenue. <span class="text-white/30">Most agencies optimize for activity.</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div data-aos="fade-up" class="bg-white/[0.04] p-8 border border-white/10 transition-all duration-300">
+          <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-4">B2B SaaS</p>
+          <p class="font-display text-4xl font-semibold text-white mb-2">$420K</p>
+          <p class="text-sm text-white/60 mb-4">pipeline added in 90 days</p>
+          <div class="h-px bg-white/10 mb-4"></div>
+          <p class="text-sm text-white/80 leading-relaxed">3× pipeline coverage in Q1. SEO authority from zero — now ranking for 47 terms in top 10.</p>
+        </div>
+        <div data-aos="fade-up" class="bg-white/[0.04] p-8 border border-white/10 transition-all duration-300" data-aos-delay="100">
+          <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-4">DTC E-commerce</p>
+          <p class="font-display text-4xl font-semibold text-white mb-2">−47%</p>
+          <p class="text-sm text-white/60 mb-4">CAC reduction</p>
+          <div class="h-px bg-white/10 mb-4"></div>
+          <p class="text-sm text-white/80 leading-relaxed">Server-side tracking surviving iOS 14. Weekly creative matrix. LTV compounding through lifecycle.</p>
+        </div>
+        <div data-aos="fade-up" class="bg-white/[0.04] p-8 border border-white/10 transition-all duration-300" data-aos-delay="200">
+          <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-4">FinTech</p>
+          <p class="font-display text-4xl font-semibold text-white mb-2">3.2×</p>
+          <p class="text-sm text-white/60 mb-4">pipeline coverage, sustained</p>
+          <div class="h-px bg-white/10 mb-4"></div>
+          <p class="text-sm text-white/80 leading-relaxed">Category-defining SERPs. Compliance-grade content. Attribution that survives regulator scrutiny.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SLIDER -->
+  <section class="bg-[#F5F5F5] py-24 md:py-32">
+    <div class="max-w-site mx-auto px-6 md:px-20">
+      <div class="text-center mb-16">
+        <p data-aos="fade-in" class="text-sm font-semibold tracking-[0.3em] uppercase text-gold mb-4">What clients say</p>
+        <h2 data-aos="fade-in" class="font-display text-[clamp(1.5rem,4vw,3rem)] font-semibold tracking-tight text-charcoal leading-tight">Trusted by growth teams.</h2>
+      </div>
+
+      <div data-aos="fade-in" class="swiper reviews-swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 md:p-10 card-shadow h-full flex flex-col">
+              <div class="flex items-center gap-1 mb-4">
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="font-display text-lg leading-relaxed text-charcoal flex-1">"BAZ didn't just add pipeline — they built the machine that keeps generating it. 1.2× to 3.8× coverage in the first quarter. The loop runs itself now."</p>
+              <div class="mt-6 pt-6 border-t border-[#D9D9D9]/50 flex items-center gap-4">
+                <div class="w-12 h-12 bg-charcoal flex items-center justify-center" style="border-radius:4px">
+                  <span class="font-display text-gold font-semibold">JC</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-charcoal">James Chen</p>
+                  <p class="text-sm text-text-muted">VP Growth, Meridian Analytics</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 md:p-10 card-shadow h-full flex flex-col">
+              <div class="flex items-center gap-1 mb-4">
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="font-display text-lg leading-relaxed text-charcoal flex-1">"We churned through three agencies before BAZ. The difference? They actually move pipeline. Our coverage went from 1.5× to 4× in two quarters."</p>
+              <div class="mt-6 pt-6 border-t border-[#D9D9D9]/50 flex items-center gap-4">
+                <div class="w-12 h-12 bg-charcoal flex items-center justify-center" style="border-radius:4px">
+                  <span class="font-display text-gold font-semibold">SR</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-charcoal">Sarah Russo</p>
+                  <p class="text-sm text-text-muted">CMO, Vertex SaaS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 md:p-10 card-shadow h-full flex flex-col">
+              <div class="flex items-center gap-1 mb-4">
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="font-display text-lg leading-relaxed text-charcoal flex-1">"Server-side tracking that actually works. Weekly creative that compounds. And a senior team that picks up the phone. This is how agencies should operate."</p>
+              <div class="mt-6 pt-6 border-t border-[#D9D9D9]/50 flex items-center gap-4">
+                <div class="w-12 h-12 bg-charcoal flex items-center justify-center" style="border-radius:4px">
+                  <span class="font-display text-gold font-semibold">AM</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-charcoal">Aisha Mahmood</p>
+                  <p class="text-sm text-text-muted">Head of Growth, Bloom & Co</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 md:p-10 card-shadow h-full flex flex-col">
+              <div class="flex items-center gap-1 mb-4">
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="font-display text-lg leading-relaxed text-charcoal flex-1">"The Hub changed everything. We can finally see what's working in real time — and the attribution loop means no more quarterly surprises."</p>
+              <div class="mt-6 pt-6 border-t border-[#D9D9D9]/50 flex items-center gap-4">
+                <div class="w-12 h-12 bg-charcoal flex items-center justify-center" style="border-radius:4px">
+                  <span class="font-display text-gold font-semibold">DL</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-charcoal">David Larsson</p>
+                  <p class="text-sm text-text-muted">CEO, Nordic Fintech Group</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 md:p-10 card-shadow h-full flex flex-col">
+              <div class="flex items-center gap-1 mb-4">
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="font-display text-lg leading-relaxed text-charcoal flex-1">"Category-defining SERPs in 90 days. Compliance-grade content that regulators actually respect. BAZ gets what FinTech needs."</p>
+              <div class="mt-6 pt-6 border-t border-[#D9D9D9]/50 flex items-center gap-4">
+                <div class="w-12 h-12 bg-charcoal flex items-center justify-center" style="border-radius:4px">
+                  <span class="font-display text-gold font-semibold">NK</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-charcoal">Nadia Khalil</p>
+                  <p class="text-sm text-text-muted">Director of Marketing, TrustLayer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Nav controls -->
+        <div class="flex items-center justify-center gap-4 mt-8">
+          <button class="reviews-prev w-12 h-12 border border-[#D9D9D9] bg-white flex items-center justify-center transition-all duration-300 hover:border-gold hover:text-gold" style="border-radius:4px" aria-label="Previous review">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+          </button>
+          <div class="swiper-pagination !relative !bottom-auto mt-4"></div>
+          <button class="reviews-next w-12 h-12 border border-[#D9D9D9] bg-white flex items-center justify-center transition-all duration-300 hover:border-gold hover:text-gold" style="border-radius:4px" aria-label="Next review">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section id="insights" class="bg-white py-24 md:py-32">
+    <div class="max-w-site mx-auto px-6 md:px-20">
+      <div class="text-center mb-16">
+        <p data-aos="fade-in" class="text-sm font-semibold tracking-[0.3em] uppercase text-gold mb-4">Insights</p>
+        <h2 data-aos="fade-in" class="font-display text-[clamp(1.5rem,4vw,3rem)] font-semibold tracking-tight text-charcoal leading-tight">From the Hub</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="#" data-aos="fade-up" class="group bg-[#F5F5F5] overflow-hidden card-shadow transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-navy to-charcoal flex items-center justify-center">
+            <span class="font-display text-3xl font-semibold text-gold">01</span>
+          </div>
+          <div class="p-6">
+            <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-2">Pipeline</p>
+            <h3 class="font-display text-lg font-semibold text-charcoal mb-2 group-hover:text-gold transition-colors">Why 90% of agency relationships fail by month six</h3>
+            <p class="text-sm text-text-secondary">The model is broken. Here's what a senior-only loop fixes.</p>
+          </div>
+        </a>
+        <a href="#" data-aos="fade-up" class="group bg-[#F5F5F5] overflow-hidden card-shadow transition-all duration-300" data-aos-delay="100">
+          <div class="h-48 bg-gradient-to-br from-navy to-charcoal flex items-center justify-center">
+            <span class="font-display text-3xl font-semibold text-gold">02</span>
+          </div>
+          <div class="p-6">
+            <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-2">Attribution</p>
+            <h3 class="font-display text-lg font-semibold text-charcoal mb-2 group-hover:text-gold transition-colors">The 60-second attribution loop that closes deals</h3>
+            <p class="text-sm text-text-secondary">How the Hub scores, routes, and closes — 1,440 times a day.</p>
+          </div>
+        </a>
+        <a href="#" data-aos="fade-up" class="group bg-[#F5F5F5] overflow-hidden card-shadow transition-all duration-300" data-aos-delay="200">
+          <div class="h-48 bg-gradient-to-br from-navy to-charcoal flex items-center justify-center">
+            <span class="font-display text-3xl font-semibold text-gold">03</span>
+          </div>
+          <div class="p-6">
+            <p class="text-[11px] tracking-[0.25em] uppercase text-gold mb-2">Growth</p>
+            <h3 class="font-display text-lg font-semibold text-charcoal mb-2 group-hover:text-gold transition-colors">$200K pipeline or month four free — how we back it</h3>
+            <p class="text-sm text-text-secondary">The guarantee isn't a gimmick. It's a function of the loop.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="bg-white py-24 md:py-32 relative overflow-hidden">
+    <!-- Logo watermark behind contact heading -->
+    <div class="contact-logo-mark" aria-hidden="true"></div>
+    <div class="max-w-site mx-auto px-6 md:px-20 relative" style="z-index:2">
+      <div class="text-center mb-16">
+        <p data-aos="fade-in" class="text-sm font-semibold tracking-[0.3em] uppercase text-gold mb-4">Get in touch</p>
+        <h2 data-aos="fade-in" class="font-display text-[clamp(1.5rem,4vw,3rem)] font-semibold tracking-tight text-charcoal leading-tight">Let's talk growth.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-8 md:gap-12">
+        <!-- Contact details — left -->
+        <div data-aos="fade-up" class="md:col-span-2">
+          <div class="bg-charcoal p-8 md:p-10 h-full flex flex-col justify-between" style="border-radius:4px">
+            <div>
+              <img src="/baz-logo.png" alt="BAZ" class="h-10 w-auto object-contain mb-8" />
+
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-white/[0.06] border border-white/10 flex items-center justify-center flex-shrink-0" style="border-radius:4px">
+                    <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                  </div>
+                  <div>
+                    <p class="text-[11px] tracking-[0.25em] uppercase text-white/40 mb-1">Email</p>
+                    <a href="mailto:hello@baz.agency" class="text-sand hover:text-gold transition-colors">hello@baz.agency</a>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-white/[0.06] border border-white/10 flex items-center justify-center flex-shrink-0" style="border-radius:4px">
+                    <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                  </div>
+                  <div>
+                    <p class="text-[11px] tracking-[0.25em] uppercase text-white/40 mb-1">Location</p>
+                    <p class="text-sand">Algiers · EU · US</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-white/[0.06] border border-white/10 flex items-center justify-center flex-shrink-0" style="border-radius:4px">
+                    <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <div>
+                    <p class="text-[11px] tracking-[0.25em] uppercase text-white/40 mb-1">Availability</p>
+                    <p class="text-sand">Mon–Fri, 9am–6pm CET</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-white/10">
+              <div class="inline-flex items-center gap-3">
+                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+                <p class="text-sm text-white/70"><span class="text-gold font-semibold">Speed guarantee:</span> First artifact in 14 days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact form — right -->
+        <div data-aos="fade-up" class="md:col-span-3" data-aos-delay="100">
+          <form id="contact-form" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-text-muted font-medium mb-2">Name</label>
+                <input type="text" name="name" required placeholder="Your name" class="w-full bg-[#F5F5F5] border border-[#D9D9D9] px-4 py-3 text-charcoal placeholder:text-text-muted/60 focus:outline-none focus:border-gold focus:bg-white transition-colors" style="border-radius:4px">
+              </div>
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-text-muted font-medium mb-2">Company</label>
+                <input type="text" name="company" placeholder="Your company" class="w-full bg-[#F5F5F5] border border-[#D9D9D9] px-4 py-3 text-charcoal placeholder:text-text-muted/60 focus:outline-none focus:border-gold focus:bg-white transition-colors" style="border-radius:4px">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-text-muted font-medium mb-2">Email</label>
+                <input type="email" name="email" required placeholder="you@company.com" class="w-full bg-[#F5F5F5] border border-[#D9D9D9] px-4 py-3 text-charcoal placeholder:text-text-muted/60 focus:outline-none focus:border-gold focus:bg-white transition-colors" style="border-radius:4px">
+              </div>
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-text-muted font-medium mb-2">Phone</label>
+                <input type="tel" name="phone" placeholder="+1 (555) 000-0000" class="w-full bg-[#F5F5F5] border border-[#D9D9D9] px-4 py-3 text-charcoal placeholder:text-text-muted/60 focus:outline-none focus:border-gold focus:bg-white transition-colors" style="border-radius:4px">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] tracking-[0.2em] uppercase text-text-muted font-medium mb-2">What do you need help with?</label>
+              <select name="service" class="w-full bg-[#F5F5F5] border border-[#D9D9D9] px-4 py-3 text-charcoal focus:outline-none focus:border-gold focus:bg-white transition-colors appearance-none" style="border-radius:4px">
+                <option value="" disabled selected>Select a service</option>
+                <option>SEO & Content Authority</option>
+                <option>Paid Media & Creative</option>
+                <option>Digital PR & Partnerships</option>
+                <option>Data & Attribution</option>
+                <option>Full Growth Partnership</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] tracking-[0.2em] uppercase text-text-muted font-medium mb-2">Message</label>
+              <textarea name="message" rows="4" placeholder="Tell us about your growth goals…" class="w-full bg-[#F5F5F5] border border-[#D9D9D9] px-4 py-3 text-charcoal placeholder:text-text-muted/60 focus:outline-none focus:border-gold focus:bg-white transition-colors resize-none" style="border-radius:4px"></textarea>
+            </div>
+            <div class="pt-2">
+              <button type="submit" class="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2">
+                Send message
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- Success state (hidden by default) -->
+          <div id="contact-success" class="hidden text-center py-16">
+            <div class="w-16 h-16 mx-auto bg-gold/10 flex items-center justify-center mb-6" style="border-radius:4px">
+              <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-charcoal mb-2">Message sent.</h3>
+            <p class="text-text-secondary">A senior partner will be in touch within 24 hours.</p>
+            <button id="send-another" class="mt-6 text-sm text-gold font-medium tracking-[0.1em] uppercase">Send another →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal border-t border-gold/15">
+    <div class="max-w-site mx-auto px-6 md:px-20 py-16">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-8">
+        <div class="md:col-span-5">
+          <img src="/baz-logo.png" alt="BAZ" class="h-10 w-auto object-contain mb-6" />
+          <p class="text-sm text-white/50 leading-relaxed max-w-sm mb-6">Senior-only growth partner. Owned, earned, paid, and data channels — on the BAZ Marketing Hub.</p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="w-10 h-10 bg-white/[0.04] border border-white/10 flex items-center justify-center text-white/50 hover:text-gold hover:border-gold/50 transition-all duration-300" style="border-radius:4px">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/[0.04] border border-white/10 flex items-center justify-center text-white/50 hover:text-gold hover:border-gold/50 transition-all duration-300" style="border-radius:4px">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/[0.04] border border-white/10 flex items-center justify-center text-white/50 hover:text-gold hover:border-gold/50 transition-all duration-300" style="border-radius:4px">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="md:col-span-3">
+          <h4 class="text-[11px] tracking-[0.25em] uppercase text-gold font-semibold mb-6">Explore</h4>
+          <ul class="space-y-3">
+            <li><a href="#services" class="text-sm text-white/50 hover:text-gold transition-colors">Services</a></li>
+            <li><a href="#methodology" class="text-sm text-white/50 hover:text-gold transition-colors">Methodology</a></li>
+            <li><a href="#work" class="text-sm text-white/50 hover:text-gold transition-colors">Work</a></li>
+            <li><a href="#contact" class="text-sm text-white/50 hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-4">
+          <h4 class="text-[11px] tracking-[0.25em] uppercase text-gold font-semibold mb-6">Get in touch</h4>
+          <p class="text-sm text-white/50 mb-4">hello@baz.agency</p>
+          <p class="text-sm text-white/50">Algiers · EU · US</p>
+          <p class="text-sm text-white/50 mt-1">Senior team · No juniors · No retainers</p>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-[11px] text-white/30 tracking-[0.15em] uppercase">© <span id="year"></span> BAZ Marketing Ventures. All rights reserved.</p>
+        <a href="#" class="text-[11px] text-white/30 tracking-[0.15em] uppercase hover:text-gold transition-colors">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 bg-gold text-white md:hidden transform translate-y-full transition-transform duration-300">
+    <div class="flex items-center justify-between px-4 py-3">
+      <p class="text-xs font-medium"><span class="font-semibold">20 min</span> with a senior partner.</p>
+      <a href="#contact" class="inline-flex items-center gap-1.5 px-4 py-2 bg-charcoal text-white text-sm font-semibold uppercase tracking-wider" style="border-radius:4px">
+        Book a call →
+      </a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // ── Dynamic year ──
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Lenis smooth scroll ──
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(1 - t, 3)),
+      orientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Anchor links → Lenis scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const id = this.getAttribute('href');
+        if (id.length < 2) return;
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -72, duration: 1.2 });
+          // Close mobile menu if open
+          document.getElementById('mobile-menu').classList.remove('open');
+        }
+      });
+    });
+
+    // ── AOS init ──
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 80,
+      delay: 0,
+    });
+
+    // ── Scroll progress ──
+    lenis.on('scroll', () => {
+      const bar = document.getElementById('scroll-progress');
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+
+    // ── Navbar solid on scroll ──
+    lenis.on('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255,255,255,0.97)';
+        navbar.style.backdropFilter = 'blur(18px)';
+        navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.boxShadow = 'none';
+      }
+      const sticky = document.getElementById('sticky-cta');
+      if (sticky) {
+        sticky.style.transform = window.scrollY > 600 ? 'translateY(0)' : 'translateY(100%)';
+      }
+    });
+
+    // ── Mobile menu ──
+    document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
+    document.getElementById('menu-close').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+    document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
+
+    // ── Swiper — Reviews slider ──
+    new Swiper('.reviews-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      centeredSlides: false,
+      grabCursor: true,
+      navigation: {
+        nextEl: '.reviews-next',
+        prevEl: '.reviews-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+      speed: 400,
+      keyboard: { enabled: true },
+    });
+  </script>
+</body>
+</html>

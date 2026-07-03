@@ -44,7 +44,7 @@ export function NewsletterForm({ source = "newsletter" }: { source?: string }) {
       <button
         type="submit"
         disabled={state === "pending"}
-        className="h-12 px-6 rounded-full bg-primary text-foreground font-medium hover:bg-primary/90 transition-colors disabled:opacity-50"
+        className="h-12 px-6 rounded-full bg-primary text-foreground font-medium disabled:opacity-50"
         data-source={source}
       >
         {state === "pending" ? "Joining…" : "Subscribe"}

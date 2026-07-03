@@ -1,72 +1,110 @@
-# BAZ Brand & Sales Kit
+# BAZ — Brand Assets
 
-Working assets for an agency running sales, content, and client work.
+All Stitch-generated brand assets for BAZ Marketing Ventures Agency.
 
-## What's here
+---
 
-```
-assets/brand/
-├── README.md               ← you are here
-├── logo/                   ← 5 logo variants + usage guide
-├── pitch-deck/             ← 10-slide pitch deck (HTML, print to PDF)
-├── case-studies/           ← 3 one-pagers (markdown, ready to send)
-├── service-cards/          ← 3 reusable SVG service card templates
-├── lead-magnet/            ← "90-day playbook" cover + body
-└── social/                 ← 4 LinkedIn posts + 2 carousel slides
-```
+## Logo (`logo/`)
 
-## How to use this kit
+| File | Dimensions | Description |
+|------|-----------|-------------|
+| `baz-master-logo.png` | 1024×1024 | Primary master logo — use as source of truth |
+| `baz-signature-gold.png` | 1024×1024 | Gold handwritten BAZ signature on transparent |
+| `baz-app-icon-1024x1024.png` | 1024×1024 | App icon — squircle with charcoal bg + gold mark |
+| `baz-logo-webp.png` | 843×470 | Web-optimized logo |
+| `baz-gemini-generated.png` | 1377×768 | Gemini AI-generated brand asset |
+| `baz-wordmark.svg` | Vector | Primary wordmark (existing) |
+| `baz-wordmark-mono.svg` | Vector | Monochrome wordmark (existing) |
+| `baz-wordmark-reverse.svg` | Vector | Reversed wordmark for dark bg (existing) |
+| `baz-mark.svg` | Vector | Icon mark (existing) |
+| `baz-favicon.svg` | Vector | Simplified favicon (existing) |
 
-### Sending to a prospect
-- **First touch:** `social/linkedin-posts.md` — pick the most relevant post, add a personal note, send via LinkedIn DM.
-- **Reply:** `case-studies/` — send the case study that matches their industry (ViralVista for DTC, Northwind for FinTech/SaaS, EngageEra for B2B SaaS).
-- **Discovery call booked:** `pitch-deck/deck.html` — open in browser, print to PDF, walk through the 10 slides.
-- **After the call:** `lead-magnet/playbook-cover.svg` + body — send as the "here's the playbook we mentioned" follow-up.
+---
 
-### Posting on social
-- One post per week from `social/linkedin-posts.md`. Tuesday or Wednesday morning.
-- Carousel: post slides 01-05 as a swipeable PDF on LinkedIn, 4-5 days after the matching text post.
+## Favicon (`favicon/`)
 
-### Pitching in person
-- `pitch-deck/deck.html` → print to PDF → bring iPad or print slides.
-- `logo/baz-wordmark.svg` on slide 1.
-- `service-cards/` as leave-behinds (one card per pillar they care about).
+| File | Dimensions | Description |
+|------|-----------|-------------|
+| `baz-favicon-16x16.svg` | 16×16 | SVG favicon — charcoal bg + gold BAZ letter |
+| `baz-favicon-32x32.svg` | 32×32 | SVG favicon — higher detail |
+| `baz-favicon-16x16.png` | 1024×1024 | PNG favicon source |
+| `baz-favicon-32x32.png` | 1024×1024 | PNG favicon source |
 
-### Repurposing for content
-- The 24-page playbook can be split into 4 blog posts (one per chapter).
-- The 4 LinkedIn posts can be split into a Twitter thread, an email sequence, or a YouTube script.
+---
 
-## Don't
+## Business Cards (`business-cards/`)
 
-- Don't edit the visual system (colors, fonts, accent red `#ff3b2f`).
-- Don't generate new assets without saving the prompt + output for reuse.
-- Don't post the same carousel twice in a quarter — leads notice.
-- Don't send a case study that doesn't match the prospect's industry.
+| File | Dimensions | Description |
+|------|-----------|-------------|
+| `baz-business-card-front.png` | 1264×848 | Front design — dark charcoal + gold |
+| `baz-business-card-back.png` | 1264×848 | Back design |
+| `baz-business-card-mockup-front.png` | 1264×848 | Photorealistic mockup |
+| `baz-business-card-alt-front.png` | 1264×848 | Alternative front design |
+| `baz-business-card-print-ready.png` | 1264×848 | Print-ready version |
 
-## Refresh cadence
+---
 
-- **Logo suite:** only when the brand mark changes (rare).
-- **Pitch deck:** quarterly. Refresh the case studies and stats.
-- **Case study one-pagers:** after every new signed engagement that produces proof.
-- **Service cards:** when a service changes price, scope, or proof.
-- **LinkedIn posts:** write 1 per week. Aim for 12 in the bank at any time.
-- **Lead magnet:** when the offer changes or the playbook gets a major refresh.
+## Stationery (`stationery/`)
 
-## Color tokens (don't change these)
+| File | Dimensions | Description |
+|------|-----------|-------------|
+| `baz-letterhead-a4.png` | 896×1200 | A4 letterhead — pure white + gold accents |
 
-```
---accent:    #ff3b2f   ←  the red
---ink-900:   #0e0e10   ←  body text
---paper:     #f5f1ea   ←  cream background
---paper-50:  #faf7f2   ←  off-white
---gold:      #f9a01f   ←  secondary accent
-```
+---
 
-## Where things came from
+## Social Media (`social/`)
 
-- **Brand voice** → `docs/BRAND-BRIEF.md`
-- **Design tokens** → `docs/DESIGN-TOKENS.md`
-- **Site code** → `~/baz/`
-- **This kit** → `assets/brand/`
+| File | Dimensions | Description |
+|------|-----------|-------------|
+| `baz-linkedin-banner-1376x768.png` | 1376×768 | LinkedIn/banner — dark charcoal + gold |
+| `baz-social-profile-1024x1024.png` | 1024×1024 | Social profile picture — square |
+| `baz-social-card-1024x1024.png` | 1024×1024 | Social media post card — square |
+| `baz-landscape-banner-16x9.png` | 1376×768 | Landscape banner (16:9) — dark charcoal |
 
-If you change the voice, tokens, or site, update this kit. If you change this kit, update the site to match.
+---
+
+## Email (`email/`)
+
+| File | Dimensions | Description |
+|------|-----------|-------------|
+| `baz-email-header-16x9.png` | 1376×768 | Email header — white bg, gold accent |
+
+---
+
+## Presentation (`presentation/`)
+
+| File | Dimensions | Description |
+|------|-----------|-------------|
+| `baz-presentation-folder-flat.png` | 896×1200 | Flat A4 folder design |
+| `baz-presentation-folder-mockup.png` | 1200×896 | Photorealistic folder mockup |
+| `baz-presentation-folder-matte.png` | 1200×896 | Matte finish mockup |
+| `baz-presentation-folder-front.png` | 1200×896 | Front cover design |
+| `baz-presentation-folder-print.png` | 1200×896 | Print-ready version |
+
+---
+
+## Website (`web/`)
+
+| File | Description |
+|------|-------------|
+| `baz-website-full-page.png` | Full-page screenshot of the Stitch website |
+| `baz-website-stitch.html` | Complete Stitch-generated website HTML (Tailwind + Outfit/Poppins) |
+| `DESIGN-stitch.md` | Stitch-generated design system (Material 3 tokens) |
+
+---
+
+## Stitch Design System
+
+The Stitch assets use a complementary design system based on **Material 3** tokens:
+
+| Token | Hex | Role |
+|-------|-----|------|
+| Gold | `#C8A55A` | Primary accent |
+| Gold-dark | `#8D6B2E` | Gradient start / shadows |
+| Charcoal | `#1F2933` | Base background |
+| Navy | `#24364A` | Secondary background |
+| Sand | `#E8E4E0` | Primary text on dark |
+| Stone | `#B0AAA5` | Muted text |
+| White | `#FFFFFF` | Headings |
+
+**Note:** The Stitch system uses **Outfit** (display) and **Poppins** (body) fonts with 4px radius. The Æther system uses **Fraunces**, **Inter**, **JetBrains Mono** with Fibonacci radii. Both palettes share the same gold + charcoal foundation and can coexist.

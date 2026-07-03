@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- BAZ Dot Pattern — Subtle dot grid for paper sections -->
+  <!-- Use as background-image with opacity 0.04-0.08 -->
+  <defs>
+    <pattern id="baz-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="currentColor"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#baz-dots)"/>
+</svg>

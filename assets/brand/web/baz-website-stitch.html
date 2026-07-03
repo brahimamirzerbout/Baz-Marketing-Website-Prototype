@@ -1,0 +1,371 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>BAZ Marketing Ventures Agency - Pure Luxury</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#998f7f",
+                        "sand": "#E8E4E0",
+                        "inverse-surface": "#e9e1d8",
+                        "tertiary-container": "#96a9dd",
+                        "surface-variant": "#38342e",
+                        "on-tertiary": "#1a2f5b",
+                        "on-primary-container": "#513b00",
+                        "charcoal": "#1F2933",
+                        "on-secondary-fixed": "#091d30",
+                        "on-primary-fixed": "#261a00",
+                        "secondary-fixed-dim": "#b5c8e1",
+                        "on-secondary-container": "#a4b7cf",
+                        "inverse-on-surface": "#34302a",
+                        "surface-container-low": "#1e1b16",
+                        "tertiary-fixed-dim": "#b2c6fb",
+                        "primary-container": "#c8a55a",
+                        "surface-tint": "#e7c274",
+                        "secondary": "#b5c8e1",
+                        "on-tertiary-fixed-variant": "#324573",
+                        "on-primary": "#402d00",
+                        "tertiary": "#b2c6fb",
+                        "on-surface": "#e9e1d8",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "gold-dark": "#8D6B2E",
+                        "on-secondary": "#203245",
+                        "on-surface-variant": "#d0c5b3",
+                        "inverse-primary": "#765a16",
+                        "tertiary-fixed": "#d9e2ff",
+                        "surface-bright": "#3d3932",
+                        "on-tertiary-fixed": "#011945",
+                        "error": "#ffb4ab",
+                        "primary": "#e7c274",
+                        "surface-container": "#221f1a",
+                        "on-error": "#690005",
+                        "surface-container-high": "#2d2924",
+                        "error-container": "#93000a",
+                        "background": "#16130e",
+                        "white": "#FFFFFF",
+                        "surface-container-lowest": "#110e09",
+                        "primary-fixed-dim": "#e7c274",
+                        "secondary-container": "#36485d",
+                        "surface-dim": "#16130e",
+                        "on-secondary-fixed-variant": "#36485d",
+                        "secondary-fixed": "#d1e4fe",
+                        "surface-container-highest": "#38342e",
+                        "primary-fixed": "#ffdf9f",
+                        "stone": "#B0AAA5",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#2a3d6a",
+                        "surface": "#16130e",
+                        "on-background": "#e9e1d8",
+                        "outline-variant": "#4d4638"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "section-padding-y-mobile": "6rem",
+                        "section-padding-y-desktop": "8rem",
+                        "max-width": "1280px",
+                        "gutter": "1.5rem"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Outfit"],
+                        "body-lg": ["Poppins"],
+                        "headline-md": ["Outfit"],
+                        "eyebrow": ["Outfit"],
+                        "hero-h1": ["Outfit"],
+                        "hero-h1-mobile": ["Outfit"],
+                        "body-md": ["Poppins"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { lineHeight: "1.0", letterSpacing: "0.2em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "300" }],
+                        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "500" }],
+                        "eyebrow": ["14px", { lineHeight: "1.0", letterSpacing: "0.3em", fontWeight: "600" }],
+                        "hero-h1": ["72px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "hero-h1-mobile": ["48px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .glass-nav {
+            transition: background-color 0.3s ease;
+        }
+        .glass-nav.scrolled {
+            background-color: rgba(31, 41, 51, 0.95); /* Charcoal */
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(to right, #e7c274, #8D6B2E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #8D6B2E, #C8A55A);
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-charcoal text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-transparent">
+<div class="flex justify-between items-center max-w-max-width mx-auto px-gutter h-20">
+<!-- Brand -->
+<a class="flex items-center" href="#">
+<img alt="BAZ Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLug2gIutQjIA5MddTOZkPPEMvo54PH_WZ_pejgbWZ64MN5LBR-hJxYzbJoFzf-okWV2zeX11bvrZotTmYHz3JljkGrEmO3ifgCQYcSrecWXkOgN9fJOgifgkVeX-waN3tqJVxUGDHEenV74xkUcH7LSljC7Ku7e6Wxwi5cnZfSNR1Z4hmUUtq7EB-loeetFKqT1hroZVBrWelsb49WKkod5mBCZ_d3pTzwwBVcfOi2Arv1vCzJ7-VgCQQ">
+</a>
+<!-- Links (Web) -->
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-300" href="#strategy">Strategy</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-300" href="#growth">Growth</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-300" href="#creative">Creative</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-300" href="#insights">Insights</a>
+</div>
+<!-- Action -->
+<div class="hidden md:block">
+<a class="btn-primary px-6 py-3 font-label-sm rounded inline-block" href="#contact">Contact Us</a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Section 1: Hero -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-charcoal/85 z-10"></div> <!-- 85% opacity to make image 15% visible -->
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLvfCtoyYrbja4y0Zes-Vdm7l1voyLwfj3sq7Wh_Z6Y-2RY92sPaPHMF-qIbubC2PklGnkafACv_6foV46cA_4gh7a8vzRlU3LG4TgdAwLSUFDIyk37ueKKKFsZY-sMmcBpaZjfeMhvzvg65vQ_vpbMa_rgVtORC4CPyzIUIyP9UpzQuMHTGHUms6lHH3VKLdibkl3dmeuafqab76pVo_cCGQowDmoenKex7aojLAvcK3TBzNHPDG7tdiNw');"></div>
+</div>
+<!-- Content -->
+<div class="relative z-20 text-center px-gutter max-w-4xl mx-auto">
+<h1 class="font-hero-h1-mobile md:font-hero-h1 text-on-surface uppercase mb-6 tracking-tight">
+                    POWERING YOUR PATH TO GROWTH
+                </h1>
+<p class="font-body-lg text-sand mb-12 max-w-2xl mx-auto">
+                    We architect definitive strategies and premium creative solutions for the world's most ambitious brands. Pure luxury meets measurable performance.
+                </p>
+<a class="btn-primary px-8 py-4 font-label-sm rounded inline-block tracking-widest uppercase" href="#contact">
+                    Engage Agency
+                </a>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
+<span class="material-symbols-outlined text-primary/50 animate-bounce">arrow_downward</span>
+</div>
+</section>
+<!-- Section 2: Stats (Light Theme Alternate) -->
+<section class="bg-[#F5F5F5] py-section-padding-y-mobile md:py-section-padding-y-desktop border-y border-outline-variant/10 text-charcoal">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-charcoal/10">
+<div class="pt-8 md:pt-0">
+<div class="font-hero-h1-mobile md:font-hero-h1 text-primary-container mb-2">450+</div>
+<div class="font-label-sm text-charcoal/60 uppercase tracking-widest">Global Brands</div>
+</div>
+<div class="pt-8 md:pt-0">
+<div class="font-hero-h1-mobile md:font-hero-h1 text-primary-container mb-2">12B+</div>
+<div class="font-label-sm text-charcoal/60 uppercase tracking-widest">Revenue Generated</div>
+</div>
+<div class="pt-8 md:pt-0">
+<div class="font-hero-h1-mobile md:font-hero-h1 text-primary-container mb-2">24</div>
+<div class="font-label-sm text-charcoal/60 uppercase tracking-widest">Industry Awards</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Services (Bento Grid) -->
+<section class="bg-charcoal py-section-padding-y-mobile md:py-section-padding-y-desktop" id="services">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="mb-16">
+<span class="font-eyebrow text-primary uppercase block mb-4">Core Disciplines</span>
+<h2 class="font-headline-md text-on-surface">Architecting market dominance.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 p-px">
+<!-- Service 1 -->
+<div class="bg-charcoal p-12 h-full flex flex-col group">
+<span class="material-symbols-outlined text-4xl text-primary mb-8" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<h3 class="font-headline-md text-on-surface mb-4">Strategy</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Data-driven blueprints for market penetration and sustained brand equity. We build foundations that scale.</p>
+</div>
+<!-- Service 2 -->
+<div class="bg-charcoal p-12 h-full flex flex-col">
+<span class="material-symbols-outlined text-4xl text-primary mb-8" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<h3 class="font-headline-md text-on-surface mb-4">Growth</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Performance marketing architectures designed for aggressive acquisition and retention.</p>
+</div>
+<!-- Service 3 -->
+<div class="bg-charcoal p-12 h-full flex flex-col">
+<span class="material-symbols-outlined text-4xl text-primary mb-8" style="font-variation-settings: 'FILL' 1;">design_services</span>
+<h3 class="font-headline-md text-on-surface mb-4">Creative</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Editorial-grade visual identities and campaigns that command attention and convey absolute luxury.</p>
+</div>
+<!-- Service 4 -->
+<div class="bg-charcoal p-12 h-full flex flex-col">
+<span class="material-symbols-outlined text-4xl text-primary mb-8" style="font-variation-settings: 'FILL' 1;">language</span>
+<h3 class="font-headline-md text-on-surface mb-4">Digital</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Immersive, high-performance digital experiences and robust technical infrastructure.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Case Studies -->
+<section class="bg-charcoal py-section-padding-y-mobile md:py-section-padding-y-desktop border-t border-white/5">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="flex justify-between items-end mb-16 border-b border-white/10 pb-8">
+<div>
+<span class="font-eyebrow text-primary uppercase block mb-4">The Portfolio</span>
+<h2 class="font-headline-md text-on-surface">Proven Outcomes.</h2>
+</div>
+<a class="hidden md:inline-flex items-center font-label-sm text-primary uppercase tracking-widest" href="#">
+                        View All <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Case Study 1 -->
+<div class="group relative overflow-hidden bg-surface-container-high rounded border border-white/5">
+<div class="aspect-[4/5] relative">
+<img alt="Case Study 1" class="w-full h-full object-cover grayscale opacity-80 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida/AP1WRLv90b2YKzhrr7gCIWUVrLnuMYavDL1oeJZVhUa2C7RfZc4-v2DX9feKtm5f-j9gUaGKgUt4FuvN0aFfD1_Wkes5egXn_pUtGPAru8wh3BVFp9VQqUF9xcEm-kRkE30iVmzHhr7E6BuVDSYCHRNo77mJ9PhISC7-DnzmxS3HkIU_WwuR2jdANuMA3-Li1LufDzN6IRcTxFh3CSQTbECkYOlRzldcG6iFD0Uqm4g9QROTK8dMfI7t870lvCI">
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="font-label-sm text-primary mb-2 block">Fintech</span>
+<h3 class="font-headline-md text-on-surface text-xl mb-1">Aura Capital</h3>
+<p class="font-body-md text-on-surface-variant text-sm border-l-2 border-primary pl-4 mt-4">200% Increase in AUM</p>
+</div>
+</div>
+</div>
+<!-- Case Study 2 -->
+<div class="group relative overflow-hidden bg-surface-container-high rounded border border-white/5 md:mt-12">
+<div class="aspect-[4/5] relative">
+<div class="w-full h-full bg-cover bg-center grayscale opacity-80 mix-blend-luminosity" data-alt="A sophisticated architectural interior of a luxury retail store. Minimalist design, high contrast monochrome lighting, sleek materials like dark marble and brushed steel. The mood is exclusive, high-end, and extremely precise. Shot with a wide angle lens to emphasize the structural grid of the space." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcchBjb3s7YohM2nPlus_JgLCwCH3mV5s62J5PWsXUTt3E7qGWMKMffOGU_Vy-2XZuP7m0Domb96CMKgju9vgh3FWoMKC0AA37v64oZeKMxrlO_A2trrEK6WostG6f3RxGxxna2HeRYnoukv5mq4OoWldES0KJCIc_NGAGY4A5ms6xum6UknoKKOjnqW_hBSeuTBqQpxgBjyDngRO5O9uU_kyMNgw-LTLjGAxlihzrH6Kw9zLXzCFc');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="font-label-sm text-primary mb-2 block">Luxury Retail</span>
+<h3 class="font-headline-md text-on-surface text-xl mb-1">Maison V</h3>
+<p class="font-body-md text-on-surface-variant text-sm border-l-2 border-primary pl-4 mt-4">Global Brand Repositioning</p>
+</div>
+</div>
+</div>
+<!-- Case Study 3 -->
+<div class="group relative overflow-hidden bg-surface-container-high rounded border border-white/5">
+<div class="aspect-[4/5] relative">
+<div class="w-full h-full bg-cover bg-center grayscale opacity-80 mix-blend-luminosity" data-alt="A minimalist tech hardware product shot. A sleek, matte black smart device resting on a textured dark slate surface. dramatic studio lighting casts sharp shadows, highlighting the clean geometric lines of the device. The aesthetic is ultra-modern, premium, and monochromatic, evoking high-end industrial design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUB9iWfwZBinWygJjA0yR0qVHotYb2JTjUKIJg5aHW26ylwzIg4peWitampl9kLAN7PcYZ0Y28xYQCbdo-hCt54siBTPQh7mOHTUYMAPAFW2Pxo3XdkL_A4fawWc2YDQGf2bChxt2friuQpkYwNqebWiid6dRnyfwcRWtuTg8FiCbl4vFBOwSEhqgMZKMHPn0XKmyfUwosXrhMGQ1mjZd3ywDJ_9uOS2N32LP2JBSw_RicDyBmOpIw');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="font-label-sm text-primary mb-2 block">Technology</span>
+<h3 class="font-headline-md text-on-surface text-xl mb-1">Nexus Systems</h3>
+<p class="font-body-md text-on-surface-variant text-sm border-l-2 border-primary pl-4 mt-4">Enterprise Launch Strategy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Contact (Light Theme Alternate) -->
+<section class="bg-[#F5F5F5] py-section-padding-y-mobile md:py-section-padding-y-desktop border-t border-outline-variant/20 text-charcoal relative overflow-hidden" id="contact">
+<!-- Ghost Watermark -->
+<div class="absolute -left-20 top-0 font-hero-h1 text-[20vw] text-charcoal/5 leading-none select-none pointer-events-none">
+                BAZ
+            </div>
+<div class="max-w-max-width mx-auto px-gutter relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+<!-- Contact Info -->
+<div>
+<h2 class="font-headline-md text-charcoal mb-8">Initiate dialogue.</h2>
+<p class="font-body-md text-charcoal/70 mb-12 max-w-md">
+                            Partnerships are considered on a selective basis. Submit your inquiry to begin the architectural process of your brand's next phase.
+                        </p>
+<div class="space-y-8">
+<div>
+<span class="font-eyebrow text-primary-container block mb-2">Global Headquarters</span>
+<p class="font-body-md text-charcoal/80">
+                                    100 Wall Street, Suite 500<br>
+                                    New York, NY 10005
+                                </p>
+</div>
+<div>
+<span class="font-eyebrow text-primary-container block mb-2">Direct Inquiries</span>
+<p class="font-body-md text-charcoal/80">
+                                    partnerships@bazventures.com<br>
+                                    +1 (212) 555-0199
+                                </p>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<div class="bg-white p-8 md:p-12 rounded border border-charcoal/10">
+<form class="space-y-6">
+<div>
+<label class="font-label-sm text-charcoal block mb-2">Full Name</label>
+<input class="w-full bg-transparent border-b border-charcoal/20 focus:border-primary-container focus:ring-0 px-0 py-3 font-body-md text-charcoal placeholder-charcoal/30" placeholder="e.g. Jane Doe" type="text">
+</div>
+<div>
+<label class="font-label-sm text-charcoal block mb-2">Corporate Email</label>
+<input class="w-full bg-transparent border-b border-charcoal/20 focus:border-primary-container focus:ring-0 px-0 py-3 font-body-md text-charcoal placeholder-charcoal/30" placeholder="jane@company.com" type="email">
+</div>
+<div>
+<label class="font-label-sm text-charcoal block mb-2">Organization</label>
+<input class="w-full bg-transparent border-b border-charcoal/20 focus:border-primary-container focus:ring-0 px-0 py-3 font-body-md text-charcoal placeholder-charcoal/30" placeholder="Company Name" type="text">
+</div>
+<div>
+<label class="font-label-sm text-charcoal block mb-2">Inquiry Details</label>
+<textarea class="w-full bg-transparent border-b border-charcoal/20 focus:border-primary-container focus:ring-0 px-0 py-3 font-body-md text-charcoal placeholder-charcoal/30 resize-none" placeholder="Describe your objectives..." rows="4"></textarea>
+</div>
+<button class="w-full btn-primary px-6 py-4 font-label-sm rounded uppercase tracking-widest mt-8" type="submit">
+                                Submit Inquiry
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-background dark:bg-background w-full border-t border-outline-variant pt-section-padding-y-mobile md:pt-section-padding-y-desktop pb-12">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
+<!-- Master Logo -->
+<div class="mb-8 md:mb-0">
+<img alt="BAZ Logo Footer" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLug2gIutQjIA5MddTOZkPPEMvo54PH_WZ_pejgbWZ64MN5LBR-hJxYzbJoFzf-okWV2zeX11bvrZotTmYHz3JljkGrEmO3ifgCQYcSrecWXkOgN9fJOgifgkVeX-waN3tqJVxUGDHEenV74xkUcH7LSljC7Ku7e6Wxwi5cnZfSNR1Z4hmUUtq7EB-loeetFKqT1hroZVBrWelsb49WKkod5mBCZ_d3pTzwwBVcfOi2Arv1vCzJ7-VgCQQ">
+</div>
+<!-- Links -->
+<div class="flex flex-wrap gap-8">
+<a class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-gold-dark transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-gold-dark transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-gold-dark transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-gold-dark transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
+</div>
+</div>
+<!-- Copyright -->
+<div class="border-t border-outline-variant/30 pt-8 flex justify-between items-center text-on-surface-variant font-body-md text-sm">
+<p class="">© 2024 BAZ Marketing Ventures Agency. All rights reserved.</p>
+<div class="hidden md:block w-3 h-3 bg-primary rounded-full"></div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body></html>

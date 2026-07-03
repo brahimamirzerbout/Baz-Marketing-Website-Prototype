@@ -20,10 +20,10 @@ export function GuaranteeMicro({
   variant?: Variant;
   className?: string;
 }) {
-  const tone = variant === "emphasized" ? "text-accent" : "text-muted-foreground";
+  const tone = variant === "emphasized" ? "text-brand" : "text-stone";
   return (
     <p
-      className={`mt-3 text-xs font-mono uppercase tracking-wider ${tone} ${className}`}
+      className={`mt-3 text-[11px] font-sans uppercase tracking-[0.25em] ${tone} ${className}`}
       aria-label="BAZ speed guarantee"
     >
       <span aria-hidden>↳ </span>

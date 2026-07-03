@@ -1,0 +1,215 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   BAZ — Utility Classes
+   Layout, section tones, decorative layers, reveal animations
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ━━━ Skip Link (Accessibility) ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background: var(--accent);
+  color: white;
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-base);
+  border-radius: var(--radius-fib5);
+  z-index: 9999;
+  transition: top var(--duration-fast) var(--ease-default);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ━━━ Screen Reader Only ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ━━━ Container ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.baz-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .baz-container {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
+}
+
+/* ━━━ Section Tones ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.section-paper {
+  background: var(--c-paper);
+  color: var(--c-ink-900);
+}
+
+.section-white {
+  background: white;
+  color: var(--c-ink-900);
+}
+
+.section-ink {
+  background: var(--c-ink-900);
+  color: var(--c-paper);
+}
+
+/* ━━━ Decorative Layers ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(14, 14, 14, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 14, 14, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.08), transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.05), transparent 50%);
+}
+
+.bg-grain {
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Ink section variants */
+.section-ink .bg-grid {
+  background-image:
+    linear-gradient(rgba(245, 241, 234, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 241, 234, 0.03) 1px, transparent 1px);
+}
+
+.section-ink .bg-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.15), transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.08), transparent 50%);
+}
+
+/* ━━━ Reveal Animation ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-glacial) var(--ease-out),
+              transform var(--duration-glacial) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 75ms; }
+.reveal-delay-2 { transition-delay: 150ms; }
+.reveal-delay-3 { transition-delay: 225ms; }
+.reveal-delay-4 { transition-delay: 300ms; }
+.reveal-delay-5 { transition-delay: 375ms; }
+
+/* ━━━ Section Spacing ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.baz-section {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+  .baz-section {
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-32);
+  }
+}
+
+.baz-hero {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+  .baz-hero {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-32);
+  }
+}
+
+/* ━━━ Text Prose Width ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.max-w-hero {
+  max-width: 64rem; /* ~1024px */
+}
+
+.max-w-prose {
+  max-width: 48rem; /* ~768px */
+}
+
+.max-w-prose-sm {
+  max-width: 40rem; /* ~640px */
+}
+
+.max-w-prose-lg {
+  max-width: 56rem; /* ~896px */
+}
+
+/* ━━━ Divider ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+.divider {
+  height: 1px;
+  background: var(--border);
+  border: none;
+  margin: var(--space-8) 0;
+}
+
+.divider-accent {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.2) 0%,
+    rgba(139, 92, 246, 0.6) 50%,
+    rgba(139, 92, 246, 0.2) 100%
+  );
+  border: none;
+  margin: var(--space-8) 0;
+}
+
+/* ━━━ Print Styles ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .section-ink {
+    background: white !important;
+    color: black !important;
+  }
+
+  .bg-grid,
+  .bg-mesh,
+  .bg-grain {
+    display: none !important;
+  }
+
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+}

@@ -3,118 +3,62 @@
 @tailwind utilities;
 
 /* ============================================================
-   BAZ — ÆTHER DESIGN SYSTEM (Fibonacci × Da Vinci × Material 3)
-   Every value derived from the Fibonacci sequence and golden ratio.
-   • Layers: 8 darkness layers at hue 260°, Fibonacci luminance (L*=3.9→42)
-   • Typography: Fibonacci px (8,10,13,16,21,34,55,89,144), line-height=size×φ
-   • Radius: Fibonacci (3,5,8,13,21,34,55,89)
-   • Blur: Fibonacci (3,5,8,13,21,34,55)
-   • Opacity: Fibonacci/1000 (0.055,0.089,0.144,0.233,0.377,0.610,0.987)
-   • Duration: Fibonacci ms (89,144,233,377,610,987)
-   • Easing: golden-ratio beziers ([0.618,0,0.618,1] etc.)
-   • Hues: golden-angle 137.5° — primary 270°, success 145°, warning 38°, danger 8°, info 210°
-   • Gradients: midpoint at 61.8% (100/φ), never 50%
-   • Glass: translucent α=0.55 + Fibonacci blur (opaque 0.92 only via .glass-opaque)
-   Structure is monochrome hue-260; the violet 270° accent is the brand color.
+   BAZ — BlackSwan Violet Design System
+   Premium, dark, editorial, confident.
+   Square corners. Violet accent (seed-hue: 270). Warm off-white text.
    ============================================================ */
 
 :root {
-  /* ─── Aether layers mapped to BAZ tokens ─── */
-  /* 8 layers of darkness replace flat OKLCH greys */
-  --background: hsl(260, 14%, 3.9%);       /* Aether L0 — The Void */
-  --foreground: hsl(260, 8%, 98%);         /* Aether text-primary */
-  --card: hsl(260, 11%, 13%);              /* Aether L3 — The Surface */
-  --card-foreground: hsl(260, 8%, 98%);
-  --popover: hsl(260, 12%, 9%);            /* Aether L2 — The Shadow */
-  --popover-foreground: hsl(260, 8%, 98%);
-  --primary: hsl(260, 8%, 98%);
-  --primary-foreground: hsl(260, 14%, 3.9%);
-  --secondary: hsl(260, 10%, 18%);        /* Aether L4 — The Raised */
-  --secondary-foreground: hsl(260, 8%, 98%);
-  --muted: hsl(260, 10%, 18%);            /* Aether L4 */
-  --muted-foreground: hsl(260, 6%, 65%);   /* Aether text-secondary */
-  --accent: hsl(270, 85%, 72%);           /* violet 270° — brand accent (golden angle) */
-  --accent-foreground: hsl(260, 14%, 3.9%);
-  --destructive: hsl(8, 80%, 58%);         /* danger 8° — golden angle */
-  --border: hsla(260, 10%, 60%, 0.144);   /* Fibonacci cloud-opacity hairline */
-  --input: hsl(260, 10%, 18%);            /* Aether L4 */
-  --ring: hsl(264, 15%, 32%);             /* Aether L6 — The Focus */
-  --chart-1: hsl(270, 85%, 72%);          /* violet */
-  --chart-2: hsl(145, 70%, 55%);          /* emerald */
-  --chart-3: hsl(210, 75%, 60%);          /* blue */
-  --chart-4: hsl(38, 85%, 58%);           /* amber */
-  --chart-5: hsl(260, 6%, 45%);           /* neutral */
-  /* Radius — Fibonacci px */
-  --radius: 8px;                           /* F(6) — aether-radius-md */
-  --radius-sm: 5px;                        /* F(5) */
-  --radius-lg: 13px;                       /* F(7) */
-  --radius-xl: 21px;                       /* F(8) */
-  --sidebar: hsl(260, 12%, 9%);            /* Aether L2 */
-  --sidebar-foreground: hsl(260, 8%, 98%);
-  --sidebar-primary: hsl(270, 85%, 72%);  /* violet brand */
-  --sidebar-primary-foreground: hsl(260, 14%, 3.9%);
-  --sidebar-accent: hsl(260, 10%, 18%);   /* Aether L4 */
-  --sidebar-accent-foreground: hsl(260, 8%, 98%);
-  --sidebar-border: hsla(260, 10%, 60%, 0.144);
-  --sidebar-ring: hsl(264, 15%, 32%);     /* Aether L6 */
+  /* ─── Æther/BlackSwan seed-based tokens ─── */
+  --brand: #b87adb;
+  --brand2: #c9a3e5;
+  --ink: #111111;
+  --panel: #1A1A1A;
+  --panel-2: #2C2C2C;
+  --sand: #E8E4E0;
+  --stone: #B0AAA5;
+  --wa: #25D366;
 
-  /* ─── Accentuation colors (golden-angle functional hues) ─── */
-  --accent-soft: hsla(270, 85%, 72%, 0.089);  /* violet @ frost opacity */
-  --success: hsl(145, 70%, 55%);               /* emerald 145° — wins, confirmations */
-  --warning: hsl(38, 85%, 58%);                /* amber 38° — caution, pending */
-  --info: hsl(210, 75%, 60%);                  /* blue 210° — data, analytics */
+  /* ─── Semantic tokens (Tailwind compat) ─── */
+  --background: #111111;
+  --foreground: #FFFFFF;
+  --card: #1A1A1A;
+  --card-foreground: #E8E4E0;
+  --popover: #1A1A1A;
+  --popover-foreground: #E8E4E0;
+  --primary: #b87adb;
+  --primary-foreground: #FFFFFF;
+  --secondary: #b87adb;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A1A1A;
+  --muted-foreground: #B0AAA5;
+  --accent: #b87adb;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --border: rgba(255,255,255,0.1);
+  --input: #2C2C2C;
+  --ring: #b87adb;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --info: #3B82F6;
 
-  /* ─── Backward-compatible mappings (Aether hue-260° Fibonacci luminance) ─── */
-  --bg: hsl(260, 14%, 3.9%);                /* L0 — The Void */
-  --paper: hsl(260, 11%, 13%);              /* L3 — The Surface */
-  --paper-2: hsl(260, 10%, 18%);            /* L4 — The Raised */
-  --paper-3: hsl(260, 12%, 24%);            /* L5 — The Hover */
-  --ink: hsl(260, 8%, 98%);                /* text-primary */
-  --line: hsla(260, 10%, 60%, 0.089);       /* frost-opacity hairline */
-
-  /* RGB triplets for existing Tailwind color tokens (Aether hue-260° values) */
-  --c-paper: 32 30 37;                      /* L3 */
-  --c-paper-50: 9 9 11;                     /* L0 */
-  --c-paper-100: 22 20 26;                  /* L2 */
-  --c-paper-200: 32 30 37;                  /* L3 */
-  --c-paper-300: 44 41 50;                  /* L4 */
-  --c-paper-400: 59 54 69;                  /* L5 */
-  --c-ink-400: 164 160 171;                /* text-secondary (65%) */
-  --c-ink-500: 190 187 196;                /* 75% */
-  --c-ink-600: 208 206 212;                /* 82% */
-  --c-ink-700: 224 222 227;                /* 88% */
-  --c-ink-800: 237 236 239;                /* 93% */
-  --c-ink-900: 245 244 246;                /* 96% */
-  --c-ink-950: 250 249 250;                /* 98% — text-primary */
-
-  /* Semantic slots — empty for now, filled in Phase 2 */
-  --color-action: var(--primary);
-  --color-trust: var(--foreground);
-  --color-surface: var(--card);
-  --color-accent-brand: var(--accent);
-
-  /* Type */
-  --display: 'Fraunces', ui-serif, Georgia, serif;
+  /* ─── Type ─── */
+  --display: 'Fraunces', ui-sans-serif, sans-serif;
   --sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* ─── Fibonacci scale aliases (for direct use) ─── */
-  --space-1: 1px;  --space-2: 2px;  --space-3: 3px;  --space-5: 5px;
-  --space-8: 8px;  --space-13: 13px;  --space-21: 21px;  --space-34: 34px;
-  --space-55: 55px;  --space-89: 89px;  --space-144: 144px;
-  --text-micro: 8px;  --text-tiny: 10px;  --text-xs: 13px;  --text-sm: 16px;
-  --text-base: 21px;  --text-lg: 34px;  --text-xl: 55px;  --text-xxl: 89px;  --text-display: 144px;
-  --blur-sm: 5px;  --blur-base: 8px;  --blur-md: 13px;  --blur-lg: 21px;  --blur-xl: 34px;
-  --ease-natural: cubic-bezier(0.618, 0, 0.618, 1);
-  --ease-glide: cubic-bezier(0.236, 0.618, 0.236, 1);
-  --ease-snap: cubic-bezier(0.382, 0, 0.236, 1);
-  --ease-float: cubic-bezier(0.618, 0, 0.382, 1);
+  /* ─── Easing ─── */
+  --ease: cubic-bezier(.4, 0, .2, 1);
 }
 
-/* ─── Light mode (optional, not default) ─── */
-
-/* .dark is a no-op — :root already has dark values */
+/* ─── Dark mode — already dark by default ─── */
 .dark {}
+
+/* ─── Global reset ─── */
+*, *::before, *::after { border-radius: 0 !important; }
+/* Intentional exceptions: pills and circles */
+.rounded-full, .rounded-full *, button.rounded-full, a.rounded-full { border-radius: 9999px !important; }
+img, video, svg { border-radius: 0 !important; }
 
 * { box-sizing: border-box; }
 html {
@@ -123,346 +67,116 @@ html {
   text-rendering: optimizeLegibility;
 }
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--ink);
+  color: var(--sand);
   font-family: var(--sans);
-  font-size: var(--text-sm);             /* 16px Fibonacci */
-  line-height: 1.618;                     /* φ */
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-  font-variant-numeric: tabular-nums;     /* Pattern 8: tabular figures */
-  hanging-punctuation: first last;        /* Pattern 7: hanging punctuation */
-  transition: background-color var(--aether-duration-fast, 233ms) var(--ease-natural),
-              color var(--aether-duration-fast, 233ms) var(--ease-natural);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-/* ============================================================
-   TYPOGRAPHY
-   ============================================================ */
+/* ─── Typography ─── */
 .font-display { font-family: var(--display); font-optical-sizing: auto; }
 .font-mono { font-family: var(--mono); }
 
-::selection { background: var(--accent); color: var(--accent-foreground); }
+::selection { background: var(--brand); color: white; }
 
-/* ============================================================
-   SCROLLBAR — Fibonacci 5px
-   ============================================================ */
+/* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--aether-radius-pill, 89px); }
-::-webkit-scrollbar-thumb:hover { background: var(--muted-foreground); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
 
-/* ============================================================
-   REVEAL — Fibonacci durations + golden-ratio easing
-   ============================================================ */
+/* ─── Reveal animation ─── */
 .reveal {
   opacity: 0;
-  transform: translateY(13px);            /* F(7) */
-  transition: opacity var(--aether-duration-smooth, 610ms) var(--ease-float),
-              transform var(--aether-duration-smooth, 610ms) var(--ease-float);
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
-.reveal-stagger > * { opacity: 0; transform: translateY(13px); transition: opacity var(--aether-duration-smooth, 610ms) var(--ease-float), transform var(--aether-duration-smooth, 610ms) var(--ease-float); }
-.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
-.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 89ms; }
-.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 144ms; }
-.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 233ms; }
-.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 377ms; }
-.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 610ms; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
-/* ============================================================
-   A11y
-   ============================================================ */
-.skip { position: absolute; left: -9999px; top: 0; background: var(--foreground); color: var(--background); padding: 13px 21px; border-radius: var(--radius); z-index: 100; }
+/* ─── A11y ─── */
+.skip { position: absolute; left: -9999px; top: 0; background: var(--brand); color: white; padding: 13px 21px; z-index: 100; }
 .skip:focus { left: 13px; top: 13px; }
-:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: var(--radius-sm); }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 
-/* ============================================================
-   404 PAGE — Pattern 70: Custom 404
-   ============================================================ */
-.page-404-number {
-  font-family: var(--display);
-  font-size: clamp(144px, 20vw, 233px);
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: var(--muted);
-  opacity: 0.06;
-  user-select: none;
-  position: relative;
-  z-index: 0;
-}
+/* ─── Scroll progress ─── */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 9998; background: transparent; pointer-events: none; }
+.scroll-progress-bar { height: 100%; background: var(--brand); }
 
-/* ============================================================
-   PULL QUOTE — Pattern 69: Pull-quotes for emphasis
-   ============================================================ */
-.pull-quote {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  line-height: 1.3;
-  color: var(--accent);
-  border-left: 3px solid var(--accent);
-  padding-left: 1.25rem;
-  margin: 2.5rem 0;
-  max-width: 30rem;
+/* ─── Eyebrow ─── */
+.eyebrow-neutral,
+.eyebrow-brand {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--stone);
 }
+.eyebrow-brand { color: var(--brand); font-weight: 600; }
 
-/* ============================================================
-   DEFINITION LIST — Pattern 25: dl/dt/dd for feature lists
-   ============================================================ */
-.feature-list {
-  display: grid;
-  grid-template-columns: 12rem 1fr;
-  gap: 1rem 2rem;
-}
-.feature-list dt {
-  font-weight: 600;
-  color: var(--accent);
-  font-family: var(--mono);
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-}
-.feature-list dd {
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* ============================================================
-   BACKGROUNDS
-   ============================================================ */
+/* ─── Backgrounds ─── */
 .bg-grid {
   background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 55px 55px;              /* Fibonacci */
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-.bg-grain { position: relative; }
-.bg-grain::after {
-  content: '';
-  position: absolute; inset: 0;
-  pointer-events: none; opacity: 0.03;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-}
-
-/* ============================================================
-   TEXT — gradient midpoint at 61.8% (100/φ)
-   ============================================================ */
+/* ─── Text gradient (for accent words in headings) ─── */
 .text-gradient {
-  background: linear-gradient(120deg, var(--foreground) 0%, var(--muted-foreground) 61.8%, var(--foreground) 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer-text 8s ease-in-out infinite;
-}
-@keyframes shimmer-text { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-
-/* ============================================================
-   CURSOR
-   ============================================================ */
-.cursor-host { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
-.cursor-dot, .cursor-ring {
-  position: fixed; top: 0; left: 0; pointer-events: none;
-  border-radius: 50%; will-change: transform;
-}
-.cursor-dot {
-  width: 5px; height: 5px;               /* F(5) */
-  background: var(--foreground);
-  transform: translate(-50%, -50%);
-  transition: opacity var(--aether-duration-swift, 144ms) var(--ease-natural);
-}
-.cursor-ring {
-  width: 34px; height: 34px;             /* F(9) */
-  border: 1px solid var(--border); opacity: 0.4;
-  transform: translate(-50%, -50%);
-  transition: width var(--aether-duration-fast, 233ms) var(--ease-glide),
-              height var(--aether-duration-fast, 233ms) var(--ease-glide),
-              border-color var(--aether-duration-fast, 233ms) var(--ease-natural),
-              opacity var(--aether-duration-fast, 233ms) var(--ease-natural),
-              background var(--aether-duration-fast, 233ms) var(--ease-natural);
-}
-.cursor-ring.hover { width: 55px; height: 55px; border-color: var(--foreground); opacity: 0.5; background: var(--muted); }
-.cursor-ring.cta { width: 89px; height: 89px; border-color: var(--accent); opacity: 0.6; background: var(--secondary); }
-@media (hover: none), (max-width: 768px) { .cursor-host { display: none; } }
-
-/* ============================================================
-   MAGNETIC
-   ============================================================ */
-[data-magnetic] { transition: transform var(--aether-duration-normal, 377ms) var(--ease-glide); will-change: transform; }
-
-/* ============================================================
-   THEME TOGGLE
-   ============================================================ */
-.theme-toggle {
-  display: inline-grid; place-items: center;
-  width: 34px; height: 34px; border-radius: var(--aether-radius-pill, 89px);
-  border: 1px solid var(--border); background: transparent; color: var(--foreground);
-  cursor: pointer; transition: all var(--aether-duration-swift, 144ms) var(--ease-natural);
-}
-.theme-toggle:hover { background: var(--muted); }
-
-/* ============================================================
-   SCROLL PROGRESS — Fibonacci 89ms
-   ============================================================ */
-.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 9998; background: transparent; pointer-events: none; }
-.scroll-progress-bar { height: 100%; background: var(--accent); transition: width var(--aether-duration-instant, 89ms) linear; }
-
-/* ============================================================
-   TOAST — Fibonacci padding/radius + functional hues
-   ============================================================ */
-.toast-stack { position: fixed; bottom: 21px; right: 21px; display: flex; flex-direction: column; gap: 13px; z-index: 9998; }
-.toast {
-  background: var(--card); color: var(--card-foreground); padding: 13px 21px; border-radius: var(--radius);
-  font-size: var(--text-xs); box-shadow: var(--aether-shadow-xl, 0 8px 21px hsla(260,50%,0%,0.377)); max-width: 377px;
-  border: 1px solid var(--border);
-  animation: toast-in var(--aether-duration-normal, 377ms) var(--ease-glide) both;
-}
-.toast--success { background: var(--success); color: hsl(260, 14%, 3.9%); }
-.toast--error   { background: var(--destructive); color: hsl(260, 8%, 98%); }
-.toast--warning { background: var(--warning); color: hsl(260, 14%, 3.9%); }
-@keyframes toast-in { 0% { opacity: 0; transform: translateY(21px) scale(0.618); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
-
-/* ============================================================
-   COOKIE BANNER
-   ============================================================ */
-.cookie {
-  position: fixed; bottom: 13px; left: 13px; right: 13px; max-width: 555px;  /* F-ratio width */
-  background: var(--card); color: var(--card-foreground);
-  border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 21px 21px; box-shadow: 0 13px 34px -13px hsla(260,50%,0%,0.377);
-  display: none; z-index: 9997;
-}
-.cookie.show { display: flex; gap: 13px; align-items: flex-start; }
-.cookie button {
-  font: 500 var(--text-xs) var(--sans); padding: 8px 13px; border-radius: var(--aether-radius-pill, 89px);
-  border: 1px solid var(--border); background: var(--background); color: var(--foreground); cursor: pointer;
-  white-space: nowrap;
-}
-.cookie button.primary { background: var(--accent); color: var(--accent-foreground); border-color: var(--accent); }
-.cookie p { font-size: var(--text-xs); line-height: 1.618; margin: 0; }
-.cookie a { text-decoration: underline; }
-
-/* ============================================================
-   ANIMATIONS — Fibonacci durations
-   ============================================================ */
-@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.377; transform: scale(1.144); } }
-.animate-pulse-dot { animation: pulse-dot 1597ms ease-in-out infinite; }
-@keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.animate-float-soft { animation: float-soft 6765ms ease-in-out infinite; }
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-.animate-spin-slow { animation: spin-slow 15970ms linear infinite; }
-@keyframes royal-entrance { 0% { opacity: 0; transform: translateY(8px); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
-.royal-entrance { animation: royal-entrance var(--aether-duration-smooth, 610ms) var(--ease-float) both; }
-
-/* ============================================================
-   NAV LINK — golden-ratio easing
-   ============================================================ */
-.nav-link { position: relative; display: inline-flex; align-items: center; padding: 8px 3px; color: var(--foreground); transition: color var(--aether-duration-swift, 144ms) var(--ease-natural); }
-.nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform var(--aether-duration-normal, 377ms) var(--ease-glide); }
-.nav-link:hover::after, .nav-link[aria-current='page']::after { transform: scaleX(1); }
-
-/* ============================================================
-   CARD HOVER
-   ============================================================ */
-.card-hover { transition: transform var(--aether-duration-normal, 377ms) var(--ease-natural), border-color var(--aether-duration-fast, 233ms) var(--ease-natural); }
-.card-hover:hover { transform: translateY(-3px); border-color: var(--accent); }
-
-/* ============================================================
-   SEAL
-   ============================================================ */
-.royal-seal {
-  width: 34px; height: 34px;             /* F(9) */
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  display: grid; place-items: center;
-  font-family: var(--display);
-  font-weight: 600; font-size: var(--text-sm);
-  color: var(--foreground);
-  flex-shrink: 0;
+  color: var(--brand);
 }
 
-/* ============================================================
-   MARQUEE
-   ============================================================ */
+/* ─── Animations ─── */
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.animate-pulse-dot { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+/* ─── Section scroll offset ─── */
+section[id] { scroll-margin-top: 5rem; }
+
+/* ─── Marquee ─── */
 .marquee-mask { mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%); }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .animate-marquee { animation: marquee 32s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .animate-marquee { animation: none; } }
 
-/* ============================================================
-   LENIS
-   ============================================================ */
+/* ─── Nav link ─── */
+.nav-link { position: relative; display: inline-flex; align-items: center; padding: 8px 3px; color: rgba(255,255,255,0.82); }
+.nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--brand); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease); }
+.nav-link:hover::after, .nav-link[aria-current='page']::after { transform: scaleX(1); }
+.nav-link:hover { color: var(--brand); }
+
+/* ─── Card ─── */
+.card-hover { transition: border-color 0.3s var(--ease); }
+
+/* ─── Toast ─── */
+.toast-stack { position: fixed; bottom: 21px; right: 21px; display: flex; flex-direction: column; gap: 13px; z-index: 9998; }
+.toast {
+  background: var(--panel); color: var(--sand); padding: 13px 21px;
+  font-size: 13px; max-width: 377px;
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: toast-in 0.377s var(--ease) both;
+}
+@keyframes toast-in { 0% { opacity: 0; transform: translateY(21px); } 100% { opacity: 1; transform: translateY(0); } }
+
+/* ─── Cookie ─── */
+.cookie {
+  position: fixed; bottom: 13px; left: 13px; right: 13px; max-width: 555px;
+  background: var(--panel); color: var(--sand);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 21px; display: none; z-index: 9997;
+}
+.cookie.show { display: flex; gap: 13px; align-items: flex-start; }
+.cookie button {
+  font: 500 13px var(--sans); padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,0.1); background: var(--ink); color: var(--sand); cursor: pointer;
+}
+.cookie button.primary { background: var(--brand); color: white; border-color: var(--brand); }
+
+/* ─── Lenis ─── */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
-.lenis.lenis-scrolling iframe { pointer-events: none; }
-
-/* ============================================================
-   THEME TRANSITION — Fibonacci 144ms
-   ============================================================ */
-@media (prefers-reduced-motion: no-preference) {
-  html.theme-transition, html.theme-transition * {
-    transition: background-color var(--aether-duration-swift, 144ms) var(--ease-natural),
-                color var(--aether-duration-swift, 144ms) var(--ease-natural),
-                border-color var(--aether-duration-swift, 144ms) var(--ease-natural) !important;
-  }
-}
-
-/* ============================================================
-   EYEBROW — Fibonacci typography
-   ============================================================ */
-.eyebrow-neutral,
-.eyebrow-gold {
-  display: inline-flex; align-items: center; gap: 8px;    /* F(6) */
-  font-family: var(--mono); font-size: var(--text-tiny);  /* 10px Fibonacci */
-  letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--muted-foreground);
-}
-
-/* ============================================================
-   SHIMMER — midpoint at 61.8%
-   ============================================================ */
-@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-.shimmer { background: linear-gradient(90deg, transparent, var(--border) 61.8%, transparent); background-size: 200% 100%; animation: shimmer 2s linear infinite; }
-
-/* ═══ TYPEUI SKILLS — Glass Edge Highlights + Fibonacci Shadows ═══ */
-.card-glass::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, hsla(260, 8%, 98%, 0.377), transparent);  /* F(14) opacity */
-  pointer-events: none; z-index: 1;
-}
-.card-glass::after {
-  content: ""; position: absolute; top: 0; left: 0; width: 1px; height: 100%;
-  background: linear-gradient(180deg, hsla(260, 8%, 98%, 0.233), transparent);  /* F(13) opacity */
-  pointer-events: none; z-index: 1;
-}
-.shadow-glass { box-shadow: 0 8px 21px hsla(260, 50%, 0%, 0.089), inset 0 1px 0 hsla(260, 8%, 98%, 0.144); }
-.shadow-glass-lg { box-shadow: 0 13px 34px hsla(260, 50%, 0%, 0.089), inset 0 1px 0 hsla(260, 8%, 98%, 0.233); }
-.shadow-glass-xl { box-shadow: 0 21px 55px hsla(260, 50%, 0%, 0.144), inset 0 1px 0 hsla(260, 8%, 98%, 0.377); }
-.card-marketing { border-radius: 34px; overflow: hidden; position: relative; }  /* F(9) */
-.card-marketing-pad { padding: 34px; }  /* F(9) */
-.eyebrow { font-size: var(--text-sm); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }  /* 16px Fibonacci */
-/* Headings — Fibonacci px endpoints */
-.h-hero { font-size: clamp(34px, 8vw, 89px); line-height: 1.05; letter-spacing: -0.04em; font-weight: 700; }      /* F(8)→F(11) */
-.h1-premium { font-size: clamp(34px, 5vw, 55px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 700; }    /* F(8)→F(10) */
-.h2-premium { font-size: clamp(34px, 4vw, 55px); line-height: 1.07; letter-spacing: -0.01em; font-weight: 700; }   /* F(8)→F(10) */
-/* Glass — translucent α=0.55 is the default material; opaque 0.92 is a SEPARATE class, never global */
-.glass, .card-glass, .glass-surface {
-  background: hsla(260, 12%, 20%, 0.55);
-  backdrop-filter: blur(13px) saturate(1.618) !important;            /* Fibonacci md blur */
-  -webkit-backdrop-filter: blur(13px) saturate(1.618) !important;
-}
-.glass-opaque {
-  background: hsla(260, 12%, 18%, 0.92);
-  backdrop-filter: blur(13px) saturate(1.618) !important;
-  -webkit-backdrop-filter: blur(13px) saturate(1.618) !important;
-}
-.section-pad { padding: 89px 0; }  /* F(11) */
-.container-xl { max-width: 1152px; margin: 0 auto; padding: 0 21px; }  /* F(8) gutter */

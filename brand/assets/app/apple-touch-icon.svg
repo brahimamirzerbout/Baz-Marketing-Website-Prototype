@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- BAZ Apple Touch Icon — 512×512 (also serves as 180×180 context) -->
+  <!-- Mark on ink, rounded squircle -->
+  <defs>
+    <radialGradient id="touch-glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Squircle -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="#0e0e0e"/>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#touch-glow)"/>
+
+  <!-- Mark -->
+  <rect x="130" y="130" width="252" height="252" rx="55" fill="#8b5cf6"/>
+  <text x="256" y="330" font-family="Fraunces, Georgia, serif" font-size="196" font-weight="600" fill="#f5f1ea" text-anchor="middle" letter-spacing="-6">B</text>
+</svg>

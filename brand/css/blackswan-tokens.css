@@ -1,0 +1,350 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   B L A C K S W A N  —  Algorithmic Brand Token System
+   ═══════════════════════════════════════════════════════════════════════
+
+   Three seeds rebrand everything. The cascade is the algorithm.
+   Change the hue — watch the world recompose.
+
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ━━━ Seed ━━━ Change these three values to rebrand the entire system ━━━ */
+  --seed-hue: 270;
+  --seed-sat: 72%;
+  --seed-lum: 50%;
+
+  /* ━━━ Derived Palette ━━━ HSL math from the seed ━━━ */
+  --color-primary:      hsl(var(--seed-hue), var(--seed-sat), var(--seed-lum));
+  --color-primary-5:    hsl(var(--seed-hue), var(--seed-sat), 97%);
+  --color-primary-10:   hsl(var(--seed-hue), var(--seed-sat), 93%);
+  --color-primary-20:   hsl(var(--seed-hue), var(--seed-sat), 82%);
+  --color-primary-30:   hsl(var(--seed-hue), var(--seed-sat), 72%);
+  --color-primary-40:   hsl(var(--seed-hue), var(--seed-sat), 62%);
+  --color-primary-50:   hsl(var(--seed-hue), var(--seed-sat), 52%);
+  --color-primary-60:   hsl(var(--seed-hue), var(--seed-sat), 42%);
+  --color-primary-70:   hsl(var(--seed-hue), var(--seed-sat), 32%);
+  --color-primary-80:   hsl(var(--seed-hue), var(--seed-sat), 22%);
+  --color-primary-90:   hsl(var(--seed-hue), var(--seed-sat), 12%);
+  --color-accent:       hsl(calc(var(--seed-hue) + 30), 85%, 55%);
+  --color-accent-10:    hsl(calc(var(--seed-hue) + 30), 85%, 93%);
+  --color-accent-20:    hsl(calc(var(--seed-hue) + 30), 85%, 82%);
+
+  /* ── Semantic Colors (fixed hue for accessibility) ── */
+  --color-success:      hsl(152, 68%, 38%);
+  --color-success-10:   hsl(152, 68%, 93%);
+  --color-success-20:   hsl(152, 68%, 82%);
+  --color-warning:      hsl(38, 92%, 45%);
+  --color-warning-10:   hsl(38, 92%, 93%);
+  --color-warning-20:   hsl(38, 92%, 82%);
+  --color-danger:       hsl(0, 78%, 50%);
+  --color-danger-10:    hsl(0, 78%, 93%);
+  --color-danger-20:    hsl(0, 78%, 82%);
+
+  /* ── Neutral Palette (seed-tinted grays) ── */
+  --color-neutral-0:    hsl(var(--seed-hue), 8%, 99%);
+  --color-neutral-5:   hsl(var(--seed-hue), 6%, 96%);
+  --color-neutral-10:  hsl(var(--seed-hue), 5%, 90%);
+  --color-neutral-20:  hsl(var(--seed-hue), 4%, 74%);
+  --color-neutral-30:  hsl(var(--seed-hue), 3%, 58%);
+  --color-neutral-40:  hsl(var(--seed-hue), 2%, 44%);
+  --color-neutral-50:  hsl(var(--seed-hue), 1.5%, 32%);
+  --color-neutral-60:  hsl(var(--seed-hue), 1%, 22%);
+  --color-neutral-70:  hsl(var(--seed-hue), 0.8%, 16%);
+  --color-neutral-80:  hsl(var(--seed-hue), 0.5%, 11%);
+  --color-neutral-90:  hsl(var(--seed-hue), 0.3%, 7%);
+  --color-neutral-100:  hsl(var(--seed-hue), 0.2%, 4%);
+
+  /* ━━━ Semantic Aliases ━━━ These make components readable & dark-mode safe ━━━ */
+  /* Foreground */
+  --fg:              var(--color-neutral-70);
+  --fg-muted:        var(--color-neutral-40);
+  --fg-subtle:       var(--color-neutral-30);
+  --fg-on-primary:   hsl(0, 0%, 100%);
+  --fg-inverse:      var(--color-neutral-0);
+
+  /* Primary semantic (these flip for dark mode) */
+  --color-primary-fg:         var(--color-primary-70);
+  --color-primary-fg-muted:   var(--color-primary-60);
+  --color-primary-fg-subtle:  var(--color-primary-40);
+  --color-primary-hover:       var(--color-primary-60);
+  --color-primary-active:      var(--color-primary-70);
+  --color-primary-border:      var(--color-primary-40);
+  --color-primary-bg:         var(--color-primary-10);
+  --color-primary-bg-hover:   var(--color-primary-20);
+  --color-primary-bg-subtle:  var(--color-primary-5);
+
+  /* Semantic status (these flip for dark mode) */
+  --color-success-fg:        hsl(152, 68%, 30%);
+  --color-success-bg:        var(--color-success-10);
+  --color-success-border:     var(--color-success);
+  --color-warning-fg:        hsl(38, 80%, 28%);
+  --color-warning-bg:        var(--color-warning-10);
+  --color-warning-border:     var(--color-warning);
+  --color-danger-fg:         hsl(0, 70%, 32%);
+  --color-danger-bg:         var(--color-danger-10);
+  --color-danger-border:      var(--color-danger);
+  --color-danger-hover:      hsl(0, 78%, 45%);
+
+  /* Background */
+  --bg:          var(--color-neutral-0);
+  --bg-muted:    var(--color-neutral-5);
+  --bg-subtle:   var(--color-neutral-10);
+  --bg-emphasis: var(--color-neutral-60);
+
+  /* Border */
+  --border:       var(--color-neutral-10);
+  --border-strong: var(--color-neutral-20);
+
+  /* Focus ring */
+  --ring-width:  2px;
+  --ring-offset: 2px;
+  --ring-color:  var(--color-primary-40);
+  --ring-offset-color: var(--color-neutral-0);
+
+  /* ━━━ Typography ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+
+  /* Font Stacks */
+  --font-sans:   "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:   "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+  --font-serif:  "Merriweather", "Iowan Old Style", "Noto Serif", Georgia, serif;
+
+  /* Modular Scale — 1.25 Major Third */
+  --ratio: 1.25;
+  --text-2xs:  calc(1rem / var(--ratio) / var(--ratio) / var(--ratio));
+  --text-xs:   calc(1rem / var(--ratio) / var(--ratio));
+  --text-sm:   calc(1rem / var(--ratio));
+  --text-base: 1rem;
+  --text-md:   calc(1rem * var(--ratio));
+  --text-lg:   calc(1rem * var(--ratio) * var(--ratio));
+  --text-xl:   calc(1rem * var(--ratio) * var(--ratio) * var(--ratio));
+  --text-2xl:  calc(1rem * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
+  --text-3xl:  calc(1rem * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
+  --text-4xl:  calc(1rem * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
+
+  /* Per-size Line Heights */
+  --leading-none:    1;
+  --leading-tight:   1.15;
+  --leading-snug:    1.3;
+  --leading-normal:  1.55;
+  --leading-relaxed: 1.7;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.04em;
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.03em;
+  --tracking-wider:    0.06em;
+  --tracking-widest:   0.1em;
+
+  /* Font Weights */
+  --weight-normal:  400;
+  --weight-medium: 500;
+  --weight-semi:    600;
+  --weight-bold:    700;
+  --weight-extra:   800;
+  --weight-black:   900;
+
+  /* ━━━ Spacing ━━━ Base-4 rhythm ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --space-0:   0;
+  --space-px:  0.0625rem;
+  --space-0-5: 0.125rem;
+  --space-1:   0.25rem;
+  --space-1-5: 0.375rem;
+  --space-2:   0.5rem;
+  --space-2-5: 0.625rem;
+  --space-3:   0.75rem;
+  --space-3-5: 0.875rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-7:   1.75rem;
+  --space-8:   2rem;
+  --space-9:   2.25rem;
+  --space-10:  2.5rem;
+  --space-11:  2.75rem;
+  --space-12:  3rem;
+  --space-14:  3.5rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+  --space-28:  7rem;
+  --space-32:  8rem;
+  --space-36:  9rem;
+  --space-40:  10rem;
+  --space-48:  12rem;
+  --space-56:  14rem;
+  --space-64:  16rem;
+
+  /* ━━━ Radii ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --radius-none: 0;
+  --radius-xs:   0.125rem;
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-3xl:  2rem;
+  --radius-full: 9999px;
+
+  /* ━━━ Shadows ━━━ Layered, calibrated ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --shadow-xs:  0 1px 2px 0 rgba(0,0,0,.03);
+  --shadow-sm:  0 1px 3px 0 rgba(0,0,0,.06), 0 1px 2px -1px rgba(0,0,0,.06);
+  --shadow-md:  0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+  --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.04);
+  --shadow-xl:  0 20px 25px -5px rgba(0,0,0,.10), 0 8px 10px -6px rgba(0,0,0,.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,.16);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,.04);
+
+  /* ━━━ Transitions ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --ease-default:    cubic-bezier(0.2, 0, 0, 1);
+  --ease-in:         cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:        cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-elastic:    cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --duration-instant: 75ms;
+  --duration-fast:    150ms;
+  --duration-normal:  250ms;
+  --duration-slow:    400ms;
+  --duration-glacial: 600ms;
+
+  /* ━━━ Z-Layers ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --z-below:     -1;
+  --z-base:       0;
+  --z-above:      1;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-popover:   500;
+  --z-toast:     600;
+
+  /* ━━━ Layout ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --container-sm:  36rem;
+  --container-md:  48rem;
+  --container-lg:  60rem;
+  --container-xl:  72rem;
+  --container-2xl: 84rem;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   D A R K   M O D E
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ── Neutrals invert ── */
+    --color-neutral-0:    hsl(var(--seed-hue), 8%, 6%);
+    --color-neutral-5:   hsl(var(--seed-hue), 6%, 9%);
+    --color-neutral-10:  hsl(var(--seed-hue), 5%, 14%);
+    --color-neutral-20:  hsl(var(--seed-hue), 4%, 22%);
+    --color-neutral-30:  hsl(var(--seed-hue), 3%, 34%);
+    --color-neutral-40:  hsl(var(--seed-hue), 2%, 46%);
+    --color-neutral-50:  hsl(var(--seed-hue), 1.5%, 56%);
+    --color-neutral-60:  hsl(var(--seed-hue), 1%, 68%);
+    --color-neutral-70:  hsl(var(--seed-hue), 0.8%, 82%);
+    --color-neutral-80:  hsl(var(--seed-hue), 0.5%, 90%);
+    --color-neutral-90:  hsl(var(--seed-hue), 0.3%, 95%);
+    --color-neutral-100:  hsl(var(--seed-hue), 0.2%, 98%);
+
+    /* ── Primary tints (dark bg versions) ── */
+    --color-primary-5:   hsl(var(--seed-hue), var(--seed-sat), 8%);
+    --color-primary-10:  hsl(var(--seed-hue), var(--seed-sat), 14%);
+    --color-primary-20:  hsl(var(--seed-hue), var(--seed-sat), 22%);
+    --color-primary-30:  hsl(var(--seed-hue), var(--seed-sat), 32%);
+    --color-primary-40:  hsl(var(--seed-hue), var(--seed-sat), 44%);
+
+    /* ── Accent tints ── */
+    --color-accent-10:   hsl(calc(var(--seed-hue) + 30), 85%, 14%);
+    --color-accent-20:   hsl(calc(var(--seed-hue) + 30), 85%, 22%);
+
+    /* ── Status colors adjust for dark bg ── */
+    --color-success:     hsl(152, 60%, 52%);
+    --color-success-10:  hsl(152, 30%, 14%);
+    --color-success-20:  hsl(152, 40%, 22%);
+    --color-warning:     hsl(38, 80%, 58%);
+    --color-warning-10:  hsl(38, 40%, 14%);
+    --color-warning-20:  hsl(38, 50%, 22%);
+    --color-danger:      hsl(0, 70%, 58%);
+    --color-danger-10:   hsl(0, 35%, 14%);
+    --color-danger-20:  hsl(0, 45%, 22%);
+
+    /* ── Semantic aliases flip ── */
+    --fg:              var(--color-neutral-80);
+    --fg-muted:        var(--color-neutral-50);
+    --fg-subtle:       var(--color-neutral-40);
+    --fg-on-primary:   hsl(var(--seed-hue), var(--seed-sat), 98%);
+    --fg-inverse:      var(--color-neutral-90);
+    --bg:              var(--color-neutral-0);
+    --bg-muted:        var(--color-neutral-5);
+    --bg-subtle:       var(--color-neutral-10);
+    --bg-emphasis:     var(--color-neutral-50);
+    --border:          hsl(var(--seed-hue), 4%, 18%);
+    --border-strong:   hsl(var(--seed-hue), 4%, 26%);
+
+    /* ── Primary semantic flips for dark mode ── */
+    --color-primary-fg:         hsl(var(--seed-hue), var(--seed-sat), 68%);
+    --color-primary-fg-muted:   hsl(var(--seed-hue), var(--seed-sat), 58%);
+    --color-primary-fg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 48%);
+    --color-primary-hover:      hsl(var(--seed-hue), var(--seed-sat), 56%);
+    --color-primary-active:     hsl(var(--seed-hue), var(--seed-sat), 48%);
+    --color-primary-border:     hsl(var(--seed-hue), var(--seed-sat), 44%);
+    --color-primary-bg:         hsl(var(--seed-hue), var(--seed-sat), 14%);
+    --color-primary-bg-hover:   hsl(var(--seed-hue), var(--seed-sat), 22%);
+    --color-primary-bg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 8%);
+
+    /* ── Status semantic flips ── */
+    --color-success-fg:        hsl(152, 60%, 60%);
+    --color-success-bg:        hsl(152, 30%, 14%);
+    --color-success-border:     var(--color-success);
+    --color-warning-fg:        hsl(38, 80%, 62%);
+    --color-warning-bg:        hsl(38, 40%, 14%);
+    --color-warning-border:     var(--color-warning);
+    --color-danger-fg:         hsl(0, 70%, 62%);
+    --color-danger-bg:         hsl(0, 35%, 14%);
+    --color-danger-border:      var(--color-danger);
+    --color-danger-hover:       hsl(0, 70%, 52%);
+
+    /* ── Ring adjusts for contrast ── */
+    --ring-color:       hsl(var(--seed-hue), var(--seed-sat), 60%);
+    --ring-offset-color: var(--color-neutral-0);
+
+    /* ── Shadows heavier ── */
+    --shadow-xs:  0 1px 2px 0 rgba(0,0,0,.2);
+    --shadow-sm:  0 1px 3px 0 rgba(0,0,0,.3), 0 1px 2px -1px rgba(0,0,0,.2);
+    --shadow-md:  0 4px 6px -1px rgba(0,0,0,.4), 0 2px 4px -2px rgba(0,0,0,.2);
+    --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.4), 0 4px 6px -4px rgba(0,0,0,.15);
+    --shadow-xl:  0 20px 25px -5px rgba(0,0,0,.5), 0 8px 10px -6px rgba(0,0,0,.2);
+    --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,.6);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,.2);
+  }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   R E D U C E D   M O T I O N
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast:    0ms;
+    --duration-normal:  0ms;
+    --duration-slow:    0ms;
+    --duration-glacial: 0ms;
+    --ease-default:     linear;
+    --ease-in:          linear;
+    --ease-out:         linear;
+    --ease-in-out:      linear;
+    --ease-bounce:      linear;
+    --ease-elastic:     linear;
+  }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   H I G H   C O N T R A S T
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (prefers-contrast: more) {
+  :root {
+    --border:       var(--color-neutral-40);
+    --border-strong: var(--color-neutral-60);
+    --ring-width:    3px;
+  }
+}

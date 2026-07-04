@@ -37,9 +37,9 @@ const config: Config = {
         info: 'var(--info)',
       },
       fontFamily: {
-        sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        sans: ['var(--font-sans)'],
+        display: ['var(--font-display)'],
+        mono: ['var(--font-mono)'],
       },
       fontSize: {
         // Hero H1
@@ -61,8 +61,16 @@ const config: Config = {
         'display-lg': ['clamp(2rem, 4vw, 3.4rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
         'display-md': ['clamp(1.5rem, 2.5vw, 2.1rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
       },
-      // Square corners — 0 everywhere except rounded-full
-      borderRadius: { sm: '0', DEFAULT: '0', md: '0', lg: '0', xl: '0', '2xl': '0', '3xl': '0', full: '9999px' },
+      borderRadius: {
+        sm: 'var(--radius-sm, 0.25rem)',
+        DEFAULT: 'var(--radius-md, 0.5rem)',
+        md: 'var(--radius-md, 0.5rem)',
+        lg: 'var(--radius-lg, 0.75rem)',
+        xl: 'var(--radius-xl, 1rem)',
+        '2xl': 'var(--radius-2xl, 1.5rem)',
+        '3xl': 'var(--radius-3xl, 2rem)',
+        full: '9999px',
+      },
       boxShadow: {
         soft: '0 1px 3px rgba(0,0,0,0.3), 0 8px 21px -8px rgba(0,0,0,0.2)',
         lift: '0 3px 8px rgba(0,0,0,0.3), 0 13px 34px -13px rgba(0,0,0,0.2)',

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Brain, Send, Sparkles, TrendingUp, Target, Activity } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
 type Message = {
   role: "user" | "nova";

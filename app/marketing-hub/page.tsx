@@ -9,7 +9,7 @@ import Link from "next/link";
 
 // The Marketing Hub lives on a different port locally. In production
 // we'd point this at marketing.yourdomain.com. Edit once here.
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
 export const metadata = buildMetadata({
   title: "Marketing Hub",

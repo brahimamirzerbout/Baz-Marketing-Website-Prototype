@@ -40,7 +40,8 @@ coverage/
 .vercel
 
 # Local data (DB, leads, runtime state)
-data/
+/data/
+!/app/api/data/
 *.db
 *.db-shm
 *.db-wal

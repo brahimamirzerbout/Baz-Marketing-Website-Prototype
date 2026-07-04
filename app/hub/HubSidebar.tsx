@@ -76,7 +76,7 @@ const NAV_GROUPS = [
   },
 ];
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
 export function HubSidebar() {
   const pathname = usePathname();

@@ -16,6 +16,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  env: {
+    NEXT_PUBLIC_HUB_URL: '',
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [],

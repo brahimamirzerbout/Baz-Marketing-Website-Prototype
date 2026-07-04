@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
 export default function TrianglePage() {
   const [health, setHealth] = useState<Record<string, unknown> | null>(null);

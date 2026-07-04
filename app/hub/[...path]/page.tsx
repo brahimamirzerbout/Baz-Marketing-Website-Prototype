@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Loader2 } from "lucide-react";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
 // Pages we already have as native baz/ pages (don't iframe these)
 const NATIVE_PAGES = new Set(["/hub", "/hub/cockpit", "/hub/triangle", "/hub/nova"]);

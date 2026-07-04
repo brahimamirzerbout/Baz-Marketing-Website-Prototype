@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { buildMetadata } from "@/lib/seo";
 
 const HUB_URL =
-  (typeof process !== "undefined" && process.env.NEXT_PUBLIC_HUB_URL) || "http://localhost:3010";
+  process.env.NEXT_PUBLIC_HUB_URL || "";
 
 export const metadata = buildMetadata({
   title: "Client portal",

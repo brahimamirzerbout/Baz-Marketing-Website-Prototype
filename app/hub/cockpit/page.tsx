@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
 interface LoopHealth {
   ok: boolean;

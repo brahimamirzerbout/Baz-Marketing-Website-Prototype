@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Newspaper, TrendingUp, BookOpen, Library, Activity, ExternalLink } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "http://localhost:3001";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
 export default function IntelligencePage() {
   const [dive, setDive] = useState<any[]>([]);

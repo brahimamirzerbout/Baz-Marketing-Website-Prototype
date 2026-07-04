@@ -1,6 +1,5 @@
 // @ts-nocheck
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
 import localFont from 'next/font/local';
 import { site } from '@/lib/site';
 import { organizationLd, websiteLd, jsonLd } from '@/lib/seo';
@@ -12,22 +11,39 @@ import { ScrollReveal } from '@/components/marketing/ScrollReveal';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { AetherBackground } from '@/components/ui/AetherBackground';
+import '../brand/css/blackswan-tokens.css';
+import '../brand/css/typography.css';
+import '../brand/css/buttons.css';
+import '../brand/css/cards.css';
+import '../brand/css/forms.css';
+import '../brand/css/utilities.css';
 import './globals.css';
-import './aether-theme.css';
-import './aether-monochrome.css';
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-display',
-});
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+const sans = localFont({
+  src: [
+    { path: '../public/fonts/inter/inter-400.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/inter/inter-500.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/inter/inter-600.woff2', weight: '600', style: 'normal' },
+    { path: '../public/fonts/inter/inter-700.woff2', weight: '700', style: 'normal' },
+  ],
   display: 'swap',
   variable: '--font-sans',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  adjustFontFallback: false,
+});
+
+const display = localFont({
+  src: [
+    { path: '../public/fonts/fraunces/fraunces-400.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/fraunces/fraunces-500.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/fraunces/fraunces-600.woff2', weight: '600', style: 'normal' },
+    { path: '../public/fonts/fraunces/fraunces-700.woff2', weight: '700', style: 'normal' },
+    { path: '../public/fonts/fraunces/fraunces-900.woff2', weight: '900', style: 'normal' },
+  ],
+  display: 'swap',
+  variable: '--font-display',
+  fallback: ['ui-serif', 'Georgia', 'serif'],
+  adjustFontFallback: false,
 });
 
 const mono = localFont({
@@ -82,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // next-themes handles the cookie + localStorage + data-theme attribute
   // synchronously via its own inline script. No server-side cookie read here.
   return (
-    <html lang="en" suppressHydrationWarning className={`${jakarta.variable} ${poppins.variable} ${mono.variable} dark`} data-theme="dark">
+    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${display.variable} ${mono.variable} dark`} data-theme="dark">
       <body className="bg-background text-foreground antialiased royal-entrance">
         {/*
           Belt-and-braces pre-paint script: next-themes also injects its own

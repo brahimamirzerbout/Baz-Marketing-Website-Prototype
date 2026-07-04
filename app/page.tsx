@@ -18,6 +18,7 @@ import {
   PipelineTicker,
   StickyCta,
 } from "@/components/sections";
+import { SectionErrorBoundary } from "@/components/ui/SectionErrorBoundary";
 import { buildMetadata, jsonLd, professionalServiceLd } from "@/lib/seo";
 import { resolveHeroVariant } from "@/lib/hero-variant";
 
@@ -53,22 +54,22 @@ export default function HomePage({ searchParams }: { searchParams?: { icp?: stri
 
   return (
     <>
-      <Hero variant={heroVariant} />
-      <MarketingHubBanner />
-      <ProofNumbers />
-      <LogoMarquee />
-      <PerformanceFeature />
-      <PillarGrid />
-      <ServicesOverview />
-      <HowWeWork />
-      <KpiBand />
-      <Framework />
-      <CaseStudies />
-      <Testimonials />
-      <InsightsPreview />
-      <ReadNext />
-      <FinalCta />
-      <StickyCta />
+      <SectionErrorBoundary name="Hero"><Hero variant={heroVariant} /></SectionErrorBoundary>
+      <SectionErrorBoundary name="MarketingHubBanner"><MarketingHubBanner /></SectionErrorBoundary>
+      <SectionErrorBoundary name="ProofNumbers"><ProofNumbers /></SectionErrorBoundary>
+      <SectionErrorBoundary name="LogoMarquee"><LogoMarquee /></SectionErrorBoundary>
+      <SectionErrorBoundary name="PerformanceFeature"><PerformanceFeature /></SectionErrorBoundary>
+      <SectionErrorBoundary name="PillarGrid"><PillarGrid /></SectionErrorBoundary>
+      <SectionErrorBoundary name="ServicesOverview"><ServicesOverview /></SectionErrorBoundary>
+      <SectionErrorBoundary name="HowWeWork"><HowWeWork /></SectionErrorBoundary>
+      <SectionErrorBoundary name="KpiBand"><KpiBand /></SectionErrorBoundary>
+      <SectionErrorBoundary name="Framework"><Framework /></SectionErrorBoundary>
+      <SectionErrorBoundary name="CaseStudies"><CaseStudies /></SectionErrorBoundary>
+      <SectionErrorBoundary name="Testimonials"><Testimonials /></SectionErrorBoundary>
+      <SectionErrorBoundary name="InsightsPreview"><InsightsPreview /></SectionErrorBoundary>
+      <SectionErrorBoundary name="ReadNext"><ReadNext /></SectionErrorBoundary>
+      <SectionErrorBoundary name="FinalCta"><FinalCta /></SectionErrorBoundary>
+      <SectionErrorBoundary name="StickyCta"><StickyCta /></SectionErrorBoundary>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLd(professionalServiceLd())}

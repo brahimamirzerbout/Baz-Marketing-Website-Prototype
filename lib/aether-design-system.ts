@@ -144,7 +144,7 @@ export const EASING = {
 // ─── COLOR SYSTEM — The Beauty of Darkness ───
 //
 // The entire palette is built on HSL with mathematical precision.
-// Base hue: 270° (deep violet-black) — the color of the void.
+// Base hue: 41° (gold) — the color of warmth and luxury.
 // Each layer is separated by Fibonacci-scaled luminance steps.
 // Accent hues are placed at golden-angle intervals around the wheel.
 //
@@ -158,7 +158,7 @@ export const EASING = {
 // LAYER 7: The Active         — selection state
 //
 // FUNCTIONAL ACCENTS (only shown when "Enable Functional Colors" is on):
-//   Primary:   270° (violet)   — creation, AI, the core
+//   Primary:    41° (gold)    — creation, AI, the core
 //   Success:   145° (emerald)  — growth, completion
 //   Warning:    38° (amber)    — caution, attention
 //   Danger:      8° (red)      — destruction, error
@@ -175,11 +175,11 @@ export interface ColorLayer {
 // 8 layers of darkness — Fibonacci luminance steps
 // L = base × φⁿ, mapped to 0-100 range
 export const DARK_LAYERS: ColorLayer[] = [
-  { h: 260, s: 14, l: 3.9,  alpha: 1 },     // L0: The Void       — #0a0a0f
-  { h: 260, s: 13, l: 6.5,  alpha: 1 },     // L1: The Deep       — derived L0×φ⁰·⁵
-  { h: 260, s: 12, l: 9.0,  alpha: 1 },     // L2: The Shadow     — #17171f
-  { h: 260, s: 11, l: 13.0, alpha: 1 },     // L3: The Surface    — #1e1e2a
-  { h: 260, s: 10, l: 18.0, alpha: 1 },     // L4: The Raised     — #2a2a38
+  { h: 41, s: 14, l: 3.9,  alpha: 1 },     // L0: The Void       — #0a0a0f
+  { h: 41, s: 13, l: 6.5,  alpha: 1 },     // L1: The Deep       — derived L0×φ⁰·⁵
+  { h: 41, s: 12, l: 9.0,  alpha: 1 },     // L2: The Shadow     — #17171f
+  { h: 41, s: 11, l: 13.0, alpha: 1 },     // L3: The Surface    — #1e1e2a
+  { h: 41, s: 10, l: 18.0, alpha: 1 },     // L4: The Raised     — #2a2a38
   { h: 262, s: 12, l: 24.0, alpha: 1 },     // L5: The Hover      — #34344a
   { h: 264, s: 15, l: 32.0, alpha: 1 },     // L6: The Focus      — violet-tinted
   { h: 266, s: 20, l: 42.0, alpha: 1 },     // L7: The Active     — clearly selected
@@ -188,14 +188,14 @@ export const DARK_LAYERS: ColorLayer[] = [
 // Functional accent palette — golden angle hue distribution
 // Each accent is placed 137.5° from the previous, creating visual harmony
 export const FUNCTIONAL_COLORS = {
-  primary:   { h: 270, s: 85, l: 72, alpha: 1 },  // violet — creation
-  primaryDim:{ h: 270, s: 60, l: 52, alpha: 1 },  // violet dimmed
+  primary:   { h: 41, s: 85, l: 72, alpha: 1 },  // violet — creation
+  primaryDim:{ h: 41, s: 60, l: 52, alpha: 1 },  // violet dimmed
   success:   { h: 145, s: 70, l: 55, alpha: 1 },  // emerald — growth
   warning:   { h: 38,  s: 85, l: 58, alpha: 1 },  // amber   — caution
   danger:    { h: 8,   s: 80, l: 58, alpha: 1 },  // red     — error
   info:      { h: 210, s: 75, l: 60, alpha: 1 },  // blue    — knowledge
   neutral:   { h: 240, s: 6,  l: 55, alpha: 1 },  // zinc    — text
-  ghost:     { h: 260, s: 8,  l: 35, alpha: 1 },  // faded text
+  ghost:     { h: 41, s: 8,  l: 35, alpha: 1 },  // faded text
 } as const;
 
 // Convert HSL to CSS string
@@ -224,38 +224,38 @@ export function hslToHex(h: number, s: number, l: number): string {
 // The midpoint of each gradient is at 0.618 (1/φ) — not 0.5.
 export const GRADIENTS = {
   // The primary ambient gradient — deep void to violet hint
-  void: `linear-gradient(180deg, hsl(260, 14%, 3.9%) 0%, hsl(260, 13%, 6.5%) ${100 / PHI}%, hsl(260, 12%, 9%) 100%)`,
+  void: `linear-gradient(180deg, hsl(41, 14%, 3.9%) 0%, hsl(41, 13%, 6.5%) ${100 / PHI}%, hsl(41, 12%, 9%) 100%)`,
   // Surface gradient — structural depth
-  surface: `linear-gradient(180deg, hsl(260, 11%, 13%) 0%, hsl(260, 10%, 9%) ${100 / PHI}%, hsl(260, 14%, 3.9%) 100%)`,
+  surface: `linear-gradient(180deg, hsl(41, 11%, 13%) 0%, hsl(41, 10%, 9%) ${100 / PHI}%, hsl(41, 14%, 3.9%) 100%)`,
   // Raised gradient — interactive lift
-  raised: `linear-gradient(135deg, hsl(260, 10%, 18%) 0%, hsl(260, 12%, 13%) ${100 / PHI}%, hsl(260, 11%, 9%) 100%)`,
+  raised: `linear-gradient(135deg, hsl(41, 10%, 18%) 0%, hsl(41, 12%, 13%) ${100 / PHI}%, hsl(41, 11%, 9%) 100%)`,
   // Violet glow — the signature Aether gradient
-  glow: `linear-gradient(135deg, hsl(270, 85%, 72%) 0%, hsl(280, 70%, 55%) ${100 / PHI}%, hsl(260, 60%, 40%) 100%)`,
+  glow: `linear-gradient(135deg, hsl(41, 85%, 72%) 0%, hsl(280, 70%, 55%) ${100 / PHI}%, hsl(41, 60%, 40%) 100%)`,
   // Accent overlay — thin violet veil
-  veil: `linear-gradient(135deg, hsla(270, 85%, 72%, 0.05) 0%, hsla(280, 70%, 55%, 0.03) ${100 / PHI}%, transparent 100%)`,
+  veil: `linear-gradient(135deg, hsla(41, 85%, 72%, 0.05) 0%, hsla(280, 70%, 55%, 0.03) ${100 / PHI}%, transparent 100%)`,
   // Text gradient — violet to purple for headings
-  text: `linear-gradient(90deg, hsl(270, 85%, 72%) 0%, hsl(280, 70%, 65%) ${100 / PHI}%)`,
+  text: `linear-gradient(90deg, hsl(41, 85%, 72%) 0%, hsl(280, 70%, 65%) ${100 / PHI}%)`,
   // Shadow gradient — depth illusion
-  shadow: `linear-gradient(180deg, transparent 0%, hsla(260, 50%, 0%, 0.5) ${100 / PHI}%, hsla(260, 50%, 0%, 0.8) 100%)`,
+  shadow: `linear-gradient(180deg, transparent 0%, hsla(41, 50%, 0%, 0.5) ${100 / PHI}%, hsla(41, 50%, 0%, 0.8) 100%)`,
   // Glass — frosted background
-  glass: `linear-gradient(135deg, hsla(260, 12%, 20%, 0.55) 0%, hsla(260, 10%, 15%, 0.089) ${100 / PHI}%, hsla(260, 14%, 5%, 0.144) 100%)`,
+  glass: `linear-gradient(135deg, hsla(41, 12%, 20%, 0.55) 0%, hsla(41, 10%, 15%, 0.089) ${100 / PHI}%, hsla(41, 14%, 5%, 0.144) 100%)`,
 } as const;
 
 // ─── SHADOWS (Fibonacci depth layers) ───
 // Shadow blur and spread follow Fibonacci. Each level deepens perception.
 export const SHADOWS = {
   'none': 'none',
-  'sm': `0 ${SPACING[1]}px ${SPACING[3]}px hsla(260, 50%, 0%, 0.377)`,
-  'base': `0 ${SPACING[2]}px ${SPACING[5]}px hsla(260, 50%, 0%, 0.377)`,
-  'md': `0 ${SPACING[3]}px ${SPACING[8]}px hsla(260, 50%, 0%, 0.377)`,
-  'lg': `0 ${SPACING[5]}px ${SPACING[13]}px hsla(260, 50%, 0%, 0.377)`,
-  'xl': `0 ${SPACING[8]}px ${SPACING[21]}px hsla(260, 50%, 0%, 0.377)`,
-  '2xl': `0 ${SPACING[13]}px ${SPACING[34]}px hsla(260, 50%, 0%, 0.377)`,
+  'sm': `0 ${SPACING[1]}px ${SPACING[3]}px hsla(41, 50%, 0%, 0.377)`,
+  'base': `0 ${SPACING[2]}px ${SPACING[5]}px hsla(41, 50%, 0%, 0.377)`,
+  'md': `0 ${SPACING[3]}px ${SPACING[8]}px hsla(41, 50%, 0%, 0.377)`,
+  'lg': `0 ${SPACING[5]}px ${SPACING[13]}px hsla(41, 50%, 0%, 0.377)`,
+  'xl': `0 ${SPACING[8]}px ${SPACING[21]}px hsla(41, 50%, 0%, 0.377)`,
+  '2xl': `0 ${SPACING[13]}px ${SPACING[34]}px hsla(41, 50%, 0%, 0.377)`,
   // Colored glow — violet ambient light
-  'glow': `0 ${SPACING[2]}px ${SPACING[8]}px hsla(270, 85%, 55%, 0.233)`,
-  'glow-lg': `0 ${SPACING[5]}px ${SPACING[21]}px hsla(270, 85%, 55%, 0.144)`,
+  'glow': `0 ${SPACING[2]}px ${SPACING[8]}px hsla(41, 85%, 55%, 0.233)`,
+  'glow-lg': `0 ${SPACING[5]}px ${SPACING[21]}px hsla(41, 85%, 55%, 0.144)`,
   // Inner — inset depth
-  'inner': `inset 0 ${SPACING[1]}px ${SPACING[3]}px hsla(260, 50%, 0%, 0.377)`,
+  'inner': `inset 0 ${SPACING[1]}px ${SPACING[3]}px hsla(41, 50%, 0%, 0.377)`,
 } as const;
 
 // ─── Z-INDEX (Fibonacci depth stacking) ───
@@ -361,7 +361,7 @@ export const LAYER_ANALYSIS = {
   // Functional color hues
   functionalHues: 8,        // primary, success, warning, danger, info, neutral, ghost, primaryDim
   // Total unique hue families
-  hueFamilies: 3,           // violet(270°), emerald(145°), amber(38°), red(8°), blue(210°) → but grouped: violet-centric
+  hueFamilies: 3,           // gold(41°), emerald(145°), amber(38°), red(8°), blue(210°) → but grouped: gold-centric
   // Fibonacci ratios embedded
   fibonacciRatios: 16,      // F(1) through F(16)
 } as const;
@@ -514,18 +514,18 @@ export const EXISTING_COMPONENTS = COMPONENT_CHECKLIST.filter(c => c.status === 
 export const M3_COLOR_MAP = {
   // M3 dark surface tones → Aether layers
   'neutral0':    { m3: '#000000',     aether: 'L0', hsl: 'hsl(0, 0%, 0%)' },       // shadow/scrim
-  'neutral4':    { m3: '#0f0d13',     aether: 'L0', hsl: 'hsl(260, 14%, 3.9%)' }, // surface-lowest
-  'neutral6':    { m3: '#141218',     aether: 'L1', hsl: 'hsl(260, 13%, 6.5%)' }, // background/surface-dim
-  'neutral10':   { m3: '#1d1b20',     aether: 'L2', hsl: 'hsl(260, 12%, 9%)' },   // surface-low
-  'neutral12':   { m3: '#211f26',     aether: 'L3', hsl: 'hsl(260, 11%, 13%)' },  // surface-container
-  'neutral17':   { m3: '#2b2930',     aether: 'L4', hsl: 'hsl(260, 10%, 18%)' },  // surface-container-high
+  'neutral4':    { m3: '#0f0d13',     aether: 'L0', hsl: 'hsl(41, 14%, 3.9%)' }, // surface-lowest
+  'neutral6':    { m3: '#141218',     aether: 'L1', hsl: 'hsl(41, 13%, 6.5%)' }, // background/surface-dim
+  'neutral10':   { m3: '#1d1b20',     aether: 'L2', hsl: 'hsl(41, 12%, 9%)' },   // surface-low
+  'neutral12':   { m3: '#211f26',     aether: 'L3', hsl: 'hsl(41, 11%, 13%)' },  // surface-container
+  'neutral17':   { m3: '#2b2930',     aether: 'L4', hsl: 'hsl(41, 10%, 18%)' },  // surface-container-high
   'neutral22':   { m3: '#36343b',     aether: 'L5', hsl: 'hsl(262, 12%, 24%)' },  // surface-container-highest
   'neutral24':   { m3: '#3b383e',     aether: 'L6', hsl: 'hsl(264, 15%, 32%)' },  // surface-bright
-  'neutral80':   { m3: '#cac5cd',     aether: 'text-secondary', hsl: 'hsl(260, 6%, 65%)' },
-  'neutral90':   { m3: '#e6e0e9',     aether: 'text-primary',   hsl: 'hsl(260, 8%, 98%)' },
-  'neutral-variant30': { m3: '#49454f', aether: 'surface-variant', hsl: 'hsl(260, 8%, 15%)' },
-  'neutral-variant60': { m3: '#938f99', aether: 'outline',         hsl: 'hsl(260, 6%, 45%)' },
-  'neutral-variant80': { m3: '#cac4d0', aether: 'on-surface-variant', hsl: 'hsl(260, 8%, 65%)' },
+  'neutral80':   { m3: '#cac5cd',     aether: 'text-secondary', hsl: 'hsl(41, 6%, 65%)' },
+  'neutral90':   { m3: '#e6e0e9',     aether: 'text-primary',   hsl: 'hsl(41, 8%, 98%)' },
+  'neutral-variant30': { m3: '#49454f', aether: 'surface-variant', hsl: 'hsl(41, 8%, 15%)' },
+  'neutral-variant60': { m3: '#938f99', aether: 'outline',         hsl: 'hsl(41, 6%, 45%)' },
+  'neutral-variant80': { m3: '#cac4d0', aether: 'on-surface-variant', hsl: 'hsl(41, 8%, 65%)' },
 } as const;
 
 // ─── M3 ELEVATION → FIBONACCI ───
@@ -623,7 +623,7 @@ export const M2_TEXT_EMPHASIS = {
 
 // ─── M2/M3 CONTRAST REQUIREMENTS ───
 // Material requires 15.8:1 contrast between white text and dark surface.
-// Our L0 (hsl(260, 14%, 3.9%)) achieves ~17:1 with white text.
+// Our L0 (hsl(41, 14%, 3.9%)) achieves ~17:1 with white text.
 export const CONTRAST_STANDARDS = {
   'minTextOnDark': 15.8,  // M2: white on #121212
   'wcagAA': 4.5,          // WCAG AA body text
@@ -722,7 +722,7 @@ export const DARK_THEME_PRINCIPLES = {
   // 1. Darken with grey, not black
   'use-dark-grey': {
     principle: 'Use dark grey – rather than black – to express elevation and space',
-    implementation: 'Base surface = hsl(260, 14%, 3.9%) not pure black. Higher elevation = lighter surface.',
+    implementation: 'Base surface = hsl(41, 14%, 3.9%) not pure black. Higher elevation = lighter surface.',
     aetherMapping: 'L0 through L7, each lighter than the previous via Fibonacci luminance',
   },
   // 2. Limited color accents
@@ -770,8 +770,8 @@ export const DARK_THEME_PRINCIPLES = {
   // 9. No light glows for elevation
   'no-glows': {
     principle: 'Use dark shadows, not light glows, to express elevation',
-    implementation: 'All shadows use hsla(260, 50%, 0%, opacity) — dark, not light.',
-    aetherMapping: 'SHADOWS all use hsla(260, 50%, 0%, 0.377) — pure dark shadow',
+    implementation: 'All shadows use hsla(41, 50%, 0%, opacity) — dark, not light.',
+    aetherMapping: 'SHADOWS all use hsla(41, 50%, 0%, 0.377) — pure dark shadow',
   },
   // 10. Large surfaces stay dark
   'large-surfaces-dark': {

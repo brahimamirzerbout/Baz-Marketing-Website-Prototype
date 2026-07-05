@@ -1,4 +1,9 @@
-# Color Palette & Token System
+> **DEPRECATED — Violet System (superseded)**
+> This file documents the **old violet (`--seed-hue: 270`)** design system.
+> The active system is **ÆTHER Monochrome + Gold (`--seed-hue: 41`)**.
+> See `brand/css/aether-tokens.css` and `brand/css/variables-unified.css` for the current source of truth.
+
+# Color Palette & Token System (Violet — Archived)
 
 The BAZ color architecture is built on the BlackSwan algorithmic system. Three seed variables generate the entire palette — change `--seed-hue` and every derived color recomputes. For BAZ, the seed is locked to **270** (violet).
 
@@ -40,8 +45,8 @@ The BAZ color architecture is built on the BlackSwan algorithmic system. Three s
 | `--accent` | Primary accent | `hsl(270, 85%, 72%)` | CTAs, highlights, focus rings, active states |
 | `--accent-600` | Hover | `hsl(270, 80%, 64%)` | CTA hover |
 | `--accent-700` | Active | `hsl(270, 75%, 55%)` | Active/pressed states |
-| `--accent-gold` | Secondary accent | `#f9a01f` | Brand moments only — never as primary |
-| `--accent-red` | Tertiary accent | `#ff3b2f` | Urgency, errors — never as primary |
+| `--accent-gold` | Secondary accent | `#a0a0a0` | Brand moments only — never as primary |
+| `--accent-red` | Tertiary accent | `#8a8a8a` | Urgency, errors — never as primary |
 
 ### Violet Accent Breakdown
 
@@ -174,8 +179,8 @@ background: linear-gradient(180deg, #faf7f1 0%, #f5f1ea 50%, #f0ebe0 100%);
   --accent: hsl(270, 85%, 72%);
   --accent-600: hsl(270, 80%, 64%);
   --accent-700: hsl(270, 75%, 55%);
-  --accent-gold: #f9a01f;
-  --accent-red: #ff3b2f;
+  --accent-gold: #a0a0a0;
+  --accent-red: #8a8a8a;
 
   /* ── Violet Spectrum ── */
   --violet-50: #f5f0ff;
@@ -226,8 +231,8 @@ colors: {
     DEFAULT: 'hsl(270, 85%, 72%)',
     600: 'hsl(270, 80%, 64%)',
     700: 'hsl(270, 75%, 55%)',
-    gold: '#f9a01f',
-    red: '#ff3b2f',
+    gold: '#a0a0a0',
+    red: '#8a8a8a',
   },
   violet: {
     50: '#f5f0ff',
@@ -263,8 +268,8 @@ $paper-100: #f0ebe0;
 $accent: hsl(270, 85%, 72%);
 $accent-600: hsl(270, 80%, 64%);
 $accent-700: hsl(270, 75%, 55%);
-$accent-gold: #f9a01f;
-$accent-red: #ff3b2f;
+$accent-gold: #a0a0a0;
+$accent-red: #8a8a8a;
 
 $violet: (
   '50': #f5f0ff,

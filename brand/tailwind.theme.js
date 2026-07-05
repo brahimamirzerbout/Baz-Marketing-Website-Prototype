@@ -38,8 +38,8 @@ module.exports = {
           700: 'hsl(270, 85%, 32%)',
           800: 'hsl(270, 85%, 22%)',
           900: 'hsl(270, 85%, 12%)',
-          violet: '#b87adb',
-          red: '#ff3b2f',
+          violet: '#C8A55A',
+          red: '#8a8a8a',
         },
 
         // Violet monochrome spectrum (seed-hue: 41)

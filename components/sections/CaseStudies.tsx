@@ -28,7 +28,6 @@ export function CaseStudies() {
 
       <div className="grid md:grid-cols-3 gap-5">
         {featured.map((c, i) => {
-          const headline = c.metrics[0];
           return (
             <Link
               key={c.slug}

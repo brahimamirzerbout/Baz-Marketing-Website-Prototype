@@ -65,7 +65,7 @@ async function fetchGoogleAnalytics(): Promise<{ metrics: MetricPoint[]; leads: 
   for (let i = 0; i < 7; i++) {
     const date = new Date(sevenDaysAgo);
     date.setDate(date.getDate() + i);
-    const dateStr = date.toISOString().split("T")[0];
+    const dateStr = date.toISOString().split("T")[0]!;
     metrics.push(
       { date: dateStr, metric: "sessions", value: Math.floor(Math.random() * 200) + 50, source: "google" },
       { date: dateStr, metric: "pageviews", value: Math.floor(Math.random() * 500) + 100, source: "google" },
@@ -118,6 +118,7 @@ async function fetchStripeData(): Promise<{ metrics: MetricPoint[]; leads: LeadS
       const byDate: Record<string, number> = {};
       for (const charge of charges) {
         const date = new Date(charge.created * 1000).toISOString().split("T")[0];
+        if (!date) continue;
         byDate[date] = (byDate[date] || 0) + (charge.amount || 0) / 100;
       }
       for (const [date, revenue] of Object.entries(byDate)) {
@@ -132,7 +133,7 @@ async function fetchStripeData(): Promise<{ metrics: MetricPoint[]; leads: LeadS
 export function parseCSV(csvText: string): Record<string, string>[] {
   const lines = csvText.trim().split("\n");
   if (lines.length < 2) return [];
-  const headers = lines[0].split(",").map((h) => h.trim().replace(/^"|"$/g, ""));
+  const headers = lines[0]!.split(",").map((h) => h.trim().replace(/^"|"$/g, ""));
   return lines.slice(1).map((line) => {
     const values = line.split(",").map((v) => v.trim().replace(/^"|"$/g, ""));
     const row: Record<string, string> = {};

@@ -7,15 +7,8 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['better-sqlite3', 'pg'],
   },
-  typescript: {
-    // 42 TS errors across 14 files remain (noira-crm module resolution,
-    // strict null checks, override modifiers, implicit any, unused vars).
-    // Fix tracked separately — the app runs correctly.
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  typescript: {},
+  eslint: {},
   env: {
     NEXT_PUBLIC_HUB_URL: '',
   },

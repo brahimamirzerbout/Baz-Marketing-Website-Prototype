@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
-import { json, err, readJson, listRows, getRow } from "./api-helpers";
-import { ok, badRequest, notFound, unauthorized } from "@/lib/api-error";
+import { readJson, listRows, getRow } from "./api-helpers";
+import { ok, badRequest, notFound } from "@/lib/api-error";
 import { getDb } from "@/lib/db";
 
 type RouteContext = { params?: Record<string, string | undefined> };

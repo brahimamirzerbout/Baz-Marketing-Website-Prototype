@@ -217,7 +217,7 @@ export const industryInsights: Record<string, string> = {
  * Falls back to the default if no match.
  */
 export function getInsight(service?: string): string {
-  if (!service) return industryInsights["default"];
+  if (!service) return industryInsights["default"] ?? "";
   const key = service.toLowerCase().replace(/\s+/g, "-");
-  return industryInsights[key] || industryInsights["default"];
+  return industryInsights[key] ?? industryInsights["default"] ?? "";
 }

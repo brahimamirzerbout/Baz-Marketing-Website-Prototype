@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 type FooterColumn = {
   heading: string;
-  links: { href: string; label: string }[];
+  links: { href: string; label: string; external?: boolean }[];
 };
 
 type FooterProps = {

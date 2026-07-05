@@ -134,7 +134,7 @@ export class ProviderRouter {
     });
     if (!res.ok) throw new Error(`Gemini API error: ${res.status}`);
     const data = await res.json();
-    return { content: data.candidates?.[0]?.content?.parts?.[0]?.text || "", provider: provider.name, model: provider.defaultModel || provider.models[0], latency: 0 };
+    return { content: data.candidates?.[0]?.content?.parts?.[0]?.text || "", provider: provider.name, model: provider.defaultModel || provider.models[0] || "", latency: 0 };
   }
 
   private recordMetric(name: ProviderName, success: boolean, latency: number): void {

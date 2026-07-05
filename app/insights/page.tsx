@@ -1,10 +1,8 @@
-// @ts-nocheck
 import { Section, Eyebrow, SectionLede } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { PostsList } from "@/components/marketing/PostsList";
 import { NewsletterForm } from "@/components/marketing/NewsletterForm";
 import { CtaBanner } from "@/components/marketing/CtaBanner";
-import { posts } from "@/content/posts";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({

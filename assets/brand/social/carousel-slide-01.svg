@@ -2,8 +2,8 @@
   <!-- LinkedIn carousel slide 01: cover -->
   <defs>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff3b2f"/>
-      <stop offset="100%" stop-color="#f9a01f"/>
+      <stop offset="0%" stop-color="#8a8a8a"/>
+      <stop offset="100%" stop-color="#a0a0a0"/>
     </linearGradient>
   </defs>
 
@@ -13,7 +13,7 @@
 
   <!-- Eyebrow -->
   <g transform="translate(80, 100)">
-    <text font-family="JetBrains Mono, monospace" font-size="14" letter-spacing="3" fill="#ff3b2f">A BAZ FIELD NOTE · 4 MIN READ</text>
+    <text font-family="JetBrains Mono, monospace" font-size="14" letter-spacing="3" fill="#8a8a8a">A BAZ FIELD NOTE · 4 MIN READ</text>
   </g>
 
   <!-- Title -->
@@ -31,7 +31,7 @@
 
   <!-- BAZ mark -->
   <g transform="translate(80, 1050)">
-    <rect width="64" height="64" rx="14" fill="#ff3b2f"/>
+    <rect width="64" height="64" rx="14" fill="#8a8a8a"/>
     <text x="32" y="46" font-family="Fraunces, serif" font-size="44" font-weight="600" fill="#faf7f2" text-anchor="middle" letter-spacing="-1.5">B</text>
     <text x="84" y="40" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#faf7f2">BAZ</text>
     <text x="84" y="60" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#faf7f2" opacity="0.5">SWIPE →</text>

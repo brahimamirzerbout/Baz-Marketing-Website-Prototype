@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
       "Content & Editorial Engine",
       "Conversion Rate Optimization",
     ],
-    cover: "hsl(270, 85%, 72%)",
+    cover: "hsl(41, 72%, 68%)",
     problem:
       "ViralVista was spending $80K/mo on Meta with a 1.8 ROAS and no compounding asset. Creative fatigue hit every 9 days.",
     strategy:
@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
       "CRM & Marketing Operations",
       "Lifecycle, Email & SMS Automation",
     ],
-    cover: "hsl(270, 60%, 52%)",
+    cover: "hsl(41, 50%, 50%)",
     problem:
       "Post-launch, EngageEra had 12K free signups but a 0.6% trial-to-paid conversion. The site wasn't built for product-led growth.",
     strategy:
@@ -168,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
       "SEO & Organic Growth",
       "Analytics, Tracking & Attribution",
     ],
-    cover: "hsl(260, 14%, 9%)",
+    cover: "hsl(0, 0%, 9%)",
     problem:
       "BuzzBeacon had 200 podcast pages with thin content and no search traffic. Ad revenue was flat.",
     strategy:
@@ -194,7 +194,7 @@ export const caseStudies: CaseStudy[] = [
       "Public Relations & Earned Media",
       "Social Media & Community",
     ],
-    cover: "hsl(270, 85%, 72%)",
+    cover: "hsl(41, 72%, 68%)",
     problem:
       "Tessera's founder had strong conviction but no media footprint. They needed a thought-leadership engine that produced content at venture scale without an in-house team.",
     strategy:
@@ -253,7 +253,7 @@ export const caseStudies: CaseStudy[] = [
       "Public Relations & Earned Media",
       "CRM & Marketing Operations",
     ],
-    cover: "hsl(270, 60%, 52%)",
+    cover: "hsl(41, 50%, 50%)",
     problem:
       "Kantara had product-market fit and a $4M run rate, but pipeline was inconsistent. Sales cycle was 11 months and win rate was 18%.",
     strategy:
@@ -331,7 +331,7 @@ export const caseStudies: CaseStudy[] = [
       "Brand & Identity",
       "Content & Editorial Engine",
     ],
-    cover: "hsl(260, 14%, 9%)",
+    cover: "hsl(0, 0%, 9%)",
     problem:
       "Mosaic was launching a new beverage category in MENA and needed to know if the TAM justified a $40M Series A ask. Existing data was thin and consumer language was unmapped.",
     strategy:

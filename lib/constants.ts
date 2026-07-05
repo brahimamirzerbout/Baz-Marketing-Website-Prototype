@@ -5,7 +5,7 @@ export const CHANNELS = [
   { id: "facebook", label: "Facebook", color: "#1d4ed8", charLimit: 63206 },
   { id: "tiktok", label: "TikTok", color: "#111827", charLimit: 2200 },
   { id: "youtube", label: "YouTube", color: "#dc2626", charLimit: 5000 },
-  { id: "email", label: "Email", color: "#b87adb", charLimit: 200000 },
+  { id: "email", label: "Email", color: "#C8A55A", charLimit: 200000 },
   { id: "blog", label: "Blog / SEO", color: "#16a34a", charLimit: 100000 },
   { id: "pinterest", label: "Pinterest", color: "#ef4444", charLimit: 500 },
   { id: "threads", label: "Threads", color: "#0f172a", charLimit: 500 },

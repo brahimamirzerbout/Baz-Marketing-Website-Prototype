@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
   role           TEXT NOT NULL DEFAULT 'member',
   team           TEXT,
   initials       TEXT NOT NULL DEFAULT 'BZ',
-  color          TEXT NOT NULL DEFAULT '#ff3b2f',
+  color          TEXT NOT NULL DEFAULT '#8a8a8a',
   created_at     BIGINT NOT NULL DEFAULT (extract(epoch from now()) * 1000)::bigint
 );
 

@@ -57,10 +57,10 @@ This directory contains the canonical BAZ logo assets. All files use the **Æthe
 - ❌ Never apply gradient fills to the wordmark
 - ❌ Never apply drop shadows or outer glows
 - ❌ Never use violet wordmark text on paper backgrounds (contrast fails AA)
-- ❌ Never use gold (#f9a01f) or red (#ff3b2f) as the primary accent
+- ❌ Never use gold (#a0a0a0) or red (#8a8a8a) as the primary accent
 - ❌ Never rotate, stretch, or compress the wordmark
 - ❌ Never place over complex photography without a scrim overlay
-- ❌ Never use the old red mark (#ff3b2f) — always use violet (#8b5cf6)
+- ❌ Never use the old red mark (#8a8a8a) — always use violet (#8b5cf6)
 
 ---
 

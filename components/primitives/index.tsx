@@ -95,7 +95,7 @@ interface BadgeProps {
 
 const BADGE_STYLES: Record<BadgeVariant, { bg: string; border: string; text: string; dot: string }> = {
   default: { bg: 'var(--aether-l4)', border: 'var(--aether-border-default)', text: 'var(--aether-text-secondary)', dot: 'var(--aether-text-ghost)' },
-  primary: { bg: 'hsla(270, 85%, 72%, 0.055)', border: 'hsla(270, 85%, 72%, 0.233)', text: 'var(--aether-accent, var(--aether-text-primary))', dot: 'var(--aether-accent, var(--aether-text-primary))' },
+  primary: { bg: 'hsla(0, 0%, 72%, 0.055)', border: 'hsla(0, 0%, 72%, 0.233)', text: 'var(--aether-accent, var(--aether-text-primary))', dot: 'var(--aether-accent, var(--aether-text-primary))' },
   success: { bg: 'hsla(145, 70%, 55%, 0.055)', border: 'hsla(145, 70%, 55%, 0.233)', text: 'var(--aether-success)', dot: 'var(--aether-success)' },
   warning: { bg: 'hsla(38, 85%, 58%, 0.055)',  border: 'hsla(38, 85%, 58%, 0.233)',  text: 'var(--aether-warning)', dot: 'var(--aether-warning)' },
   danger:  { bg: 'hsla(8, 80%, 58%, 0.055)',   border: 'hsla(8, 80%, 58%, 0.233)',   text: 'var(--aether-danger)', dot: 'var(--aether-danger)' },

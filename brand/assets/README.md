@@ -8,7 +8,7 @@ This directory contains all canonical brand assets for BAZ Marketing Ventures Ag
 
 ## ⚠️ Critical: Accent Color
 
-The BAZ accent is **violet `#b87adb`** — NOT gold, NOT red, NOT orange. All legacy assets using `#ff3b2f` (red), `#C8A55A` (gold), or `#F2572B` (orange) have been updated to violet. If you find any asset using the wrong accent color, update it immediately.
+The BAZ accent is **violet `#b87adb`** — NOT gold, NOT red, NOT orange. All legacy assets using `#8a8a8a` (red), `#C8A55A` (gold), or `#F2572B` (orange) have been updated to violet. If you find any asset using the wrong accent color, update it immediately.
 
 ---
 
@@ -128,7 +128,7 @@ brand/assets/
 ## Change Log
 
 ### v2.0.0 (2026-07-03)
-- **Breaking:** Accent color changed from red `#ff3b2f` to violet `#b87adb`
+- **Breaking:** Accent color changed from red `#8a8a8a` to violet `#b87adb`
 - **Breaking:** Font stack changed from Plus Jakarta Sans → Fraunces (display), Poppins → Inter (body)
 - **Breaking:** Border radius changed from 0/square to Fibonacci scale (3, 5, 8, 13, 21, 34, 55, 89)
 - **Added:** Full BlackSwan Design System integration (seed variables, algorithmic palette)

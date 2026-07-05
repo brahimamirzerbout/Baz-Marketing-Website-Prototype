@@ -34,8 +34,8 @@ colors:
     700: "hsl(270, 75%, 55%)"
     800: "hsl(270, 70%, 42%)"
     900: "hsl(270, 65%, 35%)"
-    gold: "#f9a01f"
-    red: "#ff3b2f"
+    gold: "#a0a0a0"
+    red: "#8a8a8a"
 
   violet:
     50: "#f5f0ff"

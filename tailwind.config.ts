@@ -12,11 +12,11 @@ const config: Config = {
     extend: {
       colors: {
         // Æther Design System — BlackSwan seed hue 41 (gold)
-        ink: '#111111',
-        panel: '#1A1A1A',
-        'panel-2': '#2C2C2C',
-        sand: '#E8E4E0',
-        stone: '#B0AAA5',
+        ink: 'var(--color-neutral-80)',
+        panel: 'var(--color-neutral-70)',
+        'panel-2': 'var(--color-neutral-60)',
+        sand: 'var(--color-neutral-10)',
+        stone: 'var(--color-neutral-20)',
         brand: 'var(--color-primary)',
         'brand-2': 'var(--color-accent)',
         // Semantic tokens for shadcn compatibility
@@ -75,7 +75,7 @@ const config: Config = {
         soft: '0 1px 3px rgba(0,0,0,0.3), 0 8px 21px -8px rgba(0,0,0,0.2)',
         lift: '0 3px 8px rgba(0,0,0,0.3), 0 13px 34px -13px rgba(0,0,0,0.2)',
         ring: '0 0 0 1px rgba(255,255,255,0.1)',
-        glow: '0 5px 21px rgba(242,87,43,0.25)',
+        glow: '0 5px 21px rgba(200,165,90,0.25)',
       },
       keyframes: {
         'fade-up': {

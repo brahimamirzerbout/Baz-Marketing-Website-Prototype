@@ -58,7 +58,7 @@ Secondary: **in-house marketing leads** who need an external team for overflow o
 ## Visual language
 
 - **Type:** Editorial serif for display (Fraunces or PP Editorial New), geometric sans for body (Inter or Söhne)
-- **Color:** Off-black `#0e0e0e`, paper `#f5f1ea`, accent red `#ff3b2f`, accent gold `#f9a01f`
+- **Color:** Off-black `#0e0e0e`, paper `#f5f1ea`, accent red `#8a8a8a`, accent gold `#a0a0a0`
 - **Motion:** Cinematic. Scroll-reveal. Custom cursor. Magnetic CTAs. Marquee.
 - **Density:** Generous whitespace. Big type. Few words per screen.
 

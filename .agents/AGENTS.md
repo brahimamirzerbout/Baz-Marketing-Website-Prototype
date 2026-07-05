@@ -49,7 +49,7 @@ This project uses the **BlackSwan Design System** (Fibonacci × Da Vinci × Mate
 - Do NOT use shadcn/ui (we have hand-rolled BlackSwan components)
 - Do NOT switch to Tailwind v4 `@theme` syntax (we're on v3)
 - Do NOT use `#F2572B` orange-red as the primary brand color (gold `#C8A55A` is the accent)
-- Do NOT use `#ff3b2f` red as a general color (it's only for the logo mark/favicon)
+- Do NOT use `#8a8a8a` red as a general color (it's only for the logo mark/favicon)
 - Do NOT use violet `hsl(270, 85%, 72%)` as the primary accent (gold monochrome is active)
 - Do NOT replace `app/globals.css` with another design system without merging BlackSwan tokens
 

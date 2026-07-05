@@ -32,7 +32,7 @@ const QUICK_LINKS = [
     label: "Cockpit",
     desc: "Pipeline velocity, wins, forecast",
     icon: Rocket,
-    color: "#ff3b2f",
+    color: "#8a8a8a",
   },
   {
     href: "/hub/triangle",
@@ -53,7 +53,7 @@ const QUICK_LINKS = [
     label: "Sequences",
     desc: "Sales cadences that learn",
     icon: Zap,
-    color: "#f9a01f",
+    color: "#a0a0a0",
   },
   {
     href: "/hub/attribution",
@@ -93,13 +93,13 @@ export default function HubDashboard() {
       label: "Pipeline value",
       value: health ? `$${Math.round(health.pipeline_value || 0).toLocaleString()}` : "—",
       icon: Target,
-      color: "#ff3b2f",
+      color: "#8a8a8a",
     },
     {
       label: "Active sequences",
       value: health?.enrollments_active ?? "—",
       icon: Zap,
-      color: "#f9a01f",
+      color: "#a0a0a0",
     },
     {
       label: "Wins (7d)",

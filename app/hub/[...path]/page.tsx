@@ -1,8 +1,7 @@
-// @ts-nocheck
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Loader2 } from "lucide-react";
 

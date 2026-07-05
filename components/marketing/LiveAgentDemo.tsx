@@ -20,7 +20,7 @@ const agents: {
     id: "leadgen",
     name: "LeadGen",
     role: "Research & outreach",
-    color: "#ff3b2f",
+    color: "#8a8a8a",
     emoji: "◬",
     prompt:
       "Find 3 qualified B2B SaaS leads in the marketing analytics space, $2M–$50M ARR, hiring growth marketers.",

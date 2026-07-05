@@ -32,7 +32,7 @@
   --ring: var(--color-primary);
   --success: var(--color-success);
   --warning: var(--color-warning);
-  --info: #3B82F6;
+  --info: #6a6a6a;
 
   /* ─── Easing ─── */
   --ease: cubic-bezier(0.2, 0, 0, 1);
@@ -60,25 +60,25 @@
   --color-primary-bg:         hsl(var(--seed-hue), var(--seed-sat), 14%);
   --color-primary-bg-hover:   hsl(var(--seed-hue), var(--seed-sat), 22%);
   --color-primary-bg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 8%);
-  --color-success:     hsl(152, 60%, 52%);
-  --color-success-10:  hsl(152, 30%, 14%);
-  --color-success-20:  hsl(152, 40%, 22%);
-  --color-warning:     hsl(38, 80%, 58%);
-  --color-warning-10:  hsl(38, 40%, 14%);
-  --color-warning-20:  hsl(38, 50%, 22%);
-  --color-danger:      hsl(0, 70%, 58%);
-  --color-danger-10:   hsl(0, 35%, 14%);
-  --color-danger-20:   hsl(0, 45%, 22%);
-  --color-success-fg:        hsl(152, 60%, 60%);
-  --color-success-bg:        hsl(152, 30%, 14%);
+  --color-success:     hsl(0, 0%, 52%);
+  --color-success-10:  hsl(0, 0%, 14%);
+  --color-success-20:  hsl(0, 0%, 22%);
+  --color-warning:     hsl(0, 0%, 58%);
+  --color-warning-10:  hsl(0, 0%, 14%);
+  --color-warning-20:  hsl(0, 0%, 22%);
+  --color-danger:      hsl(0, 0%, 58%);
+  --color-danger-10:   hsl(0, 0%, 14%);
+  --color-danger-20:   hsl(0, 0%, 22%);
+  --color-success-fg:        hsl(0, 0%, 60%);
+  --color-success-bg:        hsl(0, 0%, 14%);
   --color-success-border:     var(--color-success);
-  --color-warning-fg:        hsl(38, 80%, 62%);
-  --color-warning-bg:        hsl(38, 40%, 14%);
+  --color-warning-fg:        hsl(0, 0%, 62%);
+  --color-warning-bg:        hsl(0, 0%, 14%);
   --color-warning-border:     var(--color-warning);
-  --color-danger-fg:         hsl(0, 70%, 62%);
-  --color-danger-bg:         hsl(0, 35%, 14%);
+  --color-danger-fg:         hsl(0, 0%, 62%);
+  --color-danger-bg:         hsl(0, 0%, 14%);
   --color-danger-border:      var(--color-danger);
-  --color-danger-hover:       hsl(0, 70%, 52%);
+  --color-danger-hover:       hsl(0, 0%, 52%);
 }
 
 * { box-sizing: border-box; }

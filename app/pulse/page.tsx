@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Section, Eyebrow, SectionHeading } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { CtaBanner } from "@/components/marketing/CtaBanner";
@@ -20,13 +19,6 @@ export const revalidate = 0;
 function pct(n: number, total: number): string {
   if (total === 0) return "0%";
   return `${Math.round((n / total) * 100)}%`;
-}
-
-function scoreBand(score: number): { label: string; color: string; lo: number; hi: number } {
-  if (score >= 75) return { label: "Hot", color: "text-accent", lo: 75, hi: 100 };
-  if (score >= 50) return { label: "Warm", color: "text-warning", lo: 50, hi: 74 };
-  if (score >= 25) return { label: "Cool", color: "text-foreground", lo: 25, hi: 49 };
-  return { label: "Cold", color: "text-muted-foreground/60", lo: 0, hi: 24 };
 }
 
 export default async function PulsePage() {

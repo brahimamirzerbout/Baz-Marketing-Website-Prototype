@@ -63,10 +63,10 @@ baz/
 │   └── baz.db                   # SQLite database (166 leads, 132 users)
 ├── public/
 │   ├── fonts/                   # Local WOFF2 fonts (fraunces, inter, jetbrains-mono)
-│   ├── favicon.svg              # Red #ff3b2f B mark
+│   ├── favicon.svg              # Red #8a8a8a B mark
 │   └── og/                      # OG image assets
 ├── assets/brand/
-│   ├── logo/                    # Logo assets (RED #ff3b2f system, not Aurelian)
+│   ├── logo/                    # Logo assets (RED #8a8a8a system, not Aurelian)
 │   └── README.md                # Brand kit index
 ├── tailwind.config.ts           # Æther tokens (violet, Fibonacci, Fraunces)
 ├── next.config.mjs               # Next.js config

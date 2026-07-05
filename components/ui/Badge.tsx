@@ -8,8 +8,8 @@ const variants: Record<Variant, string> = {
   default: "bg-muted/70 text-foreground dark:bg-muted dark:text-foreground",
   accent: "bg-accent-soft text-primary",
   success: "bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300",
-  info: "bg-[hsla(210,75%,60%,0.089)] text-[hsl(210,75%,60%)]",
-  warning: "bg-[hsla(38,85%,58%,0.089)] text-[hsl(38,85%,58%)]",
+  info: "bg-[hsla(0,0%,60%,0.089)] text-[hsl(0,0%,60%)]",
+  warning: "bg-[hsla(0,0%,60%,0.089)] text-[hsl(0,0%,60%)]",
   ink: "bg-primary text-foreground dark:bg-background dark:text-foreground",
 };
 

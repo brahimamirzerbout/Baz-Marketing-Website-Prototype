@@ -20,7 +20,7 @@ export function GuaranteeMicro({
   variant?: Variant;
   className?: string;
 }) {
-  const tone = variant === "emphasized" ? "text-brand" : "text-stone";
+  const tone = variant === "emphasized" ? "text-brand" : "text-muted-foreground";
   return (
     <p
       className={`mt-3 text-[11px] font-sans uppercase tracking-[0.25em] ${tone} ${className}`}

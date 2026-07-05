@@ -43,7 +43,7 @@ export function DesignSystemChecklist({ isOpen, onClose }: ChecklistProps) {
           exit={{ opacity: 0 }}
           onClick={onClose}
           className="fixed inset-0 z-[34] flex items-center justify-center"
-          style={{ background: 'hsla(260, 50%, 0%, 0.610)', backdropFilter: 'blur(8px) saturate(1.618)' }}
+          style={{ background: 'hsla(0, 0%, 0%, 0.610)', backdropFilter: 'blur(8px) saturate(1.618)' }}
         >
           <motion.div
             initial={{ opacity: 0, scale: 1 / PHI, y: 13 }}

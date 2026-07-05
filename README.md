@@ -104,7 +104,7 @@ Each entry in `content/services.ts` is the full payload that drives its detail p
 ## Design system
 
 - **Type:** Fraunces (display) · Inter (body) · JetBrains Mono (numerics). All loaded via `next/font` with `display: swap`.
-- **Palette:** Paper `#faf7f2` / `#f5f1ea`, Ink `#0e0e10`, Accent `#ff3b2f`. Defined as Tailwind tokens.
+- **Palette:** Paper `#faf7f2` / `#f5f1ea`, Ink `#0e0e10`, Accent `#8a8a8a`. Defined as Tailwind tokens.
 - **Motion:** `cubic-bezier(.2,.7,.2,1)` everywhere; reveal-on-scroll via `IntersectionObserver` (no library); marquee via pure CSS; reduced-motion safe.
 - **Components:** `Button` (variants + sizes + auto-tracking), `Card`, `Badge`, `Section` (tones + sizes), `Eyebrow`/`SectionHeading`/`SectionLede`.
 - **Sections:** Hero, LogoMarquee, PillarGrid, ServicesOverview, HowWeWork, KpiBand, Framework, CaseStudies, Testimonials, InsightsPreview, FinalCta, StatRow, Breadcrumb.

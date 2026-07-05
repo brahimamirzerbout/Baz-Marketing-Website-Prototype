@@ -38,6 +38,6 @@ The deck is one HTML file with inline CSS. Open in any editor.
 - Display font: Fraunces (already self-hosted in `public/fonts/fraunces/`)
 - Body font: Inter (already self-hosted in `public/fonts/inter/`)
 - Mono font: JetBrains Mono (already self-hosted in `public/fonts/jetbrains-mono/`)
-- Colors: `#ff3b2f` accent, `#0e0e10` ink, `#f5f1ea` paper
+- Colors: `#8a8a8a` accent, `#0e0e10` ink, `#f5f1ea` paper
 
 If you open the HTML on a machine without these fonts, it'll fall back to Georgia / system-ui / ui-monospace. The deck still looks good — but for the printed PDF, use a machine that has the fonts.

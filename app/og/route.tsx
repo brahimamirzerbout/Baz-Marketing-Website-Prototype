@@ -41,7 +41,7 @@ export async function GET(req: Request) {
             width: 44,
             height: 44,
             borderRadius: 12,
-            background: "#ff3b2f",
+            background: "#8a8a8a",
             color: "white",
             display: "flex",
             alignItems: "center",

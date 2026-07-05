@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState } from "react";
@@ -21,7 +20,7 @@ const DIMENSIONS = [
 
 type Rating = Record<(typeof DIMENSIONS)[number]["key"], number>;
 
-export function FeedbackForm({ email, name }: { email: string; name: string }) {
+export function FeedbackForm({ email: _email, name }: { email: string; name: string }) {
   const router = useRouter();
   const params = useSearchParams();
   const token = params.get("token");
@@ -49,7 +48,7 @@ export function FeedbackForm({ email, name }: { email: string; name: string }) {
       // first pending feedback request; otherwise error.
       let finalToken = token;
       if (!finalToken) {
-        const r = await fetch("/api/feedback/request", {
+        await fetch("/api/feedback/request", {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ customerId: "" }),
@@ -79,7 +78,7 @@ export function FeedbackForm({ email, name }: { email: string; name: string }) {
       setDone(true);
       setTimeout(() => router.push("/portal"), 1500);
     } catch (err: unknown) {
-      setError(err?.message || "network_error");
+      setError(err instanceof Error ? err.message : "network_error");
     } finally {
       setBusy(false);
     }

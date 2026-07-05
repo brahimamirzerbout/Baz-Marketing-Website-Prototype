@@ -63,7 +63,7 @@ export function buildMetadata({
  * Apply alongside `metadata` in each page or layout.
  */
 export const viewport = {
-  themeColor: "#b87adb",
+  themeColor: "#C8A55A",
   width: "device-width",
   initialScale: 1,
   colorScheme: "dark",

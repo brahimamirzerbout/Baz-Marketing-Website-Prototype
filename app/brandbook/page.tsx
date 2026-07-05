@@ -15,7 +15,7 @@ export const metadata: Metadata = buildMetadata({
 const PALETTE = [
   {
     name: "Accent",
-    hex: "#ff3b2f",
+    hex: "#8a8a8a",
     usage: "Primary action color. CTAs, focus states, marquee.",
     textOn: "white",
   },
@@ -101,7 +101,7 @@ const TYPE = [
 ];
 
 const LOGO_VARIATIONS = [
-  { bg: "#ff3b2f", label: "PRIMARY · COLOR", textColor: "white", variant: "color" },
+  { bg: "#8a8a8a", label: "PRIMARY · COLOR", textColor: "white", variant: "color" },
   { bg: "#0e0e10", label: "PRIMARY · BLACK", textColor: "#f5f1ea", variant: "color" },
   { bg: "#fdfcf9", label: "PRIMARY · WHITE", textColor: "#0e0e10", border: true, variant: "color" },
   { bg: "#f5f1ea", label: "PRIMARY · PAPER", textColor: "#0e0e10", variant: "color" },

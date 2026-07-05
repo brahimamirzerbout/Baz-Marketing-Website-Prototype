@@ -25,7 +25,7 @@ export function Modal({ isOpen, onClose, title, children, width = 610, closeOnBa
           exit={{ opacity: 0 }}
           transition={{ duration: DURATION.swift / 1000 }}
           className="fixed inset-0 z-[34] flex items-center justify-center"
-          style={{ background: 'hsla(260, 50%, 0%, 0.610)', backdropFilter: 'blur(8px) saturate(1.618)' }}
+          style={{ background: 'hsla(0, 0%, 0%, 0.610)', backdropFilter: 'blur(8px) saturate(1.618)' }}
           onClick={() => closeOnBackdrop && onClose()}
         >
           <motion.div

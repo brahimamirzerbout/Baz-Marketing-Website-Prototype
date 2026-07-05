@@ -77,7 +77,7 @@
 .btn-outline {
   background: transparent;
   color: var(--c-ink-900);
-  border-color: hsl(0, 0%, 74%);
+  border-color: var(--border);
 }
 
 .btn-outline:hover {
@@ -92,7 +92,7 @@
 }
 
 .btn-ghost:hover {
-  background: hsl(0, 0%, 90%);
+  background: var(--surface);
 }
 
 .btn-danger {
@@ -102,7 +102,7 @@
 }
 
 .btn-danger:hover {
-  background: hsl(0, 78%, 45%);
+  background: var(--color-danger);
   transform: translateY(-1px);
 }
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState } from "react";
@@ -37,7 +36,7 @@ export function BriefForm({ email, name }: { email: string; name: string }) {
       setDone(true);
       setTimeout(() => router.push("/portal"), 1200);
     } catch (err: unknown) {
-      setError(err?.message || "network_error");
+      setError(err instanceof Error ? err.message : "network_error");
     } finally {
       setBusy(false);
     }

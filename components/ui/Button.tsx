@@ -11,17 +11,17 @@ type Size = "sm" | "md" | "lg";
 
 const base =
   "inline-flex items-center justify-center gap-2 font-display font-semibold uppercase tracking-[0.15em] transition-all duration-300 " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 " +
-  "focus-visible:ring-offset-ink disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 " +
+  "focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
   primary:
     "bg-white text-ink",
   secondary:
     "bg-brand text-white",
-  ghost: "bg-transparent text-sand",
-  outline: "bg-transparent text-sand border border-white/20",
-  soft: "bg-panel text-sand",
+  ghost: "bg-transparent text-muted-foreground",
+  outline: "bg-transparent text-muted-foreground border border-[var(--border)]",
+  soft: "bg-muted text-muted-foreground",
 };
 
 const sizes: Record<Size, string> = {

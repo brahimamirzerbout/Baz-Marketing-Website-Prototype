@@ -101,7 +101,7 @@ function bootstrap(db: SqliteDb) {
       role        TEXT NOT NULL DEFAULT 'member',  -- owner | admin | member | client
       team        TEXT,                              -- operations | strategy | design | engineering | finance | growth
       initials    TEXT NOT NULL,
-      color       TEXT NOT NULL DEFAULT '#ff3b2f',
+      color       TEXT NOT NULL DEFAULT '#8a8a8a',
       created_at  INTEGER NOT NULL DEFAULT (strftime('%s','now') * 1000)
     );
 
@@ -257,7 +257,7 @@ function bootstrap(db: SqliteDb) {
     const id = `u_${crypto.randomBytes(6).toString("hex")}`;
     db.prepare(
       `INSERT INTO users (id, email, name, password_hash, role, team, initials, color)
-                VALUES (?, ?, ?, ?, 'owner', 'strategy', 'BZ', '#ff3b2f')`,
+                VALUES (?, ?, ?, ?, 'owner', 'strategy', 'BZ', '#8a8a8a')`,
     ).run(id, ownerEmail, "BAZ Operator", bcrypt.hashSync(ownerPassword, 10));
     db.prepare("INSERT INTO audit (actor, action, target, meta) VALUES (?, ?, ?, ?)").run(
       id,

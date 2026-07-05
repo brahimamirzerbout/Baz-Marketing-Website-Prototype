@@ -32,7 +32,7 @@ export function DownloadButton() {
       type="button"
       onClick={handleDownload}
       disabled={busy}
-      className="inline-flex items-center gap-2 bg-transparent border border-white/30 text-white hover:bg-white/10 disabled:opacity-60 transition-colors px-5 h-11 rounded-full font-medium"
+      className="inline-flex items-center gap-2 bg-transparent border border-border text-foreground hover:bg-muted disabled:opacity-60 transition-colors px-5 h-11 rounded-full font-medium"
     >
       {busy ? "Saving…" : "Download .html"}
     </button>

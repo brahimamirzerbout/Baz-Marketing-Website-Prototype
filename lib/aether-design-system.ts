@@ -519,8 +519,8 @@ export const M3_COLOR_MAP = {
   'neutral10':   { m3: '#1d1b20',     aether: 'L2', hsl: 'hsl(41, 12%, 9%)' },   // surface-low
   'neutral12':   { m3: '#211f26',     aether: 'L3', hsl: 'hsl(41, 11%, 13%)' },  // surface-container
   'neutral17':   { m3: '#2b2930',     aether: 'L4', hsl: 'hsl(41, 10%, 18%)' },  // surface-container-high
-  'neutral22':   { m3: '#36343b',     aether: 'L5', hsl: 'hsl(262, 12%, 24%)' },  // surface-container-highest
-  'neutral24':   { m3: '#3b383e',     aether: 'L6', hsl: 'hsl(264, 15%, 32%)' },  // surface-bright
+  'neutral22':   { m3: '#36343b',     aether: 'L5', hsl: 'hsl(0, 0%, 24%)' },  // surface-container-highest
+  'neutral24':   { m3: '#3b383e',     aether: 'L6', hsl: 'hsl(0, 0%, 32%)' },  // surface-bright
   'neutral80':   { m3: '#cac5cd',     aether: 'text-secondary', hsl: 'hsl(41, 6%, 65%)' },
   'neutral90':   { m3: '#e6e0e9',     aether: 'text-primary',   hsl: 'hsl(41, 8%, 98%)' },
   'neutral-variant30': { m3: '#49454f', aether: 'surface-variant', hsl: 'hsl(41, 8%, 15%)' },

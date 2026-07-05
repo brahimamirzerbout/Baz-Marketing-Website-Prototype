@@ -1,7 +1,5 @@
-// @ts-nocheck
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { PostsList } from "@/components/marketing/PostsList";
@@ -55,8 +53,7 @@ export default function PostDetailPage({ params }: Params) {
     .split(/\n\n+/)
     .map((p) => p.trim())
     .filter(Boolean);
-  const cat = categoryLabel[post.category];
-  const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const cat = categoryLabel[post.category]!;
 
   return (
     <>

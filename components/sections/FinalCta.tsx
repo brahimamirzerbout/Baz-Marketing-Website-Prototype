@@ -47,7 +47,7 @@ export function FinalCta() {
               variant="outline"
               size="lg"
               trackAs="final_contact"
-              className="border-white/15 text-[var(--foreground)]/80"
+              className="border-border text-muted-foreground"
             >
               Request a paid audit first
             </Button>
@@ -64,7 +64,7 @@ export function FinalCta() {
         </div>
 
         {/* Footer signature strip */}
-        <div className="mt-20 pt-8 border-t border-white/8 flex items-center justify-between">
+        <div className="mt-20 pt-8 border-t border-border/50 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span
               className="royal-seal"
@@ -72,13 +72,13 @@ export function FinalCta() {
             >
               B
             </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/30">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
               Senior team · No juniors · Algiers · EU · US
             </span>
           </div>
           <a
             href={`mailto:${site.email}`}
-            className="text-sm text-white/30 hover:text-[var(--foreground)] transition-colors"
+            className="text-sm text-muted-foreground hover:text-[var(--foreground)] transition-colors"
           >
             {site.email}
           </a>

@@ -431,7 +431,7 @@ function Chart({
       <path
         d={path}
         fill="none"
-        stroke="#ff3b2f"
+        stroke="#8a8a8a"
         strokeWidth={2.5}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -439,7 +439,7 @@ function Chart({
       {line.map((v, i) => {
         const x = PAD_L + i * (barW + gap) + barW / 2;
         const y = PAD_T + innerH * (1 - v / maxLine);
-        return <circle key={i} cx={x} cy={y} r={2.5} fill="#ff3b2f" />;
+        return <circle key={i} cx={x} cy={y} r={2.5} fill="#8a8a8a" />;
       })}
       {/* X axis labels (every 4th) */}
       {bars.map((_, i) =>

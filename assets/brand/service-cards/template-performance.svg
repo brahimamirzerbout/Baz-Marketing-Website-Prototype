@@ -5,7 +5,7 @@
   <rect width="600" height="800" fill="#0e0e10"/>
 
   <!-- Top accent strip -->
-  <rect width="600" height="8" fill="#ff3b2f"/>
+  <rect width="600" height="8" fill="#8a8a8a"/>
 
   <g transform="translate(48, 64)">
     <text font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#faf7f2" opacity="0.5">PILLAR 02 · PAID</text>
@@ -27,7 +27,7 @@
   </g>
 
   <g transform="translate(48, 450)">
-    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#ff3b2f" letter-spacing="-1">1.8 → 4.6</text>
+    <text font-family="Fraunces, serif" font-size="40" font-weight="500" fill="#8a8a8a" letter-spacing="-1">1.8 → 4.6</text>
     <text font-family="Inter, sans-serif" font-size="13" fill="#faf7f2" opacity="0.6" y="22">ROAS lifted in 90 days (ViralVista)</text>
   </g>
 
@@ -42,7 +42,7 @@
   </g>
 
   <g transform="translate(48, 740)">
-    <rect width="32" height="32" rx="7" fill="#ff3b2f"/>
+    <rect width="32" height="32" rx="7" fill="#8a8a8a"/>
     <text x="16" y="23" font-family="Fraunces, serif" font-size="22" font-weight="600" fill="#faf7f2" text-anchor="middle">B</text>
     <text x="44" y="22" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="#faf7f2" letter-spacing="2">BAZ · PERFORMANCE</text>
   </g>

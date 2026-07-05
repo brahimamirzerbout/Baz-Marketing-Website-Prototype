@@ -144,7 +144,7 @@ BAZ uses the BlackSwan Design System for components — **never shadcn/ui**. All
 ### ❌ Don't
 - Use violet as a background fill for large areas
 - Apply drop shadows, outer glows, or heavy reflections to the wordmark
-- Mix gold (#f9a01f) and red (#ff3b2f) as simultaneous accents
+- Mix gold (#a0a0a0) and red (#8a8a8a) as simultaneous accents
 - Use shadcn/ui components — always use BlackSwan
 - Use arbitrary 4px/8px/12px radius values — stick to Fibonacci
 - Use Playfair Display (use Fraunces instead)

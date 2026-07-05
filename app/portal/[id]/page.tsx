@@ -1,7 +1,5 @@
-// @ts-nocheck
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
-import { Button } from "@/components/ui/Button";
 import { CtaBanner } from "@/components/marketing/CtaBanner";
 import { PortalView } from "@/components/marketing/PortalView";
 import { buildMetadata } from "@/lib/seo";

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useEffect, useState } from "react";
@@ -437,10 +436,10 @@ function ScoutPanel() {
           width: 100%;
           padding: 10px 14px;
           border-radius: 12px;
-          background: hsl(260, 14%, 6.5%);
-          border: 1px solid hsl(260, 12%, 18%);
+          background: hsl(0, 0%, 6.5%);
+          border: 1px solid hsl(0, 0%, 18%);
           font-size: 14px;
-          color: hsl(260, 8%, 98%);
+          color: hsl(0, 0%, 98%);
         }
         :global(.input:focus) {
           outline: none;
@@ -732,7 +731,7 @@ function ToolsPanel() {
       const j = await r.json();
       setResult({ text: j.text, provider: j.provider, error: j.error });
     } catch (err: unknown) {
-      setResult({ text: null, provider: null, error: err?.message ?? "unknown" });
+      setResult({ text: null, provider: null, error: err instanceof Error ? err.message : "unknown" });
     } finally {
       setRunning(false);
     }

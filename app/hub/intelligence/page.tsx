@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useEffect, useState } from "react";
@@ -7,13 +6,46 @@ import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
 const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
+interface ArticleItem {
+  title: string;
+  url: string;
+  source?: string;
+  author?: string;
+  published_at?: string;
+}
+
+interface TrendItem {
+  name?: string;
+  term?: string;
+  label?: string;
+}
+
+interface LexiconItem {
+  term?: string;
+  name?: string;
+  definition?: string;
+  def?: string;
+}
+
+interface LibraryItem {
+  name: string;
+  category: string;
+}
+
+interface TriangleStatus {
+  ok: boolean;
+  pipeline_value?: number;
+  enrollments_active?: number;
+  triangle_velocity?: number;
+}
+
 export default function IntelligencePage() {
-  const [dive, setDive] = useState<any[]>([]);
-  const [wire, setWire] = useState<any[]>([]);
-  const [trends, setTrends] = useState<any[]>([]);
-  const [lexicon, setLexicon] = useState<any[]>([]);
-  const [library, setLibrary] = useState<any[]>([]);
-  const [triangle, setTriangle] = useState<Record<string, unknown> | null>(null);
+  const [dive, setDive] = useState<ArticleItem[]>([]);
+  const [wire, setWire] = useState<ArticleItem[]>([]);
+  const [trends, setTrends] = useState<TrendItem[]>([]);
+  const [lexicon, setLexicon] = useState<LexiconItem[]>([]);
+  const [library, setLibrary] = useState<LibraryItem[]>([]);
+  const [triangle, setTriangle] = useState<TriangleStatus | null>(null);
 
   useEffect(() => {
     async function load() {
@@ -112,7 +144,7 @@ export default function IntelligencePage() {
             desc="Seth Godin, Schwartz, and industry bloggers — scored and ranked"
           >
             {wire.map((a, i) => (
-              <ArticleRow key={i} title={a.title} url={a.url} source={a.source} author={a.author} />
+              <ArticleRow key={i} title={a.title} url={a.url} source={a.source ?? "The Wire"} author={a.author} />
             ))}
           </Section>
         </ScrollReveal>

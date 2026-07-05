@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useEffect, useState } from "react";
@@ -11,8 +10,16 @@ import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
 const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
+interface TriangleHealth {
+  ok: boolean;
+  contacts_scored_24h: number;
+  enrollments_active: number;
+  pipeline_value: number;
+  triangle_velocity: number;
+}
+
 export default function TrianglePage() {
-  const [health, setHealth] = useState<Record<string, unknown> | null>(null);
+  const [health, setHealth] = useState<TriangleHealth | null>(null);
   const [running, setRunning] = useState(false);
 
   useEffect(() => {
@@ -159,7 +166,7 @@ export default function TrianglePage() {
             {
               t: "6. Report",
               d: "Pipeline value, velocity, wins/day — one cockpit, no spreadsheets.",
-              color: "#f9a01f",
+              color: "#a0a0a0",
             },
           ].map((s, i) => (
             <motion.div

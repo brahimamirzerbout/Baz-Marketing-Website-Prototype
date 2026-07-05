@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useEffect, useState } from "react";
@@ -18,6 +17,11 @@ import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
 const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
 
+interface TickAction {
+  kind: string;
+  detail: string;
+}
+
 interface LoopHealth {
   ok: boolean;
   last_tick_at: number | null;
@@ -27,7 +31,7 @@ interface LoopHealth {
     stepped: number;
     won: number;
     lost: number;
-    actions: Record<string, unknown>[];
+    actions: TickAction[];
   } | null;
   contacts_scored_24h: number;
   enrollments_active: number;
@@ -82,13 +86,13 @@ export default function CockpitPage() {
       value: h ? `$${Math.round(h.pipeline_value).toLocaleString()}` : "—",
       sub: `${h?.deals_in_pipeline ?? 0} deals`,
       icon: Target,
-      color: "#ff3b2f",
+      color: "#8a8a8a",
     },
     {
       label: "Wins/day (7d)",
       value: h ? h.triangle_velocity.toFixed(2) : "—",
       icon: TrendingUp,
-      color: "#f9a01f",
+      color: "#a0a0a0",
     },
   ];
 

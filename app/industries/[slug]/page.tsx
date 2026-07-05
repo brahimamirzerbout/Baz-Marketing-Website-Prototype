@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Section, Eyebrow, SectionHeading, SectionLede } from "@/components/ui/Section";
@@ -39,7 +38,10 @@ export default function IndustryDetailPage({ params }: Params) {
   if (!ind) notFound();
 
   const relevantCases = caseStudies
-    .filter((c) => c.industry.toLowerCase().includes(ind.name.toLowerCase().split(" ")[0]))
+    .filter((c) => {
+      const term = ind.name.toLowerCase().split(" ")[0];
+      return term ? c.industry.toLowerCase().includes(term) : false;
+    })
     .slice(0, 3);
 
   return (

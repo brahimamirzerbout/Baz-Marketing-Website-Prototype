@@ -80,7 +80,7 @@ The icon mark requires a minimum padding of **25% of its rendered width** on all
 - **Never** apply gradient fills to the wordmark
 - **Never** apply drop shadows or outer glows to the wordmark
 - **Never** place the wordmark over complex photography without a scrim overlay
-- **Never** use the gold accent (#f9a01f) as the wordmark color
+- **Never** use the gold accent (#a0a0a0) as the wordmark color
 
 ---
 

@@ -15,7 +15,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-background">
         {/* Subtle dark grid overlay */}
         <div
           aria-hidden
@@ -44,7 +44,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
             className="font-display text-hero font-normal uppercase tracking-tight leading-[1.05] text-white max-w-5xl"
           >
             <span className="block">{v.headline}</span>
-            <span className="block mt-3 sm:mt-4 text-sand/40">{v.tagline}</span>
+            <span className="block mt-3 sm:mt-4 text-foreground/30">{v.tagline}</span>
           </motion.h1>
 
           {/* CTA — pill button, orange fill */}
@@ -73,7 +73,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
 
           {/* Outcome strip — 4 metrics */}
           <ScrollReveal y={20} delay={0.8} duration={0.5}>
-            <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 border-t border-white/10 pt-8">
+            <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 border-t border-border pt-8">
               {[
                 { v: "$200K+", l: "Pipeline in 90 days", sub: "or month 4 free" },
                 { v: "4×", l: "Pipeline coverage", sub: "≥ 3× target" },
@@ -90,8 +90,8 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
                   <p className="font-display text-2xl sm:text-3xl font-normal uppercase tracking-tight text-white">
                     {s.v}
                   </p>
-                  <p className="mt-1 text-sm font-medium text-sand">{s.l}</p>
-                  <p className="text-xs text-stone">{s.sub}</p>
+                  <p className="mt-1 text-sm font-medium text-muted-foreground">{s.l}</p>
+                  <p className="text-xs text-muted-foreground/50">{s.sub}</p>
                 </motion.div>
               ))}
             </div>
@@ -99,13 +99,13 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
 
           {/* Stack row */}
           <ScrollReveal y={16} delay={1.0} duration={0.5}>
-            <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-stone">
-              <span className="font-mono uppercase tracking-[0.25em] text-[10px] text-stone/50">
+            <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground/50">
+              <span className="font-mono uppercase tracking-[0.25em] text-[10px] text-muted-foreground/30">
                 Stack
               </span>
               {site.stack.map((name, i, arr) => (
                 <span key={name} className="flex items-center gap-x-8">
-                  <span className="font-display font-semibold text-sand">{name}</span>
+                  <span className="font-display font-semibold text-muted-foreground">{name}</span>
                   {i < arr.length - 1 && <span className="opacity-20">·</span>}
                 </span>
               ))}
@@ -124,7 +124,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
         ].filter((s) => s.v != null && s.v !== "");
         if (stats.length === 0) return null;
         return (
-          <section className="bg-panel border-y border-white/[0.06]">
+          <section className="bg-muted border-y border-border/60">
             <div className="max-w-[86rem] mx-auto px-6 lg:px-8 py-12 grid grid-cols-2 lg:grid-cols-4 gap-px">
               {stats.map((s, i) => (
                 <motion.div
@@ -138,7 +138,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
                   <p className="font-display text-3xl sm:text-5xl font-normal uppercase tracking-tight text-white">
                     {s.v}
                   </p>
-                  <p className="mt-2 font-sans text-[11px] tracking-[0.25em] uppercase text-stone">
+                  <p className="mt-2 font-sans text-[11px] tracking-[0.25em] uppercase text-muted-foreground/50">
                     {s.l}
                   </p>
                 </motion.div>
@@ -149,7 +149,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
       })()}
 
       {/* Agent demo — bg-ink */}
-      <section className="bg-ink py-24 sm:py-32">
+      <section className="bg-background py-24 sm:py-32">
         <div className="max-w-[86rem] mx-auto px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
             <div>
@@ -158,7 +158,7 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
                 Press play. Watch a senior operator execute.
               </h2>
             </div>
-            <p className="text-sm text-stone max-w-sm">
+            <p className="text-sm text-muted-foreground/50 max-w-sm">
               Each agent is a real workflow our team runs daily. Output below is what you&apos;d
               get on the first call — only faster.
             </p>

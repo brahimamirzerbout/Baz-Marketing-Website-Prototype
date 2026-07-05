@@ -11,7 +11,7 @@
 
 :root {
   /* ━━━ Seed ━━━ Change these three values to rebrand the entire system ━━━ */
-  --seed-hue: 270;       /* Gold — warm, luxurious, executive */
+  --seed-hue: 41;       /* Gold — warm, luxurious, executive */
   --seed-sat: 85%;      /* Rich saturation */
   --seed-lum: 50%;      /* Balanced lightness */
 
@@ -87,8 +87,8 @@
   --accent-900:          var(--color-primary-90);
 
   /* ── Secondary Brand Accents (use sparingly) ── */
-  --accent-gold: #f9a01f;
-  --accent-red: #ff3b2f;
+  --accent-gold: #a0a0a0;
+  --accent-red: #8a8a8a;
 
   /* ━━━ BlackSwan Derived Palette (computed from seed) ━━━ */
   --color-primary: hsl(var(--seed-hue), var(--seed-sat), var(--seed-lum));

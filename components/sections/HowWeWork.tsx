@@ -47,7 +47,7 @@ export function HowWeWork() {
             key={s.n}
             className="reveal relative bg-background rounded-2xl p-6 border border-border dark:border-border overflow-hidden"
           >
-            {/* Oversized step number — Pattern 6 + 44 */}}
+            {/* Oversized step number — Pattern 6 + 44 */}
             <span
               aria-hidden
               className="absolute -top-3 -right-1 font-display text-[72px] md:text-[96px] font-bold leading-none text-muted-foreground/[0.06] select-none"

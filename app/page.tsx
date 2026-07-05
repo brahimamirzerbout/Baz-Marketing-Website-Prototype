@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   Hero,
   PillarGrid,
@@ -15,7 +14,6 @@ import {
   MarketingHubBanner,
   ProofNumbers,
   ReadNext,
-  PipelineTicker,
   StickyCta,
 } from "@/components/sections";
 import { SectionErrorBoundary } from "@/components/ui/SectionErrorBoundary";

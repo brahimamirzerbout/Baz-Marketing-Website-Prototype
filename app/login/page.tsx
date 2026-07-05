@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { Suspense, useState } from "react";
@@ -31,7 +30,7 @@ function LoginForm() {
       }
       router.push(next);
     } catch (err: unknown) {
-      setError(err?.message || "network_error");
+      setError(err instanceof Error ? err.message : "network_error");
     } finally {
       setBusy(false);
     }

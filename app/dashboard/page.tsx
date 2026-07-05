@@ -1,4 +1,3 @@
-// @ts-nocheck
 import Link from "next/link";
 import nextDynamic from "next/dynamic";
 import { Section, Eyebrow } from "@/components/ui/Section";
@@ -80,7 +79,6 @@ export default async function DashboardPage({
 
   const [leads, stats] = await Promise.all([readLeadsWithStatus(), getLeadStats()]);
 
-  const newLeads = leads.filter((l) => l.status === "new");
   const recent = leads.slice(0, 20);
 
   const replyRate = stats.total > 0 ? Math.round((stats.byStatus.replied / stats.total) * 100) : 0;

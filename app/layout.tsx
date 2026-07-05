@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { site } from '@/lib/site';
@@ -6,17 +5,23 @@ import { organizationLd, websiteLd, jsonLd } from '@/lib/seo';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/layout/CookieBanner';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@/components/analytics/Analytics';
 import { ScrollReveal } from '@/components/marketing/ScrollReveal';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { AetherBackground } from '@/components/ui/AetherBackground';
-import '../brand/css/blackswan-tokens.css';
+import '../brand/css/blackswan-tokens.css';  /* → aether-tokens.css via @import */
+import '../brand/css/variables-unified.css'; /* Stitch + Protocol overlay */
+import '../brand/css/stitch-bridge.css';     /* Stitch Material 3 → ÆTHER bridge */
 import '../brand/css/typography.css';
 import '../brand/css/buttons.css';
 import '../brand/css/cards.css';
 import '../brand/css/forms.css';
 import '../brand/css/utilities.css';
+import './aether-monochrome.css';
 import './globals.css';
 
 const sans = localFont({
@@ -89,7 +94,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#b87adb',  // Æther violet
+  themeColor: '#C8A55A',  // Æther gold (seed 41)
   width: 'device-width',
   initialScale: 1,
 };
@@ -112,22 +117,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <AetherBackground />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          themes={["dark"]}
-          storageKey="baz:theme"
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <a href="#main" className="skip">Skip to content</a>
           {/* Cursor removed */}
+          <ScrollProgress />
           <Header />
           <main id="main">{children}</main>
           <Footer />
           <CookieBanner />
           <ScrollReveal />
           <Analytics />
+          <VercelAnalytics />
+          <SpeedInsights />
           <SmoothScroll />
         </ThemeProvider>
 

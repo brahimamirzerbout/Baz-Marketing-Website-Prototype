@@ -1,10 +1,12 @@
 # BAZ — Design Tokens (Unified)
 
-The visual language of the site, merging **BlackSwan monochrome gold**, **Stitch Material 3**, and the **protocol layer** (Fraunces/Inter/JetBrains Mono + Fibonacci radii).
+The visual language of the site, merging **ÆTHER (gold seed)**, **Stitch Material 3**, and the **protocol layer** (Fraunces/Inter/JetBrains Mono + Fibonacci radii).
 
-> Source of truth: `brand/css/variables-unified.css` (all three systems unified)
+> Algorithmic engine: `brand/css/aether-tokens.css` (seed 41 → gold)
+> Brand overlay: `brand/css/variables-unified.css` (Stitch + Protocol)
+> Stitch bridge: `brand/css/stitch-bridge.css` (M3 token compatibility)
 > Brand voice: `docs/BRAND-BRIEF.md`
-> Stitch assets: `baz/assets/brand/`
+> Stitch assets: `assets/brand/`
 
 ---
 
@@ -12,8 +14,8 @@ The visual language of the site, merging **BlackSwan monochrome gold**, **Stitch
 
 | Layer | Source | Purpose |
 |-------|--------|---------|
-| **BlackSwan Seed** | `--seed-hue: 41` | Algorithmic gold monochrome palette |
-| **Stitch M3** | `DESIGN-stitch.md` | Brand-specific dark palette, Material 3 tokens |
+| **ÆTHER Seed** | `--seed-hue: 41` in `aether-tokens.css` | Algorithmic gold monochrome palette (254 tokens) |
+| **Stitch M3** | `variables-unified.css` + `stitch-bridge.css` | Brand-specific dark palette, Material 3 tokens |
 | **Protocol** | `AGENTS.md` | Fonts, radii, component system |
 
 ---
@@ -35,16 +37,16 @@ Fonts are self-hosted in `public/fonts/` via `next/font/local`. CSS variables: `
 
 ---
 
-## Colors — BlackSwan Monochrome Gold (Seed-hue: 41)
+## Colors — ÆTHER Gold Monochrome (Seed-hue: 41)
 
 | Token | Value | Use |
 |---|---|---|
-| `--color-primary` | `hsl(41, 72%, 50%)` | BlackSwan-computed gold |
+| `--color-primary` | `hsl(41, 72%, 50%)` | ÆTHER-computed gold |
 | `--color-primary-30` | `hsl(41, 72%, 72%)` | Light gold accent |
 | `--color-primary-50` | `hsl(41, 72%, 52%)` | Standard gold |
 | `--color-primary-70` | `hsl(41, 72%, 32%)` | Deep gold |
 
-## Colors — Stitch Brand Tokens
+## Colors — Stitch Brand Tokens (Preserved)
 
 | Token | Value | Use |
 |---|---|---|
@@ -91,29 +93,30 @@ Fonts are self-hosted in `public/fonts/` via `next/font/local`. CSS variables: `
 
 ## Components
 
-- **Primary Button**: Gold gradient (`#8D6B2E` to `#C8A55A`), white text, Fibonacci radius
+- **Primary Button**: Gold (gold primary), white text, rounded-md
 - **Secondary Button**: Transparent, gold border, gold text
-- **Cards**: Subtle borders (`border-white/10` on dark, `border-paper-100` on light)
-- **Logo Watermarks**: Ghostly "BAZ" script at 6% opacity behind hero headings
-- **Nav**: Fixed, transparent → solid with backdrop-blur
+- **Cards**: Subtle borders, rounded-xl
+- **Nav**: Sticky, transparent → solid with backdrop-blur
 
 ---
 
 ## Interaction (Motion)
 
-- **Scroll Reveal**: `<Reveal>` component with fade-up
-- **Magnetic CTA**: `<Magnetic strength={0.3}>` on primary CTA
-- **Hover**: Subtle lift (`-2px`) and shadow increase
-- **Custom cursor**: `<Cursor />` with violet/gold highlight
+- **Scroll Reveal**: `<ScrollReveal>` component with fade-up
+- **Hover**: Subtle lift and shadow increase
+- **Focus**: ÆTHER ring with gold accent
 
 ---
 
 ## Stitch Asset Integration
 
-All 28 Stitch-generated brand assets live in `baz/assets/brand/`:
+All 47 Stitch-generated brand assets live in `assets/brand/`:
 - Logo (master, signature, app icon, favicons, SVGs)
 - Business cards (front, back, mockup, alt, print)
 - Letterhead, email header
 - Social media (LinkedIn, profile, card, landscape)
 - Presentation folder (flat, mockup, matte, front, print)
 - Website (full page, Stitch HTML, DESIGN.md)
+- Service cards, pitch deck, lead magnets, case studies
+
+See `docs/stitch-assets-report.md` for full file inventory.

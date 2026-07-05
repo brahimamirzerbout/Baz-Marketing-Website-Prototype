@@ -167,17 +167,17 @@
 
 .baz-ink .baz-body-lead,
 .baz-ink .baz-body {
-  color: hsl(270, 6%, 68%);
+  color: var(--muted);
 }
 
 .baz-ink .baz-meta {
-  color: hsl(270, 6%, 46%);
+  color: var(--faint);
 }
 
 /* ━━━ Selection ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
 
 ::selection {
-  background: var(--accent-200);
+  background: var(--color-primary-200);
   color: var(--c-ink-900);
 }
 

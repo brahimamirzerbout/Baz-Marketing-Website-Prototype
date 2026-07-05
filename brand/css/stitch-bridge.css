@@ -1,0 +1,55 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   S T I T C H   B R I D G E  —  Stitch Material 3 → ÆTHER
+   ═══════════════════════════════════════════════════════════════════════
+
+   Maps Stitch Material 3 design tokens to ÆTHER semantic equivalents.
+   This ensures all 47 Stitch assets remain visually consistent while
+   the algorithmic engine (aether-tokens.css) drives the brand colors.
+
+   All --baz-* variables are preserved for backward compatibility.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ━━━ Named Colors (from Stitch DESIGN.md) ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --baz-gold:            #C8A55A;
+  --baz-gold-dark:       #8D6B2E;
+  --baz-charcoal:        #1F2933;
+  --baz-navy:            #24364A;
+  --baz-sand:            #E8E4E0;
+  --baz-stone:           #B0AAA5;
+  --baz-white:           #FFFFFF;
+
+  /* ━━━ Stitch → ÆTHER Semantic Mappings ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  /* Map Stitch gold tone to ÆTHER primary (seed 41) */
+  --baz-primary:               var(--color-primary);
+  --baz-on-primary:            var(--fg-on-primary);
+  --baz-primary-container:     var(--color-primary-30);
+  --baz-on-primary-container:  var(--color-primary-70);
+  --baz-inverse-primary:       var(--color-primary-50);
+  --baz-primary-fixed:         var(--color-primary-20);
+  --baz-primary-fixed-dim:     var(--color-primary-30);
+
+  /* Map Stitch surface tokens to ÆTHER backgrounds */
+  --baz-surface:                var(--bg);
+  --baz-surface-dim:            var(--bg-muted);
+  --baz-surface-bright:         var(--bg-subtle);
+  --baz-surface-container-lowest: var(--color-neutral-90);
+  --baz-surface-container-low:   var(--bg);
+  --baz-surface-container:       var(--bg-muted);
+  --baz-surface-container-high:  var(--bg-subtle);
+  --baz-surface-container-highest: var(--bg-emphasis);
+  --baz-on-surface:            var(--fg);
+  --baz-on-surface-variant:    var(--fg-muted);
+  --baz-inverse-surface:        var(--fg);
+  --baz-inverse-on-surface:     var(--bg);
+  --baz-outline:                var(--border-strong);
+  --baz-outline-variant:        var(--border);
+
+  /* ━━━ Ring (use Stitch gold as focus ring accent) ━━━ ━━━ ━━━ ━━━ */
+  --ring-color: var(--baz-gold);
+}
+
+/* ━━━ View Transition Origin (used by ThemeToggle) ━━━ ━━━ ━━━ ━━━ ━━━ */
+:root {
+  --baz-vt-origin: 50% 100%;
+}

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 /* ============================================================
-   BAZ — BlackSwan Violet Design System
-   Algorithmically derived from three seed values.
+   BAZ — ÆTHER Gold Design System
+   Algorithmically derived from three seed values (seed 41 = gold).
    Fonts: Inter · Fraunces · JetBrains Mono
    ============================================================ */
 
@@ -12,30 +12,23 @@
 :root {
   --brand: var(--color-primary);
   --brand2: var(--color-accent);
-  --ink: var(--color-neutral-100);
-  --panel: var(--color-neutral-5);
-  --panel-2: var(--color-neutral-20);
-  --sand: var(--fg);
-  --stone: var(--fg-muted);
-  --wa: #25D366;
 
   /* ─── Semantic tokens (Tailwind compat) ─── */
   --background: var(--bg);
   --foreground: var(--fg);
-  --card: var(--bg);
   --card-foreground: var(--fg);
-  --popover: var(--bg);
+  --popover: var(--surface);
   --popover-foreground: var(--fg);
   --primary: var(--color-primary);
   --primary-foreground: var(--fg-on-primary);
   --secondary: var(--color-primary);
   --secondary-foreground: var(--fg-on-primary);
-  --muted: var(--bg-muted);
-  --muted-foreground: var(--fg-muted);
+  --muted: var(--surface);
+  --muted-foreground: var(--muted);
   --accent: var(--color-primary);
   --accent-foreground: var(--fg-on-primary);
   --destructive: var(--color-danger);
-  --input: var(--border-strong);
+  --input: var(--border);
   --ring: var(--color-primary);
   --success: var(--color-success);
   --warning: var(--color-warning);
@@ -49,21 +42,8 @@
 .font-display { font-family: var(--font-display, 'Fraunces', ui-serif, serif); }
 .font-mono { font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); }
 
-/* ─── Dark mode forced via .dark class ─── */
-.dark {
-  /* Override blackswan-tokens light defaults for forced dark mode */
-  --color-neutral-0:    hsl(var(--seed-hue), 8%, 6%);
-  --color-neutral-5:   hsl(var(--seed-hue), 6%, 9%);
-  --color-neutral-10:  hsl(var(--seed-hue), 5%, 14%);
-  --color-neutral-20:  hsl(var(--seed-hue), 4%, 22%);
-  --color-neutral-30:  hsl(var(--seed-hue), 3%, 34%);
-  --color-neutral-40:  hsl(var(--seed-hue), 2%, 46%);
-  --color-neutral-50:  hsl(var(--seed-hue), 1.5%, 56%);
-  --color-neutral-60:  hsl(var(--seed-hue), 1%, 68%);
-  --color-neutral-70:  hsl(var(--seed-hue), 0.8%, 82%);
-  --color-neutral-80:  hsl(var(--seed-hue), 0.5%, 90%);
-  --color-neutral-90:  hsl(var(--seed-hue), 0.3%, 95%);
-  --color-neutral-100: hsl(var(--seed-hue), 0.2%, 98%);
+  /* ─── Dark mode — gold accents over monochrome surfaces ─── */
+  .dark {
   --color-primary-5:   hsl(var(--seed-hue), var(--seed-sat), 8%);
   --color-primary-10:  hsl(var(--seed-hue), var(--seed-sat), 14%);
   --color-primary-20:  hsl(var(--seed-hue), var(--seed-sat), 22%);
@@ -71,26 +51,6 @@
   --color-primary-40:  hsl(var(--seed-hue), var(--seed-sat), 44%);
   --color-accent-10:   hsl(calc(var(--seed-hue) + 30), 85%, 14%);
   --color-accent-20:   hsl(calc(var(--seed-hue) + 30), 85%, 22%);
-  --color-success:     hsl(152, 60%, 52%);
-  --color-success-10:  hsl(152, 30%, 14%);
-  --color-success-20:  hsl(152, 40%, 22%);
-  --color-warning:     hsl(38, 80%, 58%);
-  --color-warning-10:  hsl(38, 40%, 14%);
-  --color-warning-20:  hsl(38, 50%, 22%);
-  --color-danger:      hsl(0, 70%, 58%);
-  --color-danger-10:   hsl(0, 35%, 14%);
-  --color-danger-20:   hsl(0, 45%, 22%);
-  --fg:              var(--color-neutral-80);
-  --fg-muted:        var(--color-neutral-50);
-  --fg-subtle:       var(--color-neutral-40);
-  --fg-on-primary:   hsl(var(--seed-hue), var(--seed-sat), 98%);
-  --fg-inverse:      var(--color-neutral-90);
-  --bg:              var(--color-neutral-0);
-  --bg-muted:        var(--color-neutral-5);
-  --bg-subtle:       var(--color-neutral-10);
-  --bg-emphasis:     var(--color-neutral-50);
-  --border:          hsl(var(--seed-hue), 4%, 18%);
-  --border-strong:   hsl(var(--seed-hue), 4%, 26%);
   --color-primary-fg:         hsl(var(--seed-hue), var(--seed-sat), 68%);
   --color-primary-fg-muted:   hsl(var(--seed-hue), var(--seed-sat), 58%);
   --color-primary-fg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 48%);
@@ -100,6 +60,15 @@
   --color-primary-bg:         hsl(var(--seed-hue), var(--seed-sat), 14%);
   --color-primary-bg-hover:   hsl(var(--seed-hue), var(--seed-sat), 22%);
   --color-primary-bg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 8%);
+  --color-success:     hsl(152, 60%, 52%);
+  --color-success-10:  hsl(152, 30%, 14%);
+  --color-success-20:  hsl(152, 40%, 22%);
+  --color-warning:     hsl(38, 80%, 58%);
+  --color-warning-10:  hsl(38, 40%, 14%);
+  --color-warning-20:  hsl(38, 50%, 22%);
+  --color-danger:      hsl(0, 70%, 58%);
+  --color-danger-10:   hsl(0, 35%, 14%);
+  --color-danger-20:   hsl(0, 45%, 22%);
   --color-success-fg:        hsl(152, 60%, 60%);
   --color-success-bg:        hsl(152, 30%, 14%);
   --color-success-border:     var(--color-success);
@@ -110,20 +79,6 @@
   --color-danger-bg:         hsl(0, 35%, 14%);
   --color-danger-border:      var(--color-danger);
   --color-danger-hover:       hsl(0, 70%, 52%);
-  --ring-color:            hsl(var(--seed-hue), var(--seed-sat), 60%);
-  --ring-offset-color:     var(--color-neutral-0);
-  --ink: var(--color-neutral-0);
-  --panel: var(--color-neutral-5);
-  --panel-2: var(--color-neutral-20);
-  --sand: var(--fg);
-  --stone: var(--fg-muted);
-  --shadow-xs:  0 1px 2px 0 rgba(0,0,0,.2);
-  --shadow-sm:  0 1px 3px 0 rgba(0,0,0,.3), 0 1px 2px -1px rgba(0,0,0,.2);
-  --shadow-md:  0 4px 6px -1px rgba(0,0,0,.4), 0 2px 4px -2px rgba(0,0,0,.2);
-  --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.4), 0 4px 6px -4px rgba(0,0,0,.15);
-  --shadow-xl:  0 20px 25px -5px rgba(0,0,0,.5), 0 8px 10px -6px rgba(0,0,0,.2);
-  --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,.6);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 * { box-sizing: border-box; }
@@ -133,32 +88,14 @@ html {
   text-rendering: optimizeLegibility;
 }
 body {
-  background: var(--ink);
-  color: var(--sand);
+  background: var(--bg);
+  color: var(--fg);
   font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
   font-size: 16px;
   line-height: 1.6;
 }
 
 ::selection { background: var(--brand); color: white; }
-
-/* ─── Scrollbar ─── */
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 0; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
-
-/* ─── Reveal animation ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
-}
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-}
 
 /* ─── A11y ─── */
 .skip { position: absolute; left: -9999px; top: 0; background: var(--brand); color: white; padding: 13px 21px; z-index: 100; }
@@ -175,7 +112,7 @@ body {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-sans, 'Inter', system-ui, sans-serif); font-size: 11px;
   letter-spacing: 0.3em;
-  text-transform: uppercase; color: var(--stone);
+  text-transform: uppercase; color: var(--muted);
 }
 .eyebrow-brand { color: var(--brand); font-weight: 600; }
 
@@ -217,7 +154,7 @@ section[id] { scroll-margin-top: 5rem; }
 /* ─── Toast ─── */
 .toast-stack { position: fixed; bottom: 21px; right: 21px; display: flex; flex-direction: column; gap: 13px; z-index: 9998; }
 .toast {
-  background: var(--panel); color: var(--sand); padding: 13px 21px;
+  background: var(--surface); color: var(--fg); padding: 13px 21px;
   font-size: 13px; max-width: 377px;
   border: 1px solid rgba(255,255,255,0.1);
   animation: toast-in 0.377s var(--ease) both;
@@ -227,14 +164,14 @@ section[id] { scroll-margin-top: 5rem; }
 /* ─── Cookie ─── */
 .cookie {
   position: fixed; bottom: 13px; left: 13px; right: 13px; max-width: 555px;
-  background: var(--panel); color: var(--sand);
+  background: var(--surface); color: var(--fg);
   border: 1px solid rgba(255,255,255,0.1);
   padding: 21px; display: none; z-index: 9997;
 }
 .cookie.show { display: flex; gap: 13px; align-items: flex-start; }
 .cookie button {
   font: 500 13px var(--font-sans, 'Inter', system-ui, sans-serif); padding: 8px 13px;
-  border: 1px solid rgba(255,255,255,0.1); background: var(--ink); color: var(--sand); cursor: pointer;
+  border: 1px solid var(--border); background: var(--bg); color: var(--fg); cursor: pointer;
 }
 .cookie button.primary { background: var(--brand); color: white; border-color: var(--brand); }
 

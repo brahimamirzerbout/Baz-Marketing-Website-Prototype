@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useEffect, useState } from "react";
@@ -12,15 +11,20 @@ import {
   Zap,
   GitBranch,
   Newspaper,
-  BarChart3,
-  Users,
-  CreditCard,
   ArrowRight,
   TrendingUp,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
 const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
+
+interface HealthResponse {
+  ok: boolean;
+  pipeline_value?: number;
+  enrollments_active?: number;
+  recent_wins_7d?: number;
+  triangle_velocity?: number;
+}
 
 const QUICK_LINKS = [
   {
@@ -68,22 +72,15 @@ const QUICK_LINKS = [
 ];
 
 export default function HubDashboard() {
-  const [health, setHealth] = useState<Record<string, unknown> | null>(null);
-  const [deals, setDeals] = useState<Record<string, unknown> | null>(null);
+  const [health, setHealth] = useState<HealthResponse | null>(null);
 
   useEffect(() => {
     async function load() {
       try {
-        const [h, d] = await Promise.all([
-          fetch(`${HUB_URL}/api/triangle/health`)
-            .then((r) => (r.ok ? r.json() : null))
-            .catch(() => null),
-          fetch(`${HUB_URL}/api/deals`)
-            .then((r) => (r.ok ? r.json() : null))
-            .catch(() => null),
-        ]);
+        const h = await fetch(`${HUB_URL}/api/triangle/health`)
+          .then((r) => (r.ok ? r.json() : null))
+          .catch(() => null);
         setHealth(h);
-        setDeals(d);
       } catch {}
     }
     load();

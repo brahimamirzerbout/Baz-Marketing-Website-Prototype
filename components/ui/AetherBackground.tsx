@@ -1,13 +1,10 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 /**
- * ÆTHER Monochrome — silk background + scroll-progress bar.
- * Cursor effect removed.
+ * ÆTHER Monochrome — silk background.
  */
 export function AetherBackground() {
-  const progRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Theme bootstrap: default dark, honor localStorage 'aether-theme'
     try {
@@ -17,27 +14,10 @@ export function AetherBackground() {
     } catch {
       document.documentElement.classList.add("dark");
     }
-
-    const cProg = progRef.current;
-    const onScroll = () => {
-      if (!cProg) return;
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      cProg.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
-    };
-
-    document.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    onScroll();
-
-    return () => {
-      document.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
   }, []);
 
   return (
     <>
-      <div className="scroll-progress" ref={progRef} aria-hidden />
       {/* Silk Background */}
       <div className="silk-bg" aria-hidden>
         <div className="silk-layer silk-layer-1" />

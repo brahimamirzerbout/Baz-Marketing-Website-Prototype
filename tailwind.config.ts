@@ -11,14 +11,14 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // Æther Design System — BlackSwan seed hue 270 (violet)
+        // Æther Design System — BlackSwan seed hue 41 (gold)
         ink: '#111111',
         panel: '#1A1A1A',
         'panel-2': '#2C2C2C',
         sand: '#E8E4E0',
         stone: '#B0AAA5',
-        brand: '#b87adb',
-        'brand-2': '#c9a3e5',
+        brand: 'var(--color-primary)',
+        'brand-2': 'var(--color-accent)',
         // Semantic tokens for shadcn compatibility
         background: 'var(--background)',
         foreground: 'var(--foreground)',

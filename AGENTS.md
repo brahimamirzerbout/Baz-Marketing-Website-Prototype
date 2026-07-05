@@ -14,9 +14,10 @@
 - Use descriptive commit messages
 - Keep changes incremental — push frequently to avoid losing work
 
-## Design System — Æther / BlackSwan
-- Source of truth: `brand/css/blackswan-tokens.css` (imported in layout)
-- Seed hue: `--seed-hue: 270` (violet)
+## Design System — ÆTHER / BlackSwan
+- Source of truth: `brand/css/aether-tokens.css` (imported via blackswan-tokens.css → @import)
+- Seed hue: `--seed-hue: 41` (gold)
+- Stitch bridge: `brand/css/stitch-bridge.css` maps Material 3 tokens to ÆTHER semantics
 - Fonts: Inter (sans), Fraunces (display), JetBrains Mono (code) — loaded via `next/font/local` from `public/fonts/`
 - Dark mode forced via `<html class="dark">` — overrides in `app/globals.css` `.dark` block
 - Semantic tokens map to Aether CSS variables (e.g., `bg-background` → `var(--bg)`)

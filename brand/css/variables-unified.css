@@ -1,43 +1,19 @@
 /* ═══════════════════════════════════════════════════════════════════════
    BAZ — Unified Design Tokens
-   BlackSwan Monochrome (Gold Seed) × Stitch (Material 3) × Fibonacci × Da Vinci
+   ÆTHER (Gold Seed) × Stitch (Material 3) × Fibonacci × Da Vinci
 
    THREE SYSTEMS, ONE CASCADE:
-   1. BlackSwan seed system: --seed-hue: 41 → gold monochrome palette
+   1. ÆTHER seed system: --seed-hue: 41 → gold monochrome palette (see aether-tokens.css)
    2. Stitch Material 3 tokens: brand-specific dark palette
    3. Protocol: Fraunces/Inter/JetBrains Mono + Fibonacci radii
 
-   Source of truth: docs/BRAND-BRIEF.md (voice), this file (visual),
-   brand-blackswan/tokens/blackswan.css (algorithmic tokens).
-
-   DO NOT replace with another design system. This IS the system.
+   Source of truth: brand/css/aether-tokens.css (algorithmic tokens),
+                    brand/css/variables-unified.css (brand overlay),
+                    brand/css/stitch-bridge.css (Stitch compatibility).
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ━━━ BlackSwan Seed ━━━ Gold monochrome ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --seed-hue: 270;       /* Gold — warm, luxurious, executive */
-  --seed-sat: 85%;      /* Rich saturation */
-  --seed-lum: 50%;      /* Balanced lightness */
-
-  /* ━━━ BlackSwan Derived Palette (computed from seed) ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --color-primary:       hsl(var(--seed-hue), var(--seed-sat), var(--seed-lum));
-  --color-primary-5:     hsl(var(--seed-hue), var(--seed-sat), 97%);
-  --color-primary-10:    hsl(var(--seed-hue), var(--seed-sat), 93%);
-  --color-primary-20:    hsl(var(--seed-hue), var(--seed-sat), 82%);
-  --color-primary-30:    hsl(var(--seed-hue), var(--seed-sat), 72%);
-  --color-primary-40:    hsl(var(--seed-hue), var(--seed-sat), 62%);
-  --color-primary-50:    hsl(var(--seed-hue), var(--seed-sat), 52%);
-  --color-primary-60:    hsl(var(--seed-hue), var(--seed-sat), 42%);
-  --color-primary-70:    hsl(var(--seed-hue), var(--seed-sat), 32%);
-  --color-primary-80:    hsl(var(--seed-hue), var(--seed-sat), 22%);
-  --color-primary-90:    hsl(var(--seed-hue), var(--seed-sat), 12%);
-
-  --color-accent:        hsl(calc(var(--seed-hue) + 30), 85%, 55%);
-  --color-accent-10:     hsl(calc(var(--seed-hue) + 30), 85%, 93%);
-  --color-accent-20:     hsl(calc(var(--seed-hue) + 30), 85%, 82%);
-
   /* ━━━ Stitch Material 3 Brand Tokens (overrides) ━━━ ━━━ ━━━ ━━━ ━━━ */
-  /* These are the exact colors from the Stitch-generated DESIGN.md */
   --baz-gold:            #C8A55A;
   --baz-gold-dark:       #8D6B2E;
   --baz-charcoal:        #1F2933;
@@ -84,104 +60,12 @@
   --c-paper-200: #e0d8cc;
   --c-paper-300: #c9bfb0;
 
-  /* ━━━ Semantic Aliases ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --fg:              var(--color-neutral-70);
-  --fg-muted:        var(--color-neutral-40);
-  --fg-subtle:       var(--color-neutral-30);
-  --fg-on-primary:   hsl(0, 0%, 100%);
-  --fg-inverse:      var(--color-neutral-0);
-
-  --color-primary-fg:         hsl(var(--seed-hue), var(--seed-sat), 32%);
-  --color-primary-fg-muted:   hsl(var(--seed-hue), var(--seed-sat), 42%);
-  --color-primary-fg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 62%);
-  --color-primary-hover:       hsl(var(--seed-hue), var(--seed-sat), 42%);
-  --color-primary-active:      hsl(var(--seed-hue), var(--seed-sat), 32%);
-  --color-primary-border:      hsl(var(--seed-hue), var(--seed-sat), 62%);
-  --color-primary-bg:         hsl(var(--seed-hue), var(--seed-sat), 93%);
-  --color-primary-bg-hover:   hsl(var(--seed-hue), var(--seed-sat), 82%);
-  --color-primary-bg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 97%);
-
-  --color-success:       hsl(152, 68%, 38%);
-  --color-warning:       hsl(38, 92%, 45%);
-  --color-danger:        hsl(0, 78%, 50%);
-
-  --bg:          var(--color-neutral-0);
-  --bg-muted:    var(--color-neutral-5);
-  --bg-subtle:   var(--color-neutral-10);
-  --bg-emphasis: var(--color-neutral-60);
-
-  --border:       var(--color-neutral-10);
-  --border-strong: var(--color-neutral-20);
-
-  /* ━━━ BlackSwan Neutral Palette (seed-tinted monochrome) ━━━ ━━━ ━━━ ━━━ */
-  --color-neutral-0:     hsl(var(--seed-hue), 8%, 99%);
-  --color-neutral-5:    hsl(var(--seed-hue), 6%, 96%);
-  --color-neutral-10:   hsl(var(--seed-hue), 5%, 90%);
-  --color-neutral-20:   hsl(var(--seed-hue), 4%, 74%);
-  --color-neutral-30:   hsl(var(--seed-hue), 3%, 58%);
-  --color-neutral-40:   hsl(var(--seed-hue), 2%, 44%);
-  --color-neutral-50:   hsl(var(--seed-hue), 1.5%, 32%);
-  --color-neutral-60:   hsl(var(--seed-hue), 1%, 22%);
-  --color-neutral-70:   hsl(var(--seed-hue), 0.8%, 16%);
-  --color-neutral-80:   hsl(var(--seed-hue), 0.5%, 11%);
-  --color-neutral-90:   hsl(var(--seed-hue), 0.3%, 7%);
-  --color-neutral-100:  hsl(var(--seed-hue), 0.2%, 4%);
-
-  /* ━━━ Typography ━━━ Protocol: Fraunces × Inter × JetBrains Mono ━━━ ━━━ */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Fraunces', 'Iowan Old Style', 'Noto Serif', Georgia, serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  --font-display: var(--font-serif);
-
-  --ratio: 1.25;
-
-  --text-2xs: calc(1rem / var(--ratio) / var(--ratio) / var(--ratio));
-  --text-xs: calc(1rem / var(--ratio) / var(--ratio));
-  --text-sm: calc(1rem / var(--ratio));
-  --text-base: 1rem;
-  --text-md: calc(1rem * var(--ratio));
-  --text-lg: calc(1rem * var(--ratio) * var(--ratio));
-  --text-xl: calc(1rem * var(--ratio) * var(--ratio) * var(--ratio));
-  --text-2xl: calc(1rem * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
-  --text-3xl: calc(1rem * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
-  --text-4xl: calc(1rem * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
-
-  --leading-none: 1;
-  --leading-tight: 1.15;
-  --leading-snug: 1.3;
-  --leading-normal: 1.55;
-  --leading-relaxed: 1.7;
-
-  --tracking-tighter: -0.04em;
-  --tracking-tight: -0.02em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.03em;
-  --tracking-wider: 0.06em;
-  --tracking-widest: 0.1em;
+  /* ━━━ Protocol-Specific Extras ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
+  --font-display: var(--font-serif, 'Fraunces', ui-serif, serif);
+  --weight-light: 300;
   --tracking-eyebrow: 0.18em;
 
-  --weight-light: 300;
-  --weight-normal: 400;
-  --weight-medium: 500;
-  --weight-semi: 600;
-  --weight-bold: 700;
-
-  /* ━━━ Spacing (8pt rhythm) ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
-
-  /* ━━━ Radius ━━━ Protocol: Fibonacci scale ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --radius-none: 0;
+  /* Fibonacci radius scale (protocol addition) */
   --radius-fib3: 3px;
   --radius-fib5: 5px;
   --radius-fib8: 8px;
@@ -190,124 +74,14 @@
   --radius-fib34: 34px;
   --radius-fib55: 55px;
   --radius-fib89: 89px;
-  --radius-full: 9999px;
 
-  --radius-xs: 0.125rem;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
-
-  /* ━━━ Shadows ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --shadow-none: none;
-  --shadow-xs: 0 1px 2px 0 rgba(0,0,0,0.03);
-  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.06), 0 1px 2px -1px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.10), 0 8px 10px -6px rgba(0,0,0,0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.16);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.04);
-
-  /* ━━━ Motion ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --ease-default: cubic-bezier(0.2, 0, 0, 1);
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-elastic: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-
-  --duration-instant: 75ms;
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
-  --duration-glacial: 600ms;
-
-  /* ━━━ Focus ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --ring-width: 2px;
-  --ring-offset: 2px;
+  /* ━━━ Ring (gold accent) ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
   --ring-color: var(--baz-gold);
-  --ring-offset-color: var(--color-neutral-0);
-
-  /* ━━━ Z-Layers ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --z-below: -1;
-  --z-base: 0;
-  --z-above: 1;
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-overlay: 300;
-  --z-modal: 400;
-  --z-popover: 500;
-  --z-toast: 600;
-
-  /* ━━━ Layout ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
-  --container-sm: 36rem;
-  --container-md: 48rem;
-  --container-lg: 60rem;
-  --container-xl: 72rem;
-  --container-2xl: 84rem;
 }
 
-/* ━━━ Dark Mode ━━━ Inverts neutrals, adjusts primary tints ━━━ ━━━ ━━━ ━━━ */
+/* ━━━ Dark Mode ━━━ Stitch + Protocol overrides ━━━ ━━━ ━━━ ━━━ ━━━ ━━━ */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-neutral-0:    hsl(var(--seed-hue), 8%, 6%);
-    --color-neutral-5:   hsl(var(--seed-hue), 6%, 9%);
-    --color-neutral-10:  hsl(var(--seed-hue), 5%, 14%);
-    --color-neutral-20:  hsl(var(--seed-hue), 4%, 22%);
-    --color-neutral-30:  hsl(var(--seed-hue), 3%, 34%);
-    --color-neutral-40:  hsl(var(--seed-hue), 2%, 46%);
-    --color-neutral-50:  hsl(var(--seed-hue), 1.5%, 56%);
-    --color-neutral-60:  hsl(var(--seed-hue), 1%, 68%);
-    --color-neutral-70:  hsl(var(--seed-hue), 0.8%, 82%);
-    --color-neutral-80:  hsl(var(--seed-hue), 0.5%, 90%);
-    --color-neutral-90:  hsl(var(--seed-hue), 0.3%, 95%);
-    --color-neutral-100: hsl(var(--seed-hue), 0.2%, 98%);
-
-    --color-primary-5:   hsl(var(--seed-hue), var(--seed-sat), 8%);
-    --color-primary-10:  hsl(var(--seed-hue), var(--seed-sat), 14%);
-    --color-primary-20:  hsl(var(--seed-hue), var(--seed-sat), 22%);
-    --color-primary-30:  hsl(var(--seed-hue), var(--seed-sat), 32%);
-    --color-primary-40:  hsl(var(--seed-hue), var(--seed-sat), 44%);
-
-    --color-accent-10:   hsl(calc(var(--seed-hue) + 30), 85%, 14%);
-    --color-accent-20:   hsl(calc(var(--seed-hue) + 30), 85%, 22%);
-
-    --fg:              var(--color-neutral-80);
-    --fg-muted:        var(--color-neutral-50);
-    --fg-subtle:       var(--color-neutral-40);
-    --fg-on-primary:   hsl(var(--seed-hue), var(--seed-sat), 98%);
-    --fg-inverse:      var(--color-neutral-90);
-
-    --color-primary-fg:         hsl(var(--seed-hue), var(--seed-sat), 68%);
-    --color-primary-fg-muted:   hsl(var(--seed-hue), var(--seed-sat), 58%);
-    --color-primary-fg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 48%);
-    --color-primary-hover:       hsl(var(--seed-hue), var(--seed-sat), 56%);
-    --color-primary-active:      hsl(var(--seed-hue), var(--seed-sat), 48%);
-    --color-primary-border:     hsl(var(--seed-hue), var(--seed-sat), 44%);
-    --color-primary-bg:         hsl(var(--seed-hue), var(--seed-sat), 14%);
-    --color-primary-bg-hover:   hsl(var(--seed-hue), var(--seed-sat), 22%);
-    --color-primary-bg-subtle:  hsl(var(--seed-hue), var(--seed-sat), 8%);
-
-    --bg:          var(--color-neutral-0);
-    --bg-muted:    var(--color-neutral-5);
-    --bg-subtle:   var(--color-neutral-10);
-    --bg-emphasis: var(--color-neutral-50);
-    --border:      hsl(var(--seed-hue), 4%, 18%);
-    --border-strong: hsl(var(--seed-hue), 4%, 26%);
-
-    --ring-color:       var(--baz-gold);
-    --ring-offset-color: var(--color-neutral-0);
-
-    --shadow-xs:  0 1px 2px 0 rgba(0,0,0,0.2);
-    --shadow-sm:  0 1px 3px 0 rgba(0,0,0,0.3), 0 1px 2px -1px rgba(0,0,0,0.2);
-    --shadow-md:  0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -2px rgba(0,0,0,0.2);
-    --shadow-lg:  0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -4px rgba(0,0,0,0.15);
-    --shadow-xl:  0 20px 25px -5px rgba(0,0,0,0.5), 0 8px 10px -6px rgba(0,0,0,0.2);
-    --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.6);
-    --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.2);
-
     --c-ink-900: hsl(var(--seed-hue), 0.3%, 95%);
     --c-ink-800: hsl(var(--seed-hue), 0.3%, 90%);
     --c-ink-600: hsl(var(--seed-hue), 2%, 46%);
@@ -318,6 +92,8 @@
     --c-paper-100: hsl(var(--seed-hue), 5%, 14%);
     --c-paper-200: hsl(var(--seed-hue), 4%, 22%);
     --c-paper-300: hsl(var(--seed-hue), 3%, 34%);
+
+    --ring-color: var(--baz-gold);
   }
 }
 
@@ -343,6 +119,5 @@
   :root {
     --border: var(--color-neutral-40);
     --border-strong: var(--color-neutral-60);
-    --ring-width: 3px;
   }
 }

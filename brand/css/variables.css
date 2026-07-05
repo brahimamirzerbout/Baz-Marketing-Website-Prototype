@@ -30,7 +30,7 @@
   --color-primary-80:    hsl(var(--seed-hue), var(--seed-sat), 22%);
   --color-primary-90:    hsl(var(--seed-hue), var(--seed-sat), 12%);
 
-  /* ── Accent (seed + 30 = magenta-violet shift) ── */
+  /* ── Accent (seed + 30 = gold shift) ── */
   --color-accent:        hsl(calc(var(--seed-hue) + 30), 85%, 55%);
   --color-accent-10:     hsl(calc(var(--seed-hue) + 30), 85%, 93%);
   --color-accent-20:     hsl(calc(var(--seed-hue) + 30), 85%, 82%);
@@ -61,20 +61,20 @@
   --color-danger-20:    hsl(0, 78%, 82%);
 
   /* ── Brand Aliases (BAZ-specific overrides on top of BlackSwan monochrome) ── */
-  --c-ink-900: hsl(var(--seed-hue), 0.3%, 5%);      /* ~#0e0f12 — violet-tinted near-black */
+  --c-ink-900: hsl(var(--seed-hue), 0.3%, 5%);      /* ~#0e0f12 — near-black */
   --c-ink-800: hsl(var(--seed-hue), 0.3%, 10%);     /* ~#16171c */
   --c-ink-600: hsl(var(--seed-hue), 2%, 44%);       /* ~neutral-40 */
   --c-ink-500: hsl(var(--seed-hue), 3%, 58%);       /* ~neutral-30 */
   --c-ink-400: hsl(var(--seed-hue), 4%, 74%);       /* ~neutral-20 */
 
-  --c-paper:   hsl(var(--seed-hue), 8%, 96%);       /* ~neutral-5 — warm violet paper */
+  --c-paper:   hsl(var(--seed-hue), 8%, 96%);       /* ~neutral-5 — warm paper */
   --c-paper-50: hsl(var(--seed-hue), 8%, 98%);     /* lighter paper */
   --c-paper-100: hsl(var(--seed-hue), 6%, 92%);    /* card surface */
   --c-paper-200: hsl(var(--seed-hue), 5%, 86%);    /* hover surface */
   --c-paper-300: hsl(var(--seed-hue), 4%, 76%);    /* divider on paper */
 
-  /* ── Accent (Violet — computed from seed hue 270) ── */
-  --accent:              var(--color-primary-30);     /* hsl(270, 72%, 72%) — the BAZ violet */
+  /* ── Accent (Gold — computed from seed hue 41) ── */
+  --accent:              var(--color-primary-30);     /* hsl(41, 72%, 72%) — the BAZ gold */
   --accent-50:           var(--color-primary-5);
   --accent-100:          var(--color-primary-10);
   --accent-200:          var(--color-primary-20);
@@ -103,7 +103,7 @@
   --color-primary-80: hsl(var(--seed-hue), var(--seed-sat), 22%);
   --color-primary-90: hsl(var(--seed-hue), var(--seed-sat), 12%);
 
-  /* Accent (seed + 30 = magenta-violet) */
+  /* Accent (seed + 30 = gold shift) */
   --color-accent: hsl(calc(var(--seed-hue) + 30), 85%, 55%);
   --color-accent-10: hsl(calc(var(--seed-hue) + 30), 85%, 93%);
   --color-accent-20: hsl(calc(var(--seed-hue) + 30), 85%, 82%);

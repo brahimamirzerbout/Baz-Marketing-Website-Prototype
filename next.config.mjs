@@ -8,9 +8,9 @@ const nextConfig = {
     serverComponentsExternalPackages: ['better-sqlite3', 'pg'],
   },
   typescript: {
-    // Build the site even with pre-existing TS errors (mostly null
-    // checks on dynamic DB rows). Fixing 200+ strict-mode errors
-    // is tracked separately — the app runs correctly.
+    // 42 TS errors across 14 files remain (noira-crm module resolution,
+    // strict null checks, override modifiers, implicit any, unused vars).
+    // Fix tracked separately — the app runs correctly.
     ignoreBuildErrors: true,
   },
   eslint: {

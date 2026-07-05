@@ -1,10 +1,8 @@
-// @ts-nocheck
 /**
  * Custom 404 — Pattern 70 from anti-AI-slop research.
  * Specific, not generic. Named, not anonymous.
  * Includes the path the user was looking for.
  */
-import Link from "next/link";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { site } from "@/lib/site";

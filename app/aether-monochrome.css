@@ -290,17 +290,7 @@ nav,section,footer{position:relative;z-index:2}
 /* ═══ Section Ornaments ═══ */
 .section-ornament{position:absolute;top:0;right:0;font-size:clamp(8rem,20vw,16rem);font-weight:900;color:var(--fg);opacity:.02;line-height:1;pointer-events:none;user-select:none;z-index:0;letter-spacing:-.08em}
 /* ═══ Enhanced Effects ═══ */
-.card-base{background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow-1)}
-.card-elevated{box-shadow:var(--shadow-2)}
-.hover-glow{transition:box-shadow .4s,border-color .3s,transform .3s cubic-bezier(.16,1,.3,1)}.hover-glow:hover{border-color:var(--line);box-shadow:var(--shadow-glow);transform:translateY(-2px)}
-.hover-lift{transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s,box-shadow .3s}.hover-lift:hover{transform:translateY(-3px);border-color:var(--line);box-shadow:var(--shadow-2)}
-.btn-press{transition:transform .08s}.btn-press:active{transform:scale(.97)}
-.btn-primary{transition:all .25s cubic-bezier(.16,1,.3,1)}.btn-primary:hover{box-shadow:var(--shadow-2);transform:translateY(-1px)}
-.link-underline{position:relative}.link-underline::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--fg);transition:width .3s cubic-bezier(.16,1,.3,1)}.link-underline:hover::after{width:100%}
-.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-.divider-gradient{height:1px;background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
-.grid-pattern{background-image:linear-gradient(var(--g15) 1px,transparent 1px),linear-gradient(90deg,var(--g15) 1px,transparent 1px);background-size:80px 80px}
-.dot-pattern{background-image:radial-gradient(var(--g20) 1px,transparent 1px);background-size:24px 24px}
+.card-base{background:var(--card);border:1px solid var(--border)}
 /* Grayscale inspector */
 .gs-swatch{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;cursor:pointer;position:relative}
 .gs-swatch:hover{transform:scale(1.08);z-index:10;box-shadow:var(--shadow-2)}

@@ -31,7 +31,7 @@ export function useFetch<T = unknown>(url: string | null, options?: RequestInit)
         if (err.name === "AbortError") return;
         setState((s) => ({ ...s, loading: false, error: err instanceof Error ? err.message : String(err) }));
       });
-  }, [url]);
+  }, [url, options]);
 
   useEffect(() => { fetchData(); return () => abortRef.current?.abort(); }, [fetchData]);
 

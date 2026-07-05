@@ -365,7 +365,6 @@ export function LiveAgentDemo() {
                     {submitting ? "Sending…" : "Send my plan →"}
                   </button>
                 </div>
-              )}
             </div>
           )}
 

@@ -1,7 +1,6 @@
-// @ts-nocheck
 "use client";
 
-import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/Button";
 import { LiveAgentDemo } from "@/components/marketing/LiveAgentDemo";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
@@ -11,24 +10,11 @@ import { resolveHeroVariant, type HeroVariant } from "@/lib/hero-variant";
 import { GuaranteeMicro } from "./GuaranteeMicro";
 
 export function Hero({ variant }: { variant?: HeroVariant } = {}) {
-  const v = variant ?? resolveHeroVariant(null);
   const reduce = useReducedMotion();
-
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.5 });
+  const v = variant ?? resolveHeroVariant(null);
 
   return (
     <>
-      {/* Scroll progress — orange bar */}
-      {!reduce && (
-        <div className="scroll-progress">
-          <motion.div
-            className="scroll-progress-bar"
-            style={{ width: scrollProgressWidth(progress) }}
-          />
-        </div>
-      )}
-
       <section className="relative overflow-hidden bg-ink">
         {/* Subtle dark grid overlay */}
         <div
@@ -182,8 +168,4 @@ export function Hero({ variant }: { variant?: HeroVariant } = {}) {
       </section>
     </>
   );
-}
-
-function scrollProgressWidth(progress: { current: number } | number) {
-  return progress;
 }

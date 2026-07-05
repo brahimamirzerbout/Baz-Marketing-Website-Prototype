@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState } from "react";
@@ -30,7 +29,7 @@ export default function SignupPage() {
       }
       router.push("/console");
     } catch (err: unknown) {
-      setError(err?.message || "network_error");
+      setError(err instanceof Error ? err.message : "network_error");
     } finally {
       setBusy(false);
     }

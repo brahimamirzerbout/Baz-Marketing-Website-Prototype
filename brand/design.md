@@ -1,6 +1,6 @@
-# Visual Design System — Philosophy, Layout & Guardrails
+# ÆTHER Monochrome + Gold — Design System
 
-This document defines the visual principles, spatial systems, elevation models, and behavioral rules for BAZ Marketing Ventures Agency. All designers and developers must implement these specifications to guarantee brand consistency.
+This document defines the visual principles, spatial systems, elevation models, and behavioral rules for BAZ. All designers and developers must implement these specifications to guarantee brand consistency.
 
 ---
 
@@ -10,17 +10,17 @@ This document defines the visual principles, spatial systems, elevation models, 
 BAZ's visual identity channels the authority of premium editorial publications — think *Monocle*, *Cereal*, *Kinfolk* — not the flash of consumer tech. Premium execution is achieved through:
 - Absolute typographic clarity
 - Vast margins of negative space
-- Deliberate contrast between organic handwritten forms and rigid geometric grids
-- A restrained color palette where violet is the singular accent
+- Deliberate contrast between light and dark canvases
+- A restrained palette where gold is the singular accent on an otherwise monochrome grayscale
 
 ### 1.2 Algorithmic Consistency
-The BlackSwan Design System ensures no arbitrary values. Every color, every space, every radius is computed from three seed variables. This eliminates "designer drift" — if two elements look slightly different, one of them is wrong.
+The ÆTHER Design System ensures no arbitrary values. Every color, every space, every radius is computed from three seed variables. This eliminates "designer drift" — if two elements look slightly different, one of them is wrong.
 
 ### 1.3 Structural Functionalism
 Aesthetic form follows corporate function. Every interaction must feel fast, deliberate, and premium. Decorative elements that don't serve information hierarchy are removed.
 
-### 1.4 Violet as Accent, Never Foundation
-The violet accent `hsl(270, 85%, 72%)` is a premium signature — it commands attention precisely because it's used sparingly. It appears on:
+### 1.4 Gold as Accent, Never Foundation
+The gold accent `hsl(41, 72%, 68%)` (#C8A55A) is a premium signature — it commands attention precisely because it's used sparingly. It appears on:
 - Primary CTAs
 - Active navigation states
 - Focus rings
@@ -31,7 +31,10 @@ It must **never** be used as:
 - Large background fills
 - Body text color
 - Card backgrounds
-- Section backgrounds (except `ink`-tone hero sections with violet as a highlight)
+- Section backgrounds
+
+### 1.5 Monochrome Foundation
+All surfaces, text, borders, and backgrounds resolve to pure grayscale (`hsl(0, 0%, …)`). The gold accent is the only chromatic element. This creates a sophisticated, editorial canvas where gold draws immediate attention.
 
 ---
 
@@ -41,26 +44,26 @@ It must **never** be used as:
 Maintain a minimum of 120px (3rem) separation between major content sections on large viewports. Sections breathe. They never crowd.
 
 ### 2.2 Micro Whitespace
-Form fields, interactive components, and list items must use generous interior padding per the 8pt rhythm system defined in `spacing.md`.
+Form fields, interactive components, and list items must use generous interior padding per the 8pt rhythm system.
 
 ### 2.3 The Law of Spatial Isolation
 The BAZ wordmark requires a clear zone equal to 35% of its total rendered height on all four sides. No text, borders, or graphic elements may encroach on this zone.
 
 ### 2.4 Section Tones
-Three reusable section backgrounds via `<Section tone="...">`:
+Three reusable section backgrounds:
 
 | Tone | Background | Heading Color | Purpose |
 |------|-----------|--------------|---------|
-| `paper` | `#f5f1ea` | `text-ink-900` | Default. Most sections |
-| `white` | `#ffffff` | `text-ink-900` | Visual breathing between paper sections |
-| `ink` | `#0e0e0e` | `text-paper` | KPI bands, CTAs, callouts |
+| `bg` | `var(--bg)` | `var(--fg)` | Default. Most sections |
+| `surface` | `var(--surface)` | `var(--fg)` | Visual breathing between sections |
+| `ink` | `hsl(0, 0%, 4%)` | `hsl(0, 0%, 96%)` | KPI bands, CTAs, callouts |
 
 ---
 
 ## 3. Elevation, Radius & Layering
 
 ### 3.1 Fibonacci Radius System
-BAZ uses a Fibonacci-based radius scale — not arbitrary 4px/8px/12px increments. This creates organic, Da Vinci-inspired curvature that feels premium and intentional:
+BAZ uses a Fibonacci-based radius scale — not arbitrary 4px/8px/12px increments:
 
 | Token | Value | Use |
 |-------|-------|-----|
@@ -75,7 +78,7 @@ BAZ uses a Fibonacci-based radius scale — not arbitrary 4px/8px/12px increment
 | `--radius-full` | 9999px | Pills, avatars, circular elements |
 
 ### 3.2 Elevation & Shadow Tokens
-BAZ uses a flat-yet-layered depth model inspired by Linear and Vercel. Shadows are subtle, crisp, and never diffuse:
+Flat-yet-layered depth model inspired by Linear and Vercel. Shadows are subtle, crisp, and never diffuse:
 
 | Level | Token | Use | Shadow |
 |-------|-------|-----|--------|
@@ -87,27 +90,25 @@ BAZ uses a flat-yet-layered depth model inspired by Linear and Vercel. Shadows a
 | 5 | `--shadow-xl` | Modals, overlays | `0 20px 25px -5px rgba(0,0,0,.10), 0 8px 10px -6px rgba(0,0,0,.04)` |
 | 6 | `--shadow-2xl` | Hero emphasis | `0 25px 50px -12px rgba(0,0,0,.16)` |
 
-On dark (`ink`) sections, shadows strengthen:
-- `--shadow-md` becomes `0 4px 6px -1px rgba(0,0,0,.4)`
-- `--shadow-xl` becomes `0 20px 25px -5px rgba(0,0,0,.5)`
+### 3.3 Surface Layers (Aether Monochrome)
 
-### 3.3 Surface Layers (Material 3 inspired)
-BAZ implements a 5-tier surface system:
-
-| Tier | CSS Variable | Light | Dark | Use |
-|------|-------------|-------|------|-----|
-| 0 | `--bg` | `#f5f1ea` (paper) | `hsl(270, 8%, 6%)` | Page background |
-| 1 | `--bg-muted` | `#faf7f1` | `hsl(270, 6%, 9%)` | Muted sections |
-| 2 | `--bg-subtle` | `#f0ebe0` | `hsl(270, 5%, 14%)` | Cards on paper |
-| 3 | `--bg-emphasis` | `#e0d8cc` | `hsl(270, 2%, 22%)` | Elevated cards |
-| 4 | `--surface-inverse` | `#0e0e0e` | `#f5f1ea` | Inverted sections |
+| Tier | CSS Variable | Dark | Light | Use |
+|------|-------------|------|-------|-----|
+| 0 | `--bg` | `hsl(0, 0%, 4%)` | `hsl(0, 0%, 96%)` | Page background |
+| 1 | `--surface` | `hsl(0, 0%, 8%)` | `hsl(0, 0%, 92%)` | Card backgrounds |
+| 2 | `--card` | `hsl(0, 0%, 10%)` | `hsl(0, 0%, 88%)` | Elevated cards |
+| 3 | `--border` | `hsl(0, 0%, 16%)` | `hsl(0, 0%, 84%)` | Borders, dividers |
+| 4 | `--line` | `hsl(0, 0%, 22%)` | `hsl(0, 0%, 78%)` | Strong borders, hover |
+| 5 | `--muted` | `hsl(0, 0%, 52%)` | `hsl(0, 0%, 48%)` | Secondary text |
+| 6 | `--faint` | `hsl(0, 0%, 32%)` | `hsl(0, 0%, 68%)` | Tertiary text, placeholders |
+| 7 | `--fg` | `hsl(0, 0%, 92%)` | `hsl(0, 0%, 8%)` | Primary text |
 
 ---
 
 ## 4. Component Architecture
 
-### 4.1 BlackSwan Components (Hand-Rolled)
-BAZ uses the BlackSwan Design System for components — **never shadcn/ui**. All components are built from CSS custom properties that cascade from the three seed variables. Components include:
+### 4.1 Aether Components
+BAZ uses the Aether Design System for components — **never shadcn/ui**. All components are built from CSS custom properties that cascade from the seed variables. Components include:
 
 - **Button** — 6 variants × 5 sizes + icon, block, connected group
 - **Input** — Text, textarea, select, checkbox, radio, toggle
@@ -115,7 +116,7 @@ BAZ uses the BlackSwan Design System for components — **never shadcn/ui**. All
 - **Paper** — Long-form article surface, 3 variants
 - **Document** — Invoice/contract/letter template
 - **Alert** — 4 severity levels with icon support
-- **Badge** — 6 colors, 3 sizes, dot indicator
+- **Badge** — Neutral monochrome colors, 3 sizes, dot indicator
 - **Toast** — Notification toasts with enter/exit animation
 - **Modal** — Dialog overlay with 4 sizes
 - **Table** — Data table with striped variant
@@ -133,65 +134,51 @@ BAZ uses the BlackSwan Design System for components — **never shadcn/ui**. All
 ## 5. Brand Guardrails
 
 ### ✅ Do
-- Use `ink` (#0e0e0e) and `paper` (#f5f1ea) as foundational canvases
-- Pair the BAZ wordmark with structured Fraunces/Inter typography
-- Maintain 120px+ macro whitespace between sections
-- Use violet `hsl(270, 85%, 72%)` as the singular accent for CTAs and highlights
+- Use gold `hsl(41, 72%, 68%)` (#C8A55A) as the singular accent for CTAs and highlights
+- Use pure grayscale (`hsl(0, 0%, …)`) for all surfaces, borders, and text
+- Apply the silk background texture via AetherBackground component
+- Use glass/translucent surfaces via `.glass`, `.card-glass`, `.glass-surface` classes
 - Apply Fibonacci radii (3, 5, 8, 13, 21…) for organic curvature
-- Use subtle 1px violet rules as section dividers
-- Use the magnetic CTA pattern for hero buttons
+- Use subtle grayscale borders as section dividers
 
 ### ❌ Don't
-- Use violet as a background fill for large areas
-- Apply drop shadows, outer glows, or heavy reflections to the wordmark
-- Mix gold (#a0a0a0) and red (#8a8a8a) as simultaneous accents
-- Use shadcn/ui components — always use BlackSwan
+- Use gold as a background fill for large areas
+- Use any chromatic color besides gold (no blue, green, red, purple, violet)
+- Use drop shadows, outer glows, or heavy reflections on the wordmark
+- Use shadcn/ui components — always use Aether
 - Use arbitrary 4px/8px/12px radius values — stick to Fibonacci
 - Use Playfair Display (use Fraunces instead)
-- Use Tailwind v4 syntax (use v3 only)
+- Use the old violet accent (`hsl(270, …)` / `#b87adb`) — it was replaced by gold
 
 ---
 
-## 6. UI Examples
+## 6. Token Reference
 
-### 6.1 Landing Page Masthead
-```
-┌─────────────────────────────────────────────────┐
-│  [BAZ mark]         NAV ITEMS         [CTA →]  │
-│                                                  │
-│                                                  │
-│        Brand & Buzz.                            │
-│        We make brands                            │
-│        unignorable.                              │
-│                                                  │
-│           [Get Started]  [Our Work]              │
-│                                                  │
-│    ● 240+ brands  ● $2B+ revenue  ● 12 years   │
-│                                                  │
-│         ═════════════════════════                │
-│              (divider line)                      │
-└─────────────────────────────────────────────────┘
-```
+| Token | Value | Role |
+|-------|-------|------|
+| `--seed-hue` | `41` | Gold hue for all generated accents |
+| `--color-primary` | `hsl(41, 72%, 68%)` | Primary gold accent |
+| `--color-primary-200` | `hsl(41, 60%, 45%)` | Darker gold |
+| `--color-primary-300` | `hsl(41, 60%, 45%)` | Dark gold |
+| `--bg` | `hsl(0, 0%, 4%)` | Page background |
+| `--fg` | `hsl(0, 0%, 92%)` | Primary text |
+| `--surface` | `hsl(0, 0%, 8%)` | Card/surface background |
+| `--border` | `hsl(0, 0%, 16%)` | Subtle borders |
+| `--line` | `hsl(0, 0%, 22%)` | Strong borders |
+| `--muted` | `hsl(0, 0%, 52%)` | Secondary text |
+| `--faint` | `hsl(0, 0%, 32%)` | Tertiary text |
+| `--brand` | `#C8A55A` | Legacy gold brand color |
 
-### 6.2 Stat Grid Pattern
-```
-┌──────────┬──────────┬──────────┬──────────┐
-│  240+    │  $2B+    │  98%     │  12      │
-│  brands  │  revenue │  retain  │  years   │
-└──────────┴──────────┴──────────┴──────────┘
-```
-Background: `paper` with `ink-100` 1px dividers between cells.
+---
 
-### 6.3 Dark Section (Ink Tone)
-```
-┌─────────────────────────────────────────────────┐
-│  ████████  INK BACKGROUND (#0e0e0e)  ████████  │
-│                                                  │
-│     "Brands are verbs, not nouns."              │
-│                  — BAZ                           │
-│                                                  │
-│     [Start Your Project →]                       │
-│                                                  │
-└─────────────────────────────────────────────────┘
-```
-White/violet text on ink. No gradients.
+## 7. Related Files
+
+| File | Purpose |
+|------|---------|
+| `app/aether-monochrome.css` | Design system CSS — surfaces, typography, components |
+| `app/globals.css` | Tailwind directives, semantic token mappings |
+| `brand/css/aether-tokens.css` | Seed-hue 41 algorithmic color generation |
+| `brand/css/blackswan-tokens.css` | Legacy blackswan import (re-exports aether-tokens) |
+| `brand/css/variables-unified.css` | Unified Stitch + Protocol token mappings |
+| `brand/css/stitch-bridge.css` | Material 3 Stitch → Aether bridge |
+| `tailwind.config.ts` | Tailwind v3 theme extension using Aether tokens |

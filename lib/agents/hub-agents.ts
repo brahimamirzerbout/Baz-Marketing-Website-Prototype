@@ -112,6 +112,31 @@ export type AgentInput = {
   switchingTriggers?: string;
 };
 
+const INPUT_KEY_MAP: Record<string, keyof AgentInput> = {
+  "target audience description": "targetAudience",
+  "competitors": "competitors",
+  "your product/offer": "productOffer",
+  "your business goal": "businessGoal",
+  "business goals": "businessGoal",
+  "your brand": "brand",
+  "the change you want to make": "change",
+  "your audience's worldview": "worldview",
+  "your positioning": "positioning",
+  "your audience awareness level": "awarenessLevel",
+  "the channel": "channel",
+  "the desired action": "desiredAction",
+  "channel data": "channelData",
+  "conversion funnel": "conversionFunnel",
+  "costs per channel": "costs",
+  "your story angle": "storyAngle",
+  "target publications": "publications",
+  "your audience": "audience",
+  "your authority signals": "authoritySignals",
+  "customer segment": "customerSegment",
+  "usage patterns": "usagePatterns",
+  "switching triggers": "switchingTriggers",
+};
+
 export function promptAgent(agentId: AgentId, input: AgentInput): string {
   const agent = AGENTS[agentId];
   const lines: string[] = [
@@ -125,13 +150,11 @@ export function promptAgent(agentId: AgentId, input: AgentInput): string {
   ];
 
   for (const key of agent.inputs) {
-    const normalizedKey = key
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "_")
-      .replace(/_+/g, "_")
-      .replace(/^_|_$/g, "");
-    const val = input[normalizedKey as keyof AgentInput];
-    if (val) lines.push(`  ${key}: ${val}`);
+    const agentInputKey = INPUT_KEY_MAP[key];
+    if (agentInputKey) {
+      const val = input[agentInputKey];
+      if (val) lines.push(`  ${key}: ${val}`);
+    }
   }
 
   lines.push("", "Output the result as structured markdown with sections for each output type.");

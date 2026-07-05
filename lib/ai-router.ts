@@ -123,18 +123,90 @@ export class ProviderRouter {
   }
 
   protected async callProvider(provider: ProviderConfig, options: ModelCallOptions): Promise<ModelCallResult> {
-    const apiKey = process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY || "demo";
-    const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: options.systemPrompt ? `${options.systemPrompt}\n\n${options.prompt}` : options.prompt }] }],
-        generationConfig: { maxOutputTokens: options.maxTokens ?? 1024, temperature: options.temperature ?? 0.7 },
-      }),
-    });
-    if (!res.ok) throw new Error(`Gemini API error: ${res.status}`);
-    const data = await res.json();
-    return { content: data.candidates?.[0]?.content?.parts?.[0]?.text || "", provider: provider.name, model: provider.defaultModel || provider.models[0] || "", latency: 0 };
+    const model = provider.defaultModel || provider.models[0] || "";
+    const prompt = options.systemPrompt ? `${options.systemPrompt}\n\n${options.prompt}` : options.prompt;
+
+    switch (provider.name) {
+      case "gemini": {
+        const apiKey = provider.apiKey || process.env.GEMINI_API_KEY || "";
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { maxOutputTokens: options.maxTokens ?? 1024, temperature: options.temperature ?? 0.7 },
+            }),
+          }
+        );
+        if (!res.ok) throw new Error(`Gemini API error: ${res.status}`);
+        const data = await res.json();
+        return {
+          content: data.candidates?.[0]?.content?.parts?.[0]?.text || "",
+          provider: provider.name,
+          model,
+          latency: 0,
+        };
+      }
+
+      case "openai":
+      case "openrouter": {
+        const apiKey = provider.apiKey || (provider.name === "openai" ? process.env.OPENAI_API_KEY : process.env.OPENROUTER_API_KEY) || "";
+        const url = provider.name === "openai"
+          ? "https://api.openai.com/v1/chat/completions"
+          : "https://openrouter.ai/api/v1/chat/completions";
+        const messages: any[] = [];
+        if (options.systemPrompt) messages.push({ role: "system", content: options.systemPrompt });
+        messages.push({ role: "user", content: options.prompt });
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+          body: JSON.stringify({
+            model,
+            messages,
+            max_tokens: options.maxTokens ?? 1024,
+            temperature: options.temperature ?? 0.7,
+          }),
+        });
+        if (!res.ok) throw new Error(`${provider.name} API error: ${res.status}`);
+        const data = await res.json();
+        return {
+          content: data.choices?.[0]?.message?.content || "",
+          provider: provider.name,
+          model,
+          latency: 0,
+        };
+      }
+
+      case "local": {
+        const baseUrl = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
+        const res = await fetch(`${baseUrl}/api/generate`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model,
+            prompt,
+            stream: false,
+            options: {
+              num_predict: options.maxTokens ?? 1024,
+              temperature: options.temperature ?? 0.7,
+            },
+          }),
+        });
+        if (!res.ok) throw new Error(`Ollama API error: ${res.status}`);
+        const data = await res.json();
+        return {
+          content: data.response || "",
+          provider: provider.name,
+          model,
+          latency: 0,
+        };
+      }
+
+      default:
+        throw new Error(`Unsupported provider: ${provider.name}`);
+    }
   }
 
   private recordMetric(name: ProviderName, success: boolean, latency: number): void {

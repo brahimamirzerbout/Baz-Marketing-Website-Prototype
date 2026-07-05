@@ -16,6 +16,15 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [],
   },
+  async redirects() {
+    return [
+      {
+        source: '/empire',
+        destination: '/hub/empire',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

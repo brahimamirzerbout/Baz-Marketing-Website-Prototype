@@ -44,7 +44,7 @@ export const AGENTS: Record<AgentId, AgentPersona> = {
     role: "Words that move people to act",
     inspiredBy: "Eugene Schwartz + Gary Halbert + David Ogilvy",
     emoji: "✒️",
-    color: "#C8A55A",
+    color: "#646464",
     oneLiner: "Writes the headline, the offer, the call to action.",
     inputs: ["your positioning", "your audience awareness level", "the channel", "the desired action"],
     outputs: ["5 headline tiers", "the offer in 3 framings", "the CTA", "the email body"],

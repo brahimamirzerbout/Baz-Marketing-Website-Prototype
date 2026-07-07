@@ -11,8 +11,8 @@
 
 :root {
   /* ━━━ Seed ━━━ Change these three values to rebrand the entire system ━━━ */
-  --seed-hue: 41;       /* Gold — warm, luxurious, executive */
-  --seed-sat: 85%;      /* Rich saturation */
+  --seed-hue: 0;        /* Neutral — pure gray */
+  --seed-sat: 0%;       /* Zero saturation */
   --seed-lum: 50%;      /* Balanced lightness */
 
   /* ━━━ BlackSwan Monochrome Palette ━━━ HSL math from the seed ━━━ ━━━ ━━━ */
@@ -31,9 +31,9 @@
   --color-primary-90:    hsl(var(--seed-hue), var(--seed-sat), 12%);
 
   /* ── Accent (seed + 30 = gold shift) ── */
-  --color-accent:        hsl(calc(var(--seed-hue) + 30), 85%, 55%);
-  --color-accent-10:     hsl(calc(var(--seed-hue) + 30), 85%, 93%);
-  --color-accent-20:     hsl(calc(var(--seed-hue) + 30), 85%, 82%);
+  --color-accent:        hsl(calc(var(--seed-hue) + 30), 0%, 55%);
+  --color-accent-10:     hsl(calc(var(--seed-hue) + 30), 0%, 93%);
+  --color-accent-20:     hsl(calc(var(--seed-hue) + 30), 0%, 82%);
 
   /* ── Neutral Palette (seed-tinted grays — the monochrome) ── */
   --color-neutral-0:     hsl(var(--seed-hue), 8%, 99%);
@@ -74,7 +74,7 @@
   --c-paper-300: hsl(var(--seed-hue), 4%, 76%);    /* divider on paper */
 
   /* ── Accent (Gold — computed from seed hue 41) ── */
-  --accent:              var(--color-primary-30);     /* hsl(41, 72%, 72%) — the BAZ gold */
+  --accent:              var(--color-primary-30);     /* hsl(0, 0%, 72%) — neutral gray */
   --accent-50:           var(--color-primary-5);
   --accent-100:          var(--color-primary-10);
   --accent-200:          var(--color-primary-20);
@@ -87,7 +87,7 @@
   --accent-900:          var(--color-primary-90);
 
   /* ── Secondary Brand Accents (use sparingly) ── */
-  --accent-gold: #a0a0a0;
+  --accent-gray: #646464;
   --accent-red: #8a8a8a;
 
   /* ━━━ BlackSwan Derived Palette (computed from seed) ━━━ */
@@ -103,10 +103,10 @@
   --color-primary-80: hsl(var(--seed-hue), var(--seed-sat), 22%);
   --color-primary-90: hsl(var(--seed-hue), var(--seed-sat), 12%);
 
-  /* Accent (seed + 30 = gold shift) */
-  --color-accent: hsl(calc(var(--seed-hue) + 30), 85%, 55%);
-  --color-accent-10: hsl(calc(var(--seed-hue) + 30), 85%, 93%);
-  --color-accent-20: hsl(calc(var(--seed-hue) + 30), 85%, 82%);
+  /* Accent (seed + 30 = neutral shift) */
+  --color-accent: hsl(calc(var(--seed-hue) + 30), 0%, 55%);
+  --color-accent-10: hsl(calc(var(--seed-hue) + 30), 0%, 93%);
+  --color-accent-20: hsl(calc(var(--seed-hue) + 30), 0%, 82%);
 
   /* Semantic Status */
   --color-success: hsl(152, 68%, 38%);

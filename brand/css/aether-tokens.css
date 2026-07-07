@@ -5,13 +5,13 @@
    Three seeds rebrand everything. The cascade is the algorithm.
    Change the hue — watch the world recompose.
 
-   Seed: --seed-hue: 41 (BAZ gold)
+   Seed: --seed-hue: 0 (neutral gray)
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
   /* ━━━ Seed ━━━ Change these three values to rebrand the entire system ━━━ */
-  --seed-hue: 41;
-  --seed-sat: 72%;
+  --seed-hue: 0;
+  --seed-sat: 0%;
   --seed-lum: 50%;
 
   /* ━━━ Derived Palette ━━━ HSL math from the seed ━━━ */
@@ -26,9 +26,9 @@
   --color-primary-70:   hsl(var(--seed-hue), var(--seed-sat), 32%);
   --color-primary-80:   hsl(var(--seed-hue), var(--seed-sat), 22%);
   --color-primary-90:   hsl(var(--seed-hue), var(--seed-sat), 12%);
-  --color-accent:       hsl(calc(var(--seed-hue) + 30), 85%, 55%);
-  --color-accent-10:    hsl(calc(var(--seed-hue) + 30), 85%, 93%);
-  --color-accent-20:    hsl(calc(var(--seed-hue) + 30), 85%, 82%);
+  --color-accent:       hsl(calc(var(--seed-hue) + 30), 0%, 55%);
+  --color-accent-10:    hsl(calc(var(--seed-hue) + 30), 0%, 93%);
+  --color-accent-20:    hsl(calc(var(--seed-hue) + 30), 0%, 82%);
 
   /* ── Semantic Colors (fixed hue for accessibility) ── */
   --color-success:      hsl(152, 68%, 38%);
@@ -255,8 +255,8 @@
     --color-primary-40:  hsl(var(--seed-hue), var(--seed-sat), 44%);
 
     /* ── Accent tints ── */
-    --color-accent-10:   hsl(calc(var(--seed-hue) + 30), 85%, 14%);
-    --color-accent-20:   hsl(calc(var(--seed-hue) + 30), 85%, 22%);
+    --color-accent-10:   hsl(calc(var(--seed-hue) + 30), 0%, 14%);
+    --color-accent-20:   hsl(calc(var(--seed-hue) + 30), 0%, 22%);
 
     /* ── Status colors adjust for dark bg ── */
     --color-success:     hsl(152, 60%, 52%);

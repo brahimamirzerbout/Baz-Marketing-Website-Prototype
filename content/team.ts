@@ -13,7 +13,7 @@ export const team: TeamMember[] = [
     role: "Founder · Strategy",
     bio: "Sets the bar on growth strategy and the senior-team model. Has shipped plans for 60+ brands across MENA, EU, and the US.",
     initials: "BZ",
-    color: "hsl(41, 72%, 68%)",  // gold — brand accent
+    color: "hsl(0, 0% 72%, 68%)",  // gold — brand accent
   },
   {
     name: "Partner · SEO & Content",
@@ -34,7 +34,7 @@ export const team: TeamMember[] = [
     role: "Senior Partner · Brand & Creative",
     bio: "Brand systems and creative direction tied to the metric they own. From naming to launch toolkit.",
     initials: "BC",
-    color: "hsl(41, 50%, 50%)",  // gold dimmed
+    color: "hsl(0, 0% 50%, 50%)",  // gold dimmed
   },
   {
     name: "Partner · Analytics",

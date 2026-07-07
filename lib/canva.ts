@@ -18,7 +18,7 @@ export const defaultBrand: BrandKit = {
   name: "BAZ",
   primary: "#0e0e10",
   secondary: "#f5f1ea",
-  accent: "#C8A55A",
+  accent: "#646464",
   ink: "#0e0e10",
   paper: "#faf7f2",
   displayFont: "Fraunces, Georgia, serif",

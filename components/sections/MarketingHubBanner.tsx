@@ -137,7 +137,7 @@ export function MarketingHubBanner() {
                   value={pulse?.enrollments_active ?? "—"}
                 />
                 <Stat
-                  icon={<DotIcon color="hsl(41,72%,68%)" />}
+                  icon={<DotIcon color="hsl(0, 0%72%,68%)" />}
                   label="Velocity (wins/day)"
                   value={pulse ? pulse.triangle_velocity.toFixed(2) : "—"}
                 />

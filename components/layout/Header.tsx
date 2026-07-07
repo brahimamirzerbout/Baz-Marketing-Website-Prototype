@@ -65,7 +65,7 @@ export function Header() {
             >
               {item.label}
               {(item as { badge?: React.ReactNode }).badge && (
-                <span className="inline-flex items-center gap-1 text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[hsla(41,72%,68%,0.089)] text-accent">
+                <span className="inline-flex items-center gap-1 text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[hsla(0, 0%72%,68%,0.089)] text-accent">
                   <span className="inline-block w-1 h-1 rounded-full bg-accent animate-pulse" />
                   {(item as { badge?: React.ReactNode }).badge}
                 </span>

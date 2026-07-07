@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { buildMetadata } from "@/lib/seo";
 
 const HUB_URL =
-  process.env.NEXT_PUBLIC_HUB_URL || "";
+  process.env.NEXT_PUBLIC_HUB_URL || "https://marketing-hub-roan.vercel.app";
 
 export const metadata = buildMetadata({
   title: "Client portal",

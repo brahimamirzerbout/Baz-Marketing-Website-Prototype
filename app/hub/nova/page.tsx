@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Brain, Send, Sparkles, TrendingUp, Target, Activity } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "https://marketing-hub-roan.vercel.app";
 
 type Message = {
   role: "user" | "nova";

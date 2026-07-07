@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Newspaper, TrendingUp, BookOpen, Library, Activity, ExternalLink } from "lucide-react";
 import { ScrollReveal } from "@/components/beui/ScrollReveal";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "https://marketing-hub-roan.vercel.app";
 
 interface ArticleItem {
   title: string;

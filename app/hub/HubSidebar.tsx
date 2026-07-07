@@ -76,7 +76,7 @@ const NAV_GROUPS = [
   },
 ];
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "https://marketing-hub-roan.vercel.app";
 
 export function HubSidebar() {
   const pathname = usePathname();

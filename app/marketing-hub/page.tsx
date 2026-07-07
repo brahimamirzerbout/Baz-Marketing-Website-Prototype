@@ -9,7 +9,7 @@ import Link from "next/link";
 
 // The Marketing Hub lives on a different port locally. In production
 // we'd point this at marketing.yourdomain.com. Edit once here.
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "https://marketing-hub-roan.vercel.app";
 
 export const metadata = buildMetadata({
   title: "Marketing Hub",

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Loader2 } from "lucide-react";
 
-const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "";
+const HUB_URL = process.env.NEXT_PUBLIC_HUB_URL || "https://marketing-hub-roan.vercel.app";
 
 // Pages we already have as native baz/ pages (don't iframe these)
 const NATIVE_PAGES = new Set(["/hub", "/hub/cockpit", "/hub/triangle", "/hub/nova"]);
